@@ -9,36 +9,24 @@ layout: nil
 
 ### Windows
 
-<ol>
-
-<li> Перед установкой R и RStudio желательно отключить антивирус. </li>
-<li> [Скачать R](https://cran.rstudio.com/) и установить его. Путь к папке не должен содержать русских букв, поэтому рекомендую установить его в корень жесткого диска. Использование данной рекомендации продемонстрирована ниже. </li>
+1. Перед установкой R и RStudio желательно отключить антивирус.
+2. [Скачать R](https://cran.rstudio.com/) и установить его. Путь к папке не должен содержать русских букв, поэтому рекомендую установить его в корень жесткого диска. Использование данной рекомендации продемонстрирована ниже.
 
 <img src="https://github.com/ahmedushka7/R/blob/master/docs/_includes/install_R_windows.png?raw=true">
 
-<li> [Скачать RStudio](https://www.rstudio.com/products/rstudio/download/). Ссылки на скачивания находятся внизу страницы. На картинке показано куда нужно жмакнуть. Путь так же не должен содержать русских букв, поэтому устанавливаем в корень жесткого диска(как и в предыдущем пункте). </li>
+3. [Скачать RStudio](https://www.rstudio.com/products/rstudio/download/). Ссылки на скачивания находятся внизу страницы. На картинке показано куда нужно жмакнуть. Путь так же не должен содержать русских букв, поэтому устанавливаем в корень жесткого диска(как и в предыдущем пункте).
 
 <img src="https://github.com/ahmedushka7/R/blob/master/docs/_includes/download_RStudio_winndows.png?raw=true">
 
-<li> Наслаждаться!:3 </li>
-
-</ol>
+4. Наслаждаться!:3
 
 ### Linux
+1. Откройте консоль(для этого зажмите Ctrl+Alt+T)
+2. Установите R. Для этого пропишите  `sudo apt-get install r-base`
+3. [Скачать RStudio](https://www.rstudio.com/products/rstudio/download/) и установить его.
 
-<ol>
-
-<li> Откройте консоль(для этого зажмите Ctrl+Alt+T) </li>
-<li> Установите R. Для этого пропишите  `sudo apt-get install r-base` </li>
-<li> [Скачать RStudio](https://www.rstudio.com/products/rstudio/download/) и установить его. </li>
-
-</ol>
 
 ### macOS
 
-<ol>
-
-<li> [Скачать R](https://cran.rstudio.com/) и установить его. </li>
-<li> [Скачать RStudio](https://www.rstudio.com/products/rstudio/download/) и установить его. </li>
-
-</ol>
+1. [Скачать R](https://cran.rstudio.com/) и установить его.
+2. [Скачать RStudio](https://www.rstudio.com/products/rstudio/download/) и установить его.
