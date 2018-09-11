@@ -14,11 +14,11 @@ layout: nil
 
 ![install R](https://github.com/ahmedushka7/R/blob/master/docs/_includes/install_R_windows.png?raw=true)
 
-3. [Скачать RStudio](https://www.rstudio.com/products/rstudio/download/). Ссылки на скачивания находятся внизу страницы. На картинке показано куда нужно жмакнуть. Путь так же не должен содержать русских букв, поэтому устанавливаем в корень жесткого диска(как и в предыдущем пункте).
+3\. [Скачать RStudio](https://www.rstudio.com/products/rstudio/download/). Ссылки на скачивания находятся внизу страницы. На картинке показано куда нужно жмакнуть. Путь так же не должен содержать русских букв, поэтому устанавливаем в корень жесткого диска(как и в предыдущем пункте).
 
 ![install RStudio](https://github.com/ahmedushka7/R/blob/master/docs/_includes/download_RStudio_winndows.png?raw=true)
 
-4. Наслаждаться!:3
+4\. Наслаждаться!:3
 
 ### Linux
 1. Откройте консоль(для этого зажмите Ctrl+Alt+T)
