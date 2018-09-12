@@ -4,38 +4,28 @@ title: 'Datacamp, онлайн курсы и почиташки'
 layout: nil
 ---
 
-### Success
+Если вы хотите познавать R где-то еще кроме своих семинаров и моего факультатива, то следующая информация для вас!
 
-Successes differ from errors in that their body may not be a simple response object with a code and a message. The headers however are consistent across all calls:
+### Datacamp
 
-* `GET`, `PUT`, `DELETE` returns `200 OK` on success,
-* `POST ` returns 201 on success,
+Вашему курсу очень повезло, потому что вы первые, кому на первом курсе дали подписку на Datacamp. Раньше эту подписку давал Борис Борисович для студентов старших курсов, чтобы ребята могли поднять свои скилы. Что же такое Datacamp? Datacamp - это платформа, состоящая из курсов по R, Python, SQL и другим полезным вещам.Один курс можно пройти за 4-5 часов. Каждый курс включает в себя несколько разделов. Структура этих разделов следующая: сначала вы смотрите небольшое теоретическое видео(3-6 минут), после чего в интерактивном режиме выполняете задания, чтобы закрепить теорию.
 
-When [retrieving stuff](#get-stuff) for example:
+Здесь стартовые курсы по R.
 
-```Status: 200 OK```
-```{
-    {
-        id: thing_1,
-        name: 'My first thing'
-    },
-    {
-        id: thing_2,
-        name: 'My second thing'
-    }
-}```
 
-### Error
+### Онлайн курсы
 
-Error responses are simply returning [standard HTTP error codes](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) along with some additional information:
+По R много онлайн курсов, но почти все из них на английском языке. Но есть и на русском языке. Самыми популярными площадками для онлайн курсов являются Coursera и Stepik. На первой есть курсы на английском, но я рекомендую пройти курсы на Stepik. Они на русском ,и проходить их лучше в том порядке, который я указал.
 
-* The error code is sent back as a status header,
-* The body includes an object describing both the code and message (for debugging and/or display purposes),
+5 курсов степика
 
-For a call with an invalid authentication token for example:
 
-```Status: 401 Access denied```
-```{
-    code: 401,
-    message: 'Access denied: invalid authentication token.'
-}```
+
+
+
+
+### Почиташки
+
+Ниже книжки, которые можно почитать и найти много полезного :3
+
+тут будут книжки
