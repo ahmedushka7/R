@@ -1,6 +1,5 @@
 ---
 title: 'Установка R + RStudio'
-category: Техническая часть
 
 layout: nil
 ---
