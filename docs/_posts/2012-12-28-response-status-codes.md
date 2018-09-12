@@ -1,5 +1,5 @@
 ---
-title: 'Response status codes'
+title: 'Datacamp, онлайн курсы и почиташки'
 
 layout: nil
 ---
