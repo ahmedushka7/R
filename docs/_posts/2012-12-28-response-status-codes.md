@@ -10,7 +10,10 @@ layout: nil
 
 Вашему курсу очень повезло, потому что вы первые, кому на первом курсе дали подписку на Datacamp. Раньше эту подписку давал Борис Борисович для студентов старших курсов, чтобы ребята могли поднять свои скилы. Что же такое Datacamp? Datacamp - это платформа, состоящая из курсов по R, Python, SQL и другим полезным вещам.Один курс можно пройти за 4-5 часов. Каждый курс включает в себя несколько разделов. Структура этих разделов следующая: сначала вы смотрите небольшое теоретическое видео(3-6 минут), после чего в интерактивном режиме выполняете задания, чтобы закрепить теорию.
 
-Здесь стартовые курсы по R.
+1. [Introduction to R](https://www.datacamp.com/courses/free-introduction-to-r)
+2. [Intermediate to R](https://www.datacamp.com/courses/intermediate-r)
+3. [Intermediate R - Practice](https://www.datacamp.com/courses/intermediate-r-practice)
+4. [Writing Functions in R](https://www.datacamp.com/courses/writing-functions-in-r)
 
 
 ### Онлайн курсы
