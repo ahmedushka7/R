@@ -12,4 +12,4 @@ layout: nil
 * R и с чем его едят
 * Интерфейс RStudio
 * Работа с консолью
-* Первый [скрипт](https://github.com/ahmedushka7/R/blob/master/docs/scripts/1calculate.R)
+* Первый [скрипт](https://github.com/ahmedushka7/R/blob/master/docs/scripts/posidelka1.zip)
