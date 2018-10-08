@@ -17,6 +17,6 @@ layout: nil
 
 ### Таблица результатов
 
-* [Группа №1](https://github.com/ahmedushka7/R/blob/master/docs/homeworks/1group.pdf)
+* [Группа №1](https://github.com/ahmedushka7/R/raw/master/docs/homeworks/1group.pdf)
 
-* [Группа №2](https://github.com/ahmedushka7/R/blob/master/docs/homeworks/2group.pdf)
+* [Группа №2](https://github.com/ahmedushka7/R/raw/master/docs/homeworks/2group.pdf)
