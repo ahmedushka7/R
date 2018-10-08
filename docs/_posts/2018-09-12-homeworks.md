@@ -8,7 +8,7 @@ layout: nil
 
 ### Задания
 
-* [Домашка №1](https://github.com/ahmedushka7/R/blob/master/docs/homeworks/hw1/hw.zip?raw=true) - дедлайн 20 октября
+* [Домашка №1](https://github.com/ahmedushka7/R/raw/master/docs/homeworks/hw1/hw1.zip) - дедлайн 20 октября
 
 
 ### Решения
