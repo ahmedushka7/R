@@ -34,3 +34,5 @@ layout: nil
 * [страничка Филлипа по терверу в R](https://fulyankin.github.io/r_probability/)
 
 * [информация по другим источникам и книжкам](https://github.com/bdemeshev/em301/wiki/R)
+
+* [как должен выглядеть идеальный код в R](https://nicercode.github.io/)
