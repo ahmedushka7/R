@@ -21,3 +21,9 @@ layout: nil
 * Начинаем изучать блок-схемы.
 * [Скрипты занятия](https://github.com/ahmedushka7/R/blob/master/docs/scripts/posidelka2.zip?raw=true)
 * [Цикл for](https://github.com/ahmedushka7/R/blob/master/docs/_includes/for.jpg)
+
+### Посиделка № 3
+
+* If. Его назначение и способы задания.
+* For + If. Делаем задачки и рисуем блок-схемы.
+* [Скрипт занятия](https://github.com/ahmedushka7/R/blob/master/docs/scripts/posidelka3.zip?raw=true)
