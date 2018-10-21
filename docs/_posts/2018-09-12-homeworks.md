@@ -17,6 +17,4 @@ layout: nil
 
 ### Таблица результатов
 
-* [Группа №1](https://github.com/ahmedushka7/R/raw/master/docs/homeworks/1group.pdf)
-
-* [Группа №2](https://github.com/ahmedushka7/R/raw/master/docs/homeworks/2group.pdf)
+Результаты домашек будут в гугл-таблице по [ссылке](https://docs.google.com/spreadsheets/d/1UcFr0yYXAZYH-53x1RqZPB4gTVtqrzOuwXVKGnSwwuk/edit?usp=sharing). Для каждой группы свой лист.
