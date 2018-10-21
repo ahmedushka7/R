@@ -13,7 +13,7 @@ layout: nil
 
 ### Решения
 
-Тут будут выкладываться решения домашек:)
+* Решение [домашки №1](https://github.com/ahmedushka7/R/raw/master/docs/homeworks/hw1/hw1_solution.zip)
 
 ### Таблица результатов
 
