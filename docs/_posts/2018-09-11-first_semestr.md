@@ -27,3 +27,11 @@ layout: nil
 * If. Его назначение и способы задания.
 * For + If. Делаем задачки и рисуем блок-схемы.
 * [Скрипт занятия](https://github.com/ahmedushka7/R/blob/master/docs/scripts/posidelka3.zip?raw=true)
+
+### Посиделка № 3
+
+* Функция. Зачем нужна? Как задаётся?
+* Дефолтные переменные. Глобальные и локальные переменные.
+* While = for + if.
+* Матрицы. Способы задания и обращение к ним.
+* [Скрипты занятия](https://github.com/ahmedushka7/R/blob/master/docs/scripts/posidelka4.zip?raw=true)
