@@ -41,5 +41,5 @@ layout: nil
 * [RMarkdown](https://rmarkdown.rstudio.com/). Что это и зачем это нужно?
 * [Опции чанков](https://yihui.name/knitr/options/)
 * Официальный [гайд](https://bookdown.org/yihui/rmarkdown/r-code.html)
-* Памятка(https://github.com/ahmedushka7/R/blob/master/docs/_includes/rmarkdown.pdf)
+* Краткая [памятка](https://github.com/ahmedushka7/R/raw/master/docs/_includes/rmarkdown.pdf)
 * [Файлик](https://github.com/ahmedushka7/R/blob/master/docs/scripts/posidelka5.zip?raw=true) с кратким гайдом.
