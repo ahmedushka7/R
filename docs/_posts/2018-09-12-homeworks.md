@@ -15,6 +15,7 @@ layout: nil
 ### Решения
 
 * Решение [домашки №1](https://github.com/ahmedushka7/R/raw/master/docs/homeworks/hw1/hw1_solution.zip)
+* Решение [домашки №2](https://github.com/ahmedushka7/R/raw/master/docs/homeworks/hw2/hw2_solution.zip)
 
 ### Таблица результатов
 
