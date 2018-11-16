@@ -11,6 +11,8 @@ layout: nil
 * [Домашка №1](https://github.com/ahmedushka7/R/raw/master/docs/homeworks/hw1/hw1.zip) - дедлайн 20 октября
 * [Домашка №2](https://github.com/ahmedushka7/R/raw/master/docs/homeworks/hw2/hw2.zip) - дедлайн 
 6 ноября
+* [Домашка №3](https://github.com/ahmedushka7/R/raw/master/docs/homeworks/hw3/hw3.zip) - дедлайн 
+30 ноября
 
 ### Решения
 
