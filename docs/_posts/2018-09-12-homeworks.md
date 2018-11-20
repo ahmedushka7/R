@@ -14,7 +14,6 @@ layout: nil
 * [Домашка №3](https://github.com/ahmedushka7/R/raw/master/docs/homeworks/hw3/hw3.zip) - дедлайн 
 30 ноября
 
-dasd
 
 ### Решения
 
