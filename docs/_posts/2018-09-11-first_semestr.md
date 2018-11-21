@@ -51,11 +51,12 @@ layout: nil
 ## Посиделка № 7.1
 * Сортировка [слиянием](https://neerc.ifmo.ru/wiki/index.php?title=%D0%A1%D0%BE%D1%80%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%BA%D0%B0_%D1%81%D0%BB%D0%B8%D1%8F%D0%BD%D0%B8%D0%B5%D0%BC)
 * [Скрипт занятия](https://github.com/ahmedushka7/R/blob/master/docs/scripts/posidelka7_1.zip?raw=true)
-* [Фотографии](https://github.com/ahmedushka7/R/blob/master/_includes/sort_merge.zip?raw=true) дерева рекурсии на примере. 
+* [Фотографии](https://github.com/ahmedushka7/R/raw/master/docs/_includes/sort_merge.zip) дерева рекурсии на примере. 
+
 
 
 ## Посиделка № 7.2
 * Базовая визуализация в R c помощью `plot()`.
-* [Вариации](https://github.com/ahmedushka7/R/blob/master/docs/_includes/pch.jpg) `pch`.
-* [Вариации](https://github.com/ahmedushka7/R/blob/master/docs/_includes/lty.jpg) `lty`.
+* [Вариации](https://github.com/ahmedushka7/R/blob/master/docs/_includes/pch.png) `pch`.
+* [Вариации](https://github.com/ahmedushka7/R/blob/master/docs/_includes/lty.png) `lty`.
 * [Скрипт занятия](https://github.com/ahmedushka7/R/blob/master/docs/scripts/posidelka7_2.zip?raw=true)
