@@ -56,7 +56,7 @@ layout: nil
 
 
 ## Посиделка № 7.2
-* Базовая визуализация в R c помощью `plot()`.
+* Базовая визуализация в R c помощью `plot`.
 * [Вариации](https://github.com/ahmedushka7/R/blob/master/docs/_includes/pch.png) `pch`.
 * [Вариации](https://github.com/ahmedushka7/R/blob/master/docs/_includes/lty.png) `lty`.
 * [Скрипт занятия](https://github.com/ahmedushka7/R/blob/master/docs/scripts/posidelka7_2.zip?raw=true)
