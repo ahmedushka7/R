@@ -36,7 +36,7 @@ layout: nil
 * Матрицы. Способы задания и обращение к ним.
 * [Скрипты занятия](https://github.com/ahmedushka7/R/blob/master/docs/scripts/posidelka4.zip?raw=true)
 
-### Посиделка № 5 и № 6
+### Посиделка № 5 
 
 * [RMarkdown](https://rmarkdown.rstudio.com/). Что это и зачем это нужно?
 * [Опции чанков](https://yihui.name/knitr/options/)
@@ -44,3 +44,18 @@ layout: nil
 * Краткая [памятка](https://github.com/ahmedushka7/R/raw/master/docs/_includes/rmarkdown.pdf)
 * [Файлик](https://github.com/ahmedushka7/R/blob/master/docs/scripts/posidelka5.zip?raw=true) с кратким гайдом.
 
+## Посиделка № 6
+* Сортировка [пузырьком](https://ru.wikipedia.org/wiki/%D0%A1%D0%BE%D1%80%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%BA%D0%B0_%D0%BF%D1%83%D0%B7%D1%8B%D1%80%D1%8C%D0%BA%D0%BE%D0%BC)
+* [Скрипт занятия](https://github.com/ahmedushka7/R/blob/master/docs/scripts/posidelka6.zip?raw=true)
+
+## Посиделка № 7.1
+* Сортировка [слиянием](https://neerc.ifmo.ru/wiki/index.php?title=%D0%A1%D0%BE%D1%80%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%BA%D0%B0_%D1%81%D0%BB%D0%B8%D1%8F%D0%BD%D0%B8%D0%B5%D0%BC)
+* [Скрипт занятия](https://github.com/ahmedushka7/R/blob/master/docs/scripts/posidelka7_1.zip?raw=true)
+* [Фотографии](https://github.com/ahmedushka7/R/blob/master/_includes/sort_merge.zip?raw=true) дерева рекурсии на примере. 
+
+
+## Посиделка № 7.2
+* Базовая визуализация в R c помощью `plot()`.
+* [Вариации](https://github.com/ahmedushka7/R/blob/master/docs/_includes/pch.jpg) `pch`.
+* [Вариации](https://github.com/ahmedushka7/R/blob/master/docs/_includes/lty.jpg) `lty`.
+* [Скрипт занятия](https://github.com/ahmedushka7/R/blob/master/docs/scripts/posidelka7_2.zip?raw=true)
