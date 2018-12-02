@@ -59,9 +59,14 @@ layout: nil
 * [Вариации](https://github.com/ahmedushka7/R/blob/master/docs/_includes/lty.png) `lty`.
 * [Скрипт занятия](https://github.com/ahmedushka7/R/blob/master/docs/scripts/posidelka7_2.zip?raw=true)
 
-### Посиделка № 8.1
+### Посиделка № 8
 * Сортировка [вставками](https://ru.wikipedia.org/wiki/%D0%A1%D0%BE%D1%80%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%BA%D0%B0_%D0%B2%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0%D0%BC%D0%B8)
 * Сортировка [выбором](https://ru.wikipedia.org/wiki/%D0%A1%D0%BE%D1%80%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%BA%D0%B0_%D0%B2%D1%8B%D0%B1%D0%BE%D1%80%D0%BE%D0%BC)
 * Классная [визуализация](https://www.youtube.com/watch?v=Gnp8G1_kO3I) сортировок
 * График скорости сортировок.
 * [Скрипты занятия](https://github.com/ahmedushka7/R/blob/master/docs/scripts/posidelka8_1.zip?raw=true)
+
+### Посиделки с личными задачами
+* [Условия](https://github.com/ahmedushka7/R/raw/master/docs/_includes/lz.pdf) задач.
+* [Решение](http://algolist.manual.ru/olimp/sor_sol.php#a1) из интернета.
+* Скоро здесь появится ссылка на Rmd моих подсказок.
