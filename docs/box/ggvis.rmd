@@ -1,0 +1,270 @@
+---
+title: "Пакет ggvis"
+author: "Зарманбетов Ахмед"
+output: 
+  html_document:
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Зачем нужен ggvis, когда есть ggplot2?
+Пакет `ggplot2` прекрасен, но у него есть один минус: он является статическим. Для того, чтобы график был интерактивным и нужен `ggvis`, который хорошо работает в связке с html + javascript.
+
+## Установка и загрузка пакета ggvis
+Давайте устаноим пакет! Для этого имеется 2 способа:
+
+* с официального сервера CRAN
+* с github
+
+```{r}
+# install.packages('ggvis') # установка пакета ggvis c официального сервера
+
+# install.packages("devtools")
+# devtools::install_github("rstudio/ggvis", build_vignettes = FALSE) # установка пакета с github
+```
+
+После установки пакета, нам остаётся прочитать пакет:)
+
+```{r warning=FALSE}
+library(ggvis) # читаем пакет
+```
+
+## Давайте начнем!
+Вспомним про замечательный встроенный датасет `mtcars`. Взглянем на первые 6 его записей.
+
+```{r}
+head(mtcars)
+```
+
+Отлично! А теперь попробуем нарисовать наш первый простой график с помощью `ggvis`.
+
+```{r}
+mtcars %>% ggvis(~wt, ~mpg) %>% layer_points()
+```
+
+Как видим, этот график обращается через pipe(`%>%`) к датасету `mtcars`. Далее идёт основная функция, которая задаёт оси x и y. И последнее, это отображение слоя точек. Сам график можно увеличивать и уменьшать, если выводить файл в формате html.
+
+Давайте теперь посмотрим на еще один график.
+
+```{r}
+mtcars %>% ggvis(~wt, ~mpg, fill := "blue") %>% layer_points()
+```
+
+В отличии от последнего рисунка мы изменили цвет заливки точек. Цвет точек можно задавать с помощью кода, который используется в HTML/CSS.
+
+По графику можно видеть отрицательную зависимость переменной `wt` от переменной `mpg`. В ggvis есть функция, с помощью которой можно приблизить эту функцию по заданным точкам(сгладить).
+
+```{r}
+mtcars %>% ggvis(~wt, ~mpg, fill := "blue") %>% layer_smooths()
+```
+
+Можно отобразить и точки, и саму линию.
+
+```{r}
+mtcars %>% ggvis(~wt, ~mpg) %>% 
+            layer_points() %>% 
+            layer_smooths() 
+```
+
+## Более детальное знакомство с грамматикой ggvis
+
+Любой график в `ggvis` состоит из 4 основных компонент:
+
+* данных
+* система координат(оси)
+* метки(это может быть точка, линия или даже гистограмма)
+* различные опции(от названия осей до настраивания легенды)
+
+Можно увидеть эти 4 компоненты на следующем примере:
+
+```{r}
+faithful %>%
+    ggvis(~waiting, ~eruptions, fill := "red") %>%
+    layer_points() %>%
+    add_axis("y", title = "Duration of eruption (m)",
+             values = c(2, 3, 4, 5), subdivide = 9) %>%
+    add_axis("x", title = "Time since previous eruption (m)")
+```
+
+В данном примере:
+
+* данные -- `faithful`
+* система координат -- `ggvis(~waiting, ~eruptions, fill := "red")`
+* метка -- `layer_points()`
+* различные опции(в данном случае настройка осей) -- оставшийся код
+
+
+Попробуем поиграться с некоторомы компонентами.Давайте теперь использовать набор данных `pressure`. Посмотрим, что мы уже можем.
+
+```{r}
+pressure %>% ggvis(~temperature, ~pressure) %>% layer_points()
+```
+
+Видна положительная зависимость. Можем нарисовать не просто точки, а гистограмму.
+```{r}
+pressure %>% ggvis(~temperature, ~pressure) %>% layer_bars()
+```
+
+Также можно задать цвет точек в зависимости от изменения какой-то переменной.
+
+```{r}
+pressure %>% ggvis(~temperature, ~pressure, fill = ~ temperature) %>% 
+              layer_points()
+```
+
+Или же задать размер точек от какой-то переменной.
+
+```{r}
+pressure %>% ggvis(~temperature, ~pressure, size = ~ pressure) %>% 
+              layer_points()
+```
+
+## Синтаксис
+
+Если мы хотим задать фиксированный цвет, то нужно использовать `:=`, а если цвет должен зависеть от какой-то переменной, то `=`. Это нужно, чтобы `ggvis` понял, что перед ним находится именно цвет или переменная. Следующий пример иллюстрирует это.
+
+```{r}
+iris %>% 
+  ggvis(x = ~Sepal.Width,
+        y = ~Sepal.Length,
+        fill = "red",
+        size = ~Petal.Width
+        ) %>%
+  layer_points()
+```
+
+Цвет задан красным, но R думает, что это переменная.
+
+```{r}
+iris %>% 
+  ggvis(x = ~Sepal.Width,
+        y = ~Sepal.Length,
+        fill := "red",
+        size = ~Petal.Width
+        ) %>%
+  layer_points()
+```
+
+### Pipe
+
+То, что делает pipe можно описать следующим образом: `f(x) %>% g(y)` является краткой записью `g(f(x), y)`. 
+
+## Параметры `layer_points`
+
+Все параметры можно посмотреть [тут](http://ggvis.rstudio.com/properties-scales.html). C основынми параметрами можно познакомиться по 2 графикам ниже.
+
+```{r}
+
+faithful %>% ggvis(~waiting, ~eruptions) %>% layer_points(size = ~eruptions,
+                                                          opacity := 0.5,
+                                                          fill := 'blue',
+                                                          stroke := 'black')
+```
+
+```{r}
+faithful %>% ggvis(~waiting, ~eruptions) %>% layer_points(fillOpacity = ~eruptions,
+                                                          size := 100,
+                                                          fill := 'red',
+                                                          stroke := 'green',
+                                                          shape := 'cross')
+```
+
+## Параметры `layer_lines`
+
+* `x`
+* `y`
+* `fill`
+* `fillOpacity`
+* `opacity`
+* `stroke`
+* `strokeDash`
+* `strokeOpacity`
+* `strokeWidth`
+
+```{r}
+pressure %>% ggvis(~temperature, ~pressure) %>% layer_lines(stroke := "red",
+                  strokeWidth := 2,
+                  strokeDash := 6)
+```
+
+## `layer_paths`
+
+```{r}
+# texas %>% ggvis(~long, ~lat) %>% layer_paths(fill := "darkorange")
+```
+
+
+## `layer_histogram`
+
+```{r}
+faithful %>% ggvis(~waiting) %>% layer_histograms(width = 5)
+```
+
+
+## Интерактивность
+
+Главное преимущество `ggvis` это интерактивность! Давайте изучим её основы. Существует 7 виджетов, которые поддерживает `ggvis`:
+
+* `input_checkbox()`
+* `input_checkboxgroup()`
+* `input_numeric()` -- значение с кнопками увеличить и уменьшить
+* `input_radiobuttons()` -- обычный список
+* `input_select()` -- выпадающий список
+* `input_slider()` -- ползунок
+* `input_text()` -- ввод текста
+
+```{r}
+faithful %>%
+  ggvis(~waiting, ~eruptions, fillOpacity := 0.5,
+        shape := input_select(label = "Choose shape:",
+                              choices = c("circle", "square", "cross",
+                                          "diamond", "triangle-up", "triangle-down")),
+        fill := input_select(label = "Choose color:",
+                              choices = c("black", "red", "blue", "green"))) %>%
+  layer_points()
+```
+
+```{r}
+mtcars %>%
+  ggvis(~mpg, ~wt,
+        fill := input_radiobuttons(label = "Choose color:",
+        choices = c("black", "red", "blue", "green"))) %>%
+  layer_points()
+```
+
+```{r}
+mtcars %>%
+  ggvis(~mpg, ~wt,
+        fill := input_text(label = "Choose color:",
+                                   value = "black")) %>%
+  layer_points()
+```
+
+```{r}
+mtcars %>%
+  ggvis(~mpg, input_select(label = "Choose fill variable:",
+                           choices = names(mtcars), map = as.name)) %>%
+  layer_points()
+```
+
+Опция `map = as.name` позволяет поставить знак `~` перед выводом.То есть дает понять, что это какая-то переменная df, а не число или строковая переменная.
+
+```{r}
+mtcars %>%
+  ggvis(~mpg) %>%
+  layer_histograms(width = input_numeric(label = "Choose a binwidth:",
+                   value = 1))
+```
+
+```{r}
+mtcars %>%
+  ggvis(~mpg) %>%
+  layer_histograms(width = input_slider(label = "Choose a binwidth:", min =1, max = 20))
+```
+
+
