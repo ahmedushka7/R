@@ -4,7 +4,7 @@ title: '2 семестр - Введение в анализ данных'
 layout: nil
 ---
 
-Будет 2 факультатива:
-* о графах в R
-* введение по работе с данными в R
+[План курса](https://ahmedushka7.github.io/R/scripts/semester_2_data_analysis/plan/plan.html)
+
+### Посиделка № 1 (28 февраля)
 
