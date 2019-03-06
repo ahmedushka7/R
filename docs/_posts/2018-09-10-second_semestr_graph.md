@@ -12,3 +12,9 @@ layout: nil
 * [Графы](http://graphonline.ru/) онлайн.
 * [Онлайн](https://ahmedushka7.github.io/R/scripts/semester_2_graph/sem_1/intro_to_graphs.html) скрипт занятия.
 * [Скачать](https://github.com/ahmedushka7/R/blob/master/docs/scripts/semester_2_graph/sem_1/sem_1.zip?raw=true) скрипт занятия.
+
+### Посиделка № 2 (6 марта)
+
+* [Поиск в ширину](https://ru.wikipedia.org/wiki/%D0%9F%D0%BE%D0%B8%D1%81%D0%BA_%D0%B2_%D1%88%D0%B8%D1%80%D0%B8%D0%BD%D1%83) и [волновой алгоритм(алгоритм Ли)](https://ru.wikipedia.org/wiki/%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%9B%D0%B8).
+* [Онлайн](https://ahmedushka7.github.io/R/scripts/semester_2_graph/sem_2/voln.html) скрипт занятия.
+* [Скачать](https://github.com/ahmedushka7/R/blob/master/docs/scripts/semester_2_graph/sem_2/sem_2.zip?raw=true) скрипт занятия.
