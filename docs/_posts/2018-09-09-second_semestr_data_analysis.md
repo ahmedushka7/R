@@ -13,3 +13,9 @@ layout: nil
 * [Онлайн](https://ahmedushka7.github.io/R/scripts/semester_2_data_analysis/sem_1/data_frame.html) скрипт занятия.
 * [Онлайн](https://ahmedushka7.github.io/R/scripts/semester_2_data_analysis/sem_1/data_frame_tidy_table.html) скрипт занятия c красивыми табличками.
 * [Скачать](https://github.com/ahmedushka7/R/blob/master/docs/scripts/semester_2_data_analysis/sem_1/sem_1.zip?raw=true) скрипт занятия.
+
+### Посиделка № 2 (7 марта)
+
+* Импорт данных. Откуда можно импортировать данные?
+* [Онлайн](https://ahmedushka7.github.io/R/scripts/semester_2_data_analysis/sem_2/import_data.html) скрипт занятия.
+* [Скачать](https://github.com/ahmedushka7/R/blob/master/docs/scripts/semester_2_data_analysis/sem_2/sem_2.zip?raw=true) скрипт занятия.
