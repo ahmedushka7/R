@@ -1,0 +1,108 @@
+---
+title: "Аккуратизация данных с помощью пакета tidyr"
+author: "Ахмедушка"
+date: '15 марта 2019 г '
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+```{r}
+library('tidyr')
+```
+
+
+
+```{r}
+table1
+table2
+table3
+
+table4a  # cases
+table4b  # population
+```
+
+### Фунция gather
+
+```{r}
+table4b %>% 
+  gather(`1999`, `2000`, key = "year", value = "population")
+```
+
+![](https://github.com/hadley/r4ds/blob/master/images/tidy-9.png?raw=true)
+
+
+
+### Функция spread
+
+```{r}
+table2 %>%
+    spread(key = type, value = count)
+```
+
+![](https://github.com/hadley/r4ds/blob/master/images/tidy-8.png?raw=true)
+
+
+### Функция separate
+
+```{r}
+table3
+```
+
+```{r}
+table3 %>% 
+  separate(rate, into = c("cases", "population"))
+```
+
+
+![](https://github.com/hadley/r4ds/blob/master/images/tidy-17.png?raw=true)
+
+
+```{r}
+table3 %>% 
+  separate(rate, into = c("cases", "population"), sep = "/")
+```
+
+
+```{r}
+table3 %>% 
+  separate(rate, into = c("cases", "population"), convert = TRUE)
+```
+
+```{r}
+table3 %>% 
+  separate(year, into = c("century", "year"), sep = 2)
+```
+
+
+### Функция unite
+
+Функция `unite` выполняет действиеЮ обратное функции `separate`. Она объединяет несколько столбцов в один столбец.
+
+```{r}
+table5
+```
+
+```{r}
+table5 %>% 
+  unite(new, century, year)
+```
+
+про sep
+
+```{r}
+table5 %>% 
+  unite(new, century, year, sep = "")
+```
+
+![](https://github.com/hadley/r4ds/blob/master/images/tidy-18.png?raw=true)
+
+### Отсутсвующие значения
+
+
+
+### Применяем знания
