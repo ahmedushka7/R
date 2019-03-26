@@ -18,3 +18,10 @@ layout: nil
 * [Поиск в ширину](https://ru.wikipedia.org/wiki/%D0%9F%D0%BE%D0%B8%D1%81%D0%BA_%D0%B2_%D1%88%D0%B8%D1%80%D0%B8%D0%BD%D1%83) и [волновой алгоритм(алгоритм Ли)](https://ru.wikipedia.org/wiki/%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%9B%D0%B8).
 * [Онлайн](https://ahmedushka7.github.io/R/scripts/semester_2_graph/sem_2/voln.html) скрипт занятия.
 * [Скачать](https://github.com/ahmedushka7/R/blob/master/docs/scripts/semester_2_graph/sem_2/sem_2.zip?raw=true) скрипт занятия.
+
+### Посиделка № 4 (27 марта)
+
+* Алгоритм [Дейстры](https://ru.wikipedia.org/wiki/%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%94%D0%B5%D0%B9%D0%BA%D1%81%D1%82%D1%80%D1%8B).
+* [Статья](https://habr.com/ru/post/111361/) на хабре.
+* [Онлайн](https://ahmedushka7.github.io/R/scripts/semester_2_graph/sem_3/dijkstra.html) скрипт занятия.
+* [Скачать](https://github.com/ahmedushka7/R/blob/master/docs/scripts/semester_2_graph/sem_3/sem_3.zip?raw=true) скрипт занятия.
