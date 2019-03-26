@@ -743,7 +743,82 @@ filter(flights, month %in% c(5, 6, 8, 12))</code></pre>
 ##  9     405.     651.
 ## 10     319.     513.
 ## # … with 336,766 more rows</code></pre>
-<p>рассказать про pipe(%&gt;%)</p>
+<p>Существует много функций для создания новых переменных. Все они должны быть векторизованы. Ознакомимся с основынми функциями.</p>
+<p>Арифметические операторы:</p>
+<ul>
+<li><code>+</code> - сложение</li>
+<li><code>-</code> - вычитаение</li>
+<li><code>*</code> - умножение</li>
+<li><code>/</code> - деление</li>
+<li><code>^</code> - возведение в степень</li>
+<li><code>%/%</code> - целочисленное деление</li>
+<li><code>%%</code> - взятие остатка</li>
+</ul>
+<pre class="text"><code>mutate(flights_sml, air_time/60)</code></pre>
+<pre><code>## # A tibble: 336,776 x 6
+##     year month   day distance air_time `air_time/60`
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;dbl&gt;    &lt;dbl&gt;         &lt;dbl&gt;
+##  1  2013     1     1     1400      227         3.78 
+##  2  2013     1     1     1416      227         3.78 
+##  3  2013     1     1     1089      160         2.67 
+##  4  2013     1     1     1576      183         3.05 
+##  5  2013     1     1      762      116         1.93 
+##  6  2013     1     1      719      150         2.5  
+##  7  2013     1     1     1065      158         2.63 
+##  8  2013     1     1      229       53         0.883
+##  9  2013     1     1      944      140         2.33 
+## 10  2013     1     1      733      138         2.3  
+## # … with 336,766 more rows</code></pre>
+<p>В наборе данных <code>flights</code> из столбца <code>dep_time</code> можно извлечь часы и минуты.</p>
+<pre class="text"><code>transmute(flights,
+  dep_time,
+  hour = dep_time %/% 100,
+  minute = dep_time %% 100
+)</code></pre>
+<pre><code>## # A tibble: 336,776 x 3
+##    dep_time  hour minute
+##       &lt;int&gt; &lt;dbl&gt;  &lt;dbl&gt;
+##  1      517     5     17
+##  2      533     5     33
+##  3      542     5     42
+##  4      544     5     44
+##  5      554     5     54
+##  6      554     5     54
+##  7      555     5     55
+##  8      557     5     57
+##  9      557     5     57
+## 10      558     5     58
+## # … with 336,766 more rows</code></pre>
+<p>Логарифмические операторы:</p>
+<ul>
+<li><code>log()</code></li>
+<li><code>log2()</code></li>
+<li><code>log10()</code></li>
+</ul>
+<p>Полезно использовать, когда данные охватывают огромный диапозон.</p>
+<pre class="text"><code>transmute(flights,
+  distance,
+  log_distance = log(distance)
+)</code></pre>
+<pre><code>## # A tibble: 336,776 x 2
+##    distance log_distance
+##       &lt;dbl&gt;        &lt;dbl&gt;
+##  1     1400         7.24
+##  2     1416         7.26
+##  3     1089         6.99
+##  4     1576         7.36
+##  5      762         6.64
+##  6      719         6.58
+##  7     1065         6.97
+##  8      229         5.43
+##  9      944         6.85
+## 10      733         6.60
+## # … with 336,766 more rows</code></pre>
+<p>Смещения:</p>
+<ul>
+<li><code>lead()</code> - ссылка на следующие значение</li>
+<li><code>lag()</code> - ссылка на предыдущее значение</li>
+</ul>
 </div>
 <div id="group_by-and-summarize" class="section level2">
 <h2>Group_by and summarize</h2>
