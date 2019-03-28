@@ -19,3 +19,10 @@ layout: nil
 * Импорт данных. Откуда можно импортировать данные?
 * [Онлайн](https://ahmedushka7.github.io/R/scripts/semester_2_data_analysis/sem_2/import_data.html) скрипт занятия.
 * [Скачать](https://github.com/ahmedushka7/R/blob/master/docs/scripts/semester_2_data_analysis/sem_2/sem_2.zip?raw=true) скрипт занятия.
+
+### Посиделка №3 (28 марта)
+
+* Пакет `dplyr`. Манипуляции с данными.
+* [Онлайн](https://ahmedushka7.github.io/R/scripts/semester_2_data_analysis/sem_3/dplyr_main.html) скрипт занятия.
+* [Скачать](https://github.com/ahmedushka7/R/blob/master/docs/scripts/semester_2_data_analysis/sem_3/sem_3.zip?raw=true) скрипт занятия.
+* Краткая [памятка](https://github.com/ahmedushka7/R/raw/master/docs/scripts/semester_2_data_analysis/sem_3/dplyr_and_tidyr.pdf) по `dplyr` и `tidyr`.

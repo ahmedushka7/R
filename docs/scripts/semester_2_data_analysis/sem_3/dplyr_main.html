@@ -819,11 +819,115 @@ filter(flights, month %in% c(5, 6, 8, 12))</code></pre>
 <li><code>lead()</code> - ссылка на следующие значение</li>
 <li><code>lag()</code> - ссылка на предыдущее значение</li>
 </ul>
+<pre class="text"><code>x &lt;- 1:10
+lag(x)</code></pre>
+<pre><code>##  [1] NA  1  2  3  4  5  6  7  8  9</code></pre>
+<pre class="text"><code>lead(x)</code></pre>
+<pre><code>##  [1]  2  3  4  5  6  7  8  9 10 NA</code></pre>
+<p>Удобно находить доли <code>x - lag(x)</code> или определять изменилось ли значение <code>x != lag(x)</code>. Удобно использовать с функцией <code>group_by()</code>, о которой поговорим далее.</p>
+<p>Кумулятативные и скользящие агрегаты:</p>
+<ul>
+<li><code>cumsum()</code></li>
+<li><code>cumprod()</code></li>
+<li><code>cummin()</code></li>
+<li><code>cummax()</code></li>
+<li><code>cummean()</code></li>
+</ul>
+<pre class="text"><code>x</code></pre>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<pre class="text"><code>cumsum(x)</code></pre>
+<pre><code>##  [1]  1  3  6 10 15 21 28 36 45 55</code></pre>
+<pre class="text"><code>cummean(x)</code></pre>
+<pre><code>##  [1] 1.0 1.5 2.0 2.5 3.0 3.5 4.0 4.5 5.0 5.5</code></pre>
+<p>Если вы хотите находить скользящие в пределах “окна”, то используйте пакет <code>RcppRoll</code>.</p>
+<p>Логические операторы сравнения:</p>
+<ul>
+<li><code>&gt;</code></li>
+<li><code>&lt;</code></li>
+<li><code>&lt;=</code></li>
+<li><code>&gt;=</code></li>
+<li><code>!=</code></li>
+<li><code>==</code></li>
+</ul>
+<pre class="text"><code>mutate(flights_sml, air_time&gt;120)</code></pre>
+<pre><code>## # A tibble: 336,776 x 6
+##     year month   day distance air_time `air_time &gt; 120`
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;dbl&gt;    &lt;dbl&gt; &lt;lgl&gt;           
+##  1  2013     1     1     1400      227 TRUE            
+##  2  2013     1     1     1416      227 TRUE            
+##  3  2013     1     1     1089      160 TRUE            
+##  4  2013     1     1     1576      183 TRUE            
+##  5  2013     1     1      762      116 FALSE           
+##  6  2013     1     1      719      150 TRUE            
+##  7  2013     1     1     1065      158 TRUE            
+##  8  2013     1     1      229       53 FALSE           
+##  9  2013     1     1      944      140 TRUE            
+## 10  2013     1     1      733      138 TRUE            
+## # … with 336,766 more rows</code></pre>
 </div>
 <div id="group_by-and-summarize" class="section level2">
 <h2>Group_by and summarize</h2>
-<p>Рассказать про регулярные выражения.</p>
-<p>two &lt;- c(“AA”, “AS”) lut &lt;- c(“AA” = “American”, “AS” = “Alaska”, “B6” = “JetBlue”) two &lt;- lut[two] two</p>
+<p>Функция <code>summarize</code> позволяет свертывать набор данных в одну строчку. Например найти среднее по столбцу <code>dep_delay</code>.</p>
+<pre class="text"><code>summarise(flights, delay = mean(dep_delay, na.rm = TRUE))</code></pre>
+<pre><code>## # A tibble: 1 x 1
+##   delay
+##   &lt;dbl&gt;
+## 1  12.6</code></pre>
+<p>Также можно найти:</p>
+<ul>
+<li><code>sum</code> - сумму</li>
+<li><code>min</code> - минимальное значение</li>
+<li><code>max</code> - максимальное значение</li>
+<li><code>var</code> - дисперсию</li>
+<li><code>median</code> - медиану</li>
+<li><code>sd</code> - среднеквадратическое отклонение</li>
+<li><code>IQR</code> - межквартильный размах</li>
+<li><code>mad</code> - медианное абсолютное отклонение</li>
+<li><code>quantile(x, 0.25)</code> - определенный квантиль(в данном примере 25%)</li>
+<li><code>n()</code> - количество элементов(можно использовать функцию <code>count</code>)</li>
+<li><code>sum(!is.na(x))</code> - количество элементов не равных <code>NA</code></li>
+<li><code>n_distinct</code> - количество уникальных элементов</li>
+<li><code>sum(x &gt; 10)</code> - количество элементов больше 10</li>
+<li><code>mean(x == 0)</code> - доля элементов равных 0 от общего количества</li>
+</ul>
+<p>Эта функция не очень полезна, если используется не в связке с функцией <code>group_by</code>. Допустим мы хотим найти среднее значение переменной для разных дат, а не для всего фрейма данных.</p>
+<pre class="text"><code>by_day &lt;- group_by(flights, year, month, day)
+summarise(by_day, delay = mean(dep_delay, na.rm = TRUE))</code></pre>
+<pre><code>## # A tibble: 365 x 4
+## # Groups:   year, month [12]
+##     year month   day delay
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;dbl&gt;
+##  1  2013     1     1 11.5 
+##  2  2013     1     2 13.9 
+##  3  2013     1     3 11.0 
+##  4  2013     1     4  8.95
+##  5  2013     1     5  5.73
+##  6  2013     1     6  7.15
+##  7  2013     1     7  5.42
+##  8  2013     1     8  2.55
+##  9  2013     1     9  2.28
+## 10  2013     1    10  2.84
+## # … with 355 more rows</code></pre>
+<p>Можно устранить группирование с помощью функции <code>ungroup</code>, но в этом нет особо смысла, если пользоваться pipe(%&gt;%).</p>
+</div>
+<div id="pipe" class="section level2">
+<h2>Pipe(%&gt;%)</h2>
+<p>Так называемый “канал” облегчает написание кода. Давайте поймем как он работает на простом примере. Предположим у нас есть массив <code>x</code> и мы хотим найти его среднее. Мы бы сделали это так.</p>
+<pre class="text"><code>x &lt;- 1:10
+mean(x)</code></pre>
+<pre><code>## [1] 5.5</code></pre>
+<p>Но эту же операцию можно проделать с помощью pipe.</p>
+<pre class="text"><code>x %&gt;% mean()</code></pre>
+<pre><code>## [1] 5.5</code></pre>
+<p>Можно задаться вопросом, зачем делать так, а не как раньше? Давайте представим, что нам дан массив. Нам нужно возвести все элементы в квадрат, найти среднее, а потом взять от него корень. Это можно сделать 2 способами.</p>
+<p>Вариант №1</p>
+<pre class="text"><code>y &lt;- x^2
+z &lt;- mean(y)
+a &lt;- sqrt(z)</code></pre>
+<p>Вариант №2</p>
+<pre class="text"><code>y &lt;- sqrt(mean(x^2))</code></pre>
+<p>У каж</p>
+<p>Предположим, что мы провоодим какие-то манимуляции с нашими данными, то есть применяем функции, которые мы изучили.</p>
 </div>
 
 
