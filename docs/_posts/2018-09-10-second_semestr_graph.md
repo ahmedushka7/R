@@ -31,8 +31,8 @@ layout: nil
 * Пакет `igraph`.
 * Официальная [документация](https://igraph.org/).
 * [Параметры](https://igraph.org/r/doc/plot.common.html) `plot`.
-* Питоновский [скрипт]() для создания матрицы рёбер.
+* Питоновский [скрипт](https://github.com/ahmedushka7/R/blob/master/docs/scripts/semester_2_graph/sem_4/vk.ipynb) для создания матрицы рёбер.
 * Пакет threejs: [документация](https://cran.r-project.org/web/packages/threejs/threejs.pdf), [github](https://github.com/bwlewis/rthreejs) и [видео](https://www.rstudio.com/resources/videos/interactive-network-visualization-with-threejs-and-r/) с конференции с возможностями этого пакета.
-* [Ссылка]() на изображение графа друзей в vk в хорошем качестве.
+* [Ссылка](https://github.com/ahmedushka7/R/raw/master/docs/scripts/semester_2_graph/sem_4/graph_1.png) на изображение графа друзей в vk в хорошем качестве.
 * [Онлайн](https://ahmedushka7.github.io/R/scripts/semester_2_graph/sem_4/igraph.html) скрипт занятия.
 * [Скачать](https://github.com/ahmedushka7/R/blob/master/docs/scripts/semester_2_graph/sem_4/sem_4.zip?raw=true) все материалы занятия.
