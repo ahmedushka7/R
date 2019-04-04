@@ -26,3 +26,10 @@ layout: nil
 * [Онлайн](https://ahmedushka7.github.io/R/scripts/semester_2_data_analysis/sem_3/dplyr_main.html) скрипт занятия.
 * [Скачать](https://github.com/ahmedushka7/R/blob/master/docs/scripts/semester_2_data_analysis/sem_3/sem_3.zip?raw=true) скрипт занятия.
 * Краткая [памятка](https://github.com/ahmedushka7/R/raw/master/docs/scripts/semester_2_data_analysis/sem_3/dplyr_and_tidyr.pdf) по `dplyr` и `tidyr`.
+
+### Посиделка №4 (4 апреля)
+
+* Пакет `dplyr`. Работа с реляционными данными. Различные виды join.
+* [Онлайн](https://ahmedushka7.github.io/R/scripts/semester_2_data_analysis/sem_4/join.html) скрипт занятия.
+* [Скачать](https://github.com/ahmedushka7/R/blob/master/docs/scripts/semester_2_data_analysis/sem_4/sem_4.zip?raw=true) скрипт занятия.
+* Краткая [памятка](https://github.com/ahmedushka7/R/raw/master/docs/scripts/semester_2_data_analysis/sem_3/dplyr_and_tidyr.pdf) по `dplyr` и `tidyr`.
