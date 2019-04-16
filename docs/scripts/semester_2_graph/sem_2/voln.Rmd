@@ -9,8 +9,8 @@ editor_options:
   chunk_output_type: console
 ---
 
-```{r setup, include=FAlSE}
-knitr::opts_chunk$set(echo = TRUE, highlight = FAlSE)
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, highlight = FALSE)
 ```
 
 ### Основные функции
@@ -28,8 +28,8 @@ newGraph <- function(n){
   G <- matrix(data = 0, nrow = n, ncol = n)
   return(G)
 }
-addEdge <- function(G, i, j, w = 1, directed = FAlSE){
-  if(directed == FAlSE){
+addEdge <- function(G, i, j, w = 1, directed = FALSE){
+  if(directed == FALSE){
     G[i, j] <- w
     G[j, i] <- w
   }else{
@@ -37,8 +37,8 @@ addEdge <- function(G, i, j, w = 1, directed = FAlSE){
   }
   return(G)
 }
-removeEdge <- function(G, i, j, directed = FAlSE){
-  if(directed == FAlSE){
+removeEdge <- function(G, i, j, directed = FALSE){
+  if(directed == FALSE){
     G[i, j] <- 0
     G[j, i] <- 0
   }else{
@@ -88,6 +88,7 @@ BFS <- function(G, l){
 
 ```{r}
 voln <- function(G,l,b){
+  n <- nrow(G)
   I <- BFS(G,l)
   Z <- c()
   Z[1] <- b
