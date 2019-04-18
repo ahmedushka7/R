@@ -329,5 +329,5 @@ new_columns <- c("date", "events", "cloud_cover", "max_dew_point_f", "max_gust_s
 )
 
 # Clean up column names
-names(weather5) <- new_colnames
+names(weather5) <- new_columns
 ```
