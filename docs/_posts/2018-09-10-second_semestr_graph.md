@@ -36,3 +36,9 @@ layout: nil
 * [Ссылка](https://github.com/ahmedushka7/R/raw/master/docs/scripts/semester_2_graph/sem_4/graph_1.png) на изображение графа друзей в vk в хорошем качестве.
 * [Онлайн](https://ahmedushka7.github.io/R/scripts/semester_2_graph/sem_4/igraph.html) скрипт занятия.
 * [Скачать](https://github.com/ahmedushka7/R/blob/master/docs/scripts/semester_2_graph/sem_4/sem_4.zip?raw=true) все материалы занятия.
+
+### Посиделка № 6 (24 апреля)
+
+* [Поиск в глубину](https://ru.wikipedia.org/wiki/Поиск_в_глубину).
+* [Онлайн](https://ahmedushka7.github.io/R/scripts/semester_2_graph/sem_5/dfs.html) скрипт занятия.
+* [Скачать](https://github.com/ahmedushka7/R/blob/master/docs/scripts/semester_2_graph/sem_5/sem_5.zip?raw=true) скрипт занятия.

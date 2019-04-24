@@ -1,0 +1,109 @@
+---
+title: "Обход в глубину"
+author: "Ахмедушка"
+output: 
+  html_document:
+    toc: TRUE
+    toc_float: TRUE
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, highlight = FALSE)
+```
+
+### Подгрузка пакетов
+
+```{r, message=FALSE}
+# install.packages('igraph')
+library('igraph')
+```
+
+### Основные функции
+
+```{r}
+newGraph <- function(n){
+  G <- matrix(data = 0, nrow = n, ncol = n)
+  return(G)
+}
+addEdge <- function(G, i, j, w = 1, directed = FALSE){
+  if(directed == FALSE){
+    G[i, j] <- w
+    G[j, i] <- w
+  }else{
+    G[i, j] <- w
+  }
+  return(G)
+}
+removeEdge <- function(G, i, j, directed = FALSE){
+  if(directed == FALSE){
+    G[i, j] <- 0
+    G[j, i] <- 0
+  }else{
+    G[i, j] <- 0
+  }
+  return(G)
+}
+adj <- function(G,v1){
+  L <- c()
+  for(i in 1:nrow(G)){
+    if(G[v1,i] != 0){
+      L <- c(L, i)
+    }
+  }
+  return(L)
+}
+```
+
+### Создание графа
+
+```{r}
+n <- 6
+G <- newGraph(n)
+G <- addEdge(G, 1, 3)
+G <- addEdge(G, 1, 6)
+G <- addEdge(G, 2, 4)
+G <- addEdge(G, 3, 6)
+G <- addEdge(G, 4, 5)
+G <- addEdge(G, 5, 6)
+```
+
+```{r}
+g <- graph.adjacency(G, mode = 'undirected')
+plot(g)
+```
+
+### Поиск в глубину
+
+```{r}
+dfs <- function(G,L = c(),v1,v2){
+  L <- c(L, v1)
+  if(v2 %in% adj(G,v1)){
+    r <- c(v2,v1)
+  }else{
+    r <- c()
+    for(i in adj(G,v1)){
+      if(!(i %in% L)){
+        r <- dfs(G,L,i,v2)
+        if(length(r) > 0){
+          r <- c(r,v1)
+          return(r)
+        }
+      }
+    }
+  }
+  return(r)
+}
+```
+
+```{r}
+path <- dfs(G,v1 = 5,v2 = 1)
+path
+```
+
+```{r}
+V(g)$color <- ifelse(V(g) %in% path, 'red', 'white')
+plot(g, vertex.label.color = "blue")
+```
+
