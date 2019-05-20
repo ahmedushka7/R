@@ -20,3 +20,5 @@ layout: nil
 * Цикл `while`. Функции. Глобальные и локальные переменные. Дефолтные переменные.
 * Онлайн [скрипт](https://ahmedushka7.github.io/R/scripts/liberal_arts/sem_2/introduction_to_R_2.html) занятия.
 
+
+[Данные о курсе и нефти](https://github.com/ahmedushka7/R/blob/master/docs/scripts/liberal_arts/m.zip?raw=true)
