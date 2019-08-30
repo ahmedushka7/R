@@ -23,3 +23,37 @@ layout: nil
 ### Таблица результатов
 
 Результаты домашек будут в гугл-таблице по [ссылке](https://docs.google.com/spreadsheets/d/1UcFr0yYXAZYH-53x1RqZPB4gTVtqrzOuwXVKGnSwwuk/edit?usp=sharing). Для каждой группы свой лист.
+
+
+<table>
+    <tr>
+        <td>название контрольного мероприятия</td>
+        <td>дедлайн</td>
+        <td>решение</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
