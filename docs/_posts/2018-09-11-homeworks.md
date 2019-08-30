@@ -32,9 +32,9 @@ layout: nil
         <td>решение</td>
     </tr>
     <tr>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>ф</td>
+        <td>выф</td>
+        <td>фыв</td>
     </tr>
     <tr>
         <td></td>
