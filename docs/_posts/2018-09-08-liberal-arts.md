@@ -1,24 +1,15 @@
 ---
-title: 'Liberal Arts'
+title: 'Анализ данных в R'
 
 layout: nil
 ---
 
-### План курса
+## Тема №1: Введение и основы программирования в R
 
-[План курса](https://ahmedushka7.github.io/R/scripts/liberal_arts/plan/plan.html)
+### Посиделка № 1 ( 11 сентября )
 
-### Посиделка № 1 ( 22 апреля )
+* Знакомство. Зачем нужен этот курс?
+* R и с чем его едят. Интерфейс RStudio.
+* R как калькулятор. Переменные. Массивы. 
+* Онлайн [скрипт](https://ahmedushka7.github.io/R/scripts/hse_data_analysis/sem_1/introduction_to_R.html) занятия.
 
-* Знакомство. R и с чем его едят. Интерфейс RStudio.
-* R как калькулятор. Переменные. Массивы.  Условный оператор if.
-* Онлайн [скрипт](https://ahmedushka7.github.io/R/scripts/liberal_arts/sem_1/introduction_to_R.html) занятия.
-
-### Посиделка № 2 ( 28 апреля )
-
-* Вспоминаем прошлую посиделку. Цикл `for`. Матрицы.
-* Цикл `while`. Функции. Глобальные и локальные переменные. Дефолтные переменные.
-* Онлайн [скрипт](https://ahmedushka7.github.io/R/scripts/liberal_arts/sem_2/introduction_to_R_2.html) занятия.
-
-
-[Данные о курсе и нефти](https://github.com/ahmedushka7/R/blob/master/docs/scripts/liberal_arts/m.zip?raw=true)
