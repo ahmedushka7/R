@@ -1,5 +1,8 @@
 ---
 title: 'Установка R + RStudio'
+category: Stuff
+path: '/stuff'
+type: 'POST'
 
 layout: nil
 ---
