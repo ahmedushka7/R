@@ -2,7 +2,7 @@
 title: 'Домашка'
 category: HSE
 
-type: 'HSE'
+
 
 layout: nil
 ---

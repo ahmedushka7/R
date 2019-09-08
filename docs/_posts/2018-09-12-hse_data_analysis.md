@@ -1,6 +1,6 @@
 ---
 title: 'Анализ данных в R'
-category: RANEPA
+
 path: '/ranepa'
 type: 'RANEPA'
 layout: nil
