@@ -1,6 +1,7 @@
 ---
 title: '2 семестр - Введение в анализ данных'
 type: 'RANEPA'
+category: RANEPA
 
 layout: nil
 ---

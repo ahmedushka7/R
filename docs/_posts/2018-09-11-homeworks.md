@@ -1,6 +1,7 @@
 ---
 title: 'Домашка'
 type: 'HSE'
+category: HSE
 
 layout: nil
 ---

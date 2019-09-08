@@ -1,6 +1,7 @@
 ---
 title: 'Анализ данных в R'
 type: 'HSE'
+category: HSE
 
 layout: nil
 ---

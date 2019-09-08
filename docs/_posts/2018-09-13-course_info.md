@@ -1,6 +1,7 @@
 ---
 title: 'Все о курсе'
 type: 'HSE'
+category: HSE
 
 layout: nil
 ---

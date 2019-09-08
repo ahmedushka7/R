@@ -1,6 +1,7 @@
 ---
 title: '2 семестр - Теория графов'
 type: 'RANEPA'
+category: RANEPA
 
 layout: nil
 ---
