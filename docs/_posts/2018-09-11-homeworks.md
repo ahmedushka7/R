@@ -1,7 +1,7 @@
 ---
 title: 'Домашка'
 category: HSE
-path: '/stuff'
+
 type: 'HSE'
 
 layout: nil
