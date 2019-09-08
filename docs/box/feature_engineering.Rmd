@@ -1,0 +1,94 @@
+---
+title: "Feature engineering"
+author: "Ахмедушка"
+date: "8/2/2019"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### One-hot-encoding: кодирование категориальных перменных
+
+Одним из способов кодирования является кодирование с помощью функции `mutate` из пакета `dplyr` и функции `ifelse` - это укороченный вариант условного оператора `if`.
+
+```{r}
+library('dplyr')
+
+discipline_logs <- discipline_logs %>%	
+	mutate(male = ifelse(gender == "Male", 1, 0),
+  		   female = ifelse(gender == "Female", 1, 0))
+```
+
+Если категорий много, то нужно стараться объединить их в новые более большие категории.
+
+```{r}
+x <- 1:50
+case_when(
+  x %% 35 == 0 ~ "fizz buzz",
+  x %% 5 == 0 ~ "fizz",
+  x %% 7 == 0 ~ "buzz",
+  TRUE ~ as.character(x)
+)
+```
+
+У нас есть предварительные знания о том, что тип школы, в которой учится учащийся: начальная, средняя или старшая, более информативен, чем конкретный класс учащегося.
+
+```{r}
+# Create a new column with the proper string encodings
+discipline_logs_new <-  discipline_logs %>%
+	mutate(school_type = 
+           	case_when(grade >= 1 & grade <= 5 ~ 'elementary_school',
+                      grade >= 6 & grade <= 8 ~ 'middle_school',
+                      grade <= 12 & grade >=  9 ~ 'high_school'))
+
+# Look at a table of the new column 
+discipline_logs_new %>% select(school_type) %>% table()
+```
+
+После чего можно закодировать переменные.
+
+```{r}
+discipline_logs_new <- discipline_logs_new %>%	
+	mutate( 
+  			elem_sch = ifelse(school_type == "elementary_school", 1, 0),
+  			mid_sch = ifelse(school_type == "middle_school", 1, 0),
+  			high_sch = ifelse(school_type == "high_school", 1, 0))
+```
+
+Можно объединять переменные по их отношению к таргету.
+
+```{r}
+discipline_table <- discipline_logs %>% select(grade, discipline) %>% table()
+prop_table <- prop.table(discipline_table, 1)
+```
+
+```{r}
+# Combine the proportions and discipline logs data
+discipline <- inner_join(discipline_logs, dgr_prop, by = "grade")
+
+# Display a glimpse of the new data frame
+glimpse(discipline)
+
+# Create a new column with three levels using the proportions as ranges
+discipline_ed <- discipline %>%
+   mutate(education_levels = 
+      case_when(proportion >= 0 & proportion <= .20 ~ 'low_grade',
+                proportion>= .20 & proportion <= .25 ~ 'middle_grade', 
+                proportion>= .25 & proportion <= 1 ~ 'high_grade'))
+```
+
+Если категорий много и нужны все, то можно воспользоваться функцией `dummyVars` из пакета `caret`.
+
+```{r}
+# install.packages('caret')
+library('caret')
+
+new_data <- dummyVars("~ gender", data = data)
+```
+
+
+### Кодирование непрервыных переменных(backets)
