@@ -630,6 +630,24 @@ code {
   background: #e02a10;
 }
 
+/* HSE */
+#content article.HSE a h2 code {
+  color: #0973ab;
+}
+
+#content article.HSE a h2 code b {
+  background: #0973ab;
+}
+
+/* RANEPA */
+#content article.RANEPA a h2 code {
+  color: #bf1a1a;
+}
+
+#content article.RANEPA a h2 code b {
+  background: #bf1a1a;
+}
+
 /* Reference's body */
 #content h3 {
 }
