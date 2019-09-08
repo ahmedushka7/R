@@ -1,5 +1,6 @@
 ---
 title: 'Все о курсе'
+type: 'HSE'
 
 layout: nil
 ---

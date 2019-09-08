@@ -1,8 +1,7 @@
 ---
 title: 'Анализ данных в R'
+type: 'HSE'
 
-path: '/ranepa'
-type: 'RANEPA'
 layout: nil
 ---
 

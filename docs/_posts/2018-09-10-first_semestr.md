@@ -1,5 +1,6 @@
 ---
 title: '1 семестр'
+type: 'RANEPA'
 
 layout: nil
 ---
