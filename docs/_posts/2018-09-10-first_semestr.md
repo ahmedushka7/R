@@ -41,7 +41,7 @@ layout: nil
 * [RMarkdown](https://rmarkdown.rstudio.com/). Что это и зачем это нужно?
 * [Опции чанков](https://yihui.name/knitr/options/)
 * Официальный [гайд](https://bookdown.org/yihui/rmarkdown/r-code.html)
-* Краткая [памятка](https://github.com/ahmedushka7/R/raw/master/docs/_includes/rmarkdown.pdf)
+* Краткая [памятка](https://github.com/ahmedushka7/R/raw/master/docs/scripts/hse_data_analysis/sem_5/rmarkdown.pdf)
 * [Файлик](https://github.com/ahmedushka7/R/blob/master/docs/scripts/semester_1/posidelka5.zip?raw=true) с кратким гайдом.
 
 ### Посиделка № 6
