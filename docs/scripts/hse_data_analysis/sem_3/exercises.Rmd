@@ -1,0 +1,42 @@
+---
+title: "Функции: задания"
+author: "Зарманбетов Ахмед"
+output: 
+  html_document:
+    toc: TRUE
+    toc_float: TRUE
+    toc_depth: 4
+    highlight: pygments
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Задание №2
+
+В чем минус этой функции? Перепишите её.
+
+```{r}
+sq_or_cu <- function(x,y){
+  if(y == 'Квадрат'){
+    l <- x^2
+    return(l)
+  }else{
+    l <- x^3
+    return(l)
+  }
+}
+```
+
+### Задание №1
+
+Что можно сказать о следующем коде? Как бы вы его изменилил?
+
+```{r}
+f1 <- function(x) abs(x - mean(x))^1
+f2 <- function(x) abs(x - mean(x))^2
+f3 <- function(x) abs(x - mean(x))^3
+```
