@@ -1,0 +1,130 @@
+---
+title: "Другие алгоритмы сортировки"
+author: "Зарманбетов Ахмед"
+output: 
+  html_document:
+    toc: TRUE
+    toc_float: TRUE
+    toc_depth: 4
+    highlight: pygments
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Рассмотрим также реализации других алгоритмов сортировки.
+
+### Сортировка выбором
+
+<center>
+![](images/selection.gif)
+</center>
+
+Алгоритм:
+
+1. Найти наименьшее значение в списке.
+2. Записать его в начало списка, а первый элемент - на место, где раньше стоял наименьший.
+3. Снова найти наименьший элемент в списке. При этом в поиске не участвует первый элемент.
+4. Второй минимум поместить на второе место списка. Второй элемент при этом перемещается на освободившееся место.
+5. Продолжать выполнять поиcк и обмен, пока не будет достигнут конец списка
+
+Иногда вместо минимума ищут максимум в массиве, тогда код может слегка отличаться. В качестве тренировки попробуйте дома построить алгоритм при нахождении максимума. 
+
+```{r}
+selection <- function(x){
+  for(i in 1:(length(x)-1)){
+    m <- i
+    for(j in (i+1):length(x)){
+      if(x[j]<x[m]){
+        m <- j
+      }
+    }
+    a <- x[i]
+    x[i] <- x[m]
+    x[m] <- a
+  }
+  return(x)
+}
+
+x <- sample(-500:500, size = 8)
+print(x)
+selection(x)
+```
+
+### Сортировка вставками
+
+<center>
+![](images/insertion.gif)
+</center>
+
+```{r}
+insertion <- function(x){
+  for(i in 2:length(x)){
+    k <- i
+    
+    C <- x[i]
+    for(j in (i-1):1){
+      if(x[j] > C){
+        x[j+1] <- x[j]
+        k <- j
+      }
+    }
+    x[k] <- C
+  }
+  return(x)
+}
+
+x <- sample(1:100,30)
+print(x)
+print(insertion(x))
+```
+
+### Сортировка слиянием
+
+<center>
+![](images/merge.gif)
+</center>
+
+
+При сортировке слиянием массив разбивается пополам на 2 массива до тех пор, пока не останется по одному элементу. Потом начинается поочередное слияние, но только уже в отсортированном порядке. Более наглядно представлено на рисунках.
+
+<center>
+![](images/pic1.png)
+</center>
+
+<center>
+![](images/pic2.png)
+</center>
+
+```{r}
+MERGE <- function(A,B){ 
+  C <- c() 
+  while(length(A)>0 & length(B)>0){ 
+    if(A[1]<B[1]){ 
+      C <- c(C,A[1]) 
+      A <- A[-1] 
+    }else{ 
+      C <- c(C,B[1]) 
+      B <- B[-1] 
+    } 
+  } 
+  C <- c(C,A,B) 
+  return(C) 
+} 
+mergeSORT <- function(D){ 
+  if(length(D)==1){ 
+    return(D) 
+  }else{ 
+    mid <- length(D)%/%2 
+    D <- MERGE(mergeSORT(D[1:mid]),mergeSORT(D[(mid+1):length(D)])) 
+  } 
+  return(D) 
+}
+
+x <- sample(1:100,30)
+print(x)
+print(mergeSORT(x))
+```
