@@ -1,0 +1,68 @@
+---
+title: "Скрапинг"
+author: "Ахмедушка"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Обычная подгрузка 
+
+Вспоминаем как выкачивать через url файлы сразу в R. Эти функции прекрасно справляются с подгрузкой файлов через url, как и с подгрузкой файлов, когда мы просто прописываем путь к файлу на компьютере.
+
+```{r}
+csv_url <- "http://s3.amazonaws.com/assets.datacamp.com/production/course_1561/datasets/chickwts.csv"
+tsv_url <- "http://s3.amazonaws.com/assets.datacamp.com/production/course_3026/datasets/tsv_data.tsv"
+
+csv_data <- read.csv(csv_url)
+tsv_data <- read.delim(tsv_url)
+
+head(csv_data)
+head(tsv_data)
+```
+
+Иногда полезно скачать файл сразу, так как, если он большой, то его нужно будет подгружать + вы можете захотеть открыть его в других программах. Для этого можно использовать функцию `download.file`, которая имеет 2 аргумента:
+* `url` - url файла;
+* `destfile` - название и путь файла, где он будет сохранен.
+
+```{r}
+download.file(url = csv_url, destfile = "feed_data.csv")
+csv_data <- read.csv("feed_data.csv")
+```
+
+
+Большинство полезных и нужных данных хранится в интернете, а не в csv файлах.
+
+### API (Application Programming Interfaces)
+
+API предоставляют простой доступ к базам данных или информации на вебстраницах. Есть прямое соединение с API, а есть API Client - пакеты, которые предоставляют готовые простые функции.
+
+Рассмотрим простой API Client - пакет `pageviews`, который помогает взаимодействовать с Wikipedia API. 
+
+```{r}
+library('pageviews') 
+
+hadley_pageviews <- article_pageviews(project = "en.wikipedia", article = "Hadley Wickham")
+
+str(hadley_pageviews)
+```
+
+У API бывают токены, они нужны, чтобы тот, кто предоставляет данные понимал, кто их запрашивает и дает доступ вообще к этим данным.
+
+Не всегда бывают API Client, тогда приходится делать запросы вручную. 
+
+Запросы GET и POST
+GET - "get me something", получать данные с сервера - основной запрос
+POST - аудентификация на сервере, отправлять данные на сервер
+
+Для этих запросов есть библиотек `httr`
+
+
+Какие запросы бывают
+Как делать запросы
+Как констрировать запросы
+
+- saveRDS
+- readRDS
