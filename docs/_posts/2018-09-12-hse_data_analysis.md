@@ -29,7 +29,7 @@ layout: nil
 * [Решение заданий]() для отработки.
 -->
 
-<!--### Посиделка № 2 - 3
+### Посиделка № 2 - 3
 
 * Управляющие конструкции. Зачем нужны? Как задаются в R.
 * If. For. While.
@@ -37,7 +37,7 @@ layout: nil
 * Онлайн [скрипт](https://ahmedushka7.github.io/R/scripts/hse_data_analysis/sem_2/for_if_while_matrix.html) занятия.
 * [Условия заданий](https://ahmedushka7.github.io/R/scripts/hse_data_analysis/sem_2/exercises.html) для отработки.
 * [Решение заданий]() для отработки.
--->
+
 
 ### Посиделка № 1 
 
