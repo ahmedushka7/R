@@ -1821,16 +1821,16 @@ div.tocify {
 <a class="sourceLine" id="cb24-2" data-line-number="2"><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>) {</a>
 <a class="sourceLine" id="cb24-3" data-line-number="3">  <span class="kw">print</span>(v[i])</a>
 <a class="sourceLine" id="cb24-4" data-line-number="4">}</a></code></pre></div>
-<pre><code>## [1] 9
-## [1] 2
+<pre><code>## [1] 6
+## [1] 4
 ## [1] 3
-## [1] 8
-## [1] 5
+## [1] 7
 ## [1] 2
 ## [1] 1
+## [1] 2
+## [1] 7
 ## [1] 1
-## [1] 8
-## [1] 6</code></pre>
+## [1] 2</code></pre>
 </div>
 </div>
 <div id="-10" class="section level3">
@@ -1845,13 +1845,13 @@ div.tocify {
 <a class="sourceLine" id="cb26-2" data-line-number="2"><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">5</span><span class="op">:</span><span class="dv">12</span>) {</a>
 <a class="sourceLine" id="cb26-3" data-line-number="3">  <span class="kw">print</span>(v[i])</a>
 <a class="sourceLine" id="cb26-4" data-line-number="4">}</a></code></pre></div>
-<pre><code>## [1] 5
+<pre><code>## [1] 7
 ## [1] 5
-## [1] 1
-## [1] 1
-## [1] 1
+## [1] 5
 ## [1] 6
-## [1] 4
+## [1] 8
+## [1] 7
+## [1] 7
 ## [1] 8</code></pre>
 </div>
 </div>
@@ -1867,14 +1867,14 @@ div.tocify {
 <a class="sourceLine" id="cb28-2" data-line-number="2"><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(v)) {</a>
 <a class="sourceLine" id="cb28-3" data-line-number="3">  <span class="kw">print</span>(v[i])</a>
 <a class="sourceLine" id="cb28-4" data-line-number="4">}</a></code></pre></div>
-<pre><code>## [1] 5
-## [1] 9
-## [1] 7
+<pre><code>## [1] 4
 ## [1] 4
-## [1] 8
+## [1] 3
+## [1] 10
+## [1] 7
 ## [1] 9
-## [1] 9
-## [1] 2</code></pre>
+## [1] 3
+## [1] 5</code></pre>
 </div>
 </div>
 <div id="-12" class="section level3">
@@ -2016,36 +2016,151 @@ div.tocify {
 <a class="sourceLine" id="cb41-9" data-line-number="9">  s2 &lt;-<span class="st"> </span>s2 <span class="op">+</span><span class="st"> </span>x[i]</a>
 <a class="sourceLine" id="cb41-10" data-line-number="10">}</a>
 <a class="sourceLine" id="cb41-11" data-line-number="11"><span class="kw">print</span>(s1 <span class="op">-</span><span class="st"> </span>s2)</a></code></pre></div>
-<pre><code>## [1] 1</code></pre>
+<pre><code>## [1] 3</code></pre>
 </div>
 </div>
 <div id="-19" class="section level3">
 <h3>Задание №19</h3>
+<div id="-18" class="section level4">
+<h4>Условие</h4>
 <p>Задан массив и числа a, b. Вывести все индексы переменных, где выполняется <span class="math inline">\(a &lt; x[i] &lt; b\)</span>.</p>
+</div>
+<div id="-17" class="section level4">
+<h4>Решение</h4>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb43-1" data-line-number="1">a &lt;-<span class="st"> </span><span class="dv">0</span></a>
+<a class="sourceLine" id="cb43-2" data-line-number="2">b &lt;-<span class="st"> </span><span class="dv">10</span></a>
+<a class="sourceLine" id="cb43-3" data-line-number="3">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">-10</span>, <span class="dv">1</span>, <span class="dv">100</span>)</a>
+<a class="sourceLine" id="cb43-4" data-line-number="4"><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(x)) {</a>
+<a class="sourceLine" id="cb43-5" data-line-number="5">  <span class="cf">if</span> (a <span class="op">&lt;</span><span class="st"> </span>x[i] <span class="op">&amp;&amp;</span><span class="st"> </span>x[i] <span class="op">&gt;</span><span class="st"> </span>b) {</a>
+<a class="sourceLine" id="cb43-6" data-line-number="6">    <span class="kw">print</span>(i)</a>
+<a class="sourceLine" id="cb43-7" data-line-number="7">  }</a>
+<a class="sourceLine" id="cb43-8" data-line-number="8">}</a></code></pre></div>
+<pre><code>## [1] 4</code></pre>
+</div>
 </div>
 <div id="-20" class="section level3">
 <h3>Задание №20</h3>
+<div id="-19" class="section level4">
+<h4>Условие</h4>
 <p>Дан массив. Посчитать сумму всех четных элементов массива.</p>
+</div>
+<div id="-18" class="section level4">
+<h4>Решение</h4>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb45-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">-1</span>, <span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">18</span>, <span class="dv">21</span>)</a>
+<a class="sourceLine" id="cb45-2" data-line-number="2">s &lt;-<span class="st"> </span><span class="dv">0</span></a>
+<a class="sourceLine" id="cb45-3" data-line-number="3"><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(x)) {</a>
+<a class="sourceLine" id="cb45-4" data-line-number="4">  <span class="cf">if</span> (x[i]<span class="op">%%</span><span class="dv">2</span> <span class="op">==</span><span class="st"> </span><span class="dv">0</span>) {</a>
+<a class="sourceLine" id="cb45-5" data-line-number="5">    s &lt;-<span class="st"> </span>s <span class="op">+</span><span class="st"> </span>x[i]</a>
+<a class="sourceLine" id="cb45-6" data-line-number="6">  }</a>
+<a class="sourceLine" id="cb45-7" data-line-number="7">}</a>
+<a class="sourceLine" id="cb45-8" data-line-number="8"><span class="kw">print</span>(s)</a></code></pre></div>
+<pre><code>## [1] 30</code></pre>
+</div>
 </div>
 <div id="-21" class="section level3">
 <h3>Задание №21</h3>
+<div id="-20" class="section level4">
+<h4>Условие</h4>
 <p>Есть переменная action. Она может быть равна либо “Сложить”, либо “Перемножить”. В зависимости от этой переменной нужно сложить или перемножить все элементы массива.</p>
+</div>
+<div id="-19" class="section level4">
+<h4>Решение</h4>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb47-1" data-line-number="1">action &lt;-<span class="st"> 'Cложить'</span></a>
+<a class="sourceLine" id="cb47-2" data-line-number="2">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">-5</span>, <span class="dv">8</span>, <span class="dv">23</span>)</a>
+<a class="sourceLine" id="cb47-3" data-line-number="3"><span class="cf">if</span> (action <span class="op">==</span><span class="st"> 'Сложить'</span>) {</a>
+<a class="sourceLine" id="cb47-4" data-line-number="4">  s &lt;-<span class="st"> </span><span class="dv">0</span></a>
+<a class="sourceLine" id="cb47-5" data-line-number="5">  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(x)) {</a>
+<a class="sourceLine" id="cb47-6" data-line-number="6">    s &lt;-<span class="st"> </span>s <span class="op">+</span><span class="st"> </span>x[i]</a>
+<a class="sourceLine" id="cb47-7" data-line-number="7">  }</a>
+<a class="sourceLine" id="cb47-8" data-line-number="8">  <span class="kw">print</span>(s)</a>
+<a class="sourceLine" id="cb47-9" data-line-number="9">}<span class="cf">else</span>{</a>
+<a class="sourceLine" id="cb47-10" data-line-number="10">    s &lt;-<span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb47-11" data-line-number="11">  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(x)) {</a>
+<a class="sourceLine" id="cb47-12" data-line-number="12">    s &lt;-<span class="st"> </span>s <span class="op">*</span><span class="st"> </span>x[i]</a>
+<a class="sourceLine" id="cb47-13" data-line-number="13">  }</a>
+<a class="sourceLine" id="cb47-14" data-line-number="14">  <span class="kw">print</span>(s)</a>
+<a class="sourceLine" id="cb47-15" data-line-number="15">}</a></code></pre></div>
+<pre><code>## [1] -9200</code></pre>
+</div>
 </div>
 <div id="-21-1" class="section level3">
 <h3>Задание №21</h3>
+<div id="-21" class="section level4">
+<h4>Условие</h4>
 <p>По данному натуральном n вычислите сумму <span class="math inline">\(1!+2!+3!+...+n!\)</span>. В решении этой задачи можно использовать только один цикл.</p>
+</div>
+<div id="-20" class="section level4">
+<h4>Решение</h4>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb49-1" data-line-number="1">n &lt;-<span class="st"> </span><span class="dv">5</span></a>
+<a class="sourceLine" id="cb49-2" data-line-number="2">k &lt;-<span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb49-3" data-line-number="3">s &lt;-<span class="st"> </span><span class="dv">0</span></a>
+<a class="sourceLine" id="cb49-4" data-line-number="4"><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>n) {</a>
+<a class="sourceLine" id="cb49-5" data-line-number="5">  k &lt;-<span class="st"> </span>k <span class="op">*</span><span class="st"> </span>i</a>
+<a class="sourceLine" id="cb49-6" data-line-number="6">  s &lt;-<span class="st"> </span>s <span class="op">+</span><span class="st"> </span>k</a>
+<a class="sourceLine" id="cb49-7" data-line-number="7">}</a>
+<a class="sourceLine" id="cb49-8" data-line-number="8"><span class="kw">print</span>(s)</a></code></pre></div>
+<pre><code>## [1] 153</code></pre>
+</div>
 </div>
 <div id="-22" class="section level3">
 <h3>Задание №22</h3>
+<div id="-22" class="section level4">
+<h4>Условие</h4>
 <p>Есть матрица состоящая из нулей. Нужно заполнить её таким образом, чтобы значение элемента, который находится в i-ой строчке и j-ом столбце, равно i + j.</p>
+</div>
+<div id="-21" class="section level4">
+<h4>Решение</h4>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb51-1" data-line-number="1">m &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dt">data =</span> <span class="dv">0</span>, <span class="dt">nrow =</span> <span class="dv">4</span>, <span class="dt">ncol =</span> <span class="dv">5</span>)</a>
+<a class="sourceLine" id="cb51-2" data-line-number="2"><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(m)) {</a>
+<a class="sourceLine" id="cb51-3" data-line-number="3">  <span class="cf">for</span>(j <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">ncol</span>(m)) {</a>
+<a class="sourceLine" id="cb51-4" data-line-number="4">    m[i, j] &lt;-<span class="st"> </span>i <span class="op">+</span><span class="st"> </span>j</a>
+<a class="sourceLine" id="cb51-5" data-line-number="5">  }</a>
+<a class="sourceLine" id="cb51-6" data-line-number="6">}</a>
+<a class="sourceLine" id="cb51-7" data-line-number="7"><span class="kw">print</span>(m)</a></code></pre></div>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5]
+## [1,]    2    3    4    5    6
+## [2,]    3    4    5    6    7
+## [3,]    4    5    6    7    8
+## [4,]    5    6    7    8    9</code></pre>
+</div>
 </div>
 <div id="-23" class="section level3">
 <h3>Задание №23</h3>
+<div id="-23" class="section level4">
+<h4>Условие</h4>
 <p>Даны числа a и b (a &lt; b). Нужно увеличивать число a на единицу и уменьшать число b на единицу пока число a меньше числа b.</p>
+</div>
+<div id="-22" class="section level4">
+<h4>Решение</h4>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb53-1" data-line-number="1">a &lt;-<span class="st"> </span><span class="dv">5</span></a>
+<a class="sourceLine" id="cb53-2" data-line-number="2">b &lt;-<span class="st"> </span><span class="dv">15</span></a>
+<a class="sourceLine" id="cb53-3" data-line-number="3"><span class="cf">while</span> (a <span class="op">&lt;</span><span class="st"> </span>b) {</a>
+<a class="sourceLine" id="cb53-4" data-line-number="4">  a &lt;-<span class="st"> </span>a <span class="op">+</span><span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb53-5" data-line-number="5">  b &lt;-<span class="st"> </span>b <span class="op">-</span><span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb53-6" data-line-number="6">}</a>
+<a class="sourceLine" id="cb53-7" data-line-number="7"><span class="kw">print</span>(a)</a>
+<a class="sourceLine" id="cb53-8" data-line-number="8"><span class="co">## [1] 10</span></a>
+<a class="sourceLine" id="cb53-9" data-line-number="9"><span class="kw">print</span>(b)</a>
+<a class="sourceLine" id="cb53-10" data-line-number="10"><span class="co">## [1] 10</span></a></code></pre></div>
+</div>
 </div>
 <div id="-24" class="section level3">
 <h3>Задание №24</h3>
+<div id="-24" class="section level4">
+<h4>Условие</h4>
 <p>Дан массив длинны n, состоящий из одних 0. Вы выбираете рандомное число от 1 до n(с помощью функции sample). Это рандомное число показывает индекс элемента массива, который нужно изменить с 0 на 1. После чего вы опять выбираете рандомное число. Это делается до тех пор пока массив не будет состоять из одних 1. Например: был массив с(0,0,0,0). Выпало рандомное число 3. Теперь массив выглядит так : c(0,0,1,0). Вы продолжаете так делать, пока все нули не исчезнут. Нужно также посчитать, сколько раз выбиралось рандомное число.</p>
+</div>
+<div id="-23" class="section level4">
+<h4>Решение</h4>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb54-1" data-line-number="1">n &lt;-<span class="st"> </span><span class="dv">10</span></a>
+<a class="sourceLine" id="cb54-2" data-line-number="2">x &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="dv">0</span>, n) </a>
+<a class="sourceLine" id="cb54-3" data-line-number="3">i &lt;-<span class="st"> </span><span class="dv">0</span> <span class="co"># переменная, отвечающая за количество итераций</span></a>
+<a class="sourceLine" id="cb54-4" data-line-number="4"><span class="cf">while</span> (<span class="kw">sum</span>(x) <span class="op">!=</span><span class="st"> </span>n) {</a>
+<a class="sourceLine" id="cb54-5" data-line-number="5">  k &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span>n, <span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb54-6" data-line-number="6">  x[k] &lt;-<span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb54-7" data-line-number="7">  i &lt;-<span class="st"> </span>i <span class="op">+</span><span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb54-8" data-line-number="8">}</a></code></pre></div>
+</div>
 </div>
 
 
