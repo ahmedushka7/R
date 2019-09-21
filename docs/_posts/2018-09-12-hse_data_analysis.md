@@ -25,11 +25,9 @@ layout: nil
 * Переменные, заданные в функции по умолчанию (дефолтные переменные). Глобальные и локальные переменные.
 * Рекурсия.
 * Онлайн [скрипт](https://ahmedushka7.github.io/R/scripts/hse_data_analysis/sem_3/function.html) занятия.
-
-<!--
 * [Условия заданий](https://ahmedushka7.github.io/R/scripts/hse_data_analysis/sem_3/exercises.html) для отработки.
-* [Решение заданий]() для отработки.
--->
+* [Решение заданий](https://ahmedushka7.github.io/R/scripts/hse_data_analysis/sem_3/exercises_solution.html) для отработки.
+
 
 ### Посиделки № 2 - 3
 
