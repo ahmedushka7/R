@@ -1,0 +1,26 @@
+---
+title: "Недосказанные вещи"
+author: "Ахмедушка"
+date: "9/21/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+for: 
+continue 
+break
+
+readline
+
+if () ... else ...
+for (i in ..) ...
+
+function(x) return(x^2)
+
+x[x>5]
+
+mat
