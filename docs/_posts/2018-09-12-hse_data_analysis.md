@@ -16,13 +16,13 @@ layout: nil
 * [Архив]() с кратким гайдом.
 -->
 
-### Посиделка № 6
+<!--### Посиделка № 6
 
 * Алгоритмы [сортировки](https://ahmedushka7.github.io/R/scripts/hse_data_analysis/sem_4/sorts.html) (необязательно).
 * Классная [визуализация](https://www.youtube.com/watch?v=Gnp8G1_kO3I) сортировок(необязательно).
 * [Книжка про алгоритмы](https://github.com/ahmedushka7/R/raw/master/docs/books/grokaem.PDF.zip) для тех, кто хочет изучить алгоритмы подробнее. Объяснется в ней все очень просто(необязательно).
 * Онлайн [скрипт](https://ahmedushka7.github.io/R/scripts/hse_data_analysis/sem_4/other.html) с дополнительным материалам по программированию в R.
-
+-->
 
 ### Посиделка № 4 - 5
 
