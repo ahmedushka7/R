@@ -1821,16 +1821,16 @@ div.tocify {
 <a class="sourceLine" id="cb24-2" data-line-number="2"><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>) {</a>
 <a class="sourceLine" id="cb24-3" data-line-number="3">  <span class="kw">print</span>(v[i])</a>
 <a class="sourceLine" id="cb24-4" data-line-number="4">}</a></code></pre></div>
-<pre><code>## [1] 5
-## [1] 6
+<pre><code>## [1] 10
 ## [1] 9
 ## [1] 6
-## [1] 8
-## [1] 8
-## [1] 2
-## [1] 2
+## [1] 3
 ## [1] 4
-## [1] 6</code></pre>
+## [1] 5
+## [1] 4
+## [1] 10
+## [1] 6
+## [1] 1</code></pre>
 </div>
 </div>
 <div id="-10" class="section level3">
@@ -1845,14 +1845,14 @@ div.tocify {
 <a class="sourceLine" id="cb26-2" data-line-number="2"><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">5</span><span class="op">:</span><span class="dv">12</span>) {</a>
 <a class="sourceLine" id="cb26-3" data-line-number="3">  <span class="kw">print</span>(v[i])</a>
 <a class="sourceLine" id="cb26-4" data-line-number="4">}</a></code></pre></div>
-<pre><code>## [1] 1
-## [1] 4
-## [1] 1
-## [1] 1
-## [1] 4
+<pre><code>## [1] 4
 ## [1] 8
-## [1] 6
-## [1] 8</code></pre>
+## [1] 10
+## [1] 9
+## [1] 10
+## [1] 1
+## [1] 3
+## [1] 3</code></pre>
 </div>
 </div>
 <div id="-11" class="section level3">
@@ -1867,14 +1867,14 @@ div.tocify {
 <a class="sourceLine" id="cb28-2" data-line-number="2"><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(v)) {</a>
 <a class="sourceLine" id="cb28-3" data-line-number="3">  <span class="kw">print</span>(v[i])</a>
 <a class="sourceLine" id="cb28-4" data-line-number="4">}</a></code></pre></div>
-<pre><code>## [1] 3
-## [1] 2
-## [1] 9
-## [1] 6
+<pre><code>## [1] 8
 ## [1] 1
-## [1] 3
-## [1] 2
-## [1] 7</code></pre>
+## [1] 5
+## [1] 4
+## [1] 6
+## [1] 10
+## [1] 9
+## [1] 6</code></pre>
 </div>
 </div>
 <div id="-12" class="section level3">
@@ -2016,7 +2016,7 @@ div.tocify {
 <a class="sourceLine" id="cb41-9" data-line-number="9">  s2 &lt;-<span class="st"> </span>s2 <span class="op">+</span><span class="st"> </span>x[i]</a>
 <a class="sourceLine" id="cb41-10" data-line-number="10">}</a>
 <a class="sourceLine" id="cb41-11" data-line-number="11"><span class="kw">print</span>(s1 <span class="op">-</span><span class="st"> </span>s2)</a></code></pre></div>
-<pre><code>## [1] 4</code></pre>
+<pre><code>## [1] 2</code></pre>
 </div>
 </div>
 <div id="-19" class="section level3">
@@ -2132,6 +2132,16 @@ div.tocify {
 </div>
 <div id="-22" class="section level4">
 <h4>Решение</h4>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb53-1" data-line-number="1">a &lt;-<span class="st"> </span><span class="dv">5</span></a>
+<a class="sourceLine" id="cb53-2" data-line-number="2">b &lt;-<span class="st"> </span><span class="dv">15</span></a>
+<a class="sourceLine" id="cb53-3" data-line-number="3"><span class="cf">while</span> (a <span class="op">&lt;</span><span class="st"> </span>b) {</a>
+<a class="sourceLine" id="cb53-4" data-line-number="4">  a &lt;-<span class="st"> </span>a <span class="op">+</span><span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb53-5" data-line-number="5">  b &lt;-<span class="st"> </span>b <span class="op">-</span><span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb53-6" data-line-number="6">}</a>
+<a class="sourceLine" id="cb53-7" data-line-number="7"><span class="kw">print</span>(a)</a>
+<a class="sourceLine" id="cb53-8" data-line-number="8"><span class="co">## [1] 10</span></a>
+<a class="sourceLine" id="cb53-9" data-line-number="9"><span class="kw">print</span>(b)</a>
+<a class="sourceLine" id="cb53-10" data-line-number="10"><span class="co">## [1] 10</span></a></code></pre></div>
 </div>
 </div>
 <div id="-24" class="section level3">
@@ -2142,6 +2152,14 @@ div.tocify {
 </div>
 <div id="-23" class="section level4">
 <h4>Решение</h4>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb54-1" data-line-number="1">n &lt;-<span class="st"> </span><span class="dv">10</span></a>
+<a class="sourceLine" id="cb54-2" data-line-number="2">x &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="dv">0</span>, n) </a>
+<a class="sourceLine" id="cb54-3" data-line-number="3">i &lt;-<span class="st"> </span><span class="dv">0</span> <span class="co"># переменная, отвечающая за количество итераций</span></a>
+<a class="sourceLine" id="cb54-4" data-line-number="4"><span class="cf">while</span> (<span class="kw">sum</span>(x) <span class="op">!=</span><span class="st"> </span>n) {</a>
+<a class="sourceLine" id="cb54-5" data-line-number="5">  k &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span>n, <span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb54-6" data-line-number="6">  x[k] &lt;-<span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb54-7" data-line-number="7">  i &lt;-<span class="st"> </span>i <span class="op">+</span><span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb54-8" data-line-number="8">}</a></code></pre></div>
 </div>
 </div>
 

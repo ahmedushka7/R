@@ -6,23 +6,22 @@ category: HSE
 layout: nil
 ---
 
-<!--### Посиделка № 7
+### Посиделка № 7
 
 * [RMarkdown](https://rmarkdown.rstudio.com/). Что это и зачем это нужно?
 * [Опции чанков](https://yihui.name/knitr/options/).
 * Официальный [гайд](https://bookdown.org/yihui/rmarkdown/r-code.html).
 * Краткая [памятка](https://github.com/ahmedushka7/R/raw/master/docs/scripts/hse_data_analysis/sem_5/rmarkdown.pdf).
 * Онлайн [скрипт](https://ahmedushka7.github.io/R/scripts/hse_data_analysis/sem_5/RMarkdown.html) с кратким гайдом.
-* [Архив]() с кратким гайдом.
--->
+* [Архив](https://github.com/ahmedushka7/R/blob/master/docs/scripts/hse_data_analysis/sem_5/sem_5.zip?raw=true) с кратким гайдом.
 
-<!--### Посиделка № 6
+### Посиделка № 6
 
 * Алгоритмы [сортировки](https://ahmedushka7.github.io/R/scripts/hse_data_analysis/sem_4/sorts.html) (необязательно).
 * Классная [визуализация](https://www.youtube.com/watch?v=Gnp8G1_kO3I) сортировок(необязательно).
 * [Книжка про алгоритмы](https://github.com/ahmedushka7/R/raw/master/docs/books/grokaem.PDF.zip) для тех, кто хочет изучить алгоритмы подробнее. Объясняется в ней все очень просто(необязательно).
 * Онлайн [скрипт](https://ahmedushka7.github.io/R/scripts/hse_data_analysis/sem_4/other.html) с дополнительным материалам по программированию в R.
--->
+
 
 ### Посиделка № 4 - 5
 

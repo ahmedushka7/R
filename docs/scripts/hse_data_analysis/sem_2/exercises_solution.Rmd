@@ -575,7 +575,7 @@ print(m)
 
 #### Решение
 
-```{r collapse=TRUE, eval=FALSE, echo=FALSE}
+```{r collapse=TRUE}
 a <- 5
 b <- 15
 while (a < b) {
@@ -594,7 +594,7 @@ print(b)
 
 #### Решение
 
-```{r eval=FALSE, echo=FALSE}
+```{r}
 n <- 10
 x <- rep(0, n) 
 i <- 0 # переменная, отвечающая за количество итераций
