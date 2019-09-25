@@ -6,7 +6,7 @@ library('dplyr')
 # get_token <- GET(url_get_token)
 
 
-token <- 'e7b647367b3ade47903c56fcc673f93d4c186fe1bae19ccd8d6bd8365927ea535c95e98ecae461e1591b9'
+token <- '35ff967c5ae479a991d8e0659a3f9aea7df2ede25dcb895df27aeb219b19474886380d04b1661752c4c22'
 
 method <- 'friends.get'
 url <- paste('https://api.vk.com/method/',
