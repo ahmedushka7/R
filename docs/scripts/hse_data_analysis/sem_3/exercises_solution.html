@@ -1658,7 +1658,7 @@ div.tocify {
 <a class="sourceLine" id="cb6-10" data-line-number="10">}</a>
 <a class="sourceLine" id="cb6-11" data-line-number="11"></a>
 <a class="sourceLine" id="cb6-12" data-line-number="12"><span class="kw">Com</span>(<span class="dv">6</span>)</a></code></pre></div>
-<pre><code>## [1] 19</code></pre>
+<pre><code>## [1] 7</code></pre>
 </div>
 </div>
 <div id="-5" class="section level3">
@@ -1752,6 +1752,34 @@ div.tocify {
 </div>
 <div id="-7" class="section level4">
 <h4>Решение</h4>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1">prinz &lt;-<span class="st"> </span><span class="cf">function</span>(h, m, p, z) {</a>
+<a class="sourceLine" id="cb15-2" data-line-number="2">  current &lt;-<span class="st"> </span><span class="dv">0</span></a>
+<a class="sourceLine" id="cb15-3" data-line-number="3">  <span class="cf">while</span> (h <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span> <span class="op">&amp;&amp;</span><span class="st"> </span>current <span class="op">&lt;</span><span class="st"> </span>m) {</a>
+<a class="sourceLine" id="cb15-4" data-line-number="4">    kick &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">'Ударил :('</span>, <span class="st">'Не ударил :)'</span>), <span class="dt">size =</span> <span class="dv">1</span>, <span class="dt">prob =</span> <span class="kw">c</span>(p, <span class="dv">1</span><span class="op">-</span>p))</a>
+<a class="sourceLine" id="cb15-5" data-line-number="5">    <span class="co"># print(kick)</span></a>
+<a class="sourceLine" id="cb15-6" data-line-number="6">    <span class="cf">if</span> (kick <span class="op">==</span><span class="st"> 'Ударил :('</span>) {</a>
+<a class="sourceLine" id="cb15-7" data-line-number="7">      h &lt;-<span class="st"> </span>h <span class="op">-</span><span class="st"> </span>z</a>
+<a class="sourceLine" id="cb15-8" data-line-number="8">      <span class="cf">if</span> (current <span class="op">!=</span><span class="st"> </span><span class="dv">0</span>) {</a>
+<a class="sourceLine" id="cb15-9" data-line-number="9">        current &lt;-<span class="st"> </span>current <span class="op">-</span><span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb15-10" data-line-number="10">      }</a>
+<a class="sourceLine" id="cb15-11" data-line-number="11">    }<span class="cf">else</span>{</a>
+<a class="sourceLine" id="cb15-12" data-line-number="12">      current &lt;-<span class="st"> </span>current <span class="op">+</span><span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb15-13" data-line-number="13">    }</a>
+<a class="sourceLine" id="cb15-14" data-line-number="14">    <span class="co"># print(paste('Здоровья осталось', h))</span></a>
+<a class="sourceLine" id="cb15-15" data-line-number="15">    <span class="co"># print(paste('Ступенька', current))</span></a>
+<a class="sourceLine" id="cb15-16" data-line-number="16">    <span class="co"># print('--------------------')</span></a>
+<a class="sourceLine" id="cb15-17" data-line-number="17">    <span class="co"># readline('Нажмите Enter:')</span></a>
+<a class="sourceLine" id="cb15-18" data-line-number="18">  }</a>
+<a class="sourceLine" id="cb15-19" data-line-number="19"></a>
+<a class="sourceLine" id="cb15-20" data-line-number="20">  <span class="cf">if</span> (h <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>){</a>
+<a class="sourceLine" id="cb15-21" data-line-number="21">    <span class="kw">return</span>(<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb15-22" data-line-number="22">  }<span class="cf">else</span>{</a>
+<a class="sourceLine" id="cb15-23" data-line-number="23">    <span class="kw">return</span>(<span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb15-24" data-line-number="24">  }</a>
+<a class="sourceLine" id="cb15-25" data-line-number="25">}</a>
+<a class="sourceLine" id="cb15-26" data-line-number="26"></a>
+<a class="sourceLine" id="cb15-27" data-line-number="27"><span class="kw">prinz</span>(<span class="dv">100</span>, <span class="dv">50</span>, <span class="fl">0.25</span>, <span class="dv">5</span>) <span class="co"># хорошие параметры</span></a></code></pre></div>
+<pre><code>## [1] 0</code></pre>
 </div>
 </div>
 <div id="-9" class="section level3">
@@ -1770,6 +1798,13 @@ P = \frac{m}{n},
 </div>
 <div id="-8" class="section level4">
 <h4>Решение</h4>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1">n &lt;-<span class="st"> </span><span class="dv">100</span> <span class="co"># количество игр</span></a>
+<a class="sourceLine" id="cb17-2" data-line-number="2">m &lt;-<span class="st"> </span><span class="dv">0</span> <span class="co"># </span></a>
+<a class="sourceLine" id="cb17-3" data-line-number="3"><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>n) {</a>
+<a class="sourceLine" id="cb17-4" data-line-number="4">  m &lt;-<span class="st"> </span>m <span class="op">+</span><span class="st"> </span><span class="kw">prinz</span>(<span class="dv">100</span>, <span class="dv">50</span>, <span class="fl">0.25</span>, <span class="dv">5</span>) <span class="co"># функция равна 1(победа) или 0(проигрыш)</span></a>
+<a class="sourceLine" id="cb17-5" data-line-number="5">}</a>
+<a class="sourceLine" id="cb17-6" data-line-number="6"><span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;Вероятность победы:&quot;</span>, m<span class="op">/</span>n))</a></code></pre></div>
+<pre><code>## [1] &quot;Вероятность победы: 0.34&quot;</code></pre>
 </div>
 </div>
 

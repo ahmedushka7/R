@@ -215,12 +215,12 @@ m <- sample(x = c('Орел', 'Решка'), size = 1, prob = c(0.7, 0.3))
 
 #### Решение
 
-```{r echo=FALSE, eval=FALSE}
+```{r}
 prinz <- function(h, m, p, z) {
   current <- 0
   while (h > 0 && current < m) {
     kick <- sample(c('Ударил :(', 'Не ударил :)'), size = 1, prob = c(p, 1-p))
-    print(kick)
+    # print(kick)
     if (kick == 'Ударил :(') {
       h <- h - z
       if (current != 0) {
@@ -229,9 +229,9 @@ prinz <- function(h, m, p, z) {
     }else{
       current <- current + 1
     }
-    print(paste('Здоровья осталось', h))
-    print(paste('Ступенька', current))
-    print('--------------------')
+    # print(paste('Здоровья осталось', h))
+    # print(paste('Ступенька', current))
+    # print('--------------------')
     # readline('Нажмите Enter:')
   }
 
@@ -263,7 +263,7 @@ Hint:
 
 #### Решение
 
-```{r echo=FALSE, eval=FALSE}
+```{r }
 n <- 100 # количество игр
 m <- 0 # 
 for (i in 1:n) {
