@@ -6,6 +6,20 @@ category: HSE
 layout: nil
 ---
 
+<!---
+### Посиделка № ?
+
+* Официальный [гайд](https://dplyr.tidyverse.org/articles/dplyr.html#single-table-verbs) по  dplyr.
+* [Все](https://rpubs.com/williamsurles/293454) про join.
+-->
+
+
+<!---
+### Посиделка № 8 - 9
+
+* [Базовая визуализация в R](https://rstudio-pubs-static.s3.amazonaws.com/7953_4e3efd5b9415444ca065b1167862c349.html) (необязательно).
+-->
+
 ### Посиделка № 7
 
 * [RMarkdown](https://rmarkdown.rstudio.com/). Что это и зачем это нужно?
@@ -15,6 +29,8 @@ layout: nil
 * Онлайн [скрипт](https://ahmedushka7.github.io/R/scripts/hse_data_analysis/sem_5/RMarkdown.html) с кратким гайдом.
 * [Архив](https://github.com/ahmedushka7/R/blob/master/docs/scripts/hse_data_analysis/sem_5/sem_5.zip?raw=true) с кратким гайдом.
 
+---
+
 ### Посиделка № 6
 
 * Алгоритмы [сортировки](https://ahmedushka7.github.io/R/scripts/hse_data_analysis/sem_4/sorts.html) (необязательно).
@@ -22,6 +38,7 @@ layout: nil
 * [Книжка про алгоритмы](https://github.com/ahmedushka7/R/raw/master/docs/books/grokaem.PDF.zip) для тех, кто хочет изучить алгоритмы подробнее. Объясняется в ней все очень просто(необязательно).
 * Онлайн [скрипт](https://ahmedushka7.github.io/R/scripts/hse_data_analysis/sem_4/other.html) с дополнительным материалам по программированию в R.
 
+---
 
 ### Посиделка № 4 - 5
 
@@ -32,6 +49,7 @@ layout: nil
 * [Условия заданий](https://ahmedushka7.github.io/R/scripts/hse_data_analysis/sem_3/exercises.html) для отработки.
 * [Решение заданий](https://ahmedushka7.github.io/R/scripts/hse_data_analysis/sem_3/exercises_solution.html) для отработки.
 
+---
 
 ### Посиделки № 2 - 3
 
@@ -42,6 +60,7 @@ layout: nil
 * [Условия заданий](https://ahmedushka7.github.io/R/scripts/hse_data_analysis/sem_2/exercises.html) для отработки.
 * [Решение заданий](https://ahmedushka7.github.io/R/scripts/hse_data_analysis/sem_2/exercises_solution.html) для отработки.
 
+---
 
 ### Посиделка № 1 
 

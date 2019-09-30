@@ -1401,7 +1401,6 @@ code {
 }
 img {
   max-width:100%;
-  height: auto;
 }
 .tabbed-pane {
   padding-top: 12px;
@@ -1567,6 +1566,7 @@ div.tocify {
 </div>
 
 
+<hr />
 <div id="-" class="section level3">
 <h3>Управляющие конструкции</h3>
 <p>Познакомимся теперь с управляющими конструкциями, которые упрощают работу в написании кода, а также помогают писать очень сложный код.</p>
@@ -1747,14 +1747,14 @@ div.tocify {
 <p>Чтобы понять, зачем нужен цикл <code>for</code>, представьте, что вас попросили увеличить первые 5 значений массива. С текущими знаниями мы бы сделали это следующим образом:</p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1">v &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dt">x =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">size =</span> <span class="dv">15</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)</a>
 <a class="sourceLine" id="cb20-2" data-line-number="2">v</a></code></pre></div>
-<pre><code>##  [1]  9  3  3  2  3  5  8  5  9  1  8  7  8 10  3</code></pre>
+<pre><code>##  [1]  2  8 10  7  6  3  5 10  9  4  8  1  4  4  3</code></pre>
 <div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1">v[<span class="dv">1</span>] &lt;-<span class="st"> </span>v[<span class="dv">1</span>] <span class="op">+</span><span class="st"> </span><span class="dv">1</span></a>
 <a class="sourceLine" id="cb22-2" data-line-number="2">v[<span class="dv">2</span>] &lt;-<span class="st"> </span>v[<span class="dv">2</span>] <span class="op">+</span><span class="st"> </span><span class="dv">1</span></a>
 <a class="sourceLine" id="cb22-3" data-line-number="3">v[<span class="dv">3</span>] &lt;-<span class="st"> </span>v[<span class="dv">3</span>] <span class="op">+</span><span class="st"> </span><span class="dv">1</span></a>
 <a class="sourceLine" id="cb22-4" data-line-number="4">v[<span class="dv">4</span>] &lt;-<span class="st"> </span>v[<span class="dv">4</span>] <span class="op">+</span><span class="st"> </span><span class="dv">1</span></a>
 <a class="sourceLine" id="cb22-5" data-line-number="5">v[<span class="dv">5</span>] &lt;-<span class="st"> </span>v[<span class="dv">5</span>] <span class="op">+</span><span class="st"> </span><span class="dv">1</span></a>
 <a class="sourceLine" id="cb22-6" data-line-number="6">v</a></code></pre></div>
-<pre><code>##  [1] 10  4  4  3  4  5  8  5  9  1  8  7  8 10  3</code></pre>
+<pre><code>##  [1]  3  9 11  8  7  3  5 10  9  4  8  1  4  4  3</code></pre>
 <p>Код выглядит большим и некрасивым. А вдруг нас попросили бы это сделать для 1000 значений? Можно заметить, что в наших действиях менялся только индекс массива, остальное оставалось тем же. Этот индекс можно сделать переменной, которая меняется после выполнения действия. Преобразуем код.</p>
 <div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1">k &lt;-<span class="st"> </span><span class="dv">1</span></a>
 <a class="sourceLine" id="cb24-2" data-line-number="2">v[k] &lt;-<span class="st"> </span>v[k] <span class="op">+</span><span class="st"> </span><span class="dv">1</span></a>
@@ -1788,12 +1788,12 @@ div.tocify {
 <li>Выполняем <code>v[k] &lt;- v[k] + 1</code>.</li>
 </ul>
 <div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" data-line-number="1">v</a></code></pre></div>
-<pre><code>##  [1] 11  5  5  4  5  5  8  5  9  1  8  7  8 10  3</code></pre>
+<pre><code>##  [1]  4 10 12  9  8  3  5 10  9  4  8  1  4  4  3</code></pre>
 <div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" data-line-number="1"><span class="cf">for</span> (k <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>) {</a>
 <a class="sourceLine" id="cb28-2" data-line-number="2">  v[k] &lt;-<span class="st"> </span>v[k] <span class="op">+</span><span class="st"> </span><span class="dv">1</span></a>
 <a class="sourceLine" id="cb28-3" data-line-number="3">}</a>
 <a class="sourceLine" id="cb28-4" data-line-number="4">v</a></code></pre></div>
-<pre><code>##  [1] 12  6  6  5  6  5  8  5  9  1  8  7  8 10  3</code></pre>
+<pre><code>##  [1]  5 11 13 10  9  3  5 10  9  4  8  1  4  4  3</code></pre>
 <p>Принцип такой: переменная принимает значение, выполняется тело цикла с этим значением переменной, переменная принимает следующее значение, выполняется тело цикла с новым значением переменной и так продолжается пока переменная не пройдет по всем значениям. Тело цикло может состоять из неограниченного количества действий.</p>
 <div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" data-line-number="1"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>){</a>
 <a class="sourceLine" id="cb30-2" data-line-number="2">  <span class="kw">print</span>(i)</a>

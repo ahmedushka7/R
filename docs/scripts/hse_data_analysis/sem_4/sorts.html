@@ -1401,7 +1401,6 @@ code {
 }
 img {
   max-width:100%;
-  height: auto;
 }
 .tabbed-pane {
   padding-top: 12px;
@@ -1567,6 +1566,7 @@ div.tocify {
 </div>
 
 
+<hr />
 <div class="section level3">
 <h3>Задача</h3>
 <p>Дан массив, нужно отсортировать его элементы. Существует достаточно большое количество сортировок. Отличаются они друг от друга скоростью выполнения. Мы рассмотрим одну из самых медленных, но самую понятную в реализации сортировку. Она называется сортировкой пузырьком.</p>
@@ -1594,9 +1594,9 @@ div.tocify {
 <a class="sourceLine" id="cb1-13" data-line-number="13">}</a>
 <a class="sourceLine" id="cb1-14" data-line-number="14">x &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>,<span class="dv">10</span>)</a>
 <a class="sourceLine" id="cb1-15" data-line-number="15"><span class="kw">print</span>(x)</a></code></pre></div>
-<pre><code>##  [1] 21 72 14 78 30 70 46  6 95 77</code></pre>
+<pre><code>##  [1] 59  8 91 33 78 48  1 24 15 99</code></pre>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">print</span>(<span class="kw">bubble_sort</span>(x))</a></code></pre></div>
-<pre><code>##  [1]  6 14 21 30 46 70 72 77 78 95</code></pre>
+<pre><code>##  [1]  1  8 15 24 33 48 59 78 91 99</code></pre>
 <p>Рассмотрим также реализации других алгоритмов сортировки.</p>
 </div>
 <div id="-" class="section level3">
@@ -1631,9 +1631,9 @@ div.tocify {
 <a class="sourceLine" id="cb5-15" data-line-number="15"></a>
 <a class="sourceLine" id="cb5-16" data-line-number="16">x &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="op">-</span><span class="dv">500</span><span class="op">:</span><span class="dv">500</span>, <span class="dt">size =</span> <span class="dv">8</span>)</a>
 <a class="sourceLine" id="cb5-17" data-line-number="17"><span class="kw">print</span>(x)</a></code></pre></div>
-<pre><code>## [1]  245  -29  382 -341   72 -363  111 -219</code></pre>
+<pre><code>## [1]  481  408 -119  208 -214  156  479  384</code></pre>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">selection</span>(x)</a></code></pre></div>
-<pre><code>## [1] -363 -341 -219  -29   72  111  245  382</code></pre>
+<pre><code>## [1] -214 -119  156  208  384  408  479  481</code></pre>
 </div>
 <div id="-" class="section level3">
 <h3>Сортировка вставками</h3>
@@ -1659,11 +1659,11 @@ div.tocify {
 <a class="sourceLine" id="cb9-16" data-line-number="16"></a>
 <a class="sourceLine" id="cb9-17" data-line-number="17">x &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>,<span class="dv">30</span>)</a>
 <a class="sourceLine" id="cb9-18" data-line-number="18"><span class="kw">print</span>(x)</a></code></pre></div>
-<pre><code>##  [1] 17 93 25 59 29 27 53 35 88 72  1 36 37  3 82 90 28 12 41 81 11 18 99
-## [24] 86 42 83 33 24 20 47</code></pre>
+<pre><code>##  [1]  9 15 63 46 76 95 43 51 82 70 88 40 16 29 74 44 57 73 87 53 97 18 50
+## [24] 84 72  8 34 91  1 66</code></pre>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="kw">print</span>(<span class="kw">insertion</span>(x))</a></code></pre></div>
-<pre><code>##  [1]  1  3 11 12 17 18 20 24 25 27 28 29 33 35 36 37 41 42 47 53 59 72 81
-## [24] 82 83 86 88 90 93 99</code></pre>
+<pre><code>##  [1]  1  8  9 15 16 18 29 34 40 43 44 46 50 51 53 57 63 66 70 72 73 74 76
+## [24] 82 84 87 88 91 95 97</code></pre>
 </div>
 <div id="-" class="section level3">
 <h3>Сортировка слиянием</h3>
@@ -1704,11 +1704,11 @@ div.tocify {
 <a class="sourceLine" id="cb13-24" data-line-number="24"></a>
 <a class="sourceLine" id="cb13-25" data-line-number="25">x &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>,<span class="dv">30</span>)</a>
 <a class="sourceLine" id="cb13-26" data-line-number="26"><span class="kw">print</span>(x)</a></code></pre></div>
-<pre><code>##  [1] 49  6 38 48 23 66 13 87 45 52 28 56 90 22  5 96 91 60 93 25 15 39 88
-## [24] 37 76 55 34 43 98 80</code></pre>
+<pre><code>##  [1] 51 49 65 73 67 91 83 53 22 18  6 31 82 56 12 89 26 41 52 94 77 10 90
+## [24] 55 29 74  1 32 79 58</code></pre>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="kw">print</span>(<span class="kw">mergeSORT</span>(x))</a></code></pre></div>
-<pre><code>##  [1]  5  6 13 15 22 23 25 28 34 37 38 39 43 45 48 49 52 55 56 60 66 76 80
-## [24] 87 88 90 91 93 96 98</code></pre>
+<pre><code>##  [1]  1  6 10 12 18 22 26 29 31 32 41 49 51 52 53 55 56 58 65 67 73 74 77
+## [24] 79 82 83 89 90 91 94</code></pre>
 </div>
 
 
