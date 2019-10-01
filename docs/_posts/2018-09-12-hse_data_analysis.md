@@ -11,14 +11,18 @@ layout: nil
 
 * Официальный [гайд](https://dplyr.tidyverse.org/articles/dplyr.html#single-table-verbs) по  dplyr.
 * [Все](https://rpubs.com/williamsurles/293454) про join.
+
+* [Data Science за 5 минут](https://www.youtube.com/watch?v=X3paOmcrTjQ).
 -->
 
 
-<!---
+
 ### Посиделка № 8 - 9
 
 * [Базовая визуализация в R](https://rstudio-pubs-static.s3.amazonaws.com/7953_4e3efd5b9415444ca065b1167862c349.html) (необязательно).
--->
+* Онлайн [скрипт](https://ahmedushka7.github.io/R/scripts/hse_data_analysis/sem_6/intro_to_ds.html) занятия.
+
+---
 
 ### Посиделка № 7
 
