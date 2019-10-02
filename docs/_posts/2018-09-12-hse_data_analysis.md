@@ -21,7 +21,7 @@ layout: nil
 
 * [Базовая визуализация в R](https://rstudio-pubs-static.s3.amazonaws.com/7953_4e3efd5b9415444ca065b1167862c349.html) (необязательно).
 * Онлайн [скрипт](https://ahmedushka7.github.io/R/scripts/hse_data_analysis/sem_6/intro_to_ds.html) занятия.
-
+* [Презентация](https://ahmedushka7.github.io/R/scripts/hse_data_analysis/sem_6/presenatation/presa.pdf) "Введение в анализ данных"
 ---
 
 ### Посиделка № 7

@@ -1,0 +1,15 @@
+---
+title: "Correlation and Regression"
+author: "Ахмедушка"
+date: "10/2/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+[Курc](https://www.datacamp.com/courses/correlation-and-regression)
+
+###
+
