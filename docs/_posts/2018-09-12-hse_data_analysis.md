@@ -12,16 +12,26 @@ layout: nil
 * Официальный [гайд](https://dplyr.tidyverse.org/articles/dplyr.html#single-table-verbs) по  dplyr.
 * [Все](https://rpubs.com/williamsurles/293454) про join.
 
-* [Data Science за 5 минут](https://www.youtube.com/watch?v=X3paOmcrTjQ).
+
 -->
 
 
+### Посиделка № 10 - 11
+
+* Импорт данных. Откуда можно импортировать данные?
+* Форматы .csv, .txt, .xlsx, .xls.
+* Онлайн [скрипт](https://ahmedushka7.github.io/R/scripts/hse_data_analysis/sem_7/import.html) занятия.
+* [Условия заданий](https://ahmedushka7.github.io/R/scripts/hse_data_analysis/sem_7/exercises.html) для отработки.
+* [Решение заданий](https://ahmedushka7.github.io/R/scripts/hse_data_analysis/sem_7/exercises_solution.html) для отработки.
+
+---
 
 ### Посиделка № 8 - 9
 
 * [Базовая визуализация в R](https://rstudio-pubs-static.s3.amazonaws.com/7953_4e3efd5b9415444ca065b1167862c349.html) (необязательно).
-* Онлайн [скрипт](https://ahmedushka7.github.io/R/scripts/hse_data_analysis/sem_6/intro_to_ds.html) занятия.
 * [Презентация](https://github.com/ahmedushka7/R/raw/master/docs/scripts/hse_data_analysis/sem_6/presentation/presa.pdf) "Введение в анализ данных"
+* [Data Science за 5 минут](https://www.youtube.com/watch?v=X3paOmcrTjQ).
+* Онлайн [скрипт](https://ahmedushka7.github.io/R/scripts/hse_data_analysis/sem_6/intro_to_ds.html) занятия.
 * [Условия заданий](https://ahmedushka7.github.io/R/scripts/hse_data_analysis/sem_6/exercises.html) для отработки.
 * [Решение заданий](https://ahmedushka7.github.io/R/scripts/hse_data_analysis/sem_6/exercises_solution.html) для отработки.
 
