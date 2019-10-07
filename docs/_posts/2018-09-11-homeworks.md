@@ -37,8 +37,8 @@ __Правила игры:__
     <td> Домашняя работа №1 </td>
     <td> <a href="https://ahmedushka7.github.io/R/homeworks/hw1/hw1.html" target="_blank"> Условия задач и материалы</a> </td>
     <td> <a href="" target="_blank"> Решение задач </a> </td>
-    <td> 08.10.2019 23:59 </td>
-    <td> 11.10.2019 23:59 </td>
+    <td> 10.10.2019 23:59 </td>
+    <td> 13.10.2019 23:59 </td>
   </tr>
   <tr>
     <td> 1 </td>
