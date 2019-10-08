@@ -1812,64 +1812,89 @@ div.tocify {
 <p>Или можно просто пропустить 1 строку.</p>
 <div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" data-line-number="1">data &lt;-<span class="st"> </span><span class="kw">read_csv2</span>(<span class="st">'data/friends2.csv'</span>, <span class="dt">skip =</span> <span class="dv">1</span>,</a>
 <a class="sourceLine" id="cb34-2" data-line-number="2">                  <span class="dt">col_names =</span> <span class="kw">c</span>(<span class="st">'Name'</span>, <span class="st">'Age'</span>, <span class="st">'Gender'</span>, <span class="st">'Birthday'</span>, <span class="st">'Homework grade'</span>))</a></code></pre></div>
-<p>Функции этого пакета определяют тип переменных в столбце следующим образом: они берут первые 1000 наблюдений и используют к нему функцию <code>guess_parser</code>, которая определяет к какому типу относится переменная.</p>
-<p>ПРО ЭТУ ФУНКЦИЮ, НЕМНОГО ПРИМЕРОВ</p>
+<p>Функции этого пакета определяют тип переменных в столбце следующим образом: они берут первые 1000 наблюдений и используют к нему функцию <code>guess_parser()</code>, которая определяет к какому типу относится переменная. А функция <code>parse_guess()</code> преобразовывает вектор к нужному типу.</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" data-line-number="1"><span class="kw">guess_parser</span>(<span class="kw">c</span>(<span class="st">&quot;True&quot;</span>, <span class="st">&quot;False&quot;</span>))</a></code></pre></div>
+<pre><code>## [1] &quot;logical&quot;</code></pre>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" data-line-number="1"><span class="kw">parse_guess</span>(<span class="kw">c</span>(<span class="st">&quot;True&quot;</span>, <span class="st">&quot;False&quot;</span>))</a></code></pre></div>
+<pre><code>## [1]  TRUE FALSE</code></pre>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" data-line-number="1"><span class="kw">guess_parser</span>(<span class="kw">c</span>(<span class="st">&quot;1.2&quot;</span>, <span class="st">&quot;2.12&quot;</span>))</a></code></pre></div>
+<pre><code>## [1] &quot;double&quot;</code></pre>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb41-1" data-line-number="1"><span class="kw">parse_guess</span>(<span class="kw">c</span>(<span class="st">&quot;1.2&quot;</span>, <span class="st">&quot;2.12&quot;</span>))</a></code></pre></div>
+<pre><code>## [1] 1.20 2.12</code></pre>
 </div>
 <div id="-" class="section level4">
 <h4>Скорость работы</h4>
 <p>Давайте проверим сокрость этого пакета. С помощью функции <code>Sys.time()</code> будем измерять время загрузки файла. Будем использовать файл <em>nir.csv</em>. В нем имеются данные о российских корпоративных облигациях. Весит этот файл 50 мегабайт. Это средний размер файла, но уже здесь мы почувствуем разницу.</p>
 <p>Посчитаем время использования функции <code>read.csv()</code>:</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" data-line-number="1">start &lt;-<span class="st"> </span><span class="kw">Sys.time</span>()</a>
-<a class="sourceLine" id="cb35-2" data-line-number="2">data &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">'data/nir.csv'</span>)</a>
-<a class="sourceLine" id="cb35-3" data-line-number="3">finish &lt;-<span class="st"> </span><span class="kw">Sys.time</span>()</a>
-<a class="sourceLine" id="cb35-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb35-5" data-line-number="5"><span class="kw">print</span>(finish<span class="op">-</span>start)</a></code></pre></div>
-<pre><code>## Time difference of 17.37396 secs</code></pre>
-<p>Видим приблизительно 17.37 секунды. Представьте, что вы меняете и запускаете код постоянно. Хотелось бы, чтобы загрузка занимала меньше времени.</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb43-1" data-line-number="1">start &lt;-<span class="st"> </span><span class="kw">Sys.time</span>()</a>
+<a class="sourceLine" id="cb43-2" data-line-number="2">data &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">'data/nir.csv'</span>)</a>
+<a class="sourceLine" id="cb43-3" data-line-number="3">finish &lt;-<span class="st"> </span><span class="kw">Sys.time</span>()</a>
+<a class="sourceLine" id="cb43-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb43-5" data-line-number="5"><span class="kw">print</span>(finish<span class="op">-</span>start)</a></code></pre></div>
+<pre><code>## Time difference of 16.44595 secs</code></pre>
+<p>Видим приблизительно 16.45 секунды. Представьте, что вы меняете и запускаете код постоянно. Хотелось бы, чтобы загрузка занимала меньше времени.</p>
 <p>Теперь посчитаем время использования аналогичной функции <code>read_csv()</code> из пакета <code>readr</code>:</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" data-line-number="1">start &lt;-<span class="st"> </span><span class="kw">Sys.time</span>()</a>
-<a class="sourceLine" id="cb37-2" data-line-number="2">data &lt;-<span class="st"> </span><span class="kw">read_csv2</span>(<span class="st">'data/nir.csv'</span>)</a>
-<a class="sourceLine" id="cb37-3" data-line-number="3">finish &lt;-<span class="st"> </span><span class="kw">Sys.time</span>()</a>
-<a class="sourceLine" id="cb37-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb37-5" data-line-number="5"><span class="kw">print</span>(finish<span class="op">-</span>start)</a></code></pre></div>
-<pre><code>## Time difference of 0.9795208 secs</code></pre>
-<p>Время уменьшилось до 0.98 секунд!</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb45-1" data-line-number="1">start &lt;-<span class="st"> </span><span class="kw">Sys.time</span>()</a>
+<a class="sourceLine" id="cb45-2" data-line-number="2">data &lt;-<span class="st"> </span><span class="kw">read_csv2</span>(<span class="st">'data/nir.csv'</span>)</a>
+<a class="sourceLine" id="cb45-3" data-line-number="3">finish &lt;-<span class="st"> </span><span class="kw">Sys.time</span>()</a>
+<a class="sourceLine" id="cb45-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb45-5" data-line-number="5"><span class="kw">print</span>(finish<span class="op">-</span>start)</a></code></pre></div>
+<pre><code>## Time difference of 0.8353369 secs</code></pre>
+<p>Время уменьшилось до 0.84 секунд!</p>
 </div>
 <div id="--" class="section level4">
 <h4>Проблемы больших файлов</h4>
 <p>В больших файлах иногда бывают проблемы. Например, первые 1000 значений <code>NA</code>. А с 1001 идут вещественные числа. Столбцу дадут тип <code>logical</code>. Можно увеличить количество значений с помощью аргумента <code>guess_max</code>.</p>
-<p>ПРИМЕР И СКАЗАТЬ,ЧТО ЕСЛИ МНОГО ПРОБЛЕМНЫХ МЕСТ, ТО ЛУЧШЕ ВСЕ ПЕРЕМЕННЫЕ ПРОЧИТАТЬ КАК СТРОКОВЫЕ ИЛИ КАКИЕ-ТО ОПРЕДЕЛЕННЫЕ</p>
-<p>Можно увидеть, что появились предупреждения. Это связано с проблемой описанной выше. Эту проблему можно исправить с помощью парметра <code>col_types</code>.</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" data-line-number="1">data &lt;-<span class="st"> </span><span class="kw">read_csv2</span>(<span class="st">'data/nir.csv'</span>, <span class="dt">col_types =</span> <span class="kw">cols</span>(</a>
-<a class="sourceLine" id="cb39-2" data-line-number="2">                                <span class="dt">YLD_YTM_MID =</span> <span class="kw">col_double</span>() ,</a>
-<a class="sourceLine" id="cb39-3" data-line-number="3">                                <span class="dt">YLD_CNV_MID =</span> <span class="kw">col_double</span>()</a>
-<a class="sourceLine" id="cb39-4" data-line-number="4">                  ))</a></code></pre></div>
+<p>Можно увидеть, что появились предупреждения. Это связано с проблемой описанной выше. Эту проблему можно исправить с помощью парметра <code>col_types</code>. С помощью него можно явно задать какого формата наша переменная.</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb47-1" data-line-number="1">data &lt;-<span class="st"> </span><span class="kw">read_csv2</span>(<span class="st">'data/nir.csv'</span>, <span class="dt">col_types =</span> <span class="kw">cols</span>(</a>
+<a class="sourceLine" id="cb47-2" data-line-number="2">                                <span class="dt">YLD_YTM_MID =</span> <span class="kw">col_double</span>() ,</a>
+<a class="sourceLine" id="cb47-3" data-line-number="3">                                <span class="dt">YLD_CNV_MID =</span> <span class="kw">col_double</span>()</a>
+<a class="sourceLine" id="cb47-4" data-line-number="4">                  ))</a></code></pre></div>
+<p>Иногда проблемных мест бывает очень много. Поэтому бывает полезно прочитать все переменные как строковые.</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" data-line-number="1">data &lt;-<span class="st"> </span><span class="kw">read_csv2</span>(<span class="st">'data/nir.csv'</span>, <span class="dt">col_types =</span> <span class="kw">cols</span>(<span class="dt">.default =</span> <span class="kw">col_character</span>()))</a></code></pre></div>
 </div>
 <div id="-" class="section level4">
 <h4>Пропущенные значения</h4>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb40-1" data-line-number="1"><span class="co"># в readr na = c(&quot;&quot;, &quot;NA&quot;)  # можно увеличить этот параметр</span></a>
-<a class="sourceLine" id="cb40-2" data-line-number="2"><span class="co"># # Filter rows where showstopper is UNKNOWN </span></a>
-<a class="sourceLine" id="cb40-3" data-line-number="3"><span class="co"># bakeoff %&gt;% </span></a>
-<a class="sourceLine" id="cb40-4" data-line-number="4"><span class="co">#   filter(showstopper == &quot;UNKNOWN&quot;)</span></a>
-<a class="sourceLine" id="cb40-5" data-line-number="5"><span class="co"># </span></a>
-<a class="sourceLine" id="cb40-6" data-line-number="6"><span class="co"># # Edit to add list of missing values</span></a>
-<a class="sourceLine" id="cb40-7" data-line-number="7"><span class="co"># bakeoff &lt;- read_csv(&quot;bakeoff.csv&quot;, skip = 1,</span></a>
-<a class="sourceLine" id="cb40-8" data-line-number="8"><span class="co">#                     na = c(&quot;&quot;, &quot;NA&quot;, &quot;UNKNOWN&quot;))</span></a>
-<a class="sourceLine" id="cb40-9" data-line-number="9"><span class="co"># </span></a>
-<a class="sourceLine" id="cb40-10" data-line-number="10"><span class="co"># # Filter rows where showstopper is NA </span></a>
-<a class="sourceLine" id="cb40-11" data-line-number="11"><span class="co"># bakeoff %&gt;% filter(is.na(showstopper))</span></a></code></pre></div>
+<p>Почти в любых наборах данных, которые приходится импортировать бывают пропущенные значения. По умолчанию функция <code>read_csv()</code> считает пропущенными значениями &quot;&quot; и “NA”. Это можно исправить с помощью аругмента <code>na</code>. Представьте, что в наборе данных пропущенные значения помечаются как “UNKNOWN”, “NA” и &quot;&quot;. Тогда можно преобразовать их следующим образом.</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb49-1" data-line-number="1">data &lt;-<span class="st"> </span><span class="kw">read_csv2</span>(<span class="st">'data/friends_na.csv'</span>, <span class="dt">na =</span> <span class="kw">c</span>(<span class="st">&quot;&quot;</span>, <span class="st">&quot;NA&quot;</span>, <span class="st">&quot;UNKNOWN&quot;</span>), <span class="dt">col_names =</span> F)</a></code></pre></div>
 </div>
 <div id="---" class="section level4">
 <h4>Подгрузка файлов из интернета</h4>
-<p>read_csv(url)</p>
+<p>Можно подгружать файлы из интернета по url.</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb50-1" data-line-number="1">data &lt;-<span class="st"> </span><span class="kw">read_csv2</span>(<span class="st">'https://raw.githubusercontent.com/ahmedushka7/R/master/docs/scripts/hse_data_analysis/sem_7/data/friends.csv'</span>, <span class="dt">col_names =</span> F)</a>
+<a class="sourceLine" id="cb50-2" data-line-number="2">data</a></code></pre></div>
+<pre><code>## # A tibble: 4 x 5
+##   X1       X2 X3    X4                  X5
+##   &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;            &lt;dbl&gt;
+## 1 Jack     19 M     10 May 2000        7.6
+## 2 Emma     21 F     22 February 1998   8.9
+## 3 Henry    18 M     3 September 2001   8  
+## 4 Aria     20 F     26 June 1999       9.3</code></pre>
 </div>
 <div id="-" class="section level4">
 <h4>Экспорт данных</h4>
-<p>write_csv</p>
+<p>Данные нужно уметь не только импортировать, но и экспортировать. Для этого можно использовать функцию <code>write_csv()</code>. У нее имеется два важных аргумента:</p>
+<ul>
+<li><code>x</code> – датасет (<em>data frame</em>), который у вас есть в памяти</li>
+<li><code>path</code> – путь и название файла (если оставить только название файла, то файл сохранится в текущей директории)</li>
+</ul>
+<p>Давайте сохраним набор <code>mtcars</code>.</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb52-1" data-line-number="1"><span class="kw">write_csv</span>(mtcars, <span class="st">'data/mtcars.csv'</span>)</a></code></pre></div>
+<p>Если вы планируете работать с вашим <em>.csv</em> файлом далее в <em>excel</em>, то рекомендуется использовать функцию <code>write_excel_csv()</code>, чтобы избежать проблем с кодировкой. Она работает аналогично функции <code>write_csv</code>.</p>
+<p>Также существует функция <code>write_csv2()</code>, которая сохраняет файл с разделителем <code>&quot;;&quot;</code>.</p>
+<p>В этих функциях можно также передать аргумент <code>na</code>, в котором можно указать как должны выглядеть пропущенные значения в сохраняемом файле.</p>
 </div>
+<div class="section level4">
+<h4>Кодировка</h4>
+<p>Пакет <code>readr</code> по умолчанию работает с кодировкой UTF-8. Если вы работаете со старым файлом, у которого другая кодировка, то вы можете использовать функцию <code>guess_encoding()</code>, которая может помочь узнать кодировку.</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb53-1" data-line-number="1"><span class="kw">guess_encoding</span>(<span class="st">&quot;data/mtcars.csv&quot;</span>)</a></code></pre></div>
+<pre><code>## # A tibble: 1 x 2
+##   encoding confidence
+##   &lt;chr&gt;         &lt;dbl&gt;
+## 1 ASCII             1</code></pre>
+<p>После того как вы узнали кодировку, вы можете передать ее в аргумент <code>locale</code>.</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb55-1" data-line-number="1">data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/mtcars.csv&quot;</span>, <span class="dt">locale =</span> <span class="kw">locale</span>(<span class="dt">encoding =</span> <span class="st">'ASCII'</span>))</a></code></pre></div>
 </div>
-<div id="-rio" class="section level3">
-<h3>Пакет rio</h3>
 </div>
 
 

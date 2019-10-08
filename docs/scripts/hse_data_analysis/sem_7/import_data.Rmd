@@ -13,7 +13,7 @@ editor_options:
 ---
 ---
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, error=FALSE, warning = FALSE, message = FALSE)
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
 ```
 
 ### Импорт данных
@@ -235,9 +235,15 @@ data <- read_csv2('data/friends2.csv', skip = 1,
                   col_names = c('Name', 'Age', 'Gender', 'Birthday', 'Homework grade'))
 ```
 
-Функции этого пакета определяют тип переменных в столбце следующим образом: они берут первые 1000 наблюдений и используют к нему функцию `guess_parser`, которая определяет к какому типу относится переменная. 
+Функции этого пакета определяют тип переменных в столбце следующим образом: они берут первые 1000 наблюдений и используют к нему функцию `guess_parser()`, которая определяет к какому типу относится переменная. А функция `parse_guess()` преобразовывает вектор к нужному типу.
 
-ПРО ЭТУ ФУНКЦИЮ, НЕМНОГО ПРИМЕРОВ
+```{r}
+guess_parser(c("True", "False"))
+parse_guess(c("True", "False"))
+
+guess_parser(c("1.2", "2.12"))
+parse_guess(c("1.2", "2.12"))
+```
 
 #### Скорость работы
 
@@ -271,9 +277,7 @@ print(finish-start)
 
 В больших файлах иногда бывают проблемы. Например, первые 1000 значений `NA`. А с 1001 идут вещественные числа. Столбцу дадут тип `logical`. Можно увеличить количество значений с помощью аргумента `guess_max`. 
 
-ПРИМЕР И СКАЗАТЬ,ЧТО ЕСЛИ МНОГО ПРОБЛЕМНЫХ МЕСТ, ТО ЛУЧШЕ ВСЕ ПЕРЕМЕННЫЕ ПРОЧИТАТЬ КАК СТРОКОВЫЕ ИЛИ КАКИЕ-ТО ОПРЕДЕЛЕННЫЕ
-
-Можно увидеть, что появились предупреждения. Это связано с проблемой описанной выше. Эту проблему можно исправить с помощью парметра `col_types`.
+Можно увидеть, что появились предупреждения. Это связано с проблемой описанной выше. Эту проблему можно исправить с помощью парметра `col_types`. С помощью него можно явно задать какого формата наша переменная.
 
 ```{r}
 data <- read_csv2('data/nir.csv', col_types = cols(
@@ -282,73 +286,58 @@ data <- read_csv2('data/nir.csv', col_types = cols(
                   ))
 ```
 
+Иногда проблемных мест бывает очень много. Поэтому бывает полезно прочитать все переменные как строковые.
+
+```{r}
+data <- read_csv2('data/nir.csv', col_types = cols(.default = col_character()))
+```
 
 #### Пропущенные значения
 
-```{r}
-# в readr na = c("", "NA")  # можно увеличить этот параметр
-# # Filter rows where showstopper is UNKNOWN 
-# bakeoff %>% 
-#   filter(showstopper == "UNKNOWN")
-# 
-# # Edit to add list of missing values
-# bakeoff <- read_csv("bakeoff.csv", skip = 1,
-#                     na = c("", "NA", "UNKNOWN"))
-# 
-# # Filter rows where showstopper is NA 
-# bakeoff %>% filter(is.na(showstopper))
-```
+Почти в любых наборах данных, которые приходится импортировать бывают пропущенные значения. По умолчанию функция `read_csv()` считает пропущенными значениями "" и "NA". Это можно исправить с помощью аругмента `na`. Представьте, что в наборе данных пропущенные значения помечаются как "UNKNOWN", "NA" и "". Тогда можно преобразовать их следующим образом.
 
+```{r}
+data <- read_csv2('data/friends_na.csv', na = c("", "NA", "UNKNOWN"), col_names = F)
+```
 
 #### Подгрузка файлов из интернета
 
-read_csv(url)
+Можно подгружать файлы из интернета по url.
+
+```{r}
+data <- read_csv2('https://raw.githubusercontent.com/ahmedushka7/R/master/docs/scripts/hse_data_analysis/sem_7/data/friends.csv', col_names = F)
+data
+```
 
 #### Экспорт данных
 
-write_csv
+Данные нужно уметь не только импортировать, но и экспортировать. Для этого можно использовать функцию `write_csv()`. У нее имеется два важных аргумента:
 
-### Пакет rio
+* `x` -- датасет (*data frame*), который у вас есть в памяти
+* `path` -- путь и название файла (если оставить только название файла, то файл сохранится в текущей директории)
 
-
-```{r}
-#   когда read_csv рассказать как работает parse
-# # Find format to parse uk_airdate 
-# parse_date("17 August 2010", format = "%d %B %Y")
-# 
-# # Edit to cast uk_airdate
-# desserts <- read_csv("desserts.csv", 
-#                      col_types = cols(
-#                        uk_airdate = col_date(format = "%d %B %Y")
-#                      )
-# )
-# 
-# # Arrange by descending uk_airdate
-# desserts %>% 
-#   arrange(desc(uk_airdate))  
-```
+Давайте сохраним набор `mtcars`.
 
 ```{r}
-# ### ИМПОРТ
-# ---
-# df2 <- read.csv("example3.csv", encoding = "UTF-8")
-# df2 <- read.csv("example4.csv", encoding = "WINDOWS-1251")
-# ---
-# примеры для импорта
-# https://www.dropbox.com/s/8xc2zfb70aauc3t/data-l3.zip?dl=0&file_subpath=%2Fdata-l3
+write_csv(mtcars, 'data/mtcars.csv')
 ```
+
+Если вы планируете работать с вашим *.csv* файлом далее в *excel*, то рекомендуется использовать функцию `write_excel_csv()`, чтобы избежать проблем с кодировкой. Она работает аналогично функции `write_csv`. 
+
+Также существует функция `write_csv2()`, которая сохраняет файл с разделителем `";"`.
+
+В этих функциях можно также передать аргумент `na`, в котором можно указать как должны выглядеть пропущенные значения в сохраняемом файле. 
+
+#### Кодировка
+
+Пакет `readr` по умолчанию работает с кодировкой UTF-8. Если вы работаете со старым файлом, у которого другая кодировка, то вы можете использовать функцию `guess_encoding()`, которая может помочь узнать кодировку.
 
 ```{r}
-#   # Edit code to fix the parsing error 
-#   desserts <- read_csv("desserts.csv",
-#                        col_types = cols(
-#                          uk_airdate = col_date(format = "%d %B %Y"),
-#                          technical = col_number()
-#                        ),
-#                        na = c("", "NA", 'N/A') 
-#   )
-# 
-# # View parsing problems
-# problems(desserts)
+guess_encoding("data/mtcars.csv")
 ```
 
+После того как вы узнали кодировку, вы можете передать ее в аргумент `locale`.
+
+```{r}
+data <- read_csv("data/mtcars.csv", locale = locale(encoding = 'ASCII'))
+```
