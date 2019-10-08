@@ -350,6 +350,8 @@ sav_data <- spss.get("example.sav")
 
 ### Еще немного пакетов для импорта
 
+![](pictures/other.png)
+
 1. `data.table` - функция `fread` еще быстрее пакета `readr`.
 2. `haven` - читает файлы приложений SPSS, Stata и SAS.
 3. `DBI` - позволяет взаимодействовать с базами данных.
