@@ -1733,18 +1733,18 @@ div.tocify {
 <a class="sourceLine" id="cb22-2" data-line-number="2">                   <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>, </a>
 <a class="sourceLine" id="cb22-3" data-line-number="3">                   <span class="dt">col.names =</span> <span class="kw">c</span>(<span class="st">'Name'</span>, <span class="st">'Age'</span>, <span class="st">'Gender'</span>, <span class="st">'Birthday'</span>, <span class="st">'Homework grade'</span>))</a>
 <a class="sourceLine" id="cb22-4" data-line-number="4">data</a></code></pre></div>
-<pre><code>##    Name Age             Gender         Birthday Homework.grade
-## 1  Jack  19                  M      10 May 2000            7.6
-## 2  Emma  21                  F 22 February 1998            8.9
-## 3 Henry  18 M;3 September 2001              8,0             NA
-## 4  Aria  20                  F     26 June 1999            9.3</code></pre>
+<pre><code>##    Name Age Gender         Birthday Homework.grade
+## 1  Jack  19      M      10 May 2000            7.6
+## 2  Emma  21      F 22 February 1998            8.9
+## 3 Henry  18      M 3 September 2001            8.0
+## 4  Aria  20      F     26 June 1999            9.3</code></pre>
 <div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1"><span class="kw">str</span>(data)</a></code></pre></div>
 <pre><code>## 'data.frame':    4 obs. of  5 variables:
 ##  $ Name          : chr  &quot;Jack&quot; &quot;Emma&quot; &quot;Henry&quot; &quot;Aria&quot;
 ##  $ Age           : int  19 21 18 20
-##  $ Gender        : chr  &quot;M&quot; &quot;F&quot; &quot;M;3 September 2001&quot; &quot;F&quot;
-##  $ Birthday      : chr  &quot;10 May 2000&quot; &quot;22 February 1998&quot; &quot;8,0&quot; &quot;26 June 1999&quot;
-##  $ Homework.grade: num  7.6 8.9 NA 9.3</code></pre>
+##  $ Gender        : chr  &quot;M&quot; &quot;F&quot; &quot;M&quot; &quot;F&quot;
+##  $ Birthday      : chr  &quot;10 May 2000&quot; &quot;22 February 1998&quot; &quot;3 September 2001&quot; &quot;26 June 1999&quot;
+##  $ Homework.grade: num  7.6 8.9 8 9.3</code></pre>
 <p>Аналогично есть функция <code>read.delim2</code>.</p>
 </div>
 <div id="-read.table" class="section level4">
@@ -1831,16 +1831,16 @@ div.tocify {
 <a class="sourceLine" id="cb43-3" data-line-number="3">finish &lt;-<span class="st"> </span><span class="kw">Sys.time</span>()</a>
 <a class="sourceLine" id="cb43-4" data-line-number="4"></a>
 <a class="sourceLine" id="cb43-5" data-line-number="5"><span class="kw">print</span>(finish<span class="op">-</span>start)</a></code></pre></div>
-<pre><code>## Time difference of 16.23862 secs</code></pre>
-<p>Видим приблизительно 16.24 секунды. Представьте, что вы меняете и запускаете код постоянно. Хотелось бы, чтобы загрузка занимала меньше времени.</p>
+<pre><code>## Time difference of 16.28732 secs</code></pre>
+<p>Видим приблизительно 16.29 секунды. Представьте, что вы меняете и запускаете код постоянно. Хотелось бы, чтобы загрузка занимала меньше времени.</p>
 <p>Теперь посчитаем время использования аналогичной функции <code>read_csv()</code> из пакета <code>readr</code>:</p>
 <div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb45-1" data-line-number="1">start &lt;-<span class="st"> </span><span class="kw">Sys.time</span>()</a>
 <a class="sourceLine" id="cb45-2" data-line-number="2">data &lt;-<span class="st"> </span><span class="kw">read_csv2</span>(<span class="st">'data/nir.csv'</span>)</a>
 <a class="sourceLine" id="cb45-3" data-line-number="3">finish &lt;-<span class="st"> </span><span class="kw">Sys.time</span>()</a>
 <a class="sourceLine" id="cb45-4" data-line-number="4"></a>
 <a class="sourceLine" id="cb45-5" data-line-number="5"><span class="kw">print</span>(finish<span class="op">-</span>start)</a></code></pre></div>
-<pre><code>## Time difference of 0.9290931 secs</code></pre>
-<p>Время уменьшилось до 0.93 секунд!</p>
+<pre><code>## Time difference of 0.936542 secs</code></pre>
+<p>Время уменьшилось до 0.94 секунд!</p>
 </div>
 <div id="--" class="section level4">
 <h4>Проблемы больших файлов</h4>
