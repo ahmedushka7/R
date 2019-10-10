@@ -5,7 +5,7 @@ output:
   html_document:
     #toc: TRUE
     #toc_float: TRUE
-    #toc_depth: 4
+    #etoc_depth: 4
     highlight: pygments
 editor_options: 
   chunk_output_type: console

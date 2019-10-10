@@ -1,0 +1,194 @@
+---
+title: "Импорт данных: решение заданий"
+author: "Зарманбетов Ахмед"
+output: 
+  html_document:
+    #toc: TRUE
+    #toc_float: TRUE
+    #etoc_depth: 4
+    highlight: pygments
+editor_options: 
+  chunk_output_type: console
+---
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE)
+```
+
+### Задание
+
+Будем работать с набором данных, в котором находится информация о футбольных матча немецкой высшей лиги (бундеслиги). Будем работать с файлом *bundesliga_bad.csv*.
+
+Задание на импорт:
+
+Прежде всего установим и прочитаем нужные нам пакеты.
+
+```{r}
+# install.packages('readr')
+# install.packages('dplyr')
+library(readr)
+library(dplyr)
+```
+
+1. Давайте подгрузим этот файл вслепую. Что получилось? Возникли ли какие-то проблемы?
+
+```{r eval=FALSE}
+foot <- read_csv('data/bundesliga_bad.csv')
+```
+
+Нужно учесть следующие проблемы:
+
+1. У данных нет шапки с именами переменных.
+2. Первая строчка это какой-то комментарий, поэтому его надо пропустить.
+3. У четвертой колонки при подгрузке устанавливается логический тип переменной, это происходит, так как первые 1200 значений `NA`. Поэтому нужно вручную установить числовой тип.
+
+2. Решить все проблемы и подгрузить файлик! Посмотреть на структура датасета. Как подгрузилась дата? Какие названия переменных должны быть у этого файлика? 
+
+```{r}
+foot <- read_csv('data/bundesliga_bad.csv', col_names = F, skip = 1,
+                col_types = cols(X4 = col_number()))
+glimpse(foot)
+```
+
+Задание на работу с датасетом:
+
+0. Есть хороший файлик *bundesliga.csv*. Давайте подгрузим его и будем работать с ним.
+
+```{r}
+foot <- read_csv('data/bundesliga.csv')
+```
+
+1. Сколько наблюдений у нас есть и сколько переменных? Какого типа каждая переменная?
+
+```{r}
+glimpse(foot)
+```
+
+2. Есть ли бесполезные переменные? Если да, то выкинуть их.
+
+Давайте выбросим первую переменную.
+
+```{r}
+foot <- foot[, -1]
+glimpse(foot)
+```
+
+3. За какой период есть наблюдения? Если что-то не получается, попробуйте использовать функцию `summary()`, чтобы понять в чем проблема. Попробуйте сначал без функции `range`, а потом с ней.
+
+Воспользуемся функцией `summary()`.
+
+```{r}
+summary(foot$Date)
+```
+
+Видим, что есть 2 пропущенных значения.
+
+```{r collapse=TRUE}
+min(foot$Date, na.rm = TRUE)
+max(foot$Date, na.rm = TRUE)
+range(foot$Date, na.rm = TRUE)
+```
+
+4. Сколько команд есть в нашем датасете?
+
+```{r}
+length(unique(c(foot$HomeTeam, foot$AwayTeam)))
+```
+
+5. Сколько матчей сыграла каждая команда дома и в гостях? Какая команда сыграла наибольшее количество матчей?
+
+```{r}
+h <- table(foot$HomeTeam)
+a <- table(foot$AwayTeam)
+sort(table(c(foot$HomeTeam, foot$AwayTeam)),decreasing = T)[1]
+```
+
+6. Сколько в среднем голов забивали хозяева и гости? Сколько голов в среднем забивали за игру?
+
+```{r}
+mean(foot$HomeGoals)
+mean(foot$AwayGoals)
+foot$TotalGoals <- foot$HomeGoals + foot$AwayGoals
+mean(foot$TotalGoals)
+```
+
+7. Сколько раз выиграли хоязева, гости? Сколько раз была ничья?
+
+```{r}
+foot$results <- ifelse(foot$HomeGoals > foot$AwayGoals,
+                       "Победа хозяев",
+                       ifelse(foot$HomeGoals < foot$AwayGoals, 
+                              "Победа гостей", 
+                              "Ничья"))
+table(foot$results)
+```
+
+8. Как выбрать 10 случайных матчей?
+
+```{r}
+x <- sample(1:nrow(foot), 10)
+foot[x,]
+```
+
+9. Нарисуйте гистограмму голов хозяев и голов гостей. Используйте функцию `geom_bar()`.
+
+```{r}
+# install.packages('ggplot2')
+library(ggplot2)
+
+ggplot(foot, aes(x = HomeGoals)) +
+  geom_bar()
+ggplot(foot, aes(x = AwayGoals)) +
+  geom_bar()
+```
+
+Мы еще особо не знакомы с визуализацией. Но давайте попробуем нарисовать следующий график.
+
+```{r}
+# install.packages('tidyr')
+library(tidyr)
+
+foot %>% 
+  gather('Who', 'Goals',  c('HomeGoals', 'AwayGoals')) %>%
+  ggplot(aes(x = factor(Goals), fill = Who)) +
+    geom_bar(position=position_dodge()) + 
+    xlab('Goals') +
+    ylab('Count')
+```
+
+10. Какая команда побеждала чаще всего? Сколько раз она победила?
+
+```{r}
+foot$Win <- ifelse(foot$HomeGoals > foot$AwayGoals, 
+                   foot$HomeTeam, 
+                   ifelse(foot$HomeGoals < foot$AwayGoals, foot$AwayTeam, 'Ничья'))
+x <- table(foot$Win)
+x <- x[names(x)!='Ничья']
+sort(x, decreasing = T)[1]
+```
+
+**Дополнительно:**
+
+11. Кто выиграл лигу в 2008 году и какое количество очков было? За победу начисляется 3 очка, за ничью 1, а за поражение 0 очков.
+кто выиграл лигу в 2008 году и какое количество очков было?
+
+```{r}
+foot2008 <- foot[foot$Year==2008, ]
+table(c(foot2008$HomeTeam, foot2008$AwayTeam))
+
+name <- names(table(c(foot2008$HomeTeam, foot2008$AwayTeam)))
+x <-  rep(0, length(name))
+names(x) <- name
+for(i in 1:nrow(foot2008)){
+  if (foot2008$HomeGoals[i] > foot2008$AwayGoals[i]) {
+    x[foot2008$HomeTeam[i]] <- x[foot2008$HomeTeam[i]] + 3
+  }else if (foot2008$HomeGoals[i] < foot2008$AwayGoals[i]) {
+    x[foot2008$AwayTeam[i]] <- x[foot2008$AwayTeam[i]] + 3
+  }else{
+    x[foot2008$HomeTeam[i]] <- x[foot2008$HomeTeam[i]] + 1
+    x[foot2008$AwayTeam[i]] <- x[foot2008$AwayTeam[i]] + 1
+  }
+}
+print(sort(x, decreasing = T))
+```
+
