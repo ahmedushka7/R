@@ -324,5 +324,5 @@ MH <- function(n) {
   return(c(point_C, point_DC))
 }
 
-MH(10000)
+MH(100000)
 ```
