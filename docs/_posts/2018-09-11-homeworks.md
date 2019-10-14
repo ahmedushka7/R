@@ -21,7 +21,7 @@ __Правила игры:__
 
 ### Таблица результатов
 
-Результаты домашек будут в гугл-таблице по [ссылке](). 
+Результаты домашек будут в гугл-таблице по [ссылке](https://docs.google.com/spreadsheets/d/1GyXG6apueERc4nV6tqRq1diej3PJbrdzO3eNW-joU6E/edit?usp=sharing). 
 
 <table id="t01">
   <tr>
@@ -36,7 +36,7 @@ __Правила игры:__
     <td> 1 </td>
     <td> Домашняя работа №1 </td>
     <td> <a href="https://ahmedushka7.github.io/R/homeworks/hw1/hw1.html" target="_blank"> Условия задач и материалы</a> </td>
-    <td> <a href="" target="_blank"> Решение задач </a> </td>
+    <td> <a href="https://ahmedushka7.github.io/R/homeworks/hw1/hw1_solution.html" target="_blank"> Решение задач </a> </td>
     <td> 10.10.2019 23:59 </td>
     <td> 13.10.2019 23:59 </td>
   </tr>
