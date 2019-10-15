@@ -9,12 +9,23 @@ layout: nil
 <!---
 ### Посиделка № ?
 
-* Официальный [гайд](https://dplyr.tidyverse.org/articles/dplyr.html#single-table-verbs) по  dplyr.
+
 * [Все](https://rpubs.com/williamsurles/293454) про join.
 
 
 -->
 
+### Посиделка № 11 - 12
+
+* Пакет `dplyr`. Манипуляции с данными.
+* Официальный [гайд](https://dplyr.tidyverse.org/articles/dplyr.html#single-table-verbs) по  dplyr.
+* Краткая [памятка](https://github.com/ahmedushka7/R/raw/master/docs/scripts/hse_data_analysis/sem_8/dplyr_and_tidyr.pdf) по `dplyr` и `tidyr`.
+* [Онлайн](https://ahmedushka7.github.io/R/scripts/hse_data_analysis/sem_8/dplyr_main.html) скрипт занятия.
+* Скачать [архив]() c файликами.
+* [Условия заданий]() для отработки.
+* [Решение заданий]() для отработки.
+
+---
 
 ### Посиделка № 10 - 11
 

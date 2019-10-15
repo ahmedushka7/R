@@ -1,0 +1,492 @@
+---
+title: "Манипуляции с данными с помощью пакета dplyr: задания"
+author: "Зарманбетов Ахмед"
+output: 
+  html_document:
+    toc: TRUE
+    toc_float: TRUE
+    toc_depth: 4
+    highlight: pygments
+editor_options: 
+  chunk_output_type: console
+---
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Задание №1
+
+```{r}
+library('readr')
+library('dplyr')
+```
+
+
+```{r}
+counties <- read_rds('data/counties.rds')
+```
+
+1. Какое первое значение в переменной `income`?
+
+```{r}
+glimpse(data)
+```
+
+1. Отберите state, county, population и  poverty.
+
+```{r}
+counties %>% select(state, county, population, poverty)
+```
+
+---
+
+```{r}
+counties_selected <- counties %>%
+  select(state, county, population, private_work, public_work, self_employed)
+
+# Add a verb to sort in descending order of public_work
+counties_selected %>% arrange(desc(public_work))
+  
+```
+
+---
+
+```{r}
+counties_selected <- counties %>%
+  select(state, county, population)
+
+# Filter for counties with a population above 1000000
+counties_selected %>% filter(population > 1000000)
+  
+```
+
+---
+
+```{r}
+counties_selected <- counties %>%
+  select(state, county, population)
+
+# Filter for counties in the state of California that have a population above 1000000
+counties_selected %>% filter(state == 'California', population > 1000000)
+  
+```
+
+---
+
+```{r}
+counties_selected <- counties %>%
+  select(state, county, population, private_work, public_work, self_employed)
+
+# Filter for Texas and more than 10000 people; sort in descending order of private_work
+counties_selected %>% filter(state == 'Texas', population > 10000) %>% arrange(desc(private_work))
+  
+```
+---
+
+```{r}
+counties_selected <- counties %>%
+  select(state, county, population, public_work)
+
+# Sort in descending order of the public_workers column
+counties_selected %>%
+  mutate(public_workers = public_work * population / 100) %>%
+  arrange(desc(public_workers))
+  
+```
+---
+
+```{r}
+# Select the columns state, county, population, men, and women
+counties_selected <- counties %>% select(state, county, population, men, women)
+  
+
+# Calculate proportion_women as the fraction of the population made up of women
+counties_selected %>% mutate(proportion_women = women / population)
+  
+```
+---
+
+```{r}
+counties %>%
+  # Select the five columns 
+  select(state, county, population, men, women) %>%
+  # Add the proportion_men variable
+  mutate(proportion_men = men / population) %>%
+  # Filter for population of at least 10,000
+  filter(population >= 10000) %>%
+  # Arrange proportion of men in descending order 
+  arrange(desc(proportion_men))
+```
+---
+
+```{r}
+# Use count to find the number of counties in each region
+
+counties %>% count(region, sort=TRUE)
+  
+```
+---
+
+```{r}
+# Find number of counties per state, weighted by citizens
+counties_selected %>% count(state, wt = citizens, sort = TRUE)
+  
+```
+---
+
+```{r}
+counties_selected %>%
+  # Add population_walk containing the total number of people who walk to work 
+  mutate(population_walk = population * walk/100) %>%
+  # Count weighted by the new column
+  count(state, wt=population_walk, sort=TRUE)
+```
+---
+
+```{r}
+# Summarize to find minimum population, maximum unexployment, and average income
+counties_selected %>% summarize(min_population = min(population),
+                                max_unemployment = max(unemployment),
+                                average_income = mean(income))
+  
+
+
+```
+---
+
+```{r}
+# Add a density column, then sort in descending order
+counties_selected %>%
+  group_by(state) %>%
+  summarize(total_area = sum(land_area),
+            total_population = sum(population)) %>%
+  mutate(density = total_population/total_area) %>%
+  arrange(desc(density))
+  
+```
+
+---
+
+```{r}
+# Summarize to find the total population
+counties_selected %>%
+  group_by(region, state) %>%
+  summarize(total_pop = sum(population))
+  
+  
+```
+
+---
+
+```{r}
+# Calculate the average_pop and median_pop columns 
+counties_selected %>%
+  group_by(region, state) %>%
+  summarize(total_pop = sum(population)) %>%
+  group_by(region) %>%
+  summarize(average_pop = mean(total_pop),
+            median_pop = median(total_pop))
+  
+  
+
+```
+---
+
+```{r}
+# Group by region and find the greatest number of citizens who walk to work
+counties_selected %>%
+  group_by(region) %>%
+  top_n(1, walk)
+  
+```
+---
+
+```{r}
+counties_selected %>%
+  group_by(region, state) %>%
+  # Calculate average income
+  summarize(average_income = mean(income)) %>%
+  # Find the highest income state in each region
+  top_n(1)
+```
+---
+
+```{r}
+# Find the total population for each combination of state and metro
+counties_selected %>%
+  group_by(state, metro) %>%
+  summarise(total_pop = sum(population))
+  
+  
+```
+---
+
+```{r}
+# Count the states with more people in Metro or Nonmetro areas
+counties_selected %>%
+  group_by(state, metro) %>%
+  summarize(total_pop = sum(population)) %>%
+  top_n(1, total_pop) 
+```
+---
+
+```{r}
+# Count the states with more people in Metro or Nonmetro areas
+counties_selected %>%
+  group_by(state, metro) %>%
+  summarize(total_pop = sum(population)) %>%
+  top_n(1, total_pop) %>%
+  ungroup() %>%
+  count(metro)
+  
+  
+```
+---
+
+```{r}
+# Glimpse the counties table
+glimpse(counties)
+
+counties %>%
+  # Select state, county, population, and industry-related columns
+  select(state, county, population, professional:production) %>%
+  # Arrange service in descending order 
+  arrange(desc(service))
+```
+---
+
+```{r}
+counties %>%
+  # Select the state, county, population, and those ending with "work"
+  select(state, county, population, ends_with('work')) %>%
+  # Filter for counties that have at least 50% of people engaged in public work
+  filter(public_work >= 50)
+```
+---
+
+```{r}
+# Rename the n column to num_counties
+counties %>%
+  count(state) %>%
+  rename(num_counties = n)
+  
+```
+---
+
+```{r}
+# Select state, county, and poverty as poverty_rate
+counties %>%
+  select(state, county, poverty_rate = poverty)
+```
+---
+
+```{r}
+counties %>%
+  # Keep the state, county, and populations columns, and add a density column
+  transmute(state, county, population, density = population/land_area) %>%
+  # Filter for counties with a population greater than one million 
+  filter(population > 1000000) %>%
+  # Sort density in ascending order 
+  arrange(density)
+```
+---
+
+```{r}
+# Change the name of the unemployment column
+counties %>%
+  rename(unemployment_rate = unemployment)
+
+# Keep the state and county columns, and the columns containing poverty
+counties %>%
+  select(state, county, contains("poverty"))
+
+# Calculate the fraction_women column without dropping the other columns
+counties %>%
+  mutate(fraction_women = women / population)
+
+# Keep only the state, county, and employment_rate columns
+counties %>%
+  transmute(state, county, employment_rate = employed / population)
+```
+---
+
+
+
+
+### Задание №2
+
+```{r}
+babynames <- read_rds('data/babynames.rds')
+```
+---
+
+```{r}
+head(babynames)
+```
+---
+
+```{r}
+glimpse(babynames)
+```
+---
+
+Посмотреть на график с именем `Arya`. Игра Престолов.
+
+```{r}
+babynames_Arya <- babynames %>% 
+                    filter(name == 'Arya')
+ggplot(babynames_Arya, aes(x = year, y = number)) +
+  geom_line()
+```
+
+```{r}
+babynames_Emilia <- babynames %>% 
+                    filter(name == 'Emilia', year > 1970)
+ggplot(babynames_Emilia, aes(x = year, y = number)) +
+  geom_line()
+```
+
+```{r}
+babynames_Emilia <- babynames %>% 
+                    filter(name == 'Emilia')
+MIN <- min(babynames_Emilia$year)
+MAX <- max(babynames_Emilia$year)
+ggplot(babynames_Emilia, aes(x = year, y = number)) +
+  geom_line() +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5)) +
+  scale_x_continuous(breaks = seq(MIN, MAX, 5))
+```
+
+---
+
+```{r}
+babynames %>%
+  # Filter for the year 1990
+  filter(year == 1990) %>%
+  # Sort the number column in descending order 
+  arrange(desc(number))
+```
+---
+
+```{r}
+# Find the most common name in each year
+babynames %>%
+  group_by(year) %>%
+  top_n(1, number)
+  
+  
+```
+
+---
+
+```{r}
+# Filter for the names Steven, Thomas, and Matthew 
+selected_names <- babynames %>%
+  filter(name %in% c("Steven", "Thomas", "Matthew"))
+
+# Plot the names using a different color for each name
+ggplot(selected_names, aes(x = year, y = number, color = name)) +
+  geom_line()
+```
+---
+
+```{r}
+# Find the year each name is most common 
+babynames %>%
+  group_by(year) %>%
+  mutate(year_total = sum(number)) %>%
+  ungroup() %>%
+  mutate(fraction = number / year_total) %>%
+  group_by(name) %>%
+  top_n(1, fraction)
+  
+  
+
+```
+
+---
+
+```{r}
+babynames %>%
+  group_by(name) %>%
+  mutate(name_total = sum(number),
+         name_max = max(number)) %>%
+  # Ungroup the table 
+  ungroup() %>%
+  # Add the fraction_max column containing the number by the name maximum 
+  mutate(fraction_max = number/name_max)
+```
+---
+
+```{r}
+# Filter for the names Steven, Thomas, and Matthew
+names_filtered <- names_normalized %>%
+                    filter(name %in% c('Steven', 'Thomas', 'Matthew'))
+  
+
+# Visualize these names over time
+ggplot(names_filtered, aes(x = year, y = fraction_max, color = name)) +
+  geom_line()
+
+```
+
+---
+
+```{r}
+babynames_fraction %>%
+  # Arrange the data in order of name, then year 
+  arrange(name, year) %>%
+  # Group the data by name
+  group_by(name) %>%
+  # Add a ratio column that contains the ratio between each year 
+  mutate(ratio = fraction / lag(fraction))
+```
+---
+
+```{r}
+babynames_ratios_filtered <- babynames_fraction %>%
+                     arrange(name, year) %>%
+                     group_by(name) %>%
+                     mutate(ratio = fraction / lag(fraction)) %>%
+                     filter(fraction >= 0.00001)
+babynames_ratios_filtered %>%
+  # Extract the largest ratio from each name 
+  top_n(1, ratio) %>%
+  # Sort the ratio column in descending order 
+  arrange(desc(ratio)) %>%
+  # Filter for fractions greater than or equal to 0.001
+  filter(fraction >=0.001 )
+```
+
+---
+
+```{r}
+
+```
+
+---
+
+```{r}
+
+```
+
+---
+
+```{r}
+
+```
+
+---
+
+```{r}
+
+```
+
+---
+
+```{r}
+
+```
+
+
