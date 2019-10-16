@@ -1,0 +1,239 @@
+---
+title: "Очистка данных"
+author: "Ахмедушка"
+date: "10/16/2019"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, error = TRUE)
+```
+
+### 1
+
+> Работа с реальными данными = работа с пропущенными значениями
+
+```{r}
+# install.packages("naniar")
+library(naniar)
+```
+
+
+```{r}
+x <- c(1, NA, 3, NA, NA, 5)
+any_na(x) # есть ли NA в массиве
+are_na(x) # является ли каждое значение равным NA
+n_miss(x) # количество NA в массиве
+prop_miss(x) # пропорция NA в массиве
+```
+
+```{r}
+any_na(NaN)
+any_na(NULL) # это пустое общение
+any_na(Inf)
+```
+
+```{r}
+NA | TRUE
+NA | FALSE
+NA + NaN
+```
+
+```{r}
+# Create x, a vector, with values NA, NaN, Inf, ".", and "missing"
+x <- c(NA, NaN, Inf, ".", "missing")
+
+# Use any_na() and are_na() on to explore the missings
+any_na(x)
+are_na(x)
+```
+```{r}
+# Use n_miss() to count the total number of missing values in dat_hw
+n_miss(dat_hw)
+
+# Use n_miss() on dat_hw$weight to count the total number of missing values
+n_miss(dat_hw$weight)
+
+# Use n_complete() on dat_hw to count the total number of complete values
+n_complete(dat_hw)
+
+# Use n_complete() on dat_hw$weight to count the total number of complete values
+n_complete(dat_hw$weight)
+
+# Use prop_miss() and prop_complete() on dat_hw to count the total number of missing values in each of the variables
+prop_miss(dat_hw)
+prop_complete(dat_hw)
+```
+
+
+### 2
+
+```{r}
+miss_var_summary(airquality)
+miss_case_summary(airquality) # по наблюдениям
+
+airquality %>% group_by(Month) %>% miss_var_summary()
+airquality %>% group_by(Month) %>% miss_case_summary()
+```
+
+```{r}
+miss_var_table(airquality)
+miss_case_table(airquality)
+
+airquality %>% group_by(Month) %>% miss_var_table()
+airquality %>% group_by(Month) %>% miss_case_table()
+```
+
+
+Miss_var_span () вычисляет количество пропущенных значений в указанной переменной для повторяющегося диапазона. Это действительно полезно для данных временных рядов, чтобы искать еженедельные (7 дней) закономерности отсутствия
+
+Функция miss_var_run () вычисляет количество «прогонов» или «полос» пропущенных. Это полезно, чтобы найти необычные паттерны пропусков, например, вы можете найти повторяющийся паттерн из 5 полных и 5 пропущенных.
+
+```{r}
+# Calculate the summaries for each run of missingness for the variable, hourly_counts
+miss_var_run(pedestrian, var = hourly_counts)
+
+# Calculate the summaries for each span of missingness, for a span of 4000, for the variable hourly_counts
+miss_var_span(pedestrian, var = hourly_counts, span_every = 4000)
+
+# For each `month` variable, calculate the run of missingness for hourly_counts
+pedestrian %>% group_by(month) %>% miss_var_run(var = hourly_counts)
+
+# For each `month` variable, calculate the span of missingness of a span of 2000, for the variable hourly_counts
+pedestrian %>% group_by(month) %>% miss_var_span(var = hourly_counts, span_every = 2000)
+```
+
+### Визуализация пропущенных значений
+
+
+#### vis_miss
+
+```{r}
+vis_miss(airquality)
+vis_miss(airquality, cluster = TRUE)
+```
+
+```{r}
+# Visualize all of the missingness in the `riskfactors`  dataset
+vis_miss(riskfactors)
+
+# Visualize and cluster all of the missingness in the `riskfactors` dataset
+vis_miss(riskfactors, cluster = TRUE)
+
+# visualise and sort the columns by missingness in the `riskfactors` dataset
+vis_miss(riskfactors, sort = TRUE)
+```
+
+#### gg_miss_var and gg_miss_case
+
+```{r}
+gg_miss_var(airquality)
+gg_miss_case(airquality)
+```
+
+```{r}
+gg_miss_var(airquality, facet = Month)
+```
+
+```{r}
+# Visualize the number of missings in cases using `gg_miss_case()`
+gg_miss_case(riskfactors)
+
+# Explore the number of missings in cases using `gg_miss_case()` and facet by the variable `education`
+gg_miss_case(riskfactors, facet = education)
+
+# Visualize the number of missings in variables using `gg_miss_var()`
+gg_miss_var(riskfactors)
+
+# Explore the number of missings in variables using `gg_miss_var()` and facet by the variable `education`
+gg_miss_var(riskfactors, facet = education)
+```
+
+#### gg_miss_upset, gg_miss_fct and gg_miss_span
+
+```{r}
+gg_miss_upset(airquality)
+```
+
+```{r}
+gg_miss_fct(x = airquality, fct = Month)
+```
+
+```{r}
+gg_miss_span(pedestrian, hourly_counts, span_every = 3000)
+```
+
+```{r}
+# Using the airquality dataset, explore the missingness pattern using gg_miss_upset()
+gg_miss_upset(airquality)
+
+# With the riskfactors dataset, explore how the missingness changes across the marital variable using gg_miss_fct()
+gg_miss_fct(x = riskfactors, fct = marital)
+
+# Using the pedestrian dataset, explore how the missingness of hourly_counts changes over a span of 3000 
+gg_miss_span(pedestrian, var = hourly_counts, span_every = 3000)
+
+# Using the pedestrian dataset, explore the impact of month by facetting by month
+# and explore how missingness changes for a span of 1000
+gg_miss_span(pedestrian, var = hourly_counts , span_every = 1000, facet = month)
+```
+
+
+### 
+
+---
+
+### Еще 
+
+
+#### ОЧИСТКА И ОПИСАТЕЛЬНЫЕ СТАТИСТИКИ
+  
+И еще один пакет для сводной статистики `skimr`. Установим и подгрузим его
+
+```{r message=FALSE}
+# install.packages('skimr')
+library('skimr')
+```
+
+Используем функцию `skim`
+
+```{r}
+skim(mtcars) 
+# можно по группам
+bakers_mini %>% 
+group_by(series) %>% 
+skim() # no argument needed here
+# узнать о количестве каждого типа переменных 
+bakeoff %>% skim() %>% summary()
+```
+---
+найти строчки где NA в столбце bakeoff %>% filter(!is.na(showstopper))
+---
+  ----
+  Функция complete.cases() выдает логический вектор, где TRUE означает полностью заполненную строку, а FALSE - содержащую пропуски (NAs).
+sum(complete.cases(dat))
+dat[!complete.cases(dat), ]
+ удаляем строки, содержащие NA
+dat <- na.omit(dat)
+---
+Для дальнейшей работы с пропущенными значениями нам понадобятся дополнительные библиотеки. Установим их. Можно устанавливать сразу несколько библиотек – оформить перечень необходимых библиотек в виде вектора, и тогда сразу после установки одной библиотеки начнется загрузка следующей.
+
+install.packages(c("mice", "VIM"))
+Обратимся к ним:
+  
+library(mice)
+library(VIM)
+Выведем графики, которые покажут, в каких переменных пропущенных значений больше всего и как выглядит таблица с пропущенными значениями (паттерны пропущенных значений).
+
+На графике слева показано, с какой частотой встречаются пропущенные значения в той или иной переменной. На графике справа показано, в каких комбинациях эти пропущенные значения встречаются. Например, в нашем случае отсутствие ответов в AgeOfStore часто совпадает с отсутствием ответов в SalesInThousands (пропущенные значения отмечены красным цветом).
+
+aggr - из библиотеки mice
+aggr(dat)
+
+Следующий график отвечает за заполненность наблюдений (красным цветом отмечены пропущенные значения, остальное - заполненные значения, чем темнее цвет, тем больше значение). По вертикальной оси - номер строки в базе данных (id наблюдения).
+
+matrixplot - из библиотеки VIM
+matrixplot(dat) 
+

@@ -12,339 +12,318 @@ editor_options:
 ---
 ---
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, eval = FALSE)
+```
+
+Установим и подгрузим пакеты.
+
+```{r eval=TRUE, echo=TRUE}
+# install.packages('readr')
+# install.packages('dplyr')
+# install.packages('ggplot2')
+library(readr)
+library(dplyr)
+library(ggplot2)
 ```
 
 ### Задание №1
 
-```{r}
-library('readr')
-library('dplyr')
-```
+Будем работать с файликом *counties.rds*. Формат *.rds* это формат данных для R, который сохраняет ваш *df* в том виде, в котором вы его видели. Его очень легко подгрузить с помощью функции `read_rds()`.
 
-
-```{r}
+```{r eval=TRUE, echo=TRUE}
 counties <- read_rds('data/counties.rds')
 ```
 
-1. Какое первое значение в переменной `income`?
+<center>
+![](pictures/USA.png)
+</center>
 
-```{r}
-glimpse(data)
-```
+Этот набор данных, сформированный после переписи населения США в 2015 году.
 
-1. Отберите state, county, population и  poverty.
+Немножко информации о некоторых переменных:
 
-```{r}
-counties %>% select(state, county, population, poverty)
-```
-
----
-
-```{r}
-counties_selected <- counties %>%
-  select(state, county, population, private_work, public_work, self_employed)
-
-# Add a verb to sort in descending order of public_work
-counties_selected %>% arrange(desc(public_work))
-  
-```
-
----
-
-```{r}
-counties_selected <- counties %>%
-  select(state, county, population)
-
-# Filter for counties with a population above 1000000
-counties_selected %>% filter(population > 1000000)
-  
-```
+* `state` -- название штата США (всего 50)
+* `county` -- округ штата
+* `region` -- регион
+* `metro` -- есть ли метро
+* `population` -- количество жителей
+* `men` -- количество мужчин
+* `women` -- количество женщин
+* `unemployment` -- процент безработицы
+* `land area` -- площадь округа
+* `private_work`, `public_work`, `self_employed`, `family_work` -- процент работающих на частные компании, на государство, на себя и процент работающих в семейном бизнесе
+* `employed` -- частный предприниматель
+* `income` -- доход
+* `walk` -- количество граждан (в %), которые ходят на работу пешком
 
 ---
 
-```{r}
-counties_selected <- counties %>%
-  select(state, county, population)
-
-# Filter for counties in the state of California that have a population above 1000000
-counties_selected %>% filter(state == 'California', population > 1000000)
-  
-```
-
----
+* Сколько наблюдений и переменных в нашем наборе данных? Что является наблюдением? Какое первое значение в переменной `income`?
 
 ```{r}
-counties_selected <- counties %>%
-  select(state, county, population, private_work, public_work, self_employed)
-
-# Filter for Texas and more than 10000 people; sort in descending order of private_work
-counties_selected %>% filter(state == 'Texas', population > 10000) %>% arrange(desc(private_work))
-  
+glimpse(counties)
 ```
----
 
-```{r}
-counties_selected <- counties %>%
-  select(state, county, population, public_work)
-
-# Sort in descending order of the public_workers column
-counties_selected %>%
-  mutate(public_workers = public_work * population / 100) %>%
-  arrange(desc(public_workers))
-  
-```
----
-
-```{r}
-# Select the columns state, county, population, men, and women
-counties_selected <- counties %>% select(state, county, population, men, women)
-  
-
-# Calculate proportion_women as the fraction of the population made up of women
-counties_selected %>% mutate(proportion_women = women / population)
-  
-```
----
+* Отберите наблюдения только для штатов `California`.
 
 ```{r}
 counties %>%
-  # Select the five columns 
-  select(state, county, population, men, women) %>%
-  # Add the proportion_men variable
+  filter(state == 'California')
+```
+
+* Отберите наблюдения только для штатов `California` и `Florida`.
+
+```{r}
+counties %>%
+  filter(state == 'California' | state == 'Florida')
+```
+
+* Отберите наблюдения только для штатов `California`, `Florida`, `Alabama` и `Indiana`.
+
+```{r}
+counties %>%
+  filter(state %in% c('California', 'Florida', 'Alabama', 'Indiana'))
+```
+
+* Отберите округа с количеством населения не меньше 20000 только для штатов `California`, `Florida`, `Alabama` и `Indiana`.
+
+```{r}
+counties %>%
+  filter(state %in% c('California', 'Florida', 'Alabama', 'Indiana'), population >= 20000) 
+```
+
+* Отберите все округа кроме округов штата `California`.
+
+```{r}
+counties %>%
+  filter(state != 'California') 
+```
+
+* Отсортируйте в алфавитном порядке названия штатов.
+
+```{r}
+counties %>%
+  arrange(state)
+```
+
+* Отсортируйте в алфавитном порядке названия штатов и округов.
+
+```{r}
+counties %>%
+  arrange(state, county)
+```
+
+* Отсортируйте округи в порядке убывания численности населения. Какой штат и округ имеют наибольшую численность населения?
+
+```{r}
+counties %>%
+  arrange(desc(population))
+```
+
+* Отберите переменные `state`, `county`, `population` и  `unemployment`.
+
+```{r}
+counties %>% 
+  select(state, county, population, unemployment)
+```
+
+* Отберите переменные `state`, `county`, `region`, `metro`, `population`, `men` и `women`.
+
+```{r}
+counties %>% 
+  select(state:women)
+```
+
+* Отберите переменные `state`, `county`, `region`, `population`, `men` и `women`.
+
+```{r}
+counties %>% 
+  select(state:women, -metro)
+```
+
+* Создать переменную `unemployed_population`, которая показывает количество безработного населения.
+
+```{r}
+counties %>%
+  mutate(unemployed_population = population * unemployment / 100) 
+```
+
+* Создать логическую переменную `pop_1kk`, которая отвечает на вопрос: "Проживает ли в округе более 1000000 человек?"
+
+```{r}
+counties %>%
+  mutate(pop_1kk = population > 1000000) 
+```
+
+* В каком штате и каком округе больше всего (в %) люди работают на частные компании?
+
+```{r}
+counties %>%
+  select(state, county, population, private_work) %>%   
+  arrange(desc(private_work))
+```
+
+* Найти все округа, где количество населения превышает 1000000 и отсортировать их по убыванию.
+
+```{r}
+counties %>%
+  select(state, county, population) %>% 
+  filter(population > 1000000) %>%
+  arrange(desc(population))
+```
+
+* Найти все округа штата **California**, где количество населения превышает 1000000 и отсортировать их по убыванию.
+
+```{r}
+counties %>%
+  select(state, county, population) %>% 
+  filter(state == 'California', population > 1000000) %>%
+  arrange(desc(population))
+```
+
+* Вывести все округа штата **Texas**, где население превышает 10000, и отсортировать их по убыванию количества работающих на частные компании.
+
+```{r}
+counties %>%
+  select(state, county, population, private_work) %>% 
+  filter(state == 'Texas', population > 10000) %>% 
+  arrange(desc(private_work))
+```
+
+* Показать округи в порядке убыванию по количеству доли женщин в населении.
+
+```{r}
+counties %>%
+  select(state, county, population, women) %>%
+  mutate(proportion_women = women / population) %>%
+  arrange(desc(proportion_women))
+```
+
+* Показать округи в порядке убыванию по количеству доли мужчин в населении только для округов, где живет по крайней мере 10000 человек.
+
+```{r}
+counties %>%
+  select(state, county, population, men) %>%
   mutate(proportion_men = men / population) %>%
-  # Filter for population of at least 10,000
   filter(population >= 10000) %>%
-  # Arrange proportion of men in descending order 
   arrange(desc(proportion_men))
 ```
----
+
+* Показать сколько округов находится в каждом регионе. Отсортировать по убыванию.
 
 ```{r}
-# Use count to find the number of counties in each region
-
-counties %>% count(region, sort=TRUE)
-  
+counties %>% 
+  count(region, sort=TRUE)
 ```
----
+
+* Найти наименьшую численность округа, наибольшую безработицу и средний доход по всем округам.
 
 ```{r}
-# Find number of counties per state, weighted by citizens
-counties_selected %>% count(state, wt = citizens, sort = TRUE)
-  
+counties %>% 
+  summarize(min_population = min(population),
+            max_unemployment = max(unemployment),
+            average_income = mean(income))
 ```
----
+
+* Создать переменную плотность населения (`density`) и высчитать ее для каждого штата. Найти штат с наибольшей плотностью.
 
 ```{r}
-counties_selected %>%
-  # Add population_walk containing the total number of people who walk to work 
-  mutate(population_walk = population * walk/100) %>%
-  # Count weighted by the new column
-  count(state, wt=population_walk, sort=TRUE)
-```
----
-
-```{r}
-# Summarize to find minimum population, maximum unexployment, and average income
-counties_selected %>% summarize(min_population = min(population),
-                                max_unemployment = max(unemployment),
-                                average_income = mean(income))
-  
-
-
-```
----
-
-```{r}
-# Add a density column, then sort in descending order
-counties_selected %>%
+counties %>%
   group_by(state) %>%
   summarize(total_area = sum(land_area),
             total_population = sum(population)) %>%
   mutate(density = total_population/total_area) %>%
   arrange(desc(density))
-  
 ```
 
----
+* Найти численность населения каждого штата.
 
 ```{r}
-# Summarize to find the total population
-counties_selected %>%
-  group_by(region, state) %>%
+counties %>%
+  group_by(state) %>%
   summarize(total_pop = sum(population))
-  
-  
 ```
 
----
+* Проверить, находится ли какой-то штат в нескольких регионах.
 
 ```{r}
-# Calculate the average_pop and median_pop columns 
-counties_selected %>%
+counties %>%
+  group_by(state) %>%
+  summarize(n_region = n_distinct(region))
+```
+
+* Найти среднее и медианное значени численности штата для каждого региона.
+
+```{r}
+counties %>%
   group_by(region, state) %>%
   summarize(total_pop = sum(population)) %>%
   group_by(region) %>%
   summarize(average_pop = mean(total_pop),
             median_pop = median(total_pop))
-  
-  
-
 ```
----
+
+* Вывести 2 самых больших округа по количеству населения (в %), которое ходит пешком до работы, для каждого региона.
 
 ```{r}
-# Group by region and find the greatest number of citizens who walk to work
-counties_selected %>%
+counties %>%
   group_by(region) %>%
-  top_n(1, walk)
-  
+  top_n(2, walk) 
 ```
----
+
+* Найти штат с наибольшим средним доходом для каждого региона.
 
 ```{r}
-counties_selected %>%
+counties %>%
   group_by(region, state) %>%
-  # Calculate average income
   summarize(average_income = mean(income)) %>%
-  # Find the highest income state in each region
   top_n(1)
 ```
----
-
-```{r}
-# Find the total population for each combination of state and metro
-counties_selected %>%
-  group_by(state, metro) %>%
-  summarise(total_pop = sum(population))
-  
-  
-```
----
-
-```{r}
-# Count the states with more people in Metro or Nonmetro areas
-counties_selected %>%
-  group_by(state, metro) %>%
-  summarize(total_pop = sum(population)) %>%
-  top_n(1, total_pop) 
-```
----
-
-```{r}
-# Count the states with more people in Metro or Nonmetro areas
-counties_selected %>%
-  group_by(state, metro) %>%
-  summarize(total_pop = sum(population)) %>%
-  top_n(1, total_pop) %>%
-  ungroup() %>%
-  count(metro)
-  
-  
-```
----
-
-```{r}
-# Glimpse the counties table
-glimpse(counties)
-
-counties %>%
-  # Select state, county, population, and industry-related columns
-  select(state, county, population, professional:production) %>%
-  # Arrange service in descending order 
-  arrange(desc(service))
-```
----
-
-```{r}
-counties %>%
-  # Select the state, county, population, and those ending with "work"
-  select(state, county, population, ends_with('work')) %>%
-  # Filter for counties that have at least 50% of people engaged in public work
-  filter(public_work >= 50)
-```
----
-
-```{r}
-# Rename the n column to num_counties
-counties %>%
-  count(state) %>%
-  rename(num_counties = n)
-  
-```
----
-
-```{r}
-# Select state, county, and poverty as poverty_rate
-counties %>%
-  select(state, county, poverty_rate = poverty)
-```
----
-
-```{r}
-counties %>%
-  # Keep the state, county, and populations columns, and add a density column
-  transmute(state, county, population, density = population/land_area) %>%
-  # Filter for counties with a population greater than one million 
-  filter(population > 1000000) %>%
-  # Sort density in ascending order 
-  arrange(density)
-```
----
-
-```{r}
-# Change the name of the unemployment column
-counties %>%
-  rename(unemployment_rate = unemployment)
-
-# Keep the state and county columns, and the columns containing poverty
-counties %>%
-  select(state, county, contains("poverty"))
-
-# Calculate the fraction_women column without dropping the other columns
-counties %>%
-  mutate(fraction_women = women / population)
-
-# Keep only the state, county, and employment_rate columns
-counties %>%
-  transmute(state, county, employment_rate = employed / population)
-```
----
-
-
-
 
 ### Задание №2
 
-```{r}
+Будем работать с файлом *babynames.rds*. Давайте подгрузим его.
+
+```{r eval=TRUE, echo=TRUE}
 babynames <- read_rds('data/babynames.rds')
 ```
----
 
-```{r}
-head(babynames)
-```
----
+Этот датасет показывает количество детей, которым дали определенное имя в определенный год.
 
-```{r}
+```{r eval=TRUE, echo=TRUE}
 glimpse(babynames)
 ```
----
 
-Посмотреть на график с именем `Arya`. Игра Престолов.
+* За какой период времени имеются наблюдения?
 
 ```{r}
-babynames_Arya <- babynames %>% 
-                    filter(name == 'Arya')
-ggplot(babynames_Arya, aes(x = year, y = number)) +
-  geom_line()
+range(babynames$year)
+```
+
+* Нарисовать график: по оси *x* год, по оси *y* количество детей, которые родились в этот год.
+
+```{r}
+babynames %>%
+  group_by(year) %>%
+  summarize(SUM = sum(number)) %>%
+  ggplot(aes(year, SUM)) + 
+    geom_line()
+```
+
+* Давайте увидим что-то интересное. Посмотрим как "Игра Престолов" влияет на ее поклонников. Посмотрим на динамику имя `Arya` и `Emilia`.  
+
+```{r}
+babynames %>% 
+  filter(name == 'Arya') %>%
+  ggplot(aes(x = year, y = number)) +
+    geom_line()
 ```
 
 ```{r}
-babynames_Emilia <- babynames %>% 
-                    filter(name == 'Emilia', year > 1970)
-ggplot(babynames_Emilia, aes(x = year, y = number)) +
-  geom_line()
+babynames %>% 
+  filter(name == 'Emilia', year > 1970) %>%
+  ggplot(aes(x = year, y = number)) +
+    geom_line()
 ```
 
 ```{r}
@@ -358,41 +337,26 @@ ggplot(babynames_Emilia, aes(x = year, y = number)) +
   scale_x_continuous(breaks = seq(MIN, MAX, 5))
 ```
 
----
+* Вывести самое популярное имя за каждый год.
 
 ```{r}
-babynames %>%
-  # Filter for the year 1990
-  filter(year == 1990) %>%
-  # Sort the number column in descending order 
-  arrange(desc(number))
-```
----
-
-```{r}
-# Find the most common name in each year
 babynames %>%
   group_by(year) %>%
   top_n(1, number)
-  
-  
 ```
 
----
+* Посмотреть на графики для имен `Steven`, `Thomas` и `Matthew`.
 
 ```{r}
-# Filter for the names Steven, Thomas, and Matthew 
 selected_names <- babynames %>%
   filter(name %in% c("Steven", "Thomas", "Matthew"))
-
-# Plot the names using a different color for each name
 ggplot(selected_names, aes(x = year, y = number, color = name)) +
   geom_line()
 ```
----
+
+* Вывести для каждого имени год, в котором его доля от всех имен была наибольшей.
 
 ```{r}
-# Find the year each name is most common 
 babynames %>%
   group_by(year) %>%
   mutate(year_total = sum(number)) %>%
@@ -400,93 +364,14 @@ babynames %>%
   mutate(fraction = number / year_total) %>%
   group_by(name) %>%
   top_n(1, fraction)
-  
-  
-
 ```
 
----
+* Создать колонку, которая будет показывать долю для каждого имени относительно максимального значения для этого имени за весь период.
 
 ```{r}
 babynames %>%
   group_by(name) %>%
-  mutate(name_total = sum(number),
-         name_max = max(number)) %>%
-  # Ungroup the table 
+  mutate(name_max = max(number)) %>%
   ungroup() %>%
-  # Add the fraction_max column containing the number by the name maximum 
   mutate(fraction_max = number/name_max)
 ```
----
-
-```{r}
-# Filter for the names Steven, Thomas, and Matthew
-names_filtered <- names_normalized %>%
-                    filter(name %in% c('Steven', 'Thomas', 'Matthew'))
-  
-
-# Visualize these names over time
-ggplot(names_filtered, aes(x = year, y = fraction_max, color = name)) +
-  geom_line()
-
-```
-
----
-
-```{r}
-babynames_fraction %>%
-  # Arrange the data in order of name, then year 
-  arrange(name, year) %>%
-  # Group the data by name
-  group_by(name) %>%
-  # Add a ratio column that contains the ratio between each year 
-  mutate(ratio = fraction / lag(fraction))
-```
----
-
-```{r}
-babynames_ratios_filtered <- babynames_fraction %>%
-                     arrange(name, year) %>%
-                     group_by(name) %>%
-                     mutate(ratio = fraction / lag(fraction)) %>%
-                     filter(fraction >= 0.00001)
-babynames_ratios_filtered %>%
-  # Extract the largest ratio from each name 
-  top_n(1, ratio) %>%
-  # Sort the ratio column in descending order 
-  arrange(desc(ratio)) %>%
-  # Filter for fractions greater than or equal to 0.001
-  filter(fraction >=0.001 )
-```
-
----
-
-```{r}
-
-```
-
----
-
-```{r}
-
-```
-
----
-
-```{r}
-
-```
-
----
-
-```{r}
-
-```
-
----
-
-```{r}
-
-```
-
-

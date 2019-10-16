@@ -21,9 +21,10 @@ layout: nil
 * Официальный [гайд](https://dplyr.tidyverse.org/articles/dplyr.html#single-table-verbs) по  dplyr.
 * Краткая [памятка](https://github.com/ahmedushka7/R/raw/master/docs/scripts/hse_data_analysis/sem_8/dplyr_and_tidyr.pdf) по `dplyr` и `tidyr`.
 * [Онлайн](https://ahmedushka7.github.io/R/scripts/hse_data_analysis/sem_8/dplyr_main.html) скрипт занятия.
-* Скачать [архив]() c файликами.
-* [Условия заданий]() для отработки.
+* Скачать [архив](https://github.com/ahmedushka7/R/blob/master/docs/scripts/hse_data_analysis/sem_8/data.zip?raw=true) c файликами.
+* [Условия заданий](https://ahmedushka7.github.io/R/scripts/hse_data_analysis/sem_8/exercises.html) для отработки.
 * [Решение заданий]() для отработки.
+* Дополнительный онлайн [скрипт](https://ahmedushka7.github.io/R/scripts/hse_data_analysis/sem_8/dplyr_join.html) занятия (необязательно) по работе с нексколькими наборами данных.
 
 ---
 
