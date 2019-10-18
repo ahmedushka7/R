@@ -23,7 +23,7 @@ layout: nil
 * [Онлайн](https://ahmedushka7.github.io/R/scripts/hse_data_analysis/sem_8/dplyr_main.html) скрипт занятия.
 * Скачать [архив](https://github.com/ahmedushka7/R/blob/master/docs/scripts/hse_data_analysis/sem_8/data.zip?raw=true) c файликами.
 * [Условия заданий](https://ahmedushka7.github.io/R/scripts/hse_data_analysis/sem_8/exercises.html) для отработки.
-* [Решение заданий]() для отработки.
+* [Решение заданий](https://ahmedushka7.github.io/R/scripts/hse_data_analysis/sem_8/exercises_solution.html) для отработки.
 * Дополнительный онлайн [скрипт](https://ahmedushka7.github.io/R/scripts/hse_data_analysis/sem_8/dplyr_join.html) занятия (необязательно) по работе с нексколькими наборами данных.
 
 ---
