@@ -43,9 +43,9 @@ __Правила игры:__
   <tr>
     <td> 1 </td>
     <td> Домашняя работа №2 </td>
-    <td> <a href="" target="_blank"> Условия задач и материалы </a> </td>
+    <td> <a href="https://ahmedushka7.github.io/R/homeworks/hw2/hw2.html" target="_blank"> Условия задач и материалы </a> </td>
     <td> <a href="" target="_blank"> Решение задач </a> </td>
-    <td> 31.12.2019 </td>
-    <td> 31.12.2019 </td>
+    <td> 01.11.2019 </td>
+    <td> 03.11.2019 </td>
   </tr>
 </table>
