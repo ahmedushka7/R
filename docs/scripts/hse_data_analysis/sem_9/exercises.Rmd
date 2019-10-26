@@ -1,0 +1,228 @@
+---
+title: "Манипуляции с данными с помощью пакета dplyr: задания"
+author: "Зарманбетов Ахмед"
+output: 
+  html_document:
+    toc: TRUE
+    toc_float: TRUE
+    toc_depth: 4
+    highlight: pygments
+editor_options: 
+  chunk_output_type: console
+---
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, eval = FALSE)
+```
+
+Установим и подгрузим пакеты.
+
+```{r eval=TRUE, echo=TRUE}
+# install.packages('readr')
+# install.packages('dplyr')
+# install.packages('ggplot2')
+library(readr)
+library(dplyr)
+library(ggplot2)
+```
+
+### Задание №1
+
+### Пропущенные значения (NA)
+
+```{r}
+df <- tibble(A = c(1,NA,2,3),
+             B = c(NA,7,10,32),
+             C = c(55,42,NA,0))
+df
+```
+
+Функция `is.na` определяет в матричном виде пропущенные значения.
+
+```{r}
+is.na(df)
+```
+
+С помощью функции `any` можно узнать есть ли вообще пропущенные значения.
+
+```{r}
+any(is.na(df))
+```
+
+С помощью функции `sum` можно найти количество пропущенных значений.
+
+```{r}
+sum(is.na(df))
+```
+
+С помощью функции `which` можно найти номера строк, где имеются пропещенные переменные для определенной переменной.
+
+```{r}
+which(is.na(df$A))
+```
+
+Так же это можно найти в сводной статистике.
+
+```{r}
+summary(df)
+```
+
+Найти строки, у которых отсутсвтвует значение `NA`.
+
+```{r}
+complete.cases(df)
+```
+
+Отобрать эти строки.
+
+```{r}
+df[complete.cases(df),]
+```
+
+Другие более лаконичные способы.
+
+```{r}
+na.omit(df)
+df %>% drop_na()
+```
+
+Функцию `drop_na` можно использовать с определенными перемеными.
+
+```{r}
+df <- tibble(x = c(1, 2, NA), y = c("a", NA, "b"))
+df %>% drop_na()
+df %>% drop_na(x)
+```
+
+### Дубликаты
+
+Дубликаты ухудшают данные, так как одно наблюдения влияет на модель или различные показатели сильнее чем остальные. Рассмотрим следующий пример.
+
+```{r}
+df <- tibble(club = c('Real Madrid', 'Real Madrid', 'Barcelona'),
+             cl = c(13, 13, 5))
+df
+```
+
+Можно использовать функцию `distinct` для удаления дубликатов.
+
+```{r}
+df %>% distinct()
+```
+
+### Выбросы
+
+Сначала поговорим про функцию `set.seed`. Она нужна для воспроизведения ваших результатов, если в них присутсвует рандом.
+
+```{r}
+set.seed(10)
+sample(1:10,2)
+```
+
+Выбросы очень часто портят данные, так как модели учитывают их.
+Например, отрицательные числа для переменной количество лет
+
+Познакомимся как бороться с выбросами. Построим ящик с усами. Жирная линия это медиана. Края ящика это 25 и 75 процентили. А концы это края это статистически значимой выборки.
+
+```{r}
+set.seed(10)
+x <- c(rnorm(30,mean=15,sd=5), -5, 28, 35)
+boxplot(x, horizontal = TRUE)
+```
+
+Функцию `boxplot` можно применять и к всему фрейму данных. Визуально выбросы можно определить через гистограмму,рисунок или функцию `summary`. Данные нужно очищать от выбросов. Например, отбрасывать слева и справа по 1 квантилю. Функцию `filter` + `quantile`. 
+
+```{r}
+mt <- mtcars %>% 
+        filter(mpg > quantile(mpg,0.01) & mpg < quantile(mpg,0.99))
+```
+
+### Применяем знания
+
+Рассмотрим набор данных `weather` 
+
+```{r}
+weather <- read_csv2('data/weather.csv')
+head(weather)
+```
+
+Столбцы `X1:X31` это дни месяца. Логично, что день месяца это все таки переменная, поэтому используем функцию `gather`.
+
+```{r}
+weather2 <- weather %>%
+              gather(day, value, paste0('X',1:31), na.rm = TRUE)
+head(weather2)
+```
+
+Параметр `na.rm = TRUE` убирает строки с пропущенными значениями(`NA`). Такие значения появляются, так как, например, для февраля может быть только 28 значений.
+
+Столбец `X` это просто индекс наблюдения. Он нам ничего не дает, поэтому удалим его.
+
+```{r}
+weather2 <- weather2 %>%
+              select(-X)
+head(weather2)
+```
+
+А вот значения переменной `measure` это как раз отдельльные переменные. Поэтому применим функцию `spread`.
+
+```{r}
+weather3 <- spread(weather2, measure, value)
+head(weather3)
+```
+
+В колонке day стоит `X` перед номером дня. Работать со строковыми переменными мы научимся позже с помощью пакета `stringr`. А щас просто используем функцию из него.
+
+```{r}
+weather3$day <- str_replace(weather3$day,'X','')
+head(weather3)
+```
+
+Время, месяц и день можно объединить в одну переменную и сделать ее датой.
+
+```{r}
+weather4 <- unite(weather3, date, year, month, day, sep = "-")
+weather4$date <- ymd(weather4$date)
+head(weather4)
+```
+
+Взглянем на структуры нынешней таблички.
+
+```{r}
+glimpse(weather4)
+```
+
+Значения не числовые, а строковые. Исправим это с помощью функции `mutate_at`. Но прежде обратим внимание на переменную `PrecipitationIn`.
+
+```{r}
+unique(weather4$PrecipitationIn)
+```
+
+Видим, что есть непонятное значение `T`. Оно означает очень низкое значение, поэтому заменим его 0.
+
+```{r}
+weather4$PrecipitationIn <- str_replace(weather4$PrecipitationIn, 'T','0')
+```
+
+А теперь сделаем наши переменные числовыми.
+
+```{r}
+weather5 <- mutate_at(weather4, vars(CloudCover:WindDirDegrees), funs(as.numeric))
+glimpse(weather5)
+```
+
+Дадим нормальные названия нашим переменным.
+
+```{r}
+new_columns <- c("date", "events", "cloud_cover", "max_dew_point_f", "max_gust_speed_mph", 
+"max_humidity", "max_sea_level_pressure_in", "max_temperature_f", 
+"max_visibility_miles", "max_wind_speed_mph", "mean_humidity", 
+"mean_sea_level_pressure_in", "mean_temperature_f", "mean_visibility_miles", 
+"mean_wind_speed_mph", "mean_dew_point_f", "min_dew_point_f", 
+"min_humidity", "min_sea_level_pressure_in", "min_temperature_f", 
+"min_visibility_miles", "precipitation_in", "wind_dir_degrees"
+)
+
+# Clean up column names
+names(weather5) <- new_columns
+```
