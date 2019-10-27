@@ -1,74 +1,110 @@
 ---
-title: "Очистка данных"
-author: "Ахмедушка"
-date: "10/16/2019"
-output: html_document
+title: "Работа с пропущенными значениями"
+author: "Зарманбетов Ахмед"
+output: 
+  html_document:
+    toc: TRUE
+    toc_float: TRUE
+    toc_depth: 4
+    highlight: pygments
+    #df_print: paged
 editor_options: 
   chunk_output_type: console
 ---
-
+---
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, error = TRUE)
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
 ```
 
-### 1
+### Пропущенные значения
 
-> Работа с реальными данными = работа с пропущенными значениями
+С самого первого занятия мы с вами говорили про пропущенные значения. В R они отображаются как `NA`. В реальных данных часто приходится сталкиваться с ними. Например, если проводить опрос людей, то некоторые не захотят говорить о своей заработной плате. Это и есть пропущенное значение. 
+
+### Базовая работа с пропущенными значениями
+
+Мы уже знаем функцию `is.na`. Она выдает логический ответ на вопрос: "Является ли значение пропущенным?". Она может работать с массивами.
+
+```{r}
+x <- c(1, NA, 3, NA, NA, 5)
+is.
+```
+
+Но есть и другие инструменты. Они находятся в пакете `naniar`. Давайте установим и подгрузим его и остальные пакеты.
 
 ```{r}
 # install.packages("naniar")
 library(naniar)
+library(tidyr)
+library(dplyr)
 ```
 
+Наши переменные в наборе данных это массивы. И всегда хочется узнать, есть ли пропущенные значения в этой переменной. Для этого можно использовать функцию `any_na`. Она выдает логический ответ на вопрос: "Есть ли в массиве пропущенные значения?"
 
 ```{r}
-x <- c(1, NA, 3, NA, NA, 5)
-any_na(x) # есть ли NA в массиве
-are_na(x) # является ли каждое значение равным NA
-n_miss(x) # количество NA в массиве
-prop_miss(x) # пропорция NA в массиве
+any_na(x) 
+y <- 1:5
+any_na(y)
 ```
+
+Если пропущенные значения есть, то хотелось бы знать их количество, а лучше долю.
+
+```{r}
+n_miss(x) 
+prop_miss(x)
+```
+
+`NaN` считается пропущенным значением, а бесконечность `Inf` не считается. 
 
 ```{r}
 any_na(NaN)
-any_na(NULL) # это пустое общение
 any_na(Inf)
 ```
 
-```{r}
-NA | TRUE
-NA | FALSE
-NA + NaN
-```
+Я написал функции для генерации массива с пропущенными значениями. Будем ей пользоваться.
 
 ```{r}
-# Create x, a vector, with values NA, NaN, Inf, ".", and "missing"
-x <- c(NA, NaN, Inf, ".", "missing")
-
-# Use any_na() and are_na() on to explore the missings
-any_na(x)
-are_na(x)
+generate <- function(prop_na, len = 1000){
+  x <- round(seq(-100, 100, length.out = len), 4)
+  n <- length(x)
+  y <- sample(c(NA, x), size = len, replace = TRUE, prob = c(prop_na, rep((1-prop_na)/n, n)))
+  return(y)
+}
 ```
+
+Сгенерим набор данных с 3 переменными.
+
 ```{r}
-# Use n_miss() to count the total number of missing values in dat_hw
-n_miss(dat_hw)
+df <- tibble(x = generate(0.05),
+             y = generate(0.07),
+             z = generate(0.02))
+```
 
-# Use n_miss() on dat_hw$weight to count the total number of missing values
-n_miss(dat_hw$weight)
+С помощью функции `n_miss` можно узнать количество пропущенных значений во всем наборе данных или в отдельной переменной.
 
-# Use n_complete() on dat_hw to count the total number of complete values
-n_complete(dat_hw)
+```{r}
+n_miss(df)
+n_miss(df$x)
+```
 
-# Use n_complete() on dat_hw$weight to count the total number of complete values
-n_complete(dat_hw$weight)
+Обратная функция `n_complete` показывает сколько значений у нас есть о всем наборе данных или в отдельной переменной.
 
-# Use prop_miss() and prop_complete() on dat_hw to count the total number of missing values in each of the variables
-prop_miss(dat_hw)
-prop_complete(dat_hw)
+```{r}
+n_complete(df)
+n_complete(df$x)
+```
+
+И функция `prop_miss` и `prop_complete`, которая показывает долю пропущенных и имеющихся значений.
+
+```{r}
+prop_miss(df)
+prop_complete(df)
+
+prop_miss(df$x)
+prop_complete(df$x)
 ```
 
 
-### 2
+### Различные статистики для пропущенных значений
 
 ```{r}
 miss_var_summary(airquality)
@@ -106,7 +142,6 @@ pedestrian %>% group_by(month) %>% miss_var_span(var = hourly_counts, span_every
 ```
 
 ### Визуализация пропущенных значений
-
 
 #### vis_miss
 
@@ -181,37 +216,144 @@ gg_miss_span(pedestrian, var = hourly_counts , span_every = 1000, facet = month)
 ```
 
 
-### 
+### Что делать с пропущенными значениями
 
----
+Рассмотрим разные случаи при работе с пропущенными значениями. 
+
+#### Cлучай №1
+
+Сгенерим набор данных, в котором будет один столбец иметь много пропущенных значений.
+
+```{r}
+df <- tibble(x = generate(0),
+             y = generate(0),
+             z = generate(0.7))
+
+```
+
+C помощью функции `miss_var_summary` и `vis_miss` посмотрим какие переменные имеют пропущенные значения.
+
+```{r}
+miss_var_summary(df)
+vis_miss(df, cluster = TRUE)
+```
+
+Видно, что в переменной `z` 70.2% значений пропущены. В таких ситуациях лучше удалить всю такую переменную.
+
+```{r}
+df <- df %>%
+        select(-z)
+```
+
+#### Cлучай №2
+
+Сгенерим набор данных, в котором будет небольшое количество пропущенных значений во всех переменных.
+
+```{r}
+df <- tibble(x = generate(0.05),
+             y = generate(0.07),
+             z = generate(0.02))
+```
+
+C помощью функции `miss_var_summary` и `vis_miss` посмотрим какие переменные имеют пропущенные значения.
+
+```{r}
+miss_var_summary(df)
+vis_miss(df, cluster = TRUE)
+```
+
+В данному случае удалять переменные не логично. Можно удалить переменные, которые содержат пропущенные значения. Найдем количество таких наблюдений с помощью функции `miss_case_summary`.
+
+```{r}
+miss_case_summary(df) %>%
+  filter(n_miss > 0) %>%
+  count()
+```
+
+Таких наблюдений 131. Удалим их все с помощью  функции `drop_na` из пакета `dplyr`.
+
+```{r}
+df <- df %>%
+        drop_na()
+```
+
+#### Cлучай №3
+
+В прошлом случае
+
+
+#### Замена средним
+
+```{r}
+df <- tibble(x = generate(0.5, 10),
+             y = generate(0.3, 10))
+df
+
+df$x %>% mean(na.rm = TRUE)
+df$x %>% impute_mean()
+df %>% impute_mean_if(is.numeric)
+df %>% impute_mean_at('x')
+df %>% impute_mean_all()
+```
+
+#### Замена медианой
+
+```{r}
+df$x %>% median(na.rm = TRUE)
+df$x %>% impute_median()
+df %>% impute_median_if(is.numeric)
+df %>% impute_median_at('x')
+df %>% impute_median_all()
+```
+
+
+```{r}
+df %>%
+  bind_shadow() %>%
+  impute_mean_all
+```
+
+
+
+```{r}
+df %>%
+  add_label_missings('y', missing = 1,
+                        complete = 0)
+```
+
+```{r}
+ImputeInd <- function(df, strategy = 'mean', column){
+  if (strategy == 'mean') {
+    df1 <- df %>% 
+      add_label_missings(y, missing = 1,
+                         complete = 0) %>%
+      rename_at(vars(any_missing), funs(paste0(column, '_IND', sep = ''))) %>%
+      impute_mean_at('x')
+    return(df1)
+  }
+  if (strategy == 'median') {
+    df1 <- df %>% 
+      add_label_missings(y, missing = 1,
+                         complete = 0) %>%
+      rename_at(vars(any_missing), funs(paste0(column, '_IND', sep = ''))) %>%
+      impute_median_at('x')
+    return(df1)
+  }
+  stop('Введите правильно стратегию!')
+}
+
+df %>%
+  ImputeInd(strategy = 'mean', 'x')
+
+```
+
+
+про `impute_lm` 
+
 
 ### Еще 
 
 
-#### ОЧИСТКА И ОПИСАТЕЛЬНЫЕ СТАТИСТИКИ
-  
-И еще один пакет для сводной статистики `skimr`. Установим и подгрузим его
-
-```{r message=FALSE}
-# install.packages('skimr')
-library('skimr')
-```
-
-Используем функцию `skim`
-
-```{r}
-skim(mtcars) 
-# можно по группам
-bakers_mini %>% 
-group_by(series) %>% 
-skim() # no argument needed here
-# узнать о количестве каждого типа переменных 
-bakeoff %>% skim() %>% summary()
-```
----
-найти строчки где NA в столбце bakeoff %>% filter(!is.na(showstopper))
----
-  ----
   Функция complete.cases() выдает логический вектор, где TRUE означает полностью заполненную строку, а FALSE - содержащую пропуски (NAs).
 sum(complete.cases(dat))
 dat[!complete.cases(dat), ]
@@ -220,11 +362,16 @@ dat <- na.omit(dat)
 ---
 Для дальнейшей работы с пропущенными значениями нам понадобятся дополнительные библиотеки. Установим их. Можно устанавливать сразу несколько библиотек – оформить перечень необходимых библиотек в виде вектора, и тогда сразу после установки одной библиотеки начнется загрузка следующей.
 
-install.packages(c("mice", "VIM"))
+
 Обратимся к ним:
-  
+
+```{r}
+install.packages(c("mice", "VIM"))
 library(mice)
 library(VIM)
+```
+
+
 Выведем графики, которые покажут, в каких переменных пропущенных значений больше всего и как выглядит таблица с пропущенными значениями (паттерны пропущенных значений).
 
 На графике слева показано, с какой частотой встречаются пропущенные значения в той или иной переменной. На графике справа показано, в каких комбинациях эти пропущенные значения встречаются. Например, в нашем случае отсутствие ответов в AgeOfStore часто совпадает с отсутствием ответов в SalesInThousands (пропущенные значения отмечены красным цветом).
@@ -237,3 +384,15 @@ aggr(dat)
 matrixplot - из библиотеки VIM
 matrixplot(dat) 
 
+
+
+Также стоит обратить внимание на следующие ло
+
+```{r}
+NA | TRUE
+NA | FALSE
+```
+
+
+
+Функции complete and fill в tidyr для работы с пропущенными значениями

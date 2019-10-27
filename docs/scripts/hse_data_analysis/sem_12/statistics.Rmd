@@ -1,0 +1,31 @@
+---
+title: "описательные статистики"
+author: "Ахмедушка"
+date: "10/27/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+И еще один пакет для сводной статистики `skimr`. Установим и подгрузим его
+
+```{r}
+# install.packages('skimr')
+library('skimr')
+```
+
+Используем функцию `skim`
+
+```{r}
+skim(mtcars) 
+# можно по группам
+bakers_mini %>% 
+group_by(series) %>% 
+skim() # no argument needed here
+# узнать о количестве каждого типа переменных 
+bakeoff %>% skim() %>% summary()
+```
+---
