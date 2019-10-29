@@ -40,7 +40,7 @@ library(dplyr)
 
 Наши переменные в наборе данных это массивы. И всегда хочется узнать, есть ли пропущенные значения в этой переменной. Для этого можно использовать функцию `any_na`. Она выдает логический ответ на вопрос: "Есть ли в массиве пропущенные значения?"
 
-```{r}
+```{r collapse=TRUE}
 any_na(x) 
 y <- 1:5
 any_na(y)
@@ -48,19 +48,19 @@ any_na(y)
 
 Если пропущенные значения есть, то хотелось бы знать их количество, а лучше долю.
 
-```{r}
+```{r collapse=TRUE}
 n_miss(x) 
 prop_miss(x)
 ```
 
 `NaN` считается пропущенным значением, а бесконечность `Inf` не считается. 
 
-```{r}
+```{r collapse=TRUE}
 any_na(NaN)
 any_na(Inf)
 ```
 
-Я написал функции для генерации массива с пропущенными значениями. Будем ей пользоваться.
+Будет использовать функцию для генерации массива с пропущенными значениями.
 
 ```{r}
 generate <- function(prop_na, len = 1000){
@@ -81,21 +81,21 @@ df <- tibble(x = generate(0.05),
 
 С помощью функции `n_miss` можно узнать количество пропущенных значений во всем наборе данных или в отдельной переменной.
 
-```{r}
+```{r collapse=TRUE}
 n_miss(df)
 n_miss(df$x)
 ```
 
 Обратная функция `n_complete` показывает сколько значений у нас есть о всем наборе данных или в отдельной переменной.
 
-```{r}
+```{r collapse=TRUE}
 n_complete(df)
 n_complete(df$x)
 ```
 
-И функция `prop_miss` и `prop_complete`, которая показывает долю пропущенных и имеющихся значений.
+А функции `prop_miss` и `prop_complete` показывают долю пропущенных и имеющихся значений.
 
-```{r}
+```{r collapse=TRUE}
 prop_miss(df)
 prop_complete(df)
 
@@ -103,118 +103,131 @@ prop_miss(df$x)
 prop_complete(df$x)
 ```
 
-
 ### Различные статистики для пропущенных значений
+
+Не хотелось бы использовать эти функции в случае, когда у нас много переменныех. Есть готовые решения для этого. Функция `miss_var_summary` показывает статистику для переменных, а функция `miss_case_summary` для наблюдений. Давайте попробуем эти функции на датасете `airquality` из пакета `naniar`.
+
+```{r}
+glimpse(airquality)
+```
+
+Функция `miss_var_summary` выдает *tibble- фрейм* в котором есть переменные:
+
+* `variable` -- переменная
+* `n_miss` -- количество пропущенных значений 
+* `pct_miss` -- процент пропущенных значений
+
+Такой фрейм отсортирован по столбцу `n_miss`.
 
 ```{r}
 miss_var_summary(airquality)
-miss_case_summary(airquality) # по наблюдениям
-
-airquality %>% group_by(Month) %>% miss_var_summary()
-airquality %>% group_by(Month) %>% miss_case_summary()
 ```
+
+Функция `miss_case_summary` выдает *tibble- фрейм* в котором есть переменные:
+
+* `case` -- номер наблюдения
+* `n_miss` -- количество пропущенных значений 
+* `pct_miss` -- процент пропущенных значений
+
+Такой фрейм так же отсортирован по столбцу `n_miss`.
+
+```{r}
+miss_case_summary(airquality)
+```
+
+Эти функции можно применять с pipe'ом (`%>%`).
+
+```{r}
+
+airquality %>% 
+  group_by(Month) %>% 
+  miss_var_summary() 
+
+airquality %>% 
+  group_by(Month) %>% 
+  miss_case_summary()
+```
+
+Функции `miss_var_table` и `miss_case_table` дают более общую информацию. Например, первая показывает количество переменных, в которых нет пропущенных значений или есть определенное количество.
 
 ```{r}
 miss_var_table(airquality)
 miss_case_table(airquality)
-
-airquality %>% group_by(Month) %>% miss_var_table()
-airquality %>% group_by(Month) %>% miss_case_table()
 ```
 
-
-Miss_var_span () вычисляет количество пропущенных значений в указанной переменной для повторяющегося диапазона. Это действительно полезно для данных временных рядов, чтобы искать еженедельные (7 дней) закономерности отсутствия
-
-Функция miss_var_run () вычисляет количество «прогонов» или «полос» пропущенных. Это полезно, чтобы найти необычные паттерны пропусков, например, вы можете найти повторяющийся паттерн из 5 полных и 5 пропущенных.
+Эти функции так же можно использовать с pipe'ом (`%>%`).
 
 ```{r}
-# Calculate the summaries for each run of missingness for the variable, hourly_counts
-miss_var_run(pedestrian, var = hourly_counts)
+airquality %>% 
+  group_by(Month) %>% 
+  miss_var_table()
 
-# Calculate the summaries for each span of missingness, for a span of 4000, for the variable hourly_counts
-miss_var_span(pedestrian, var = hourly_counts, span_every = 4000)
-
-# For each `month` variable, calculate the run of missingness for hourly_counts
-pedestrian %>% group_by(month) %>% miss_var_run(var = hourly_counts)
-
-# For each `month` variable, calculate the span of missingness of a span of 2000, for the variable hourly_counts
-pedestrian %>% group_by(month) %>% miss_var_span(var = hourly_counts, span_every = 2000)
+airquality %>% 
+  group_by(Month) %>% 
+  miss_case_table()
 ```
+
+Также есть функции `miss_var_span` и `miss_var_run`, которые можно изучить дополнительно.
 
 ### Визуализация пропущенных значений
 
-#### vis_miss
+#### Функция vis_miss
+
+Эта функция позволяет в прямом смысле посмотреть на ваши данные и на пропущенные значения.
 
 ```{r}
 vis_miss(airquality)
+```
+
+Чтобы как-то сгрупиировать пропущенные значения можно установить параметр `cluster`.
+
+```{r}
 vis_miss(airquality, cluster = TRUE)
 ```
 
+Попробуем использовать эту функцию на датасете `riskfactors`, в котором больше переменных.
+
 ```{r}
-# Visualize all of the missingness in the `riskfactors`  dataset
 vis_miss(riskfactors)
-
-# Visualize and cluster all of the missingness in the `riskfactors` dataset
 vis_miss(riskfactors, cluster = TRUE)
-
-# visualise and sort the columns by missingness in the `riskfactors` dataset
-vis_miss(riskfactors, sort = TRUE)
 ```
 
-#### gg_miss_var and gg_miss_case
+Можно так же отсортировать столбцы по количеству пропущенных значений с помощью параметра `sort`.
+
+```{r}
+vis_miss(riskfactors, cluster = TRUE, sort = TRUE)
+```
+
+#### Функции gg_miss_var и gg_miss_case
+
+Эти функции показывают наглядно количество пропущенных значений в виде гистограмм.
 
 ```{r}
 gg_miss_var(airquality)
 gg_miss_case(airquality)
 ```
 
+С помощью параметра `facet` можно посмотреть эти графики в разрезе группы.
+
 ```{r}
 gg_miss_var(airquality, facet = Month)
 ```
 
-```{r}
-# Visualize the number of missings in cases using `gg_miss_case()`
-gg_miss_case(riskfactors)
+#### Функции gg_miss_upset и gg_miss_fct 
 
-# Explore the number of missings in cases using `gg_miss_case()` and facet by the variable `education`
-gg_miss_case(riskfactors, facet = education)
-
-# Visualize the number of missings in variables using `gg_miss_var()`
-gg_miss_var(riskfactors)
-
-# Explore the number of missings in variables using `gg_miss_var()` and facet by the variable `education`
-gg_miss_var(riskfactors, facet = education)
-```
-
-#### gg_miss_upset, gg_miss_fct and gg_miss_span
+Функция `gg_miss_upset` показывает количество пропущенных значений для различных комбинаций переменных.
 
 ```{r}
 gg_miss_upset(airquality)
+gg_miss_upset(riskfactors)
 ```
+
+Функция `gg_miss_fct` позволяет увидеть в каких группах и по каким переменным пропущенных значений больше.
 
 ```{r}
 gg_miss_fct(x = airquality, fct = Month)
-```
-
-```{r}
-gg_miss_span(pedestrian, hourly_counts, span_every = 3000)
-```
-
-```{r}
-# Using the airquality dataset, explore the missingness pattern using gg_miss_upset()
-gg_miss_upset(airquality)
-
-# With the riskfactors dataset, explore how the missingness changes across the marital variable using gg_miss_fct()
 gg_miss_fct(x = riskfactors, fct = marital)
-
-# Using the pedestrian dataset, explore how the missingness of hourly_counts changes over a span of 3000 
-gg_miss_span(pedestrian, var = hourly_counts, span_every = 3000)
-
-# Using the pedestrian dataset, explore the impact of month by facetting by month
-# and explore how missingness changes for a span of 1000
-gg_miss_span(pedestrian, var = hourly_counts , span_every = 1000, facet = month)
 ```
-
 
 ### Что делать с пропущенными значениями
 
@@ -238,7 +251,7 @@ miss_var_summary(df)
 vis_miss(df, cluster = TRUE)
 ```
 
-Видно, что в переменной `z` 70.2% значений пропущены. В таких ситуациях лучше удалить всю такую переменную.
+Видно, что в переменной `z` $70.2$% значений пропущены. В таких ситуациях лучше удалить всю такую переменную.
 
 ```{r}
 df <- df %>%
@@ -279,8 +292,7 @@ df <- df %>%
 
 #### Cлучай №3
 
-В прошлом случае
-
+В прошлом случае мы удалили 131 наблюдение. Данные очень ценный ресурс для построения моделей, поэтому нужно стараться не удалять их. Но для этого нужно заменить пропущенные значения какими-то дуругими значениями.
 
 #### Замена средним
 
@@ -306,93 +318,40 @@ df %>% impute_median_at('x')
 df %>% impute_median_all()
 ```
 
+#### Индикатор пропущенной переменной
 
-```{r}
-df %>%
-  bind_shadow() %>%
-  impute_mean_all
-```
+Если мы заменяем пропущенное значение средним или медианой, мы в какой-то степени ошибаемся, так как истинное значение могло быть совершенно другим. Чтобы это не мешало модели, можно ввести переменную-индикатор, которая будет равняться 1, если значение заменено.
 
+![](pictures/indicator.png)
 
-
-```{r}
-df %>%
-  add_label_missings('y', missing = 1,
-                        complete = 0)
-```
+Можно использовать следующую функцию.
 
 ```{r}
 ImputeInd <- function(df, strategy = 'mean', column){
   if (strategy == 'mean') {
-    df1 <- df %>% 
-      add_label_missings(y, missing = 1,
+    df1 <- df %>%
+      add_label_missings(column, missing = 1,
                          complete = 0) %>%
-      rename_at(vars(any_missing), funs(paste0(column, '_IND', sep = ''))) %>%
-      impute_mean_at('x')
+      rename(!!paste0(column, '_IND', sep = ''):=any_missing) %>%
+      impute_mean_at(column)
     return(df1)
   }
   if (strategy == 'median') {
-    df1 <- df %>% 
-      add_label_missings(y, missing = 1,
+    df1 <- df %>%
+      add_label_missings(column, missing = 1,
                          complete = 0) %>%
-      rename_at(vars(any_missing), funs(paste0(column, '_IND', sep = ''))) %>%
-      impute_median_at('x')
+      rename(!!paste0(column, '_IND', sep = ''):=any_missing) %>%
+      impute_median_at(column)
     return(df1)
   }
   stop('Введите правильно стратегию!')
 }
+```
 
+Можно использовать даже с *pipe* :)
+
+```{r}
 df %>%
-  ImputeInd(strategy = 'mean', 'x')
-
+  ImputeInd(strategy = 'mean', 'x') %>%
+  ImputeInd(strategy = 'median', 'y')
 ```
-
-
-про `impute_lm` 
-
-
-### Еще 
-
-
-  Функция complete.cases() выдает логический вектор, где TRUE означает полностью заполненную строку, а FALSE - содержащую пропуски (NAs).
-sum(complete.cases(dat))
-dat[!complete.cases(dat), ]
- удаляем строки, содержащие NA
-dat <- na.omit(dat)
----
-Для дальнейшей работы с пропущенными значениями нам понадобятся дополнительные библиотеки. Установим их. Можно устанавливать сразу несколько библиотек – оформить перечень необходимых библиотек в виде вектора, и тогда сразу после установки одной библиотеки начнется загрузка следующей.
-
-
-Обратимся к ним:
-
-```{r}
-install.packages(c("mice", "VIM"))
-library(mice)
-library(VIM)
-```
-
-
-Выведем графики, которые покажут, в каких переменных пропущенных значений больше всего и как выглядит таблица с пропущенными значениями (паттерны пропущенных значений).
-
-На графике слева показано, с какой частотой встречаются пропущенные значения в той или иной переменной. На графике справа показано, в каких комбинациях эти пропущенные значения встречаются. Например, в нашем случае отсутствие ответов в AgeOfStore часто совпадает с отсутствием ответов в SalesInThousands (пропущенные значения отмечены красным цветом).
-
-aggr - из библиотеки mice
-aggr(dat)
-
-Следующий график отвечает за заполненность наблюдений (красным цветом отмечены пропущенные значения, остальное - заполненные значения, чем темнее цвет, тем больше значение). По вертикальной оси - номер строки в базе данных (id наблюдения).
-
-matrixplot - из библиотеки VIM
-matrixplot(dat) 
-
-
-
-Также стоит обратить внимание на следующие ло
-
-```{r}
-NA | TRUE
-NA | FALSE
-```
-
-
-
-Функции complete and fill в tidyr для работы с пропущенными значениями
