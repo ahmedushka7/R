@@ -26,7 +26,7 @@ knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
 
 ```{r}
 x <- c(1, NA, 3, NA, NA, 5)
-is.
+is.na(x)
 ```
 
 Но есть и другие инструменты. Они находятся в пакете `naniar`. Давайте установим и подгрузим его и остальные пакеты.

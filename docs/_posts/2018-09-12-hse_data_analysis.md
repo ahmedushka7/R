@@ -12,11 +12,12 @@ layout: nil
 
 ### Посиделка № 13 - 14
 
-Пакет `tidyr`. Манипуляции с данными.
+* Пакет `tidyr`. Манипуляции с данными. [Онлайн скрипт](https://ahmedushka7.github.io/R/scripts/hse_data_analysis/sem_9/tidyr.html).
 * Официальный [гайд](https://tidyr.tidyverse.org/articles/tidy-data.html) по `tidyr`.
 * Краткая [памятка](https://github.com/ahmedushka7/R/raw/master/docs/scripts/hse_data_analysis/sem_8/dplyr_and_tidyr.pdf) по `dplyr` и `tidyr`.
-* [Онлайн](https://ahmedushka7.github.io/R/scripts/hse_data_analysis/sem_8/dplyr_main.html) скрипт занятия по `tidyr`.
-
+* Работа с пропущенными значениями. [Онлайн скрипт]().
+* Пакеты `lubridate`, `stringr` и `forcats`. [Онлайн скрипт]().
+* Краткая [памятка](https://rawgit.com/rstudio/cheatsheets/master/lubridate.pdf) по `lubridate`.
 * [Условия заданий]() для отработки.
 * [Решение заданий]() для отработки.
 
