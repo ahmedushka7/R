@@ -16,9 +16,10 @@ layout: nil
 * Официальный [гайд](https://tidyr.tidyverse.org/articles/tidy-data.html) по `tidyr`.
 * Краткая [памятка](https://github.com/ahmedushka7/R/raw/master/docs/scripts/hse_data_analysis/sem_8/dplyr_and_tidyr.pdf) по `dplyr` и `tidyr`.
 * Работа с пропущенными значениями. [Онлайн скрипт](https://ahmedushka7.github.io/R/scripts/hse_data_analysis/sem_9/missing_value.html).
-* Пакеты `lubridate`, `stringr` и `forcats`. [Онлайн скрипт]().
+* Пакеты `lubridate`, `stringr` и `forcats`. [Онлайн скрипт](https://ahmedushka7.github.io/R/scripts/hse_data_analysis/sem_9/lubridate_stringr_forcats.html).
 * Краткая [памятка](https://rawgit.com/rstudio/cheatsheets/master/lubridate.pdf) по `lubridate`.
-* [Условия заданий]() для отработки.
+* Скачать [архив](https://github.com/ahmedushka7/R/blob/master/docs/scripts/hse_data_analysis/sem_9/data.zip?raw=true) c файликами.
+* [Условия заданий](https://ahmedushka7.github.io/R/scripts/hse_data_analysis/sem_9/exercises.html) для отработки.
 * [Решение заданий]() для отработки.
 
 ### Посиделка № 11 - 12

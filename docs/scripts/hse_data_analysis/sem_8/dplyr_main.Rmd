@@ -7,7 +7,7 @@ output:
     toc_float: TRUE
     toc_depth: 4
     highlight: pygments
-    #df_print: paged
+     df_print: paged
 editor_options: 
   chunk_output_type: console
 ---
