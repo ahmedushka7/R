@@ -20,7 +20,7 @@ layout: nil
 * Краткая [памятка](https://rawgit.com/rstudio/cheatsheets/master/lubridate.pdf) по `lubridate`.
 * Скачать [архив](https://github.com/ahmedushka7/R/blob/master/docs/scripts/hse_data_analysis/sem_9/data.zip?raw=true) c файликами.
 * [Условия заданий](https://ahmedushka7.github.io/R/scripts/hse_data_analysis/sem_9/exercises.html) для отработки.
-* [Решение заданий]() для отработки.
+* [Решение заданий](https://ahmedushka7.github.io/R/scripts/hse_data_analysis/sem_9/exercises_solution.html) для отработки.
 
 ### Посиделка № 11 - 12
 
