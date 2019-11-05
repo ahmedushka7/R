@@ -10,6 +10,15 @@ layout: nil
 ### Посиделка № ?
 -->
 
+
+### Посиделка № 15 - 16
+
+* Визуализация данных. Пакет `ggplot2`. [Онлайн скрипт](https://ahmedushka7.github.io/R/scripts/hse_data_analysis/sem_10/ggplot2.html).
+* Официальный [сайт](https://ggplot2.tidyverse.org) `ggplot2`.
+* [Прекрасная галерея](https://www.r-graph-gallery.com/index.html) с графиками.
+* [Условия заданий]() для отработки.
+* [Решение заданий]() для отработки.
+
 ### Посиделка № 13 - 14
 
 * Пакет `tidyr`. Манипуляции с данными. [Онлайн скрипт](https://ahmedushka7.github.io/R/scripts/hse_data_analysis/sem_9/tidyr.html).
