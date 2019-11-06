@@ -76,3 +76,21 @@ pp <- plot_ly(z = z, x = x, y = y, type = "surface") %>%
       
 pp
 
+
+install.packages('plotly')
+library(plotly)
+library(tibble)
+
+x = seq(1,10, length.out = 1000)
+y = seq(1,10, length.out = 1000)
+z <- matrix(data = 0, nrow = 1000, ncol = 1000)
+for(i in 1:nrow(z)){
+  for(j in 1:ncol(z)){
+    z[i,j] <- x[i] * x[j]
+  }
+}
+
+
+p <- plot_ly(z = z, x = x, y = y, type = "surface")
+p
+
