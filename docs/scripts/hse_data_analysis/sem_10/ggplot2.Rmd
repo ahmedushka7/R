@@ -13,7 +13,7 @@ editor_options:
 ---
 ---
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE, error = TRUE)
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
 ```
 
 ### Визуализация данных
@@ -542,53 +542,69 @@ ggplot(mpg, aes(displ, hwy)) +
 
 Иногда эти два способа не работают. Тогда вам на может помочь функция `coord_cartesian`.
 
-
 ### Прямые линии
+
+За линии отвечают три функции:
+
+* `geom_hline` -- горизонтальные линия
+* `geom_vline` -- вертикальная линия
+* `geom_abline` -- прямая линия с каким-то значеним константы и наклоном
+
+```{r}
+ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) +
+  geom_point() + 
+  geom_hline(yintercept = 3.3, color = 'green') +
+  geom_vline(xintercept = 6.5, color = 'green') + 
+  geom_abline(intercept = 1, slope = 0.5, color = 'red')
+```
 
 ### Статистический слой
 
-Первой функцией является `geom_smooth`.
+Когда мы рисуем график рассеяния, то хотим увидеть какие-то закономерности между переменными. Чтобы как-то апроксимировать их можно использовать функцию `geom_smooth`, которая позволяет нарисовать некоторую линию зависимости переменных.
 
 ```{r}
 ggplot(mtcars, aes(x = wt, y = mpg)) +
   geom_point() +
-  geom_smooth(span=100)
+  geom_smooth()
+```
 
+Серая область вокруг линии это 95%  доверительный интервал. Его можно убрать с помощью аргумента `se`.
+
+```{r}
+ggplot(mtcars, aes(x = wt, y = mpg)) +
+  geom_point() +
+  geom_smooth(se = F)
+```
+
+Мы уже наслышены о линейно модели. Давайте попробуем визуализировать такую модель.
+
+```{r}
 ggplot(mtcars, aes(x = wt, y = mpg)) +
   geom_point() +
   geom_smooth(method = 'lm')
-
-ggplot(mtcars, aes(x = wt, y = mpg)) +
-  geom_point() +
-  geom_smooth(method = 'lm', se = F)
-
-ggplot(mtcars, aes(x = wt, y = mpg)) +
-  geom_smooth(method = 'lm', se = F)
 ```
 
+Если вы используете какой-то атрибут, то у вас построится не одна модель а несколько.
 
-Как работает с наблюдениями, если они делятся по цвету еще.
 ```{r}
-ggplot(mtcars, aes(x = wt, y = mpg, col = cyl)) +
-  geom_point() +
-  geom_smooth(method = "lm", se = FALSE)
-
 ggplot(mtcars, aes(x = wt, y = mpg, col = factor(cyl))) +
   geom_point() +
   geom_smooth(method = "lm", se = FALSE)
+```
 
+Чтобы нарисовать линию и указать ее группу.
+
+```{r}
 ggplot(mtcars, aes(x = wt, y = mpg, col = factor(cyl))) +
   geom_point() +
   geom_smooth(method = "lm", se = FALSE) +
-  geom_smooth(method = "lm", se = FALSE, aes(group = 0))
+  geom_smooth(method = "lm", se = FALSE, aes(group = 1))
 ```
-
-
-### Легенда
-
 
 ### Построение нескольких графиков по категориальным переменным (facet)
 
+В данном случае мы хотим нарисовать отдельные графики для каждой категории факторной переменной. Делим один сложный график на несколько простых с помощью одной или двух факторных переменных с помощью функции `facet_grid`. Аргументом является формула: `rows ~ columns`. Необязательно приводить переменные к факторам, `ggplot` сам их принудительно приведет. Если используем только одну категориальную переменную, то вторую обозначаем просто точкой (`.`).
+
 ```{r}
 p <- ggplot(mtcars, aes(x = wt, y = mpg)) +
   geom_point()
@@ -598,102 +614,57 @@ p +
   facet_grid(. ~ cyl)
 p +
   facet_grid(am ~ cyl)
-```
-
-Очень классное видео, оттуда можно сделать гифку разъединения плюс показывает сколько строчек кода экономит эта функция
-
-`facet_grid`:
-
-Испоьзуем для деления сложного графика на несколько простых с помощью одной или двух категориальных переменных. Формула : `rows ~ columns`. Необязательно приводить переменные к факторам, ggplot сам их принудительно приведет. Если используем только одну категориальную переменную, то вторую обозначаем просто точкой(.).
-
-```{r}
-# Basic scatter plot
-p <- ggplot(mtcars, aes(x = wt, y = mpg)) +
-  geom_point()
-
-# 1 - Separate rows according to transmission type, am
-p +
-  facet_grid(am ~ .)
-
-# 2 - Separate columns according to cylinders, cyl
-p +
-  facet_grid(. ~ cyl)
-
-# 3 - Separate by both columns and rows
-p +
-  facet_grid(am ~ cyl)
-```
-
-Можно отразить 6 переменных на графике
-```{r}
-ggplot(mtcars, aes(x = wt, y = mpg, col = cyl_am)) +
-  geom_point() +
-  # Add a manual colour scale
-  scale_color_manual(values = myCol)+ facet_grid(gear ~ vs)
-```
-
-Иногда переменные не пересекаются:
-```{r}
-# Basic scatter plot
-p <- ggplot(mamsleep, aes(x = time, y = name, col = sleep)) +
-  geom_point()
-
-# Execute to display plot
-p
-
-# Facet rows accoding to vore
-p +
-  facet_grid(vore ~ .)
-
-# Specify scale and space arguments to free up rows
-p +
-  facet_grid(vore ~ ., scale= 'free_y', space = 'free_y')
-
 ```
 
 ### Стили
 
+Можно настраивать свою палитру цветов, а не использовать ту, которую предоставляет `ggplot2`. С помощью функции `scale_fill_brewer` можно использовать другие палитры.
+
 ```{r}
-# Example of how to use a brewed color palette
 ggplot(mtcars, aes(x = cyl, fill = factor(am))) +
   geom_bar() +
-  scale_fill_brewer(palette = "Set1") #?brewer.pal
-
-# Use str() on Vocab to check out the structure
-str(Vocab)
-
-# Plot education on x and vocabulary on fill
-# Use the default brewed color palette
-ggplot(Vocab, aes(x = education, fill = factor(vocabulary))) +
-geom_bar(position = 'fill') +
-scale_fill_brewer()
+  scale_fill_brewer(palette = "Set1") 
 ```
+
+Узнать о всех готовых палитрах можно с помощью команды `?brewer.pal` или найти на [сайте](https://observablehq.com/@d3/color-schemes).
+
+Нарисуем уже знакомый нам график.
+
+```{r}
+ggplot(Vocab, aes(x = education, fill = factor(vocabulary))) +
+  geom_bar(position = 'fill')
+```
+
+Можно поменять заливку с помощью этой же функции.
+
+```{r}
+ggplot(Vocab, aes(x = education, fill = factor(vocabulary))) +
+  geom_bar(position = 'fill') + 
+  scale_fill_brewer()
+```
+
+С помощью пакета `RColorBrewer` вы можете создавать свои палитры.
 
 ```{r}
 # install.packages('RColorBrewer')
 library(RColorBrewer)
 new_col <- colorRampPalette(c("#FFFFFF", "#0000FF"))
-new_col(4) # the newly extrapolated colours
-munsell::plot_hex(new_col(10)) # Quick and dirty plot
+new_col(4)
+munsell::plot_hex(new_col(4))
 
-# Final plot of last exercise
 ggplot(Vocab, aes(x = education, fill = factor(vocabulary))) +
   geom_bar(position = "fill") +
   scale_fill_brewer()
 
-# Definition of a set of blue colors
-blues <- brewer.pal(9, "Blues") # from the RColorBrewer package
-
-# 1 - Make a color range using colorRampPalette() and the set of blues
+blues <- brewer.pal(9, "Blues")
 blue_range <- colorRampPalette(blues)
 
-# 2 - Use blue_range to adjust the color of the bars, use scale_fill_manual()
 ggplot(Vocab, aes(x = education, fill = factor(vocabulary))) +
   geom_bar(position = "fill") +
   scale_fill_manual(values = blue_range(11))
 ```
 
-#### Тема
+### Тема
 
 Вы можете изменять тему вашего рисунка с помощью функции `theme`. В пакете `ggplot2` уже есть некоторые встроенные темы:
 
@@ -732,6 +703,22 @@ ggplot(data = mpg, aes(x = displ, y = hwy)) +
   theme_pander()
 ```
 
+### Легенда
+
+Изменять настройки легенды можно в функции `theme`. Одной из настроек является расположение легенды. 
+
+* `left`
+* `top`
+* `bottom`
+* `right`
+
+```{r}
+ggplot(mtcars, aes(x = wt, y = mpg, col = factor(cyl))) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  theme(legend.position = 'left')
+```
+
 ### Сохранение графиков
 
 Для сохранения графика можно использовать функцию `ggsave`, которая сохранит последний **нарисованный** график.
@@ -744,5 +731,20 @@ ggsave("plot.pdf")
 ```
 
 У этой функции много аргументов. Можно настраивать ширину, длину, качество рисунка и многое другое.
+
+### Интерактивные графики
+
+Пакет `plotly` предлагает разные инструменты для построения интерактивных графиков. В этом пакете есть функция `ggplotly`, которая может преобразовать почти любой график, созданный пакетом `ggplot2`, в интерактивный.
+
+```{r}
+# install.packages('plotly')
+library(plotly)
+
+p <- ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) +
+  geom_point()
+ggplotly(p)
+```
+
+Также для создания интерактивных графиков есть пакет `ggvis`. 
 
 ---
