@@ -11,6 +11,14 @@ layout: nil
 -->
 
 
+### Посиделка № 16 - 17
+
+* Описательные статистики. [Онлайн скрипт](https://ahmedushka7.github.io/R/scripts/hse_data_analysis/sem_11/statistics.html).
+* Занятная [игрушка](http://guessthecorrelation.com) по корреляции.
+* Ликбез по производным, градиент и метод градиентного спуска. [Онлайн скрипт]().
+
+---
+
 ### Посиделка № 15 - 16
 
 * Визуализация данных. Пакет `ggplot2`. [Онлайн скрипт](https://ahmedushka7.github.io/R/scripts/hse_data_analysis/sem_10/ggplot2.html).
