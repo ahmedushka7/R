@@ -15,7 +15,7 @@ layout: nil
 
 * Описательные статистики. [Онлайн скрипт](https://ahmedushka7.github.io/R/scripts/hse_data_analysis/sem_11/statistics.html).
 * Занятная [игрушка](http://guessthecorrelation.com) по корреляции.
-* Ликбез по производным, градиент и метод градиентного спуска. [Онлайн скрипт]().
+* Ликбез по производным, градиент и метод градиентного спуска. [Онлайн скрипт](https://ahmedushka7.github.io/R/scripts/hse_data_analysis/sem_11/SGD.html).
 
 ---
 
