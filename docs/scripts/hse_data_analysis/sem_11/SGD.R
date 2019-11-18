@@ -73,7 +73,6 @@ for(i in 1:nrow(z)){
 pp <- plot_ly(z = z, x = x, y = y, type = "surface") %>%
         add_markers(x = stage$w0, y = stage$w1, z = stage$loss, size = 0.3) %>%
         add_lines(x = stage$w0, y = stage$w1, z = stage$loss, size = 0.3)
-      
 pp
 
 
