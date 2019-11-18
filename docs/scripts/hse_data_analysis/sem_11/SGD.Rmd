@@ -11,6 +11,16 @@ output:
 editor_options: 
   chunk_output_type: console
 ---
+<style>
+h1,
+h2,
+h3,
+h4,
+h5,
+h6  {
+  color: #317eac;
+}
+</style>
 ---
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
