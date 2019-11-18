@@ -48,7 +48,7 @@ __Правила игры:__
     <td> 04.11.2019 23:59  </td>
     <td> 06.11.2019 23:59  </td>
   </tr>
-    <tr>
+  <tr>
     <td> 3 </td>
     <td> Домашняя работа №3 </td>
     <td> <a href="https://ahmedushka7.github.io/R/homeworks/hw3/hw3.html" target="_blank"> Условия задач и материалы </a> </td>
@@ -56,13 +56,12 @@ __Правила игры:__
     <td> 20.11.2019 23:59  </td>
     <td> 22.11.2019 23:59  </td>
   </tr>
-    </tr>
-    <tr>
+  </tr>
     <td> 4 </td>
     <td> Контрольная работа </td>
     <td> <a href="" target="_blank"> Условия задач и материалы </a> </td>
     <td> <a href="" target="_blank"> Решение задач </a> </td>
-    <td> --  </td>
-    <td> --  </td>
+    <td> -  </td>
+    <td> -  </td>
   </tr>
 </table>
