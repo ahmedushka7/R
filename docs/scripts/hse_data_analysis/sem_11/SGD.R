@@ -18,7 +18,6 @@ ggplot(data, aes(x, y)) +
   geom_abline(intercept = w0, slope = w1, color = 'blue')
 
 loss <- function(df, w0, w1){
-  # функция потерь
   l <- 0
   x <- (df$y - (w0 + w1 * df$x))^2
   return(sum(x))
@@ -93,3 +92,34 @@ for(i in 1:nrow(z)){
 p <- plot_ly(z = z, x = x, y = y, type = "surface")
 p
 
+
+
+
+
+gradientR<-function(y, X, epsilon,eta, iters){
+  epsilon = 0.0001
+  X = as.matrix(data.frame(rep(1,length(y)),X))
+  N= dim(X)[1]
+  print("Initialize parameters...")
+  theta.init = as.matrix(rnorm(n=dim(X)[2], mean=0,sd = 1)) # Initialize theta
+  theta.init = t(theta.init)
+  e = t(y) - theta.init%*%t(X)
+  grad.init = -(2/N)%*%(e)%*%X
+  theta = theta.init - eta*(1/N)*grad.init
+  l2loss = c()
+  for(i in 1:iters){
+    l2loss = c(l2loss,sqrt(sum((t(y) - theta%*%t(X))^2)))
+    e = t(y) - theta%*%t(X)
+    grad = -(2/N)%*%e%*%X
+    theta = theta - eta*(2/N)*grad
+    if(sqrt(sum(grad^2)) <= epsilon){
+      break
+    }
+  }
+  print("Algorithm converged")
+  print(paste("Final gradient norm is",sqrt(sum(grad^2))))
+  values<-list("coef" = t(theta), "l2loss" = l2loss)
+  return(values)
+}
+
+gradientR(df$y, df$x, epsilon = 0.01, eta=0.01,iters=100)
