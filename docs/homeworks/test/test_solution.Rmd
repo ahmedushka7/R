@@ -1,0 +1,126 @@
+---
+title: "Решение контрольной работы"
+output: 
+  html_document:
+    # toc: TRUE
+    # toc_float: TRUE
+    # toc_depth: 4
+    highlight: pygments
+editor_options: 
+  chunk_output_type: console
+---
+<style>
+h1,
+h2,
+h3,
+h4,
+h5,
+h6  {
+  color: #317eac;
+}
+</style>
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning=FALSE, message=FALSE)
+```
+
+### Задание №0 (1 балл)
+
+Подгрузите следующие пакеты.
+
+```{r}
+packages <- c('readr', 'dplyr', 'tidyr', 'ggplot2')
+# install.packages(packages)
+library(readr)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+```
+
+Подгрузите ваш датасет.
+
+```{r}
+url <- 'https://raw.githubusercontent.com/ahmedushka7/R/master/docs/homeworks/test/data/students.csv'
+data <- read_csv(url)
+```
+
+Это датасет с результатами тестов, которые писали студенты. В нём представлены следующие переменные:
+
+* `student_id` -- id студента
+* `gender` -- пол студента
+* `race` -- раса студента
+* `parental_lvl_of_edu` -- какое образование имеют родители студента
+* `lunch` -- 1, если студент кушал до теста и 0, если не кушал
+* `prepartion_course` -- 1, если студент проходил подготовительный курс для написания теста и 0, если не проходил
+* `type_test` -- тип теста
+* `score` -- оценка за тест
+
+### Задание №1 (33 балла)
+
+Сколько студентов находится в нашем наборе данных? 
+
+```{r}
+data$student_id %>% unique() %>% length()
+```
+
+Какие тесты писали эти студенты? 
+
+```{r}
+data$type_test %>% unique()
+```
+
+Преобразуйте ваш набор данных так, чтобы результат каждого теста стал отдельной новой переменной.
+
+```{r}
+data <- data %>% 
+          spread(type_test, score)
+```
+
+### Задание №2 (33 балла)
+
+Найдите средний результат каждого теста в разрезе пола. 
+
+```{r}
+data %>%
+  group_by(gender) %>%
+  summarise(math_score = mean(math_score),
+            reading_score = mean(reading_score),
+            writing_score = mean(writing_score))
+```
+
+Найдите средний результат за все тесты для каждого студента и запишите его в переменную `mean_score`. 
+
+```{r}
+data <- data %>%
+          mutate(mean_score = (math_score + reading_score + writing_score) / 3)
+```
+
+Постройте гистограмму распределения этой переменной отдельно (разным цветом) для тех, кто кушал и не кушал до теста. 
+
+```{r}
+ggplot(data, aes(x = mean_score, fill = factor(lunch))) +
+  geom_histogram(bins = 50, alpha = 0.7) +
+  labs(y = 'Count',
+       x = 'Mean test score',
+       fill = 'Lunch')
+```
+
+**Hint:**
+
+Не забывайте, что когда вы работаете с цветом вам нужна факторная переменная.
+
+### Задание №3 (33 балла)
+
+Нарисуйте график рассеяния между переменными `writing_score` и `reading_score`. Наложите на этот график линию линейной регрессии.
+
+```{r}
+data %>%
+  ggplot(aes(x = writing_score, y = reading_score)) +
+    geom_point(color = 'red') + 
+    geom_smooth(method = 'lm') +
+    labs(x = 'Writing score',
+         y = 'Reading score',
+         title = 'Linear relationship between writing and reading scores')
+```
+
+

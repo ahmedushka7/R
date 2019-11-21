@@ -60,8 +60,8 @@ __Правила игры:__
     <td> 4 </td>
     <td> Контрольная работа </td>
     <td> <a href="https://ahmedushka7.github.io/R/homeworks/test/test.html" target="_blank"> Условия задач и материалы </a> </td>
-    <td> <a href="" target="_blank"> Решение задач </a> </td>
-    <td> -  </td>
-    <td> -  </td>
+    <td> <a href="https://ahmedushka7.github.io/R/homeworks/test/test_solution.html" target="_blank"> Решение задач </a> </td>
+    <td></td>
+    <td></td>
   </tr>
 </table>
