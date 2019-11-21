@@ -1,0 +1,3001 @@
+student_id,gender,race,parental_lvl_of_edu,lunch,prepartion_course,type_test,score
+1,female,group B,bachelor's degree,1,0,math_score,72
+1,female,group B,bachelor's degree,1,0,reading_score,72
+1,female,group B,bachelor's degree,1,0,writing_score,74
+2,female,group C,some college,1,1,math_score,69
+2,female,group C,some college,1,1,reading_score,90
+2,female,group C,some college,1,1,writing_score,88
+3,female,group B,master's degree,1,0,math_score,90
+3,female,group B,master's degree,1,0,reading_score,95
+3,female,group B,master's degree,1,0,writing_score,93
+4,male,group A,associate's degree,0,0,math_score,47
+4,male,group A,associate's degree,0,0,reading_score,57
+4,male,group A,associate's degree,0,0,writing_score,44
+5,male,group C,some college,1,0,math_score,76
+5,male,group C,some college,1,0,reading_score,78
+5,male,group C,some college,1,0,writing_score,75
+6,female,group B,associate's degree,1,0,math_score,71
+6,female,group B,associate's degree,1,0,reading_score,83
+6,female,group B,associate's degree,1,0,writing_score,78
+7,female,group B,some college,1,1,math_score,88
+7,female,group B,some college,1,1,reading_score,95
+7,female,group B,some college,1,1,writing_score,92
+8,male,group B,some college,0,0,math_score,40
+8,male,group B,some college,0,0,reading_score,43
+8,male,group B,some college,0,0,writing_score,39
+9,male,group D,high school,0,1,math_score,64
+9,male,group D,high school,0,1,reading_score,64
+9,male,group D,high school,0,1,writing_score,67
+10,female,group B,high school,0,0,math_score,38
+10,female,group B,high school,0,0,reading_score,60
+10,female,group B,high school,0,0,writing_score,50
+11,male,group C,associate's degree,1,0,math_score,58
+11,male,group C,associate's degree,1,0,reading_score,54
+11,male,group C,associate's degree,1,0,writing_score,52
+12,male,group D,associate's degree,1,0,math_score,40
+12,male,group D,associate's degree,1,0,reading_score,52
+12,male,group D,associate's degree,1,0,writing_score,43
+13,female,group B,high school,1,0,math_score,65
+13,female,group B,high school,1,0,reading_score,81
+13,female,group B,high school,1,0,writing_score,73
+14,male,group A,some college,1,1,math_score,78
+14,male,group A,some college,1,1,reading_score,72
+14,male,group A,some college,1,1,writing_score,70
+15,female,group A,master's degree,1,0,math_score,50
+15,female,group A,master's degree,1,0,reading_score,53
+15,female,group A,master's degree,1,0,writing_score,58
+16,female,group C,some high school,1,0,math_score,69
+16,female,group C,some high school,1,0,reading_score,75
+16,female,group C,some high school,1,0,writing_score,78
+17,male,group C,high school,1,0,math_score,88
+17,male,group C,high school,1,0,reading_score,89
+17,male,group C,high school,1,0,writing_score,86
+18,female,group B,some high school,0,0,math_score,18
+18,female,group B,some high school,0,0,reading_score,32
+18,female,group B,some high school,0,0,writing_score,28
+19,male,group C,master's degree,0,1,math_score,46
+19,male,group C,master's degree,0,1,reading_score,42
+19,male,group C,master's degree,0,1,writing_score,46
+20,female,group C,associate's degree,0,0,math_score,54
+20,female,group C,associate's degree,0,0,reading_score,58
+20,female,group C,associate's degree,0,0,writing_score,61
+21,male,group D,high school,1,0,math_score,66
+21,male,group D,high school,1,0,reading_score,69
+21,male,group D,high school,1,0,writing_score,63
+22,female,group B,some college,0,1,math_score,65
+22,female,group B,some college,0,1,reading_score,75
+22,female,group B,some college,0,1,writing_score,70
+23,male,group D,some college,1,0,math_score,44
+23,male,group D,some college,1,0,reading_score,54
+23,male,group D,some college,1,0,writing_score,53
+24,female,group C,some high school,1,0,math_score,69
+24,female,group C,some high school,1,0,reading_score,73
+24,female,group C,some high school,1,0,writing_score,73
+25,male,group D,bachelor's degree,0,1,math_score,74
+25,male,group D,bachelor's degree,0,1,reading_score,71
+25,male,group D,bachelor's degree,0,1,writing_score,80
+26,male,group A,master's degree,0,0,math_score,73
+26,male,group A,master's degree,0,0,reading_score,74
+26,male,group A,master's degree,0,0,writing_score,72
+27,male,group B,some college,1,0,math_score,69
+27,male,group B,some college,1,0,reading_score,54
+27,male,group B,some college,1,0,writing_score,55
+28,female,group C,bachelor's degree,1,0,math_score,67
+28,female,group C,bachelor's degree,1,0,reading_score,69
+28,female,group C,bachelor's degree,1,0,writing_score,75
+29,male,group C,high school,1,0,math_score,70
+29,male,group C,high school,1,0,reading_score,70
+29,male,group C,high school,1,0,writing_score,65
+30,female,group D,master's degree,1,0,math_score,62
+30,female,group D,master's degree,1,0,reading_score,70
+30,female,group D,master's degree,1,0,writing_score,75
+31,female,group D,some college,1,0,math_score,69
+31,female,group D,some college,1,0,reading_score,74
+31,female,group D,some college,1,0,writing_score,74
+32,female,group B,some college,1,0,math_score,63
+32,female,group B,some college,1,0,reading_score,65
+32,female,group B,some college,1,0,writing_score,61
+33,female,group E,master's degree,0,0,math_score,56
+33,female,group E,master's degree,0,0,reading_score,72
+33,female,group E,master's degree,0,0,writing_score,65
+34,male,group D,some college,1,0,math_score,40
+34,male,group D,some college,1,0,reading_score,42
+34,male,group D,some college,1,0,writing_score,38
+35,male,group E,some college,1,0,math_score,97
+35,male,group E,some college,1,0,reading_score,87
+35,male,group E,some college,1,0,writing_score,82
+36,male,group E,associate's degree,1,1,math_score,81
+36,male,group E,associate's degree,1,1,reading_score,81
+36,male,group E,associate's degree,1,1,writing_score,79
+37,female,group D,associate's degree,1,0,math_score,74
+37,female,group D,associate's degree,1,0,reading_score,81
+37,female,group D,associate's degree,1,0,writing_score,83
+38,female,group D,some high school,0,0,math_score,50
+38,female,group D,some high school,0,0,reading_score,64
+38,female,group D,some high school,0,0,writing_score,59
+39,female,group D,associate's degree,0,1,math_score,75
+39,female,group D,associate's degree,0,1,reading_score,90
+39,female,group D,associate's degree,0,1,writing_score,88
+40,male,group B,associate's degree,0,0,math_score,57
+40,male,group B,associate's degree,0,0,reading_score,56
+40,male,group B,associate's degree,0,0,writing_score,57
+41,male,group C,associate's degree,0,0,math_score,55
+41,male,group C,associate's degree,0,0,reading_score,61
+41,male,group C,associate's degree,0,0,writing_score,54
+42,female,group C,associate's degree,1,0,math_score,58
+42,female,group C,associate's degree,1,0,reading_score,73
+42,female,group C,associate's degree,1,0,writing_score,68
+43,female,group B,associate's degree,1,0,math_score,53
+43,female,group B,associate's degree,1,0,reading_score,58
+43,female,group B,associate's degree,1,0,writing_score,65
+44,male,group B,some college,0,1,math_score,59
+44,male,group B,some college,0,1,reading_score,65
+44,male,group B,some college,0,1,writing_score,66
+45,female,group E,associate's degree,0,0,math_score,50
+45,female,group E,associate's degree,0,0,reading_score,56
+45,female,group E,associate's degree,0,0,writing_score,54
+46,male,group B,associate's degree,1,0,math_score,65
+46,male,group B,associate's degree,1,0,reading_score,54
+46,male,group B,associate's degree,1,0,writing_score,57
+47,female,group A,associate's degree,1,1,math_score,55
+47,female,group A,associate's degree,1,1,reading_score,65
+47,female,group A,associate's degree,1,1,writing_score,62
+48,female,group C,high school,1,0,math_score,66
+48,female,group C,high school,1,0,reading_score,71
+48,female,group C,high school,1,0,writing_score,76
+49,female,group D,associate's degree,0,1,math_score,57
+49,female,group D,associate's degree,0,1,reading_score,74
+49,female,group D,associate's degree,0,1,writing_score,76
+50,male,group C,high school,1,1,math_score,82
+50,male,group C,high school,1,1,reading_score,84
+50,male,group C,high school,1,1,writing_score,82
+51,male,group E,some college,1,0,math_score,53
+51,male,group E,some college,1,0,reading_score,55
+51,male,group E,some college,1,0,writing_score,48
+52,male,group E,associate's degree,0,1,math_score,77
+52,male,group E,associate's degree,0,1,reading_score,69
+52,male,group E,associate's degree,0,1,writing_score,68
+53,male,group C,some college,1,0,math_score,53
+53,male,group C,some college,1,0,reading_score,44
+53,male,group C,some college,1,0,writing_score,42
+54,male,group D,high school,1,0,math_score,88
+54,male,group D,high school,1,0,reading_score,78
+54,male,group D,high school,1,0,writing_score,75
+55,female,group C,some high school,0,1,math_score,71
+55,female,group C,some high school,0,1,reading_score,84
+55,female,group C,some high school,0,1,writing_score,87
+56,female,group C,high school,0,0,math_score,33
+56,female,group C,high school,0,0,reading_score,41
+56,female,group C,high school,0,0,writing_score,43
+57,female,group E,associate's degree,1,1,math_score,82
+57,female,group E,associate's degree,1,1,reading_score,85
+57,female,group E,associate's degree,1,1,writing_score,86
+58,male,group D,associate's degree,1,0,math_score,52
+58,male,group D,associate's degree,1,0,reading_score,55
+58,male,group D,associate's degree,1,0,writing_score,49
+59,male,group D,some college,1,1,math_score,58
+59,male,group D,some college,1,1,reading_score,59
+59,male,group D,some college,1,1,writing_score,58
+60,female,group C,some high school,0,0,math_score,0
+60,female,group C,some high school,0,0,reading_score,17
+60,female,group C,some high school,0,0,writing_score,10
+61,male,group E,bachelor's degree,0,1,math_score,79
+61,male,group E,bachelor's degree,0,1,reading_score,74
+61,male,group E,bachelor's degree,0,1,writing_score,72
+62,male,group A,some high school,0,0,math_score,39
+62,male,group A,some high school,0,0,reading_score,39
+62,male,group A,some high school,0,0,writing_score,34
+63,male,group A,associate's degree,0,0,math_score,62
+63,male,group A,associate's degree,0,0,reading_score,61
+63,male,group A,associate's degree,0,0,writing_score,55
+64,female,group C,associate's degree,1,0,math_score,69
+64,female,group C,associate's degree,1,0,reading_score,80
+64,female,group C,associate's degree,1,0,writing_score,71
+65,female,group D,some high school,1,0,math_score,59
+65,female,group D,some high school,1,0,reading_score,58
+65,female,group D,some high school,1,0,writing_score,59
+66,male,group B,some high school,1,0,math_score,67
+66,male,group B,some high school,1,0,reading_score,64
+66,male,group B,some high school,1,0,writing_score,61
+67,male,group D,some high school,0,0,math_score,45
+67,male,group D,some high school,0,0,reading_score,37
+67,male,group D,some high school,0,0,writing_score,37
+68,female,group C,some college,1,0,math_score,60
+68,female,group C,some college,1,0,reading_score,72
+68,female,group C,some college,1,0,writing_score,74
+69,male,group B,associate's degree,0,0,math_score,61
+69,male,group B,associate's degree,0,0,reading_score,58
+69,male,group B,associate's degree,0,0,writing_score,56
+70,female,group C,associate's degree,1,0,math_score,39
+70,female,group C,associate's degree,1,0,reading_score,64
+70,female,group C,associate's degree,1,0,writing_score,57
+71,female,group D,some college,0,1,math_score,58
+71,female,group D,some college,0,1,reading_score,63
+71,female,group D,some college,0,1,writing_score,73
+72,male,group D,some college,1,1,math_score,63
+72,male,group D,some college,1,1,reading_score,55
+72,male,group D,some college,1,1,writing_score,63
+73,female,group A,associate's degree,0,0,math_score,41
+73,female,group A,associate's degree,0,0,reading_score,51
+73,female,group A,associate's degree,0,0,writing_score,48
+74,male,group C,some high school,0,0,math_score,61
+74,male,group C,some high school,0,0,reading_score,57
+74,male,group C,some high school,0,0,writing_score,56
+75,male,group C,some high school,1,0,math_score,49
+75,male,group C,some high school,1,0,reading_score,49
+75,male,group C,some high school,1,0,writing_score,41
+76,male,group B,associate's degree,0,0,math_score,44
+76,male,group B,associate's degree,0,0,reading_score,41
+76,male,group B,associate's degree,0,0,writing_score,38
+77,male,group E,some high school,1,0,math_score,30
+77,male,group E,some high school,1,0,reading_score,26
+77,male,group E,some high school,1,0,writing_score,22
+78,male,group A,bachelor's degree,1,1,math_score,80
+78,male,group A,bachelor's degree,1,1,reading_score,78
+78,male,group A,bachelor's degree,1,1,writing_score,81
+79,female,group D,some high school,1,1,math_score,61
+79,female,group D,some high school,1,1,reading_score,74
+79,female,group D,some high school,1,1,writing_score,72
+80,female,group E,master's degree,1,0,math_score,62
+80,female,group E,master's degree,1,0,reading_score,68
+80,female,group E,master's degree,1,0,writing_score,68
+81,female,group B,associate's degree,1,0,math_score,47
+81,female,group B,associate's degree,1,0,reading_score,49
+81,female,group B,associate's degree,1,0,writing_score,50
+82,male,group B,high school,0,0,math_score,49
+82,male,group B,high school,0,0,reading_score,45
+82,male,group B,high school,0,0,writing_score,45
+83,male,group A,some college,0,1,math_score,50
+83,male,group A,some college,0,1,reading_score,47
+83,male,group A,some college,0,1,writing_score,54
+84,male,group E,associate's degree,1,0,math_score,72
+84,male,group E,associate's degree,1,0,reading_score,64
+84,male,group E,associate's degree,1,0,writing_score,63
+85,male,group D,high school,0,0,math_score,42
+85,male,group D,high school,0,0,reading_score,39
+85,male,group D,high school,0,0,writing_score,34
+86,female,group C,some college,1,0,math_score,73
+86,female,group C,some college,1,0,reading_score,80
+86,female,group C,some college,1,0,writing_score,82
+87,female,group C,some college,0,0,math_score,76
+87,female,group C,some college,0,0,reading_score,83
+87,female,group C,some college,0,0,writing_score,88
+88,female,group D,associate's degree,1,0,math_score,71
+88,female,group D,associate's degree,1,0,reading_score,71
+88,female,group D,associate's degree,1,0,writing_score,74
+89,female,group A,some college,1,0,math_score,58
+89,female,group A,some college,1,0,reading_score,70
+89,female,group A,some college,1,0,writing_score,67
+90,female,group D,some high school,1,0,math_score,73
+90,female,group D,some high school,1,0,reading_score,86
+90,female,group D,some high school,1,0,writing_score,82
+91,female,group C,bachelor's degree,1,0,math_score,65
+91,female,group C,bachelor's degree,1,0,reading_score,72
+91,female,group C,bachelor's degree,1,0,writing_score,74
+92,male,group C,high school,0,0,math_score,27
+92,male,group C,high school,0,0,reading_score,34
+92,male,group C,high school,0,0,writing_score,36
+93,male,group C,high school,1,0,math_score,71
+93,male,group C,high school,1,0,reading_score,79
+93,male,group C,high school,1,0,writing_score,71
+94,male,group C,associate's degree,0,1,math_score,43
+94,male,group C,associate's degree,0,1,reading_score,45
+94,male,group C,associate's degree,0,1,writing_score,50
+95,female,group B,some college,1,0,math_score,79
+95,female,group B,some college,1,0,reading_score,86
+95,female,group B,some college,1,0,writing_score,92
+96,male,group C,associate's degree,0,1,math_score,78
+96,male,group C,associate's degree,0,1,reading_score,81
+96,male,group C,associate's degree,0,1,writing_score,82
+97,male,group B,some high school,1,1,math_score,65
+97,male,group B,some high school,1,1,reading_score,66
+97,male,group B,some high school,1,1,writing_score,62
+98,female,group E,some college,1,1,math_score,63
+98,female,group E,some college,1,1,reading_score,72
+98,female,group E,some college,1,1,writing_score,70
+99,female,group D,some college,0,0,math_score,58
+99,female,group D,some college,0,0,reading_score,67
+99,female,group D,some college,0,0,writing_score,62
+100,female,group D,bachelor's degree,1,0,math_score,65
+100,female,group D,bachelor's degree,1,0,reading_score,67
+100,female,group D,bachelor's degree,1,0,writing_score,62
+101,male,group B,some college,1,0,math_score,79
+101,male,group B,some college,1,0,reading_score,67
+101,male,group B,some college,1,0,writing_score,67
+102,male,group D,bachelor's degree,1,1,math_score,68
+102,male,group D,bachelor's degree,1,1,reading_score,74
+102,male,group D,bachelor's degree,1,1,writing_score,74
+103,female,group D,associate's degree,1,0,math_score,85
+103,female,group D,associate's degree,1,0,reading_score,91
+103,female,group D,associate's degree,1,0,writing_score,89
+104,male,group B,high school,1,1,math_score,60
+104,male,group B,high school,1,1,reading_score,44
+104,male,group B,high school,1,1,writing_score,47
+105,male,group C,some college,1,1,math_score,98
+105,male,group C,some college,1,1,reading_score,86
+105,male,group C,some college,1,1,writing_score,90
+106,female,group C,some college,1,0,math_score,58
+106,female,group C,some college,1,0,reading_score,67
+106,female,group C,some college,1,0,writing_score,72
+107,female,group D,master's degree,1,0,math_score,87
+107,female,group D,master's degree,1,0,reading_score,100
+107,female,group D,master's degree,1,0,writing_score,100
+108,male,group E,associate's degree,1,1,math_score,66
+108,male,group E,associate's degree,1,1,reading_score,63
+108,male,group E,associate's degree,1,1,writing_score,64
+109,female,group B,associate's degree,0,0,math_score,52
+109,female,group B,associate's degree,0,0,reading_score,76
+109,female,group B,associate's degree,0,0,writing_score,70
+110,female,group B,some high school,1,0,math_score,70
+110,female,group B,some high school,1,0,reading_score,64
+110,female,group B,some high school,1,0,writing_score,72
+111,female,group D,associate's degree,0,1,math_score,77
+111,female,group D,associate's degree,0,1,reading_score,89
+111,female,group D,associate's degree,0,1,writing_score,98
+112,male,group C,high school,1,0,math_score,62
+112,male,group C,high school,1,0,reading_score,55
+112,male,group C,high school,1,0,writing_score,49
+113,male,group A,associate's degree,1,0,math_score,54
+113,male,group A,associate's degree,1,0,reading_score,53
+113,male,group A,associate's degree,1,0,writing_score,47
+114,female,group D,some college,1,0,math_score,51
+114,female,group D,some college,1,0,reading_score,58
+114,female,group D,some college,1,0,writing_score,54
+115,female,group E,bachelor's degree,1,1,math_score,99
+115,female,group E,bachelor's degree,1,1,reading_score,100
+115,female,group E,bachelor's degree,1,1,writing_score,100
+116,male,group C,high school,1,0,math_score,84
+116,male,group C,high school,1,0,reading_score,77
+116,male,group C,high school,1,0,writing_score,74
+117,female,group B,bachelor's degree,0,0,math_score,75
+117,female,group B,bachelor's degree,0,0,reading_score,85
+117,female,group B,bachelor's degree,0,0,writing_score,82
+118,female,group D,bachelor's degree,1,0,math_score,78
+118,female,group D,bachelor's degree,1,0,reading_score,82
+118,female,group D,bachelor's degree,1,0,writing_score,79
+119,female,group D,some high school,1,0,math_score,51
+119,female,group D,some high school,1,0,reading_score,63
+119,female,group D,some high school,1,0,writing_score,61
+120,female,group C,some college,1,0,math_score,55
+120,female,group C,some college,1,0,reading_score,69
+120,female,group C,some college,1,0,writing_score,65
+121,female,group C,bachelor's degree,1,1,math_score,79
+121,female,group C,bachelor's degree,1,1,reading_score,92
+121,female,group C,bachelor's degree,1,1,writing_score,89
+122,male,group B,associate's degree,1,1,math_score,91
+122,male,group B,associate's degree,1,1,reading_score,89
+122,male,group B,associate's degree,1,1,writing_score,92
+123,female,group C,some college,1,1,math_score,88
+123,female,group C,some college,1,1,reading_score,93
+123,female,group C,some college,1,1,writing_score,93
+124,male,group D,high school,0,0,math_score,63
+124,male,group D,high school,0,0,reading_score,57
+124,male,group D,high school,0,0,writing_score,56
+125,male,group E,some college,1,0,math_score,83
+125,male,group E,some college,1,0,reading_score,80
+125,male,group E,some college,1,0,writing_score,73
+126,female,group B,high school,1,0,math_score,87
+126,female,group B,high school,1,0,reading_score,95
+126,female,group B,high school,1,0,writing_score,86
+127,male,group B,some high school,1,0,math_score,72
+127,male,group B,some high school,1,0,reading_score,68
+127,male,group B,some high school,1,0,writing_score,67
+128,male,group D,some college,1,1,math_score,65
+128,male,group D,some college,1,1,reading_score,77
+128,male,group D,some college,1,1,writing_score,74
+129,male,group D,master's degree,1,0,math_score,82
+129,male,group D,master's degree,1,0,reading_score,82
+129,male,group D,master's degree,1,0,writing_score,74
+130,female,group A,bachelor's degree,1,0,math_score,51
+130,female,group A,bachelor's degree,1,0,reading_score,49
+130,female,group A,bachelor's degree,1,0,writing_score,51
+131,male,group D,master's degree,1,0,math_score,89
+131,male,group D,master's degree,1,0,reading_score,84
+131,male,group D,master's degree,1,0,writing_score,82
+132,male,group C,some high school,0,1,math_score,53
+132,male,group C,some high school,0,1,reading_score,37
+132,male,group C,some high school,0,1,writing_score,40
+133,male,group E,some college,0,1,math_score,87
+133,male,group E,some college,0,1,reading_score,74
+133,male,group E,some college,0,1,writing_score,70
+134,female,group C,some college,1,1,math_score,75
+134,female,group C,some college,1,1,reading_score,81
+134,female,group C,some college,1,1,writing_score,84
+135,male,group D,bachelor's degree,0,1,math_score,74
+135,male,group D,bachelor's degree,0,1,reading_score,79
+135,male,group D,bachelor's degree,0,1,writing_score,75
+136,male,group C,bachelor's degree,1,0,math_score,58
+136,male,group C,bachelor's degree,1,0,reading_score,55
+136,male,group C,bachelor's degree,1,0,writing_score,48
+137,male,group B,some high school,1,1,math_score,51
+137,male,group B,some high school,1,1,reading_score,54
+137,male,group B,some high school,1,1,writing_score,41
+138,male,group E,high school,1,0,math_score,70
+138,male,group E,high school,1,0,reading_score,55
+138,male,group E,high school,1,0,writing_score,56
+139,female,group C,associate's degree,1,0,math_score,59
+139,female,group C,associate's degree,1,0,reading_score,66
+139,female,group C,associate's degree,1,0,writing_score,67
+140,male,group D,some college,1,1,math_score,71
+140,male,group D,some college,1,1,reading_score,61
+140,male,group D,some college,1,1,writing_score,69
+141,female,group D,some high school,1,0,math_score,76
+141,female,group D,some high school,1,0,reading_score,72
+141,female,group D,some high school,1,0,writing_score,71
+142,female,group C,some college,0,0,math_score,59
+142,female,group C,some college,0,0,reading_score,62
+142,female,group C,some college,0,0,writing_score,64
+143,female,group E,some college,0,1,math_score,42
+143,female,group E,some college,0,1,reading_score,55
+143,female,group E,some college,0,1,writing_score,54
+144,male,group A,high school,1,0,math_score,57
+144,male,group A,high school,1,0,reading_score,43
+144,male,group A,high school,1,0,writing_score,47
+145,male,group D,some college,1,0,math_score,88
+145,male,group D,some college,1,0,reading_score,73
+145,male,group D,some college,1,0,writing_score,78
+146,female,group C,some college,0,0,math_score,22
+146,female,group C,some college,0,0,reading_score,39
+146,female,group C,some college,0,0,writing_score,33
+147,male,group B,some high school,1,0,math_score,88
+147,male,group B,some high school,1,0,reading_score,84
+147,male,group B,some high school,1,0,writing_score,75
+148,male,group C,associate's degree,0,0,math_score,73
+148,male,group C,associate's degree,0,0,reading_score,68
+148,male,group C,associate's degree,0,0,writing_score,66
+149,female,group D,bachelor's degree,1,1,math_score,68
+149,female,group D,bachelor's degree,1,1,reading_score,75
+149,female,group D,bachelor's degree,1,1,writing_score,81
+150,male,group E,associate's degree,0,1,math_score,100
+150,male,group E,associate's degree,0,1,reading_score,100
+150,male,group E,associate's degree,0,1,writing_score,93
+151,male,group A,some high school,1,1,math_score,62
+151,male,group A,some high school,1,1,reading_score,67
+151,male,group A,some high school,1,1,writing_score,69
+152,male,group A,bachelor's degree,1,0,math_score,77
+152,male,group A,bachelor's degree,1,0,reading_score,67
+152,male,group A,bachelor's degree,1,0,writing_score,68
+153,female,group B,associate's degree,1,1,math_score,59
+153,female,group B,associate's degree,1,1,reading_score,70
+153,female,group B,associate's degree,1,1,writing_score,66
+154,male,group D,bachelor's degree,1,0,math_score,54
+154,male,group D,bachelor's degree,1,0,reading_score,49
+154,male,group D,bachelor's degree,1,0,writing_score,47
+155,male,group D,some high school,1,0,math_score,62
+155,male,group D,some high school,1,0,reading_score,67
+155,male,group D,some high school,1,0,writing_score,61
+156,female,group C,some college,1,1,math_score,70
+156,female,group C,some college,1,1,reading_score,89
+156,female,group C,some college,1,1,writing_score,88
+157,female,group E,high school,0,1,math_score,66
+157,female,group E,high school,0,1,reading_score,74
+157,female,group E,high school,0,1,writing_score,78
+158,male,group B,some college,0,0,math_score,60
+158,male,group B,some college,0,0,reading_score,60
+158,male,group B,some college,0,0,writing_score,60
+159,female,group B,associate's degree,1,1,math_score,61
+159,female,group B,associate's degree,1,1,reading_score,86
+159,female,group B,associate's degree,1,1,writing_score,87
+160,male,group D,associate's degree,0,0,math_score,66
+160,male,group D,associate's degree,0,0,reading_score,62
+160,male,group D,associate's degree,0,0,writing_score,64
+161,male,group B,associate's degree,0,1,math_score,82
+161,male,group B,associate's degree,0,1,reading_score,78
+161,male,group B,associate's degree,0,1,writing_score,74
+162,female,group E,some college,0,1,math_score,75
+162,female,group E,some college,0,1,reading_score,88
+162,female,group E,some college,0,1,writing_score,85
+163,male,group B,master's degree,0,0,math_score,49
+163,male,group B,master's degree,0,0,reading_score,53
+163,male,group B,master's degree,0,0,writing_score,52
+164,male,group C,high school,1,0,math_score,52
+164,male,group C,high school,1,0,reading_score,53
+164,male,group C,high school,1,0,writing_score,49
+165,female,group E,master's degree,1,0,math_score,81
+165,female,group E,master's degree,1,0,reading_score,92
+165,female,group E,master's degree,1,0,writing_score,91
+166,female,group C,bachelor's degree,1,1,math_score,96
+166,female,group C,bachelor's degree,1,1,reading_score,100
+166,female,group C,bachelor's degree,1,1,writing_score,100
+167,male,group C,high school,0,1,math_score,53
+167,male,group C,high school,0,1,reading_score,51
+167,male,group C,high school,0,1,writing_score,51
+168,female,group B,master's degree,0,1,math_score,58
+168,female,group B,master's degree,0,1,reading_score,76
+168,female,group B,master's degree,0,1,writing_score,78
+169,female,group B,high school,1,1,math_score,68
+169,female,group B,high school,1,1,reading_score,83
+169,female,group B,high school,1,1,writing_score,78
+170,female,group C,some college,0,1,math_score,67
+170,female,group C,some college,0,1,reading_score,75
+170,female,group C,some college,0,1,writing_score,70
+171,male,group A,high school,1,1,math_score,72
+171,male,group A,high school,1,1,reading_score,73
+171,male,group A,high school,1,1,writing_score,74
+172,male,group E,some high school,1,0,math_score,94
+172,male,group E,some high school,1,0,reading_score,88
+172,male,group E,some high school,1,0,writing_score,78
+173,female,group D,some college,1,0,math_score,79
+173,female,group D,some college,1,0,reading_score,86
+173,female,group D,some college,1,0,writing_score,81
+174,female,group C,associate's degree,1,0,math_score,63
+174,female,group C,associate's degree,1,0,reading_score,67
+174,female,group C,associate's degree,1,0,writing_score,70
+175,female,group C,bachelor's degree,0,1,math_score,43
+175,female,group C,bachelor's degree,0,1,reading_score,51
+175,female,group C,bachelor's degree,0,1,writing_score,54
+176,female,group C,master's degree,1,1,math_score,81
+176,female,group C,master's degree,1,1,reading_score,91
+176,female,group C,master's degree,1,1,writing_score,87
+177,female,group B,high school,0,1,math_score,46
+177,female,group B,high school,0,1,reading_score,54
+177,female,group B,high school,0,1,writing_score,58
+178,female,group C,associate's degree,1,1,math_score,71
+178,female,group C,associate's degree,1,1,reading_score,77
+178,female,group C,associate's degree,1,1,writing_score,77
+179,female,group B,master's degree,0,1,math_score,52
+179,female,group B,master's degree,0,1,reading_score,70
+179,female,group B,master's degree,0,1,writing_score,62
+180,female,group D,some high school,1,1,math_score,97
+180,female,group D,some high school,1,1,reading_score,100
+180,female,group D,some high school,1,1,writing_score,100
+181,male,group C,master's degree,0,1,math_score,62
+181,male,group C,master's degree,0,1,reading_score,68
+181,male,group C,master's degree,0,1,writing_score,75
+182,female,group C,some college,0,0,math_score,46
+182,female,group C,some college,0,0,reading_score,64
+182,female,group C,some college,0,0,writing_score,66
+183,female,group E,high school,1,0,math_score,50
+183,female,group E,high school,1,0,reading_score,50
+183,female,group E,high school,1,0,writing_score,47
+184,female,group D,associate's degree,1,0,math_score,65
+184,female,group D,associate's degree,1,0,reading_score,69
+184,female,group D,associate's degree,1,0,writing_score,70
+185,male,group C,some high school,0,1,math_score,45
+185,male,group C,some high school,0,1,reading_score,52
+185,male,group C,some high school,0,1,writing_score,49
+186,male,group C,associate's degree,0,1,math_score,65
+186,male,group C,associate's degree,0,1,reading_score,67
+186,male,group C,associate's degree,0,1,writing_score,65
+187,male,group E,high school,1,0,math_score,80
+187,male,group E,high school,1,0,reading_score,76
+187,male,group E,high school,1,0,writing_score,65
+188,male,group D,some high school,1,1,math_score,62
+188,male,group D,some high school,1,1,reading_score,66
+188,male,group D,some high school,1,1,writing_score,68
+189,male,group B,some high school,0,0,math_score,48
+189,male,group B,some high school,0,0,reading_score,52
+189,male,group B,some high school,0,0,writing_score,45
+190,female,group C,bachelor's degree,1,0,math_score,77
+190,female,group C,bachelor's degree,1,0,reading_score,88
+190,female,group C,bachelor's degree,1,0,writing_score,87
+191,female,group E,associate's degree,1,0,math_score,66
+191,female,group E,associate's degree,1,0,reading_score,65
+191,female,group E,associate's degree,1,0,writing_score,69
+192,male,group D,some college,1,1,math_score,76
+192,male,group D,some college,1,1,reading_score,83
+192,male,group D,some college,1,1,writing_score,79
+193,female,group B,some high school,1,0,math_score,62
+193,female,group B,some high school,1,0,reading_score,64
+193,female,group B,some high school,1,0,writing_score,66
+194,male,group D,some college,1,1,math_score,77
+194,male,group D,some college,1,1,reading_score,62
+194,male,group D,some college,1,1,writing_score,62
+195,female,group C,master's degree,1,1,math_score,69
+195,female,group C,master's degree,1,1,reading_score,84
+195,female,group C,master's degree,1,1,writing_score,85
+196,male,group D,associate's degree,1,0,math_score,61
+196,male,group D,associate's degree,1,0,reading_score,55
+196,male,group D,associate's degree,1,0,writing_score,52
+197,male,group C,some high school,0,1,math_score,59
+197,male,group C,some high school,0,1,reading_score,69
+197,male,group C,some high school,0,1,writing_score,65
+198,male,group E,high school,0,0,math_score,55
+198,male,group E,high school,0,0,reading_score,56
+198,male,group E,high school,0,0,writing_score,51
+199,female,group B,some college,0,0,math_score,45
+199,female,group B,some college,0,0,reading_score,53
+199,female,group B,some college,0,0,writing_score,55
+200,female,group B,bachelor's degree,0,0,math_score,78
+200,female,group B,bachelor's degree,0,0,reading_score,79
+200,female,group B,bachelor's degree,0,0,writing_score,76
+201,female,group C,associate's degree,1,1,math_score,67
+201,female,group C,associate's degree,1,1,reading_score,84
+201,female,group C,associate's degree,1,1,writing_score,86
+202,female,group D,some college,0,0,math_score,65
+202,female,group D,some college,0,0,reading_score,81
+202,female,group D,some college,0,0,writing_score,77
+203,male,group C,associate's degree,1,0,math_score,69
+203,male,group C,associate's degree,1,0,reading_score,77
+203,male,group C,associate's degree,1,0,writing_score,69
+204,female,group B,associate's degree,1,0,math_score,57
+204,female,group B,associate's degree,1,0,reading_score,69
+204,female,group B,associate's degree,1,0,writing_score,68
+205,male,group C,some college,1,0,math_score,59
+205,male,group C,some college,1,0,reading_score,41
+205,male,group C,some college,1,0,writing_score,42
+206,male,group D,some high school,1,1,math_score,74
+206,male,group D,some high school,1,1,reading_score,71
+206,male,group D,some high school,1,1,writing_score,78
+207,male,group E,bachelor's degree,1,0,math_score,82
+207,male,group E,bachelor's degree,1,0,reading_score,62
+207,male,group E,bachelor's degree,1,0,writing_score,62
+208,male,group E,high school,1,1,math_score,81
+208,male,group E,high school,1,1,reading_score,80
+208,male,group E,high school,1,1,writing_score,76
+209,female,group B,some college,0,0,math_score,74
+209,female,group B,some college,0,0,reading_score,81
+209,female,group B,some college,0,0,writing_score,76
+210,female,group B,some college,0,0,math_score,58
+210,female,group B,some college,0,0,reading_score,61
+210,female,group B,some college,0,0,writing_score,66
+211,male,group D,some high school,0,1,math_score,80
+211,male,group D,some high school,0,1,reading_score,79
+211,male,group D,some high school,0,1,writing_score,79
+212,male,group C,some college,0,0,math_score,35
+212,male,group C,some college,0,0,reading_score,28
+212,male,group C,some college,0,0,writing_score,27
+213,female,group C,high school,0,0,math_score,42
+213,female,group C,high school,0,0,reading_score,62
+213,female,group C,high school,0,0,writing_score,60
+214,male,group C,associate's degree,0,1,math_score,60
+214,male,group C,associate's degree,0,1,reading_score,51
+214,male,group C,associate's degree,0,1,writing_score,56
+215,male,group E,high school,1,1,math_score,87
+215,male,group E,high school,1,1,reading_score,91
+215,male,group E,high school,1,1,writing_score,81
+216,male,group B,some high school,1,1,math_score,84
+216,male,group B,some high school,1,1,reading_score,83
+216,male,group B,some high school,1,1,writing_score,75
+217,female,group E,associate's degree,0,1,math_score,83
+217,female,group E,associate's degree,0,1,reading_score,86
+217,female,group E,associate's degree,0,1,writing_score,88
+218,female,group C,high school,0,0,math_score,34
+218,female,group C,high school,0,0,reading_score,42
+218,female,group C,high school,0,0,writing_score,39
+219,male,group B,high school,0,0,math_score,66
+219,male,group B,high school,0,0,reading_score,77
+219,male,group B,high school,0,0,writing_score,70
+220,male,group B,some high school,1,1,math_score,61
+220,male,group B,some high school,1,1,reading_score,56
+220,male,group B,some high school,1,1,writing_score,56
+221,female,group D,high school,1,1,math_score,56
+221,female,group D,high school,1,1,reading_score,68
+221,female,group D,high school,1,1,writing_score,74
+222,male,group B,associate's degree,1,0,math_score,87
+222,male,group B,associate's degree,1,0,reading_score,85
+222,male,group B,associate's degree,1,0,writing_score,73
+223,female,group C,some high school,0,0,math_score,55
+223,female,group C,some high school,0,0,reading_score,65
+223,female,group C,some high school,0,0,writing_score,62
+224,male,group D,some high school,1,0,math_score,86
+224,male,group D,some high school,1,0,reading_score,80
+224,male,group D,some high school,1,0,writing_score,75
+225,female,group B,associate's degree,1,1,math_score,52
+225,female,group B,associate's degree,1,1,reading_score,66
+225,female,group B,associate's degree,1,1,writing_score,73
+226,female,group E,master's degree,0,0,math_score,45
+226,female,group E,master's degree,0,0,reading_score,56
+226,female,group E,master's degree,0,0,writing_score,54
+227,female,group C,some college,1,0,math_score,72
+227,female,group C,some college,1,0,reading_score,72
+227,female,group C,some college,1,0,writing_score,71
+228,male,group D,high school,1,0,math_score,57
+228,male,group D,high school,1,0,reading_score,50
+228,male,group D,high school,1,0,writing_score,54
+229,male,group A,some high school,0,0,math_score,68
+229,male,group A,some high school,0,0,reading_score,72
+229,male,group A,some high school,0,0,writing_score,64
+230,female,group C,some college,1,1,math_score,88
+230,female,group C,some college,1,1,reading_score,95
+230,female,group C,some college,1,1,writing_score,94
+231,male,group D,some college,1,0,math_score,76
+231,male,group D,some college,1,0,reading_score,64
+231,male,group D,some college,1,0,writing_score,66
+232,male,group C,associate's degree,1,0,math_score,46
+232,male,group C,associate's degree,1,0,reading_score,43
+232,male,group C,associate's degree,1,0,writing_score,42
+233,female,group B,bachelor's degree,1,0,math_score,67
+233,female,group B,bachelor's degree,1,0,reading_score,86
+233,female,group B,bachelor's degree,1,0,writing_score,83
+234,male,group E,some high school,1,0,math_score,92
+234,male,group E,some high school,1,0,reading_score,87
+234,male,group E,some high school,1,0,writing_score,78
+235,male,group C,bachelor's degree,1,1,math_score,83
+235,male,group C,bachelor's degree,1,1,reading_score,82
+235,male,group C,bachelor's degree,1,1,writing_score,84
+236,male,group D,associate's degree,1,0,math_score,80
+236,male,group D,associate's degree,1,0,reading_score,75
+236,male,group D,associate's degree,1,0,writing_score,77
+237,male,group D,bachelor's degree,0,0,math_score,63
+237,male,group D,bachelor's degree,0,0,reading_score,66
+237,male,group D,bachelor's degree,0,0,writing_score,67
+238,female,group D,some high school,1,1,math_score,64
+238,female,group D,some high school,1,1,reading_score,60
+238,female,group D,some high school,1,1,writing_score,74
+239,male,group B,some college,1,0,math_score,54
+239,male,group B,some college,1,0,reading_score,52
+239,male,group B,some college,1,0,writing_score,51
+240,male,group C,associate's degree,1,0,math_score,84
+240,male,group C,associate's degree,1,0,reading_score,80
+240,male,group C,associate's degree,1,0,writing_score,80
+241,male,group D,high school,0,1,math_score,73
+241,male,group D,high school,0,1,reading_score,68
+241,male,group D,high school,0,1,writing_score,66
+242,female,group E,bachelor's degree,1,0,math_score,80
+242,female,group E,bachelor's degree,1,0,reading_score,83
+242,female,group E,bachelor's degree,1,0,writing_score,83
+243,female,group D,high school,1,0,math_score,56
+243,female,group D,high school,1,0,reading_score,52
+243,female,group D,high school,1,0,writing_score,55
+244,male,group E,some college,1,0,math_score,59
+244,male,group E,some college,1,0,reading_score,51
+244,male,group E,some college,1,0,writing_score,43
+245,male,group D,some high school,1,0,math_score,75
+245,male,group D,some high school,1,0,reading_score,74
+245,male,group D,some high school,1,0,writing_score,69
+246,male,group C,associate's degree,1,0,math_score,85
+246,male,group C,associate's degree,1,0,reading_score,76
+246,male,group C,associate's degree,1,0,writing_score,71
+247,male,group E,associate's degree,1,0,math_score,89
+247,male,group E,associate's degree,1,0,reading_score,76
+247,male,group E,associate's degree,1,0,writing_score,74
+248,female,group B,high school,1,1,math_score,58
+248,female,group B,high school,1,1,reading_score,70
+248,female,group B,high school,1,1,writing_score,68
+249,female,group B,high school,1,0,math_score,65
+249,female,group B,high school,1,0,reading_score,64
+249,female,group B,high school,1,0,writing_score,62
+250,male,group C,high school,1,0,math_score,68
+250,male,group C,high school,1,0,reading_score,60
+250,male,group C,high school,1,0,writing_score,53
+251,male,group A,some high school,1,1,math_score,47
+251,male,group A,some high school,1,1,reading_score,49
+251,male,group A,some high school,1,1,writing_score,49
+252,female,group D,some college,0,0,math_score,71
+252,female,group D,some college,0,0,reading_score,83
+252,female,group D,some college,0,0,writing_score,83
+253,female,group B,some high school,1,1,math_score,60
+253,female,group B,some high school,1,1,reading_score,70
+253,female,group B,some high school,1,1,writing_score,70
+254,male,group D,master's degree,1,0,math_score,80
+254,male,group D,master's degree,1,0,reading_score,80
+254,male,group D,master's degree,1,0,writing_score,72
+255,male,group D,high school,1,0,math_score,54
+255,male,group D,high school,1,0,reading_score,52
+255,male,group D,high school,1,0,writing_score,52
+256,female,group E,some college,1,0,math_score,62
+256,female,group E,some college,1,0,reading_score,73
+256,female,group E,some college,1,0,writing_score,70
+257,female,group C,associate's degree,0,0,math_score,64
+257,female,group C,associate's degree,0,0,reading_score,73
+257,female,group C,associate's degree,0,0,writing_score,68
+258,male,group C,associate's degree,1,1,math_score,78
+258,male,group C,associate's degree,1,1,reading_score,77
+258,male,group C,associate's degree,1,1,writing_score,77
+259,female,group B,some college,1,0,math_score,70
+259,female,group B,some college,1,0,reading_score,75
+259,female,group B,some college,1,0,writing_score,78
+260,female,group C,master's degree,0,1,math_score,65
+260,female,group C,master's degree,0,1,reading_score,81
+260,female,group C,master's degree,0,1,writing_score,81
+261,female,group C,some high school,0,1,math_score,64
+261,female,group C,some high school,0,1,reading_score,79
+261,female,group C,some high school,0,1,writing_score,77
+262,male,group C,some college,1,1,math_score,79
+262,male,group C,some college,1,1,reading_score,79
+262,male,group C,some college,1,1,writing_score,78
+263,female,group C,some high school,0,0,math_score,44
+263,female,group C,some high school,0,0,reading_score,50
+263,female,group C,some high school,0,0,writing_score,51
+264,female,group E,high school,1,0,math_score,99
+264,female,group E,high school,1,0,reading_score,93
+264,female,group E,high school,1,0,writing_score,90
+265,male,group D,high school,1,0,math_score,76
+265,male,group D,high school,1,0,reading_score,73
+265,male,group D,high school,1,0,writing_score,68
+266,male,group D,some high school,0,0,math_score,59
+266,male,group D,some high school,0,0,reading_score,42
+266,male,group D,some high school,0,0,writing_score,41
+267,female,group C,bachelor's degree,1,0,math_score,63
+267,female,group C,bachelor's degree,1,0,reading_score,75
+267,female,group C,bachelor's degree,1,0,writing_score,81
+268,female,group D,high school,1,0,math_score,69
+268,female,group D,high school,1,0,reading_score,72
+268,female,group D,high school,1,0,writing_score,77
+269,female,group D,associate's degree,1,1,math_score,88
+269,female,group D,associate's degree,1,1,reading_score,92
+269,female,group D,associate's degree,1,1,writing_score,95
+270,female,group E,some college,0,0,math_score,71
+270,female,group E,some college,0,0,reading_score,76
+270,female,group E,some college,0,0,writing_score,70
+271,male,group C,bachelor's degree,1,0,math_score,69
+271,male,group C,bachelor's degree,1,0,reading_score,63
+271,male,group C,bachelor's degree,1,0,writing_score,61
+272,male,group C,some college,1,0,math_score,58
+272,male,group C,some college,1,0,reading_score,49
+272,male,group C,some college,1,0,writing_score,42
+273,female,group D,associate's degree,0,0,math_score,47
+273,female,group D,associate's degree,0,0,reading_score,53
+273,female,group D,associate's degree,0,0,writing_score,58
+274,female,group D,some college,1,0,math_score,65
+274,female,group D,some college,1,0,reading_score,70
+274,female,group D,some college,1,0,writing_score,71
+275,male,group B,some college,1,1,math_score,88
+275,male,group B,some college,1,1,reading_score,85
+275,male,group B,some college,1,1,writing_score,76
+276,male,group C,bachelor's degree,1,0,math_score,83
+276,male,group C,bachelor's degree,1,0,reading_score,78
+276,male,group C,bachelor's degree,1,0,writing_score,73
+277,female,group C,some high school,1,1,math_score,85
+277,female,group C,some high school,1,1,reading_score,92
+277,female,group C,some high school,1,1,writing_score,93
+278,female,group E,high school,1,1,math_score,59
+278,female,group E,high school,1,1,reading_score,63
+278,female,group E,high school,1,1,writing_score,75
+279,female,group C,some high school,0,0,math_score,65
+279,female,group C,some high school,0,0,reading_score,86
+279,female,group C,some high school,0,0,writing_score,80
+280,male,group B,bachelor's degree,0,0,math_score,73
+280,male,group B,bachelor's degree,0,0,reading_score,56
+280,male,group B,bachelor's degree,0,0,writing_score,57
+281,male,group D,high school,1,0,math_score,53
+281,male,group D,high school,1,0,reading_score,52
+281,male,group D,high school,1,0,writing_score,42
+282,male,group D,high school,1,0,math_score,45
+282,male,group D,high school,1,0,reading_score,48
+282,male,group D,high school,1,0,writing_score,46
+283,female,group D,bachelor's degree,0,0,math_score,73
+283,female,group D,bachelor's degree,0,0,reading_score,79
+283,female,group D,bachelor's degree,0,0,writing_score,84
+284,female,group D,some college,0,1,math_score,70
+284,female,group D,some college,0,1,reading_score,78
+284,female,group D,some college,0,1,writing_score,78
+285,female,group B,some high school,1,0,math_score,37
+285,female,group B,some high school,1,0,reading_score,46
+285,female,group B,some high school,1,0,writing_score,46
+286,male,group B,associate's degree,1,1,math_score,81
+286,male,group B,associate's degree,1,1,reading_score,82
+286,male,group B,associate's degree,1,1,writing_score,82
+287,male,group E,associate's degree,1,1,math_score,97
+287,male,group E,associate's degree,1,1,reading_score,82
+287,male,group E,associate's degree,1,1,writing_score,88
+288,female,group B,some high school,1,0,math_score,67
+288,female,group B,some high school,1,0,reading_score,89
+288,female,group B,some high school,1,0,writing_score,82
+289,male,group B,bachelor's degree,0,0,math_score,88
+289,male,group B,bachelor's degree,0,0,reading_score,75
+289,male,group B,bachelor's degree,0,0,writing_score,76
+290,male,group E,some high school,1,1,math_score,77
+290,male,group E,some high school,1,1,reading_score,76
+290,male,group E,some high school,1,1,writing_score,77
+291,male,group C,associate's degree,1,0,math_score,76
+291,male,group C,associate's degree,1,0,reading_score,70
+291,male,group C,associate's degree,1,0,writing_score,68
+292,male,group D,some high school,1,0,math_score,86
+292,male,group D,some high school,1,0,reading_score,73
+292,male,group D,some high school,1,0,writing_score,70
+293,male,group C,some high school,1,1,math_score,63
+293,male,group C,some high school,1,1,reading_score,60
+293,male,group C,some high school,1,1,writing_score,57
+294,female,group E,bachelor's degree,1,0,math_score,65
+294,female,group E,bachelor's degree,1,0,reading_score,73
+294,female,group E,bachelor's degree,1,0,writing_score,75
+295,male,group D,high school,0,1,math_score,78
+295,male,group D,high school,0,1,reading_score,77
+295,male,group D,high school,0,1,writing_score,80
+296,male,group B,associate's degree,0,0,math_score,67
+296,male,group B,associate's degree,0,0,reading_score,62
+296,male,group B,associate's degree,0,0,writing_score,60
+297,male,group A,some high school,1,1,math_score,46
+297,male,group A,some high school,1,1,reading_score,41
+297,male,group A,some high school,1,1,writing_score,43
+298,male,group E,associate's degree,1,1,math_score,71
+298,male,group E,associate's degree,1,1,reading_score,74
+298,male,group E,associate's degree,1,1,writing_score,68
+299,male,group C,high school,0,1,math_score,40
+299,male,group C,high school,0,1,reading_score,46
+299,male,group C,high school,0,1,writing_score,50
+300,male,group D,associate's degree,0,0,math_score,90
+300,male,group D,associate's degree,0,0,reading_score,87
+300,male,group D,associate's degree,0,0,writing_score,75
+301,male,group A,some college,0,1,math_score,81
+301,male,group A,some college,0,1,reading_score,78
+301,male,group A,some college,0,1,writing_score,81
+302,male,group D,some high school,0,0,math_score,56
+302,male,group D,some high school,0,0,reading_score,54
+302,male,group D,some high school,0,0,writing_score,52
+303,female,group C,associate's degree,1,1,math_score,67
+303,female,group C,associate's degree,1,1,reading_score,84
+303,female,group C,associate's degree,1,1,writing_score,81
+304,male,group B,associate's degree,1,0,math_score,80
+304,male,group B,associate's degree,1,0,reading_score,76
+304,male,group B,associate's degree,1,0,writing_score,64
+305,female,group C,associate's degree,1,1,math_score,74
+305,female,group C,associate's degree,1,1,reading_score,75
+305,female,group C,associate's degree,1,1,writing_score,83
+306,male,group A,some college,1,0,math_score,69
+306,male,group A,some college,1,0,reading_score,67
+306,male,group A,some college,1,0,writing_score,69
+307,male,group E,some college,1,1,math_score,99
+307,male,group E,some college,1,1,reading_score,87
+307,male,group E,some college,1,1,writing_score,81
+308,male,group C,some high school,1,0,math_score,51
+308,male,group C,some high school,1,0,reading_score,52
+308,male,group C,some high school,1,0,writing_score,44
+309,female,group B,associate's degree,0,0,math_score,53
+309,female,group B,associate's degree,0,0,reading_score,71
+309,female,group B,associate's degree,0,0,writing_score,67
+310,female,group D,high school,0,0,math_score,49
+310,female,group D,high school,0,0,reading_score,57
+310,female,group D,high school,0,0,writing_score,52
+311,female,group B,associate's degree,1,0,math_score,73
+311,female,group B,associate's degree,1,0,reading_score,76
+311,female,group B,associate's degree,1,0,writing_score,80
+312,male,group B,bachelor's degree,1,0,math_score,66
+312,male,group B,bachelor's degree,1,0,reading_score,60
+312,male,group B,bachelor's degree,1,0,writing_score,57
+313,male,group D,bachelor's degree,1,1,math_score,67
+313,male,group D,bachelor's degree,1,1,reading_score,61
+313,male,group D,bachelor's degree,1,1,writing_score,68
+314,female,group C,associate's degree,0,1,math_score,68
+314,female,group C,associate's degree,0,1,reading_score,67
+314,female,group C,associate's degree,0,1,writing_score,69
+315,female,group C,bachelor's degree,1,1,math_score,59
+315,female,group C,bachelor's degree,1,1,reading_score,64
+315,female,group C,bachelor's degree,1,1,writing_score,75
+316,male,group C,high school,1,0,math_score,71
+316,male,group C,high school,1,0,reading_score,66
+316,male,group C,high school,1,0,writing_score,65
+317,female,group D,master's degree,1,1,math_score,77
+317,female,group D,master's degree,1,1,reading_score,82
+317,female,group D,master's degree,1,1,writing_score,91
+318,male,group C,associate's degree,1,0,math_score,83
+318,male,group C,associate's degree,1,0,reading_score,72
+318,male,group C,associate's degree,1,0,writing_score,78
+319,male,group B,bachelor's degree,1,0,math_score,63
+319,male,group B,bachelor's degree,1,0,reading_score,71
+319,male,group B,bachelor's degree,1,0,writing_score,69
+320,female,group D,associate's degree,0,0,math_score,56
+320,female,group D,associate's degree,0,0,reading_score,65
+320,female,group D,associate's degree,0,0,writing_score,63
+321,female,group C,high school,0,1,math_score,67
+321,female,group C,high school,0,1,reading_score,79
+321,female,group C,high school,0,1,writing_score,84
+322,female,group E,high school,1,0,math_score,75
+322,female,group E,high school,1,0,reading_score,86
+322,female,group E,high school,1,0,writing_score,79
+323,female,group C,some college,1,0,math_score,71
+323,female,group C,some college,1,0,reading_score,81
+323,female,group C,some college,1,0,writing_score,80
+324,female,group C,some high school,0,0,math_score,43
+324,female,group C,some high school,0,0,reading_score,53
+324,female,group C,some high school,0,0,writing_score,53
+325,female,group C,high school,0,0,math_score,41
+325,female,group C,high school,0,0,reading_score,46
+325,female,group C,high school,0,0,writing_score,43
+326,female,group C,some college,1,0,math_score,82
+326,female,group C,some college,1,0,reading_score,90
+326,female,group C,some college,1,0,writing_score,94
+327,male,group C,some college,1,0,math_score,61
+327,male,group C,some college,1,0,reading_score,61
+327,male,group C,some college,1,0,writing_score,62
+328,male,group A,some college,0,0,math_score,28
+328,male,group A,some college,0,0,reading_score,23
+328,male,group A,some college,0,0,writing_score,19
+329,male,group C,associate's degree,1,1,math_score,82
+329,male,group C,associate's degree,1,1,reading_score,75
+329,male,group C,associate's degree,1,1,writing_score,77
+330,female,group B,some high school,1,0,math_score,41
+330,female,group B,some high school,1,0,reading_score,55
+330,female,group B,some high school,1,0,writing_score,51
+331,male,group C,high school,1,0,math_score,71
+331,male,group C,high school,1,0,reading_score,60
+331,male,group C,high school,1,0,writing_score,61
+332,male,group C,associate's degree,1,0,math_score,47
+332,male,group C,associate's degree,1,0,reading_score,37
+332,male,group C,associate's degree,1,0,writing_score,35
+333,male,group E,associate's degree,1,1,math_score,62
+333,male,group E,associate's degree,1,1,reading_score,56
+333,male,group E,associate's degree,1,1,writing_score,53
+334,male,group B,associate's degree,1,0,math_score,90
+334,male,group B,associate's degree,1,0,reading_score,78
+334,male,group B,associate's degree,1,0,writing_score,81
+335,female,group C,bachelor's degree,1,0,math_score,83
+335,female,group C,bachelor's degree,1,0,reading_score,93
+335,female,group C,bachelor's degree,1,0,writing_score,95
+336,female,group B,some college,0,0,math_score,61
+336,female,group B,some college,0,0,reading_score,68
+336,female,group B,some college,0,0,writing_score,66
+337,male,group D,some high school,1,1,math_score,76
+337,male,group D,some high school,1,1,reading_score,70
+337,male,group D,some high school,1,1,writing_score,69
+338,male,group C,associate's degree,1,0,math_score,49
+338,male,group C,associate's degree,1,0,reading_score,51
+338,male,group C,associate's degree,1,0,writing_score,43
+339,female,group B,some high school,0,0,math_score,24
+339,female,group B,some high school,0,0,reading_score,38
+339,female,group B,some high school,0,0,writing_score,27
+340,female,group D,some high school,0,1,math_score,35
+340,female,group D,some high school,0,1,reading_score,55
+340,female,group D,some high school,0,1,writing_score,60
+341,male,group C,high school,0,0,math_score,58
+341,male,group C,high school,0,0,reading_score,61
+341,male,group C,high school,0,0,writing_score,52
+342,female,group C,high school,1,0,math_score,61
+342,female,group C,high school,1,0,reading_score,73
+342,female,group C,high school,1,0,writing_score,63
+343,female,group B,high school,1,1,math_score,69
+343,female,group B,high school,1,1,reading_score,76
+343,female,group B,high school,1,1,writing_score,74
+344,male,group D,associate's degree,1,1,math_score,67
+344,male,group D,associate's degree,1,1,reading_score,72
+344,male,group D,associate's degree,1,1,writing_score,67
+345,male,group D,some college,1,0,math_score,79
+345,male,group D,some college,1,0,reading_score,73
+345,male,group D,some college,1,0,writing_score,67
+346,female,group C,high school,1,0,math_score,72
+346,female,group C,high school,1,0,reading_score,80
+346,female,group C,high school,1,0,writing_score,75
+347,male,group B,some college,1,0,math_score,62
+347,male,group B,some college,1,0,reading_score,61
+347,male,group B,some college,1,0,writing_score,57
+348,female,group C,bachelor's degree,1,1,math_score,77
+348,female,group C,bachelor's degree,1,1,reading_score,94
+348,female,group C,bachelor's degree,1,1,writing_score,95
+349,male,group D,high school,0,0,math_score,75
+349,male,group D,high school,0,0,reading_score,74
+349,male,group D,high school,0,0,writing_score,66
+350,male,group E,associate's degree,1,0,math_score,87
+350,male,group E,associate's degree,1,0,reading_score,74
+350,male,group E,associate's degree,1,0,writing_score,76
+351,female,group B,bachelor's degree,1,0,math_score,52
+351,female,group B,bachelor's degree,1,0,reading_score,65
+351,female,group B,bachelor's degree,1,0,writing_score,69
+352,male,group E,some college,1,0,math_score,66
+352,male,group E,some college,1,0,reading_score,57
+352,male,group E,some college,1,0,writing_score,52
+353,female,group C,some college,1,1,math_score,63
+353,female,group C,some college,1,1,reading_score,78
+353,female,group C,some college,1,1,writing_score,80
+354,female,group C,associate's degree,1,0,math_score,46
+354,female,group C,associate's degree,1,0,reading_score,58
+354,female,group C,associate's degree,1,0,writing_score,57
+355,female,group C,some college,1,0,math_score,59
+355,female,group C,some college,1,0,reading_score,71
+355,female,group C,some college,1,0,writing_score,70
+356,female,group B,bachelor's degree,1,0,math_score,61
+356,female,group B,bachelor's degree,1,0,reading_score,72
+356,female,group B,bachelor's degree,1,0,writing_score,70
+357,male,group A,associate's degree,1,0,math_score,63
+357,male,group A,associate's degree,1,0,reading_score,61
+357,male,group A,associate's degree,1,0,writing_score,61
+358,female,group C,some college,0,1,math_score,42
+358,female,group C,some college,0,1,reading_score,66
+358,female,group C,some college,0,1,writing_score,69
+359,male,group D,some college,0,0,math_score,59
+359,male,group D,some college,0,0,reading_score,62
+359,male,group D,some college,0,0,writing_score,61
+360,female,group D,some college,1,0,math_score,80
+360,female,group D,some college,1,0,reading_score,90
+360,female,group D,some college,1,0,writing_score,89
+361,female,group B,high school,1,0,math_score,58
+361,female,group B,high school,1,0,reading_score,62
+361,female,group B,high school,1,0,writing_score,59
+362,male,group B,some high school,1,1,math_score,85
+362,male,group B,some high school,1,1,reading_score,84
+362,male,group B,some high school,1,1,writing_score,78
+363,female,group C,some college,1,0,math_score,52
+363,female,group C,some college,1,0,reading_score,58
+363,female,group C,some college,1,0,writing_score,58
+364,female,group D,some high school,0,0,math_score,27
+364,female,group D,some high school,0,0,reading_score,34
+364,female,group D,some high school,0,0,writing_score,32
+365,male,group C,some college,1,0,math_score,59
+365,male,group C,some college,1,0,reading_score,60
+365,male,group C,some college,1,0,writing_score,58
+366,male,group A,bachelor's degree,0,1,math_score,49
+366,male,group A,bachelor's degree,0,1,reading_score,58
+366,male,group A,bachelor's degree,0,1,writing_score,60
+367,male,group C,high school,1,1,math_score,69
+367,male,group C,high school,1,1,reading_score,58
+367,male,group C,high school,1,1,writing_score,53
+368,male,group C,bachelor's degree,0,0,math_score,61
+368,male,group C,bachelor's degree,0,0,reading_score,66
+368,male,group C,bachelor's degree,0,0,writing_score,61
+369,female,group A,some high school,0,0,math_score,44
+369,female,group A,some high school,0,0,reading_score,64
+369,female,group A,some high school,0,0,writing_score,58
+370,female,group D,some high school,1,0,math_score,73
+370,female,group D,some high school,1,0,reading_score,84
+370,female,group D,some high school,1,0,writing_score,85
+371,male,group E,some college,1,0,math_score,84
+371,male,group E,some college,1,0,reading_score,77
+371,male,group E,some college,1,0,writing_score,71
+372,female,group C,some college,0,1,math_score,45
+372,female,group C,some college,0,1,reading_score,73
+372,female,group C,some college,0,1,writing_score,70
+373,male,group D,some high school,1,0,math_score,74
+373,male,group D,some high school,1,0,reading_score,74
+373,male,group D,some high school,1,0,writing_score,72
+374,female,group D,some college,1,1,math_score,82
+374,female,group D,some college,1,1,reading_score,97
+374,female,group D,some college,1,1,writing_score,96
+375,female,group D,bachelor's degree,1,0,math_score,59
+375,female,group D,bachelor's degree,1,0,reading_score,70
+375,female,group D,bachelor's degree,1,0,writing_score,73
+376,male,group E,associate's degree,0,0,math_score,46
+376,male,group E,associate's degree,0,0,reading_score,43
+376,male,group E,associate's degree,0,0,writing_score,41
+377,female,group D,some high school,1,0,math_score,80
+377,female,group D,some high school,1,0,reading_score,90
+377,female,group D,some high school,1,0,writing_score,82
+378,female,group D,master's degree,0,1,math_score,85
+378,female,group D,master's degree,0,1,reading_score,95
+378,female,group D,master's degree,0,1,writing_score,100
+379,female,group A,some high school,1,0,math_score,71
+379,female,group A,some high school,1,0,reading_score,83
+379,female,group A,some high school,1,0,writing_score,77
+380,male,group A,bachelor's degree,1,0,math_score,66
+380,male,group A,bachelor's degree,1,0,reading_score,64
+380,male,group A,bachelor's degree,1,0,writing_score,62
+381,female,group B,associate's degree,1,0,math_score,80
+381,female,group B,associate's degree,1,0,reading_score,86
+381,female,group B,associate's degree,1,0,writing_score,83
+382,male,group C,associate's degree,1,1,math_score,87
+382,male,group C,associate's degree,1,1,reading_score,100
+382,male,group C,associate's degree,1,1,writing_score,95
+383,male,group C,master's degree,0,0,math_score,79
+383,male,group C,master's degree,0,0,reading_score,81
+383,male,group C,master's degree,0,0,writing_score,71
+384,female,group E,some high school,0,0,math_score,38
+384,female,group E,some high school,0,0,reading_score,49
+384,female,group E,some high school,0,0,writing_score,45
+385,female,group A,some high school,0,0,math_score,38
+385,female,group A,some high school,0,0,reading_score,43
+385,female,group A,some high school,0,0,writing_score,43
+386,female,group E,some college,1,0,math_score,67
+386,female,group E,some college,1,0,reading_score,76
+386,female,group E,some college,1,0,writing_score,75
+387,female,group E,bachelor's degree,1,0,math_score,64
+387,female,group E,bachelor's degree,1,0,reading_score,73
+387,female,group E,bachelor's degree,1,0,writing_score,70
+388,female,group C,associate's degree,0,0,math_score,57
+388,female,group C,associate's degree,0,0,reading_score,78
+388,female,group C,associate's degree,0,0,writing_score,67
+389,female,group D,high school,1,0,math_score,62
+389,female,group D,high school,1,0,reading_score,64
+389,female,group D,high school,1,0,writing_score,64
+390,male,group D,master's degree,1,0,math_score,73
+390,male,group D,master's degree,1,0,reading_score,70
+390,male,group D,master's degree,1,0,writing_score,75
+391,male,group E,some high school,0,1,math_score,73
+391,male,group E,some high school,0,1,reading_score,67
+391,male,group E,some high school,0,1,writing_score,59
+392,female,group D,some college,1,0,math_score,77
+392,female,group D,some college,1,0,reading_score,68
+392,female,group D,some college,1,0,writing_score,77
+393,male,group E,some college,1,0,math_score,76
+393,male,group E,some college,1,0,reading_score,67
+393,male,group E,some college,1,0,writing_score,67
+394,male,group C,associate's degree,1,1,math_score,57
+394,male,group C,associate's degree,1,1,reading_score,54
+394,male,group C,associate's degree,1,1,writing_score,56
+395,female,group C,some high school,1,1,math_score,65
+395,female,group C,some high school,1,1,reading_score,74
+395,female,group C,some high school,1,1,writing_score,77
+396,male,group A,high school,0,0,math_score,48
+396,male,group A,high school,0,0,reading_score,45
+396,male,group A,high school,0,0,writing_score,41
+397,female,group B,high school,0,0,math_score,50
+397,female,group B,high school,0,0,reading_score,67
+397,female,group B,high school,0,0,writing_score,63
+398,female,group C,associate's degree,1,0,math_score,85
+398,female,group C,associate's degree,1,0,reading_score,89
+398,female,group C,associate's degree,1,0,writing_score,95
+399,male,group B,some high school,1,0,math_score,74
+399,male,group B,some high school,1,0,reading_score,63
+399,male,group B,some high school,1,0,writing_score,57
+400,male,group D,some high school,1,0,math_score,60
+400,male,group D,some high school,1,0,reading_score,59
+400,male,group D,some high school,1,0,writing_score,54
+401,female,group C,some high school,1,1,math_score,59
+401,female,group C,some high school,1,1,reading_score,54
+401,female,group C,some high school,1,1,writing_score,67
+402,male,group A,some college,1,0,math_score,53
+402,male,group A,some college,1,0,reading_score,43
+402,male,group A,some college,1,0,writing_score,43
+403,female,group A,some college,0,0,math_score,49
+403,female,group A,some college,0,0,reading_score,65
+403,female,group A,some college,0,0,writing_score,55
+404,female,group D,high school,1,1,math_score,88
+404,female,group D,high school,1,1,reading_score,99
+404,female,group D,high school,1,1,writing_score,100
+405,female,group C,high school,1,0,math_score,54
+405,female,group C,high school,1,0,reading_score,59
+405,female,group C,high school,1,0,writing_score,62
+406,female,group C,some high school,1,0,math_score,63
+406,female,group C,some high school,1,0,reading_score,73
+406,female,group C,some high school,1,0,writing_score,68
+407,male,group B,associate's degree,1,1,math_score,65
+407,male,group B,associate's degree,1,1,reading_score,65
+407,male,group B,associate's degree,1,1,writing_score,63
+408,female,group B,associate's degree,1,0,math_score,82
+408,female,group B,associate's degree,1,0,reading_score,80
+408,female,group B,associate's degree,1,0,writing_score,77
+409,female,group D,high school,0,1,math_score,52
+409,female,group D,high school,0,1,reading_score,57
+409,female,group D,high school,0,1,writing_score,56
+410,male,group D,associate's degree,1,1,math_score,87
+410,male,group D,associate's degree,1,1,reading_score,84
+410,male,group D,associate's degree,1,1,writing_score,85
+411,female,group D,master's degree,1,1,math_score,70
+411,female,group D,master's degree,1,1,reading_score,71
+411,female,group D,master's degree,1,1,writing_score,74
+412,male,group E,some college,1,1,math_score,84
+412,male,group E,some college,1,1,reading_score,83
+412,male,group E,some college,1,1,writing_score,78
+413,male,group D,associate's degree,1,0,math_score,71
+413,male,group D,associate's degree,1,0,reading_score,66
+413,male,group D,associate's degree,1,0,writing_score,60
+414,male,group B,some high school,1,1,math_score,63
+414,male,group B,some high school,1,1,reading_score,67
+414,male,group B,some high school,1,1,writing_score,67
+415,female,group C,bachelor's degree,0,1,math_score,51
+415,female,group C,bachelor's degree,0,1,reading_score,72
+415,female,group C,bachelor's degree,0,1,writing_score,79
+416,male,group E,high school,1,0,math_score,84
+416,male,group E,high school,1,0,reading_score,73
+416,male,group E,high school,1,0,writing_score,69
+417,male,group C,bachelor's degree,1,1,math_score,71
+417,male,group C,bachelor's degree,1,1,reading_score,74
+417,male,group C,bachelor's degree,1,1,writing_score,68
+418,male,group C,associate's degree,1,0,math_score,74
+418,male,group C,associate's degree,1,0,reading_score,73
+418,male,group C,associate's degree,1,0,writing_score,67
+419,male,group D,some college,1,0,math_score,68
+419,male,group D,some college,1,0,reading_score,59
+419,male,group D,some college,1,0,writing_score,62
+420,male,group E,high school,0,1,math_score,57
+420,male,group E,high school,0,1,reading_score,56
+420,male,group E,high school,0,1,writing_score,54
+421,female,group C,associate's degree,0,1,math_score,82
+421,female,group C,associate's degree,0,1,reading_score,93
+421,female,group C,associate's degree,0,1,writing_score,93
+422,female,group D,high school,1,1,math_score,57
+422,female,group D,high school,1,1,reading_score,58
+422,female,group D,high school,1,1,writing_score,64
+423,female,group D,master's degree,0,1,math_score,47
+423,female,group D,master's degree,0,1,reading_score,58
+423,female,group D,master's degree,0,1,writing_score,67
+424,female,group A,some high school,1,1,math_score,59
+424,female,group A,some high school,1,1,reading_score,85
+424,female,group A,some high school,1,1,writing_score,80
+425,male,group B,some college,0,0,math_score,41
+425,male,group B,some college,0,0,reading_score,39
+425,male,group B,some college,0,0,writing_score,34
+426,female,group C,some college,0,0,math_score,62
+426,female,group C,some college,0,0,reading_score,67
+426,female,group C,some college,0,0,writing_score,62
+427,male,group C,bachelor's degree,1,0,math_score,86
+427,male,group C,bachelor's degree,1,0,reading_score,83
+427,male,group C,bachelor's degree,1,0,writing_score,86
+428,male,group C,some high school,0,0,math_score,69
+428,male,group C,some high school,0,0,reading_score,71
+428,male,group C,some high school,0,0,writing_score,65
+429,male,group A,some high school,0,0,math_score,65
+429,male,group A,some high school,0,0,reading_score,59
+429,male,group A,some high school,0,0,writing_score,53
+430,male,group C,some high school,0,0,math_score,68
+430,male,group C,some high school,0,0,reading_score,63
+430,male,group C,some high school,0,0,writing_score,54
+431,male,group C,associate's degree,0,0,math_score,64
+431,male,group C,associate's degree,0,0,reading_score,66
+431,male,group C,associate's degree,0,0,writing_score,59
+432,female,group C,high school,1,0,math_score,61
+432,female,group C,high school,1,0,reading_score,72
+432,female,group C,high school,1,0,writing_score,70
+433,male,group C,high school,1,0,math_score,61
+433,male,group C,high school,1,0,reading_score,56
+433,male,group C,high school,1,0,writing_score,55
+434,female,group A,some high school,0,0,math_score,47
+434,female,group A,some high school,0,0,reading_score,59
+434,female,group A,some high school,0,0,writing_score,50
+435,male,group C,some high school,1,0,math_score,73
+435,male,group C,some high school,1,0,reading_score,66
+435,male,group C,some high school,1,0,writing_score,66
+436,male,group C,some college,0,1,math_score,50
+436,male,group C,some college,0,1,reading_score,48
+436,male,group C,some college,0,1,writing_score,53
+437,male,group D,associate's degree,1,0,math_score,75
+437,male,group D,associate's degree,1,0,reading_score,68
+437,male,group D,associate's degree,1,0,writing_score,64
+438,male,group D,associate's degree,0,0,math_score,75
+438,male,group D,associate's degree,0,0,reading_score,66
+438,male,group D,associate's degree,0,0,writing_score,73
+439,male,group C,high school,1,0,math_score,70
+439,male,group C,high school,1,0,reading_score,56
+439,male,group C,high school,1,0,writing_score,51
+440,male,group D,some high school,1,1,math_score,89
+440,male,group D,some high school,1,1,reading_score,88
+440,male,group D,some high school,1,1,writing_score,82
+441,female,group C,some college,1,1,math_score,67
+441,female,group C,some college,1,1,reading_score,81
+441,female,group C,some college,1,1,writing_score,79
+442,female,group D,high school,1,0,math_score,78
+442,female,group D,high school,1,0,reading_score,81
+442,female,group D,high school,1,0,writing_score,80
+443,female,group A,some high school,0,0,math_score,59
+443,female,group A,some high school,0,0,reading_score,73
+443,female,group A,some high school,0,0,writing_score,69
+444,female,group B,associate's degree,1,0,math_score,73
+444,female,group B,associate's degree,1,0,reading_score,83
+444,female,group B,associate's degree,1,0,writing_score,76
+445,male,group A,some high school,0,0,math_score,79
+445,male,group A,some high school,0,0,reading_score,82
+445,male,group A,some high school,0,0,writing_score,73
+446,female,group C,some high school,1,1,math_score,67
+446,female,group C,some high school,1,1,reading_score,74
+446,female,group C,some high school,1,1,writing_score,77
+447,male,group D,some college,0,0,math_score,69
+447,male,group D,some college,0,0,reading_score,66
+447,male,group D,some college,0,0,writing_score,60
+448,male,group C,high school,1,1,math_score,86
+448,male,group C,high school,1,1,reading_score,81
+448,male,group C,high school,1,1,writing_score,80
+449,male,group B,high school,1,0,math_score,47
+449,male,group B,high school,1,0,reading_score,46
+449,male,group B,high school,1,0,writing_score,42
+450,male,group B,associate's degree,1,0,math_score,81
+450,male,group B,associate's degree,1,0,reading_score,73
+450,male,group B,associate's degree,1,0,writing_score,72
+451,female,group C,some college,0,1,math_score,64
+451,female,group C,some college,0,1,reading_score,85
+451,female,group C,some college,0,1,writing_score,85
+452,female,group E,some college,1,0,math_score,100
+452,female,group E,some college,1,0,reading_score,92
+452,female,group E,some college,1,0,writing_score,97
+453,female,group C,associate's degree,0,0,math_score,65
+453,female,group C,associate's degree,0,0,reading_score,77
+453,female,group C,associate's degree,0,0,writing_score,74
+454,male,group C,some college,0,0,math_score,65
+454,male,group C,some college,0,0,reading_score,58
+454,male,group C,some college,0,0,writing_score,49
+455,female,group C,associate's degree,0,0,math_score,53
+455,female,group C,associate's degree,0,0,reading_score,61
+455,female,group C,associate's degree,0,0,writing_score,62
+456,male,group C,bachelor's degree,0,0,math_score,37
+456,male,group C,bachelor's degree,0,0,reading_score,56
+456,male,group C,bachelor's degree,0,0,writing_score,47
+457,female,group D,bachelor's degree,1,0,math_score,79
+457,female,group D,bachelor's degree,1,0,reading_score,89
+457,female,group D,bachelor's degree,1,0,writing_score,89
+458,male,group D,associate's degree,0,0,math_score,53
+458,male,group D,associate's degree,0,0,reading_score,54
+458,male,group D,associate's degree,0,0,writing_score,48
+459,female,group E,bachelor's degree,1,0,math_score,100
+459,female,group E,bachelor's degree,1,0,reading_score,100
+459,female,group E,bachelor's degree,1,0,writing_score,100
+460,male,group B,high school,1,1,math_score,72
+460,male,group B,high school,1,1,reading_score,65
+460,male,group B,high school,1,1,writing_score,68
+461,male,group C,bachelor's degree,0,0,math_score,53
+461,male,group C,bachelor's degree,0,0,reading_score,58
+461,male,group C,bachelor's degree,0,0,writing_score,55
+462,male,group B,some college,0,0,math_score,54
+462,male,group B,some college,0,0,reading_score,54
+462,male,group B,some college,0,0,writing_score,45
+463,female,group E,some college,1,0,math_score,71
+463,female,group E,some college,1,0,reading_score,70
+463,female,group E,some college,1,0,writing_score,76
+464,female,group C,some college,0,0,math_score,77
+464,female,group C,some college,0,0,reading_score,90
+464,female,group C,some college,0,0,writing_score,91
+465,male,group A,bachelor's degree,1,1,math_score,75
+465,male,group A,bachelor's degree,1,1,reading_score,58
+465,male,group A,bachelor's degree,1,1,writing_score,62
+466,female,group C,some college,1,0,math_score,84
+466,female,group C,some college,1,0,reading_score,87
+466,female,group C,some college,1,0,writing_score,91
+467,female,group D,associate's degree,0,0,math_score,26
+467,female,group D,associate's degree,0,0,reading_score,31
+467,female,group D,associate's degree,0,0,writing_score,38
+468,male,group A,high school,0,1,math_score,72
+468,male,group A,high school,0,1,reading_score,67
+468,male,group A,high school,0,1,writing_score,65
+469,female,group A,high school,0,1,math_score,77
+469,female,group A,high school,0,1,reading_score,88
+469,female,group A,high school,0,1,writing_score,85
+470,male,group C,some college,1,0,math_score,91
+470,male,group C,some college,1,0,reading_score,74
+470,male,group C,some college,1,0,writing_score,76
+471,female,group C,associate's degree,1,1,math_score,83
+471,female,group C,associate's degree,1,1,reading_score,85
+471,female,group C,associate's degree,1,1,writing_score,90
+472,female,group C,high school,1,0,math_score,63
+472,female,group C,high school,1,0,reading_score,69
+472,female,group C,high school,1,0,writing_score,74
+473,female,group C,associate's degree,1,1,math_score,68
+473,female,group C,associate's degree,1,1,reading_score,86
+473,female,group C,associate's degree,1,1,writing_score,84
+474,female,group D,some high school,1,0,math_score,59
+474,female,group D,some high school,1,0,reading_score,67
+474,female,group D,some high school,1,0,writing_score,61
+475,female,group B,associate's degree,1,1,math_score,90
+475,female,group B,associate's degree,1,1,reading_score,90
+475,female,group B,associate's degree,1,1,writing_score,91
+476,female,group D,bachelor's degree,1,1,math_score,71
+476,female,group D,bachelor's degree,1,1,reading_score,76
+476,female,group D,bachelor's degree,1,1,writing_score,83
+477,male,group E,bachelor's degree,1,1,math_score,76
+477,male,group E,bachelor's degree,1,1,reading_score,62
+477,male,group E,bachelor's degree,1,1,writing_score,66
+478,male,group D,associate's degree,1,0,math_score,80
+478,male,group D,associate's degree,1,0,reading_score,68
+478,male,group D,associate's degree,1,0,writing_score,72
+479,female,group D,master's degree,1,0,math_score,55
+479,female,group D,master's degree,1,0,reading_score,64
+479,female,group D,master's degree,1,0,writing_score,70
+480,male,group E,associate's degree,1,0,math_score,76
+480,male,group E,associate's degree,1,0,reading_score,71
+480,male,group E,associate's degree,1,0,writing_score,67
+481,male,group B,high school,1,1,math_score,73
+481,male,group B,high school,1,1,reading_score,71
+481,male,group B,high school,1,1,writing_score,68
+482,female,group D,associate's degree,0,0,math_score,52
+482,female,group D,associate's degree,0,0,reading_score,59
+482,female,group D,associate's degree,0,0,writing_score,56
+483,male,group C,some college,0,0,math_score,68
+483,male,group C,some college,0,0,reading_score,68
+483,male,group C,some college,0,0,writing_score,61
+484,male,group A,high school,1,0,math_score,59
+484,male,group A,high school,1,0,reading_score,52
+484,male,group A,high school,1,0,writing_score,46
+485,female,group B,associate's degree,1,0,math_score,49
+485,female,group B,associate's degree,1,0,reading_score,52
+485,female,group B,associate's degree,1,0,writing_score,54
+486,male,group C,high school,1,0,math_score,70
+486,male,group C,high school,1,0,reading_score,74
+486,male,group C,high school,1,0,writing_score,71
+487,male,group D,some college,0,0,math_score,61
+487,male,group D,some college,0,0,reading_score,47
+487,male,group D,some college,0,0,writing_score,56
+488,female,group C,associate's degree,0,0,math_score,60
+488,female,group C,associate's degree,0,0,reading_score,75
+488,female,group C,associate's degree,0,0,writing_score,74
+489,male,group B,some high school,1,1,math_score,64
+489,male,group B,some high school,1,1,reading_score,53
+489,male,group B,some high school,1,1,writing_score,57
+490,male,group A,associate's degree,0,1,math_score,79
+490,male,group A,associate's degree,0,1,reading_score,82
+490,male,group A,associate's degree,0,1,writing_score,82
+491,female,group A,associate's degree,0,0,math_score,65
+491,female,group A,associate's degree,0,0,reading_score,85
+491,female,group A,associate's degree,0,0,writing_score,76
+492,female,group C,associate's degree,1,0,math_score,64
+492,female,group C,associate's degree,1,0,reading_score,64
+492,female,group C,associate's degree,1,0,writing_score,70
+493,female,group C,some college,1,0,math_score,83
+493,female,group C,some college,1,0,reading_score,83
+493,female,group C,some college,1,0,writing_score,90
+494,female,group C,bachelor's degree,1,0,math_score,81
+494,female,group C,bachelor's degree,1,0,reading_score,88
+494,female,group C,bachelor's degree,1,0,writing_score,90
+495,female,group B,high school,1,0,math_score,54
+495,female,group B,high school,1,0,reading_score,64
+495,female,group B,high school,1,0,writing_score,68
+496,male,group D,high school,1,1,math_score,68
+496,male,group D,high school,1,1,reading_score,64
+496,male,group D,high school,1,1,writing_score,66
+497,female,group C,some college,1,0,math_score,54
+497,female,group C,some college,1,0,reading_score,48
+497,female,group C,some college,1,0,writing_score,52
+498,female,group D,some college,0,1,math_score,59
+498,female,group D,some college,0,1,reading_score,78
+498,female,group D,some college,0,1,writing_score,76
+499,female,group B,some high school,1,0,math_score,66
+499,female,group B,some high school,1,0,reading_score,69
+499,female,group B,some high school,1,0,writing_score,68
+500,male,group E,some college,1,0,math_score,76
+500,male,group E,some college,1,0,reading_score,71
+500,male,group E,some college,1,0,writing_score,72
+501,female,group D,master's degree,1,0,math_score,74
+501,female,group D,master's degree,1,0,reading_score,79
+501,female,group D,master's degree,1,0,writing_score,82
+502,female,group B,associate's degree,1,1,math_score,94
+502,female,group B,associate's degree,1,1,reading_score,87
+502,female,group B,associate's degree,1,1,writing_score,92
+503,male,group C,some college,0,0,math_score,63
+503,male,group C,some college,0,0,reading_score,61
+503,male,group C,some college,0,0,writing_score,54
+504,female,group E,associate's degree,1,1,math_score,95
+504,female,group E,associate's degree,1,1,reading_score,89
+504,female,group E,associate's degree,1,1,writing_score,92
+505,female,group D,master's degree,0,0,math_score,40
+505,female,group D,master's degree,0,0,reading_score,59
+505,female,group D,master's degree,0,0,writing_score,54
+506,female,group B,some high school,1,0,math_score,82
+506,female,group B,some high school,1,0,reading_score,82
+506,female,group B,some high school,1,0,writing_score,80
+507,male,group A,high school,1,0,math_score,68
+507,male,group A,high school,1,0,reading_score,70
+507,male,group A,high school,1,0,writing_score,66
+508,male,group B,bachelor's degree,0,0,math_score,55
+508,male,group B,bachelor's degree,0,0,reading_score,59
+508,male,group B,bachelor's degree,0,0,writing_score,54
+509,male,group C,master's degree,1,0,math_score,79
+509,male,group C,master's degree,1,0,reading_score,78
+509,male,group C,master's degree,1,0,writing_score,77
+510,female,group C,bachelor's degree,1,0,math_score,86
+510,female,group C,bachelor's degree,1,0,reading_score,92
+510,female,group C,bachelor's degree,1,0,writing_score,87
+511,male,group D,some college,1,0,math_score,76
+511,male,group D,some college,1,0,reading_score,71
+511,male,group D,some college,1,0,writing_score,73
+512,male,group A,some high school,1,0,math_score,64
+512,male,group A,some high school,1,0,reading_score,50
+512,male,group A,some high school,1,0,writing_score,43
+513,male,group D,some high school,0,0,math_score,62
+513,male,group D,some high school,0,0,reading_score,49
+513,male,group D,some high school,0,0,writing_score,52
+514,female,group B,some high school,1,1,math_score,54
+514,female,group B,some high school,1,1,reading_score,61
+514,female,group B,some high school,1,1,writing_score,62
+515,female,group B,master's degree,0,1,math_score,77
+515,female,group B,master's degree,0,1,reading_score,97
+515,female,group B,master's degree,0,1,writing_score,94
+516,female,group C,some high school,1,1,math_score,76
+516,female,group C,some high school,1,1,reading_score,87
+516,female,group C,some high school,1,1,writing_score,85
+517,female,group D,some college,1,0,math_score,74
+517,female,group D,some college,1,0,reading_score,89
+517,female,group D,some college,1,0,writing_score,84
+518,female,group E,some college,1,1,math_score,66
+518,female,group E,some college,1,1,reading_score,74
+518,female,group E,some college,1,1,writing_score,73
+519,female,group D,some high school,1,1,math_score,66
+519,female,group D,some high school,1,1,reading_score,78
+519,female,group D,some high school,1,1,writing_score,78
+520,female,group B,high school,0,1,math_score,67
+520,female,group B,high school,0,1,reading_score,78
+520,female,group B,high school,0,1,writing_score,79
+521,male,group D,some college,1,0,math_score,71
+521,male,group D,some college,1,0,reading_score,49
+521,male,group D,some college,1,0,writing_score,52
+522,female,group C,associate's degree,1,0,math_score,91
+522,female,group C,associate's degree,1,0,reading_score,86
+522,female,group C,associate's degree,1,0,writing_score,84
+523,male,group D,bachelor's degree,1,0,math_score,69
+523,male,group D,bachelor's degree,1,0,reading_score,58
+523,male,group D,bachelor's degree,1,0,writing_score,57
+524,male,group C,master's degree,0,0,math_score,54
+524,male,group C,master's degree,0,0,reading_score,59
+524,male,group C,master's degree,0,0,writing_score,50
+525,male,group C,high school,1,1,math_score,53
+525,male,group C,high school,1,1,reading_score,52
+525,male,group C,high school,1,1,writing_score,49
+526,male,group E,some college,1,0,math_score,68
+526,male,group E,some college,1,0,reading_score,60
+526,male,group E,some college,1,0,writing_score,59
+527,male,group C,some high school,0,1,math_score,56
+527,male,group C,some high school,0,1,reading_score,61
+527,male,group C,some high school,0,1,writing_score,60
+528,female,group C,high school,0,0,math_score,36
+528,female,group C,high school,0,0,reading_score,53
+528,female,group C,high school,0,0,writing_score,43
+529,female,group D,bachelor's degree,0,0,math_score,29
+529,female,group D,bachelor's degree,0,0,reading_score,41
+529,female,group D,bachelor's degree,0,0,writing_score,47
+530,female,group C,associate's degree,1,0,math_score,62
+530,female,group C,associate's degree,1,0,reading_score,74
+530,female,group C,associate's degree,1,0,writing_score,70
+531,female,group C,associate's degree,1,1,math_score,68
+531,female,group C,associate's degree,1,1,reading_score,67
+531,female,group C,associate's degree,1,1,writing_score,73
+532,female,group C,some high school,1,0,math_score,47
+532,female,group C,some high school,1,0,reading_score,54
+532,female,group C,some high school,1,0,writing_score,53
+533,male,group E,associate's degree,1,1,math_score,62
+533,male,group E,associate's degree,1,1,reading_score,61
+533,male,group E,associate's degree,1,1,writing_score,58
+534,female,group E,associate's degree,1,1,math_score,79
+534,female,group E,associate's degree,1,1,reading_score,88
+534,female,group E,associate's degree,1,1,writing_score,94
+535,male,group B,high school,1,1,math_score,73
+535,male,group B,high school,1,1,reading_score,69
+535,male,group B,high school,1,1,writing_score,68
+536,female,group C,bachelor's degree,0,1,math_score,66
+536,female,group C,bachelor's degree,0,1,reading_score,83
+536,female,group C,bachelor's degree,0,1,writing_score,83
+537,male,group C,associate's degree,1,1,math_score,51
+537,male,group C,associate's degree,1,1,reading_score,60
+537,male,group C,associate's degree,1,1,writing_score,58
+538,female,group D,high school,1,0,math_score,51
+538,female,group D,high school,1,0,reading_score,66
+538,female,group D,high school,1,0,writing_score,62
+539,male,group E,bachelor's degree,1,1,math_score,85
+539,male,group E,bachelor's degree,1,1,reading_score,66
+539,male,group E,bachelor's degree,1,1,writing_score,71
+540,male,group A,associate's degree,1,1,math_score,97
+540,male,group A,associate's degree,1,1,reading_score,92
+540,male,group A,associate's degree,1,1,writing_score,86
+541,male,group C,high school,1,1,math_score,75
+541,male,group C,high school,1,1,reading_score,69
+541,male,group C,high school,1,1,writing_score,68
+542,male,group D,associate's degree,0,1,math_score,79
+542,male,group D,associate's degree,0,1,reading_score,82
+542,male,group D,associate's degree,0,1,writing_score,80
+543,female,group C,associate's degree,1,0,math_score,81
+543,female,group C,associate's degree,1,0,reading_score,77
+543,female,group C,associate's degree,1,0,writing_score,79
+544,female,group D,associate's degree,1,0,math_score,82
+544,female,group D,associate's degree,1,0,reading_score,95
+544,female,group D,associate's degree,1,0,writing_score,89
+545,female,group D,master's degree,1,0,math_score,64
+545,female,group D,master's degree,1,0,reading_score,63
+545,female,group D,master's degree,1,0,writing_score,66
+546,male,group E,some high school,0,1,math_score,78
+546,male,group E,some high school,0,1,reading_score,83
+546,male,group E,some high school,0,1,writing_score,80
+547,female,group A,some high school,1,1,math_score,92
+547,female,group A,some high school,1,1,reading_score,100
+547,female,group A,some high school,1,1,writing_score,97
+548,male,group C,high school,1,1,math_score,72
+548,male,group C,high school,1,1,reading_score,67
+548,male,group C,high school,1,1,writing_score,64
+549,female,group C,high school,0,0,math_score,62
+549,female,group C,high school,0,0,reading_score,67
+549,female,group C,high school,0,0,writing_score,64
+550,male,group C,master's degree,1,0,math_score,79
+550,male,group C,master's degree,1,0,reading_score,72
+550,male,group C,master's degree,1,0,writing_score,69
+551,male,group C,some high school,0,0,math_score,79
+551,male,group C,some high school,0,0,reading_score,76
+551,male,group C,some high school,0,0,writing_score,65
+552,male,group B,bachelor's degree,0,1,math_score,87
+552,male,group B,bachelor's degree,0,1,reading_score,90
+552,male,group B,bachelor's degree,0,1,writing_score,88
+553,female,group B,associate's degree,1,0,math_score,40
+553,female,group B,associate's degree,1,0,reading_score,48
+553,female,group B,associate's degree,1,0,writing_score,50
+554,male,group D,some college,0,0,math_score,77
+554,male,group D,some college,0,0,reading_score,62
+554,male,group D,some college,0,0,writing_score,64
+555,male,group E,associate's degree,1,0,math_score,53
+555,male,group E,associate's degree,1,0,reading_score,45
+555,male,group E,associate's degree,1,0,writing_score,40
+556,female,group C,some college,0,0,math_score,32
+556,female,group C,some college,0,0,reading_score,39
+556,female,group C,some college,0,0,writing_score,33
+557,female,group C,associate's degree,1,1,math_score,55
+557,female,group C,associate's degree,1,1,reading_score,72
+557,female,group C,associate's degree,1,1,writing_score,79
+558,male,group C,master's degree,0,0,math_score,61
+558,male,group C,master's degree,0,0,reading_score,67
+558,male,group C,master's degree,0,0,writing_score,66
+559,female,group B,associate's degree,0,0,math_score,53
+559,female,group B,associate's degree,0,0,reading_score,70
+559,female,group B,associate's degree,0,0,writing_score,70
+560,male,group D,some high school,1,0,math_score,73
+560,male,group D,some high school,1,0,reading_score,66
+560,male,group D,some high school,1,0,writing_score,62
+561,female,group D,some college,1,1,math_score,74
+561,female,group D,some college,1,1,reading_score,75
+561,female,group D,some college,1,1,writing_score,79
+562,female,group C,some college,1,0,math_score,63
+562,female,group C,some college,1,0,reading_score,74
+562,female,group C,some college,1,0,writing_score,74
+563,male,group C,bachelor's degree,1,1,math_score,96
+563,male,group C,bachelor's degree,1,1,reading_score,90
+563,male,group C,bachelor's degree,1,1,writing_score,92
+564,female,group D,some college,0,1,math_score,63
+564,female,group D,some college,0,1,reading_score,80
+564,female,group D,some college,0,1,writing_score,80
+565,male,group B,bachelor's degree,0,0,math_score,48
+565,male,group B,bachelor's degree,0,0,reading_score,51
+565,male,group B,bachelor's degree,0,0,writing_score,46
+566,male,group B,associate's degree,1,0,math_score,48
+566,male,group B,associate's degree,1,0,reading_score,43
+566,male,group B,associate's degree,1,0,writing_score,45
+567,female,group E,bachelor's degree,0,1,math_score,92
+567,female,group E,bachelor's degree,0,1,reading_score,100
+567,female,group E,bachelor's degree,0,1,writing_score,100
+568,female,group D,master's degree,0,1,math_score,61
+568,female,group D,master's degree,0,1,reading_score,71
+568,female,group D,master's degree,0,1,writing_score,78
+569,male,group B,high school,0,0,math_score,63
+569,male,group B,high school,0,0,reading_score,48
+569,male,group B,high school,0,0,writing_score,47
+570,male,group D,bachelor's degree,0,0,math_score,68
+570,male,group D,bachelor's degree,0,0,reading_score,68
+570,male,group D,bachelor's degree,0,0,writing_score,67
+571,male,group B,some college,1,1,math_score,71
+571,male,group B,some college,1,1,reading_score,75
+571,male,group B,some college,1,1,writing_score,70
+572,male,group A,bachelor's degree,1,0,math_score,91
+572,male,group A,bachelor's degree,1,0,reading_score,96
+572,male,group A,bachelor's degree,1,0,writing_score,92
+573,female,group C,some college,1,0,math_score,53
+573,female,group C,some college,1,0,reading_score,62
+573,female,group C,some college,1,0,writing_score,56
+574,female,group C,high school,0,1,math_score,50
+574,female,group C,high school,0,1,reading_score,66
+574,female,group C,high school,0,1,writing_score,64
+575,female,group E,high school,1,0,math_score,74
+575,female,group E,high school,1,0,reading_score,81
+575,female,group E,high school,1,0,writing_score,71
+576,male,group A,associate's degree,0,1,math_score,40
+576,male,group A,associate's degree,0,1,reading_score,55
+576,male,group A,associate's degree,0,1,writing_score,53
+577,male,group A,some college,1,1,math_score,61
+577,male,group A,some college,1,1,reading_score,51
+577,male,group A,some college,1,1,writing_score,52
+578,female,group B,high school,1,0,math_score,81
+578,female,group B,high school,1,0,reading_score,91
+578,female,group B,high school,1,0,writing_score,89
+579,female,group B,some college,0,1,math_score,48
+579,female,group B,some college,0,1,reading_score,56
+579,female,group B,some college,0,1,writing_score,58
+580,female,group D,master's degree,1,0,math_score,53
+580,female,group D,master's degree,1,0,reading_score,61
+580,female,group D,master's degree,1,0,writing_score,68
+581,female,group D,some high school,1,0,math_score,81
+581,female,group D,some high school,1,0,reading_score,97
+581,female,group D,some high school,1,0,writing_score,96
+582,female,group E,some high school,1,0,math_score,77
+582,female,group E,some high school,1,0,reading_score,79
+582,female,group E,some high school,1,0,writing_score,80
+583,female,group D,bachelor's degree,0,0,math_score,63
+583,female,group D,bachelor's degree,0,0,reading_score,73
+583,female,group D,bachelor's degree,0,0,writing_score,78
+584,female,group D,associate's degree,1,1,math_score,73
+584,female,group D,associate's degree,1,1,reading_score,75
+584,female,group D,associate's degree,1,1,writing_score,80
+585,female,group D,some college,1,0,math_score,69
+585,female,group D,some college,1,0,reading_score,77
+585,female,group D,some college,1,0,writing_score,77
+586,female,group C,associate's degree,1,0,math_score,65
+586,female,group C,associate's degree,1,0,reading_score,76
+586,female,group C,associate's degree,1,0,writing_score,76
+587,female,group A,high school,1,0,math_score,55
+587,female,group A,high school,1,0,reading_score,73
+587,female,group A,high school,1,0,writing_score,73
+588,female,group C,bachelor's degree,0,0,math_score,44
+588,female,group C,bachelor's degree,0,0,reading_score,63
+588,female,group C,bachelor's degree,0,0,writing_score,62
+589,female,group C,some college,1,0,math_score,54
+589,female,group C,some college,1,0,reading_score,64
+589,female,group C,some college,1,0,writing_score,65
+590,female,group A,some high school,1,0,math_score,48
+590,female,group A,some high school,1,0,reading_score,66
+590,female,group A,some high school,1,0,writing_score,65
+591,male,group C,some college,0,0,math_score,58
+591,male,group C,some college,0,0,reading_score,57
+591,male,group C,some college,0,0,writing_score,54
+592,male,group A,some high school,1,0,math_score,71
+592,male,group A,some high school,1,0,reading_score,62
+592,male,group A,some high school,1,0,writing_score,50
+593,male,group E,bachelor's degree,1,0,math_score,68
+593,male,group E,bachelor's degree,1,0,reading_score,68
+593,male,group E,bachelor's degree,1,0,writing_score,64
+594,female,group E,high school,1,0,math_score,74
+594,female,group E,high school,1,0,reading_score,76
+594,female,group E,high school,1,0,writing_score,73
+595,female,group C,bachelor's degree,1,1,math_score,92
+595,female,group C,bachelor's degree,1,1,reading_score,100
+595,female,group C,bachelor's degree,1,1,writing_score,99
+596,female,group C,bachelor's degree,1,1,math_score,56
+596,female,group C,bachelor's degree,1,1,reading_score,79
+596,female,group C,bachelor's degree,1,1,writing_score,72
+597,male,group B,high school,0,0,math_score,30
+597,male,group B,high school,0,0,reading_score,24
+597,male,group B,high school,0,0,writing_score,15
+598,male,group A,some high school,1,0,math_score,53
+598,male,group A,some high school,1,0,reading_score,54
+598,male,group A,some high school,1,0,writing_score,48
+599,female,group D,high school,1,0,math_score,69
+599,female,group D,high school,1,0,reading_score,77
+599,female,group D,high school,1,0,writing_score,73
+600,female,group D,some high school,1,0,math_score,65
+600,female,group D,some high school,1,0,reading_score,82
+600,female,group D,some high school,1,0,writing_score,81
+601,female,group D,master's degree,1,0,math_score,54
+601,female,group D,master's degree,1,0,reading_score,60
+601,female,group D,master's degree,1,0,writing_score,63
+602,female,group C,high school,1,0,math_score,29
+602,female,group C,high school,1,0,reading_score,29
+602,female,group C,high school,1,0,writing_score,30
+603,female,group E,some college,1,0,math_score,76
+603,female,group E,some college,1,0,reading_score,78
+603,female,group E,some college,1,0,writing_score,80
+604,male,group D,high school,0,0,math_score,60
+604,male,group D,high school,0,0,reading_score,57
+604,male,group D,high school,0,0,writing_score,51
+605,male,group D,master's degree,0,1,math_score,84
+605,male,group D,master's degree,0,1,reading_score,89
+605,male,group D,master's degree,0,1,writing_score,90
+606,male,group C,some high school,1,0,math_score,75
+606,male,group C,some high school,1,0,reading_score,72
+606,male,group C,some high school,1,0,writing_score,62
+607,female,group C,associate's degree,1,0,math_score,85
+607,female,group C,associate's degree,1,0,reading_score,84
+607,female,group C,associate's degree,1,0,writing_score,82
+608,female,group C,master's degree,0,0,math_score,40
+608,female,group C,master's degree,0,0,reading_score,58
+608,female,group C,master's degree,0,0,writing_score,54
+609,female,group E,some college,1,0,math_score,61
+609,female,group E,some college,1,0,reading_score,64
+609,female,group E,some college,1,0,writing_score,62
+610,female,group B,associate's degree,1,0,math_score,58
+610,female,group B,associate's degree,1,0,reading_score,63
+610,female,group B,associate's degree,1,0,writing_score,65
+611,male,group D,some college,0,1,math_score,69
+611,male,group D,some college,0,1,reading_score,60
+611,male,group D,some college,0,1,writing_score,63
+612,female,group C,some college,1,0,math_score,58
+612,female,group C,some college,1,0,reading_score,59
+612,female,group C,some college,1,0,writing_score,66
+613,male,group C,bachelor's degree,1,1,math_score,94
+613,male,group C,bachelor's degree,1,1,reading_score,90
+613,male,group C,bachelor's degree,1,1,writing_score,91
+614,female,group C,associate's degree,1,0,math_score,65
+614,female,group C,associate's degree,1,0,reading_score,77
+614,female,group C,associate's degree,1,0,writing_score,74
+615,female,group A,associate's degree,1,0,math_score,82
+615,female,group A,associate's degree,1,0,reading_score,93
+615,female,group A,associate's degree,1,0,writing_score,93
+616,female,group C,high school,1,0,math_score,60
+616,female,group C,high school,1,0,reading_score,68
+616,female,group C,high school,1,0,writing_score,72
+617,female,group E,bachelor's degree,1,0,math_score,37
+617,female,group E,bachelor's degree,1,0,reading_score,45
+617,female,group E,bachelor's degree,1,0,writing_score,38
+618,male,group D,bachelor's degree,1,0,math_score,88
+618,male,group D,bachelor's degree,1,0,reading_score,78
+618,male,group D,bachelor's degree,1,0,writing_score,83
+619,male,group D,master's degree,1,0,math_score,95
+619,male,group D,master's degree,1,0,reading_score,81
+619,male,group D,master's degree,1,0,writing_score,84
+620,male,group C,associate's degree,0,1,math_score,65
+620,male,group C,associate's degree,0,1,reading_score,73
+620,male,group C,associate's degree,0,1,writing_score,68
+621,female,group C,high school,0,0,math_score,35
+621,female,group C,high school,0,0,reading_score,61
+621,female,group C,high school,0,0,writing_score,54
+622,male,group B,bachelor's degree,0,0,math_score,62
+622,male,group B,bachelor's degree,0,0,reading_score,63
+622,male,group B,bachelor's degree,0,0,writing_score,56
+623,male,group C,high school,0,1,math_score,58
+623,male,group C,high school,0,1,reading_score,51
+623,male,group C,high school,0,1,writing_score,52
+624,male,group A,some college,1,1,math_score,100
+624,male,group A,some college,1,1,reading_score,96
+624,male,group A,some college,1,1,writing_score,86
+625,female,group E,bachelor's degree,0,0,math_score,61
+625,female,group E,bachelor's degree,0,0,reading_score,58
+625,female,group E,bachelor's degree,0,0,writing_score,62
+626,male,group D,some college,1,1,math_score,100
+626,male,group D,some college,1,1,reading_score,97
+626,male,group D,some college,1,1,writing_score,99
+627,male,group B,associate's degree,0,1,math_score,69
+627,male,group B,associate's degree,0,1,reading_score,70
+627,male,group B,associate's degree,0,1,writing_score,63
+628,male,group D,associate's degree,1,0,math_score,61
+628,male,group D,associate's degree,1,0,reading_score,48
+628,male,group D,associate's degree,1,0,writing_score,46
+629,male,group D,some college,0,0,math_score,49
+629,male,group D,some college,0,0,reading_score,57
+629,male,group D,some college,0,0,writing_score,46
+630,female,group C,some high school,1,1,math_score,44
+630,female,group C,some high school,1,1,reading_score,51
+630,female,group C,some high school,1,1,writing_score,55
+631,male,group D,some college,1,0,math_score,67
+631,male,group D,some college,1,0,reading_score,64
+631,male,group D,some college,1,0,writing_score,70
+632,male,group B,high school,1,0,math_score,79
+632,male,group B,high school,1,0,reading_score,60
+632,male,group B,high school,1,0,writing_score,65
+633,female,group B,bachelor's degree,1,1,math_score,66
+633,female,group B,bachelor's degree,1,1,reading_score,74
+633,female,group B,bachelor's degree,1,1,writing_score,81
+634,female,group C,high school,1,0,math_score,75
+634,female,group C,high school,1,0,reading_score,88
+634,female,group C,high school,1,0,writing_score,85
+635,male,group D,some high school,1,0,math_score,84
+635,male,group D,some high school,1,0,reading_score,84
+635,male,group D,some high school,1,0,writing_score,80
+636,male,group A,high school,1,0,math_score,71
+636,male,group A,high school,1,0,reading_score,74
+636,male,group A,high school,1,0,writing_score,64
+637,female,group B,high school,0,1,math_score,67
+637,female,group B,high school,0,1,reading_score,80
+637,female,group B,high school,0,1,writing_score,81
+638,female,group D,some high school,1,1,math_score,80
+638,female,group D,some high school,1,1,reading_score,92
+638,female,group D,some high school,1,1,writing_score,88
+639,male,group E,some college,1,0,math_score,86
+639,male,group E,some college,1,0,reading_score,76
+639,male,group E,some college,1,0,writing_score,74
+640,female,group D,associate's degree,1,0,math_score,76
+640,female,group D,associate's degree,1,0,reading_score,74
+640,female,group D,associate's degree,1,0,writing_score,73
+641,male,group D,high school,1,0,math_score,41
+641,male,group D,high school,1,0,reading_score,52
+641,male,group D,high school,1,0,writing_score,51
+642,female,group D,associate's degree,0,1,math_score,74
+642,female,group D,associate's degree,0,1,reading_score,88
+642,female,group D,associate's degree,0,1,writing_score,90
+643,female,group B,some high school,0,0,math_score,72
+643,female,group B,some high school,0,0,reading_score,81
+643,female,group B,some high school,0,0,writing_score,79
+644,female,group E,high school,1,1,math_score,74
+644,female,group E,high school,1,1,reading_score,79
+644,female,group E,high school,1,1,writing_score,80
+645,male,group B,high school,1,0,math_score,70
+645,male,group B,high school,1,0,reading_score,65
+645,male,group B,high school,1,0,writing_score,60
+646,female,group B,bachelor's degree,1,1,math_score,65
+646,female,group B,bachelor's degree,1,1,reading_score,81
+646,female,group B,bachelor's degree,1,1,writing_score,81
+647,female,group D,associate's degree,1,0,math_score,59
+647,female,group D,associate's degree,1,0,reading_score,70
+647,female,group D,associate's degree,1,0,writing_score,65
+648,female,group E,high school,0,0,math_score,64
+648,female,group E,high school,0,0,reading_score,62
+648,female,group E,high school,0,0,writing_score,68
+649,female,group B,high school,1,0,math_score,50
+649,female,group B,high school,1,0,reading_score,53
+649,female,group B,high school,1,0,writing_score,55
+650,female,group D,some college,1,1,math_score,69
+650,female,group D,some college,1,1,reading_score,79
+650,female,group D,some college,1,1,writing_score,81
+651,male,group C,some high school,0,1,math_score,51
+651,male,group C,some high school,0,1,reading_score,56
+651,male,group C,some high school,0,1,writing_score,53
+652,female,group A,high school,1,1,math_score,68
+652,female,group A,high school,1,1,reading_score,80
+652,female,group A,high school,1,1,writing_score,76
+653,female,group D,some college,1,1,math_score,85
+653,female,group D,some college,1,1,reading_score,86
+653,female,group D,some college,1,1,writing_score,98
+654,female,group A,associate's degree,1,1,math_score,65
+654,female,group A,associate's degree,1,1,reading_score,70
+654,female,group A,associate's degree,1,1,writing_score,74
+655,female,group B,some high school,1,0,math_score,73
+655,female,group B,some high school,1,0,reading_score,79
+655,female,group B,some high school,1,0,writing_score,79
+656,female,group B,some college,1,0,math_score,62
+656,female,group B,some college,1,0,reading_score,67
+656,female,group B,some college,1,0,writing_score,67
+657,male,group C,associate's degree,0,0,math_score,77
+657,male,group C,associate's degree,0,0,reading_score,67
+657,male,group C,associate's degree,0,0,writing_score,64
+658,male,group D,some high school,1,0,math_score,69
+658,male,group D,some high school,1,0,reading_score,66
+658,male,group D,some high school,1,0,writing_score,61
+659,female,group D,associate's degree,0,0,math_score,43
+659,female,group D,associate's degree,0,0,reading_score,60
+659,female,group D,associate's degree,0,0,writing_score,58
+660,male,group D,associate's degree,1,0,math_score,90
+660,male,group D,associate's degree,1,0,reading_score,87
+660,male,group D,associate's degree,1,0,writing_score,85
+661,male,group C,some college,0,0,math_score,74
+661,male,group C,some college,0,0,reading_score,77
+661,male,group C,some college,0,0,writing_score,73
+662,male,group C,some high school,1,0,math_score,73
+662,male,group C,some high school,1,0,reading_score,66
+662,male,group C,some high school,1,0,writing_score,63
+663,female,group D,some college,0,0,math_score,55
+663,female,group D,some college,0,0,reading_score,71
+663,female,group D,some college,0,0,writing_score,69
+664,female,group C,high school,1,0,math_score,65
+664,female,group C,high school,1,0,reading_score,69
+664,female,group C,high school,1,0,writing_score,67
+665,male,group D,associate's degree,1,0,math_score,80
+665,male,group D,associate's degree,1,0,reading_score,63
+665,male,group D,associate's degree,1,0,writing_score,63
+666,female,group C,some high school,0,1,math_score,50
+666,female,group C,some high school,0,1,reading_score,60
+666,female,group C,some high school,0,1,writing_score,60
+667,female,group C,some college,0,1,math_score,63
+667,female,group C,some college,0,1,reading_score,73
+667,female,group C,some college,0,1,writing_score,71
+668,female,group B,bachelor's degree,0,0,math_score,77
+668,female,group B,bachelor's degree,0,0,reading_score,85
+668,female,group B,bachelor's degree,0,0,writing_score,87
+669,male,group C,some college,1,0,math_score,73
+669,male,group C,some college,1,0,reading_score,74
+669,male,group C,some college,1,0,writing_score,61
+670,male,group D,associate's degree,1,1,math_score,81
+670,male,group D,associate's degree,1,1,reading_score,72
+670,male,group D,associate's degree,1,1,writing_score,77
+671,female,group C,high school,0,0,math_score,66
+671,female,group C,high school,0,0,reading_score,76
+671,female,group C,high school,0,0,writing_score,68
+672,male,group D,associate's degree,0,0,math_score,52
+672,male,group D,associate's degree,0,0,reading_score,57
+672,male,group D,associate's degree,0,0,writing_score,50
+673,female,group C,some college,1,0,math_score,69
+673,female,group C,some college,1,0,reading_score,78
+673,female,group C,some college,1,0,writing_score,76
+674,female,group C,associate's degree,1,1,math_score,65
+674,female,group C,associate's degree,1,1,reading_score,84
+674,female,group C,associate's degree,1,1,writing_score,84
+675,female,group D,high school,1,1,math_score,69
+675,female,group D,high school,1,1,reading_score,77
+675,female,group D,high school,1,1,writing_score,78
+676,female,group B,some college,1,1,math_score,50
+676,female,group B,some college,1,1,reading_score,64
+676,female,group B,some college,1,1,writing_score,66
+677,female,group E,some college,1,1,math_score,73
+677,female,group E,some college,1,1,reading_score,78
+677,female,group E,some college,1,1,writing_score,76
+678,female,group C,some high school,1,1,math_score,70
+678,female,group C,some high school,1,1,reading_score,82
+678,female,group C,some high school,1,1,writing_score,76
+679,male,group D,associate's degree,0,0,math_score,81
+679,male,group D,associate's degree,0,0,reading_score,75
+679,male,group D,associate's degree,0,0,writing_score,78
+680,male,group D,some college,0,0,math_score,63
+680,male,group D,some college,0,0,reading_score,61
+680,male,group D,some college,0,0,writing_score,60
+681,female,group D,high school,1,0,math_score,67
+681,female,group D,high school,1,0,reading_score,72
+681,female,group D,high school,1,0,writing_score,74
+682,male,group B,high school,1,0,math_score,60
+682,male,group B,high school,1,0,reading_score,68
+682,male,group B,high school,1,0,writing_score,60
+683,male,group B,high school,1,0,math_score,62
+683,male,group B,high school,1,0,reading_score,55
+683,male,group B,high school,1,0,writing_score,54
+684,female,group C,some high school,0,1,math_score,29
+684,female,group C,some high school,0,1,reading_score,40
+684,female,group C,some high school,0,1,writing_score,44
+685,male,group B,some college,1,1,math_score,62
+685,male,group B,some college,1,1,reading_score,66
+685,male,group B,some college,1,1,writing_score,68
+686,female,group E,master's degree,1,1,math_score,94
+686,female,group E,master's degree,1,1,reading_score,99
+686,female,group E,master's degree,1,1,writing_score,100
+687,male,group E,some college,1,1,math_score,85
+687,male,group E,some college,1,1,reading_score,75
+687,male,group E,some college,1,1,writing_score,68
+688,male,group D,associate's degree,0,0,math_score,77
+688,male,group D,associate's degree,0,0,reading_score,78
+688,male,group D,associate's degree,0,0,writing_score,73
+689,male,group A,high school,0,0,math_score,53
+689,male,group A,high school,0,0,reading_score,58
+689,male,group A,high school,0,0,writing_score,44
+690,male,group E,some college,0,0,math_score,93
+690,male,group E,some college,0,0,reading_score,90
+690,male,group E,some college,0,0,writing_score,83
+691,female,group C,associate's degree,1,0,math_score,49
+691,female,group C,associate's degree,1,0,reading_score,53
+691,female,group C,associate's degree,1,0,writing_score,53
+692,female,group E,associate's degree,0,0,math_score,73
+692,female,group E,associate's degree,0,0,reading_score,76
+692,female,group E,associate's degree,0,0,writing_score,78
+693,female,group C,bachelor's degree,0,1,math_score,66
+693,female,group C,bachelor's degree,0,1,reading_score,74
+693,female,group C,bachelor's degree,0,1,writing_score,81
+694,female,group D,associate's degree,1,0,math_score,77
+694,female,group D,associate's degree,1,0,reading_score,77
+694,female,group D,associate's degree,1,0,writing_score,73
+695,female,group C,some high school,1,0,math_score,49
+695,female,group C,some high school,1,0,reading_score,63
+695,female,group C,some high school,1,0,writing_score,56
+696,female,group D,some college,0,0,math_score,79
+696,female,group D,some college,0,0,reading_score,89
+696,female,group D,some college,0,0,writing_score,86
+697,female,group C,associate's degree,1,1,math_score,75
+697,female,group C,associate's degree,1,1,reading_score,82
+697,female,group C,associate's degree,1,1,writing_score,90
+698,female,group A,bachelor's degree,1,0,math_score,59
+698,female,group A,bachelor's degree,1,0,reading_score,72
+698,female,group A,bachelor's degree,1,0,writing_score,70
+699,female,group D,associate's degree,1,1,math_score,57
+699,female,group D,associate's degree,1,1,reading_score,78
+699,female,group D,associate's degree,1,1,writing_score,79
+700,male,group C,high school,0,0,math_score,66
+700,male,group C,high school,0,0,reading_score,66
+700,male,group C,high school,0,0,writing_score,59
+701,female,group E,bachelor's degree,1,1,math_score,79
+701,female,group E,bachelor's degree,1,1,reading_score,81
+701,female,group E,bachelor's degree,1,1,writing_score,82
+702,female,group B,some high school,1,0,math_score,57
+702,female,group B,some high school,1,0,reading_score,67
+702,female,group B,some high school,1,0,writing_score,72
+703,male,group A,bachelor's degree,1,1,math_score,87
+703,male,group A,bachelor's degree,1,1,reading_score,84
+703,male,group A,bachelor's degree,1,1,writing_score,87
+704,female,group D,some college,1,0,math_score,63
+704,female,group D,some college,1,0,reading_score,64
+704,female,group D,some college,1,0,writing_score,67
+705,female,group B,some high school,0,1,math_score,59
+705,female,group B,some high school,0,1,reading_score,63
+705,female,group B,some high school,0,1,writing_score,64
+706,male,group A,bachelor's degree,0,0,math_score,62
+706,male,group A,bachelor's degree,0,0,reading_score,72
+706,male,group A,bachelor's degree,0,0,writing_score,65
+707,male,group D,high school,1,0,math_score,46
+707,male,group D,high school,1,0,reading_score,34
+707,male,group D,high school,1,0,writing_score,36
+708,male,group C,some college,1,0,math_score,66
+708,male,group C,some college,1,0,reading_score,59
+708,male,group C,some college,1,0,writing_score,52
+709,male,group D,high school,1,0,math_score,89
+709,male,group D,high school,1,0,reading_score,87
+709,male,group D,high school,1,0,writing_score,79
+710,female,group D,associate's degree,0,1,math_score,42
+710,female,group D,associate's degree,0,1,reading_score,61
+710,female,group D,associate's degree,0,1,writing_score,58
+711,male,group C,some college,1,1,math_score,93
+711,male,group C,some college,1,1,reading_score,84
+711,male,group C,some college,1,1,writing_score,90
+712,female,group E,some high school,1,1,math_score,80
+712,female,group E,some high school,1,1,reading_score,85
+712,female,group E,some high school,1,1,writing_score,85
+713,female,group D,some college,1,0,math_score,98
+713,female,group D,some college,1,0,reading_score,100
+713,female,group D,some college,1,0,writing_score,99
+714,male,group D,master's degree,1,0,math_score,81
+714,male,group D,master's degree,1,0,reading_score,81
+714,male,group D,master's degree,1,0,writing_score,84
+715,female,group B,some high school,1,1,math_score,60
+715,female,group B,some high school,1,1,reading_score,70
+715,female,group B,some high school,1,1,writing_score,74
+716,female,group B,associate's degree,0,1,math_score,76
+716,female,group B,associate's degree,0,1,reading_score,94
+716,female,group B,associate's degree,0,1,writing_score,87
+717,male,group C,associate's degree,1,1,math_score,73
+717,male,group C,associate's degree,1,1,reading_score,78
+717,male,group C,associate's degree,1,1,writing_score,72
+718,female,group C,associate's degree,1,1,math_score,96
+718,female,group C,associate's degree,1,1,reading_score,96
+718,female,group C,associate's degree,1,1,writing_score,99
+719,female,group C,high school,1,0,math_score,76
+719,female,group C,high school,1,0,reading_score,76
+719,female,group C,high school,1,0,writing_score,74
+720,male,group E,associate's degree,0,1,math_score,91
+720,male,group E,associate's degree,0,1,reading_score,73
+720,male,group E,associate's degree,0,1,writing_score,80
+721,female,group C,some college,0,0,math_score,62
+721,female,group C,some college,0,0,reading_score,72
+721,female,group C,some college,0,0,writing_score,70
+722,male,group D,some high school,0,1,math_score,55
+722,male,group D,some high school,0,1,reading_score,59
+722,male,group D,some high school,0,1,writing_score,59
+723,female,group B,some high school,0,1,math_score,74
+723,female,group B,some high school,0,1,reading_score,90
+723,female,group B,some high school,0,1,writing_score,88
+724,male,group C,high school,1,0,math_score,50
+724,male,group C,high school,1,0,reading_score,48
+724,male,group C,high school,1,0,writing_score,42
+725,male,group B,some college,1,0,math_score,47
+725,male,group B,some college,1,0,reading_score,43
+725,male,group B,some college,1,0,writing_score,41
+726,male,group E,some college,1,1,math_score,81
+726,male,group E,some college,1,1,reading_score,74
+726,male,group E,some college,1,1,writing_score,71
+727,female,group E,associate's degree,1,1,math_score,65
+727,female,group E,associate's degree,1,1,reading_score,75
+727,female,group E,associate's degree,1,1,writing_score,77
+728,male,group E,some high school,1,1,math_score,68
+728,male,group E,some high school,1,1,reading_score,51
+728,male,group E,some high school,1,1,writing_score,57
+729,female,group D,high school,0,0,math_score,73
+729,female,group D,high school,0,0,reading_score,92
+729,female,group D,high school,0,0,writing_score,84
+730,male,group C,some college,1,0,math_score,53
+730,male,group C,some college,1,0,reading_score,39
+730,male,group C,some college,1,0,writing_score,37
+731,female,group B,associate's degree,0,1,math_score,68
+731,female,group B,associate's degree,0,1,reading_score,77
+731,female,group B,associate's degree,0,1,writing_score,80
+732,male,group A,some high school,0,0,math_score,55
+732,male,group A,some high school,0,0,reading_score,46
+732,male,group A,some high school,0,0,writing_score,43
+733,female,group C,some college,1,1,math_score,87
+733,female,group C,some college,1,1,reading_score,89
+733,female,group C,some college,1,1,writing_score,94
+734,male,group D,some high school,1,0,math_score,55
+734,male,group D,some high school,1,0,reading_score,47
+734,male,group D,some high school,1,0,writing_score,44
+735,female,group E,some college,0,0,math_score,53
+735,female,group E,some college,0,0,reading_score,58
+735,female,group E,some college,0,0,writing_score,57
+736,male,group C,master's degree,1,0,math_score,67
+736,male,group C,master's degree,1,0,reading_score,57
+736,male,group C,master's degree,1,0,writing_score,59
+737,male,group C,associate's degree,1,0,math_score,92
+737,male,group C,associate's degree,1,0,reading_score,79
+737,male,group C,associate's degree,1,0,writing_score,84
+738,female,group B,some college,0,1,math_score,53
+738,female,group B,some college,0,1,reading_score,66
+738,female,group B,some college,0,1,writing_score,73
+739,male,group D,associate's degree,1,0,math_score,81
+739,male,group D,associate's degree,1,0,reading_score,71
+739,male,group D,associate's degree,1,0,writing_score,73
+740,male,group C,high school,0,0,math_score,61
+740,male,group C,high school,0,0,reading_score,60
+740,male,group C,high school,0,0,writing_score,55
+741,male,group D,bachelor's degree,1,0,math_score,80
+741,male,group D,bachelor's degree,1,0,reading_score,73
+741,male,group D,bachelor's degree,1,0,writing_score,72
+742,female,group A,associate's degree,0,0,math_score,37
+742,female,group A,associate's degree,0,0,reading_score,57
+742,female,group A,associate's degree,0,0,writing_score,56
+743,female,group C,high school,1,0,math_score,81
+743,female,group C,high school,1,0,reading_score,84
+743,female,group C,high school,1,0,writing_score,82
+744,female,group C,associate's degree,1,1,math_score,59
+744,female,group C,associate's degree,1,1,reading_score,73
+744,female,group C,associate's degree,1,1,writing_score,72
+745,male,group B,some college,0,0,math_score,55
+745,male,group B,some college,0,0,reading_score,55
+745,male,group B,some college,0,0,writing_score,47
+746,male,group D,associate's degree,1,0,math_score,72
+746,male,group D,associate's degree,1,0,reading_score,79
+746,male,group D,associate's degree,1,0,writing_score,74
+747,male,group D,high school,1,0,math_score,69
+747,male,group D,high school,1,0,reading_score,75
+747,male,group D,high school,1,0,writing_score,71
+748,male,group C,some college,1,0,math_score,69
+748,male,group C,some college,1,0,reading_score,64
+748,male,group C,some college,1,0,writing_score,68
+749,female,group C,bachelor's degree,0,0,math_score,50
+749,female,group C,bachelor's degree,0,0,reading_score,60
+749,female,group C,bachelor's degree,0,0,writing_score,59
+750,male,group B,some college,1,1,math_score,87
+750,male,group B,some college,1,1,reading_score,84
+750,male,group B,some college,1,1,writing_score,86
+751,male,group D,some high school,1,1,math_score,71
+751,male,group D,some high school,1,1,reading_score,69
+751,male,group D,some high school,1,1,writing_score,68
+752,male,group E,some college,1,0,math_score,68
+752,male,group E,some college,1,0,reading_score,72
+752,male,group E,some college,1,0,writing_score,65
+753,male,group C,master's degree,0,1,math_score,79
+753,male,group C,master's degree,0,1,reading_score,77
+753,male,group C,master's degree,0,1,writing_score,75
+754,female,group C,some high school,1,1,math_score,77
+754,female,group C,some high school,1,1,reading_score,90
+754,female,group C,some high school,1,1,writing_score,85
+755,male,group C,associate's degree,0,0,math_score,58
+755,male,group C,associate's degree,0,0,reading_score,55
+755,male,group C,associate's degree,0,0,writing_score,53
+756,female,group E,associate's degree,1,0,math_score,84
+756,female,group E,associate's degree,1,0,reading_score,95
+756,female,group E,associate's degree,1,0,writing_score,92
+757,male,group D,some college,1,0,math_score,55
+757,male,group D,some college,1,0,reading_score,58
+757,male,group D,some college,1,0,writing_score,52
+758,male,group E,bachelor's degree,0,1,math_score,70
+758,male,group E,bachelor's degree,0,1,reading_score,68
+758,male,group E,bachelor's degree,0,1,writing_score,72
+759,female,group D,some college,0,1,math_score,52
+759,female,group D,some college,0,1,reading_score,59
+759,female,group D,some college,0,1,writing_score,65
+760,male,group B,some college,1,1,math_score,69
+760,male,group B,some college,1,1,reading_score,77
+760,male,group B,some college,1,1,writing_score,77
+761,female,group C,high school,0,0,math_score,53
+761,female,group C,high school,0,0,reading_score,72
+761,female,group C,high school,0,0,writing_score,64
+762,female,group D,some high school,1,0,math_score,48
+762,female,group D,some high school,1,0,reading_score,58
+762,female,group D,some high school,1,0,writing_score,54
+763,male,group D,some high school,1,1,math_score,78
+763,male,group D,some high school,1,1,reading_score,81
+763,male,group D,some high school,1,1,writing_score,86
+764,female,group B,high school,1,0,math_score,62
+764,female,group B,high school,1,0,reading_score,62
+764,female,group B,high school,1,0,writing_score,63
+765,male,group D,some college,1,0,math_score,60
+765,male,group D,some college,1,0,reading_score,63
+765,male,group D,some college,1,0,writing_score,59
+766,female,group B,high school,1,0,math_score,74
+766,female,group B,high school,1,0,reading_score,72
+766,female,group B,high school,1,0,writing_score,72
+767,female,group C,high school,1,1,math_score,58
+767,female,group C,high school,1,1,reading_score,75
+767,female,group C,high school,1,1,writing_score,77
+768,male,group B,high school,1,1,math_score,76
+768,male,group B,high school,1,1,reading_score,62
+768,male,group B,high school,1,1,writing_score,60
+769,female,group D,some high school,1,0,math_score,68
+769,female,group D,some high school,1,0,reading_score,71
+769,female,group D,some high school,1,0,writing_score,75
+770,male,group A,some college,0,0,math_score,58
+770,male,group A,some college,0,0,reading_score,60
+770,male,group A,some college,0,0,writing_score,57
+771,male,group B,high school,1,0,math_score,52
+771,male,group B,high school,1,0,reading_score,48
+771,male,group B,high school,1,0,writing_score,49
+772,male,group D,bachelor's degree,1,0,math_score,75
+772,male,group D,bachelor's degree,1,0,reading_score,73
+772,male,group D,bachelor's degree,1,0,writing_score,74
+773,female,group B,some high school,0,1,math_score,52
+773,female,group B,some high school,0,1,reading_score,67
+773,female,group B,some high school,0,1,writing_score,72
+774,female,group C,bachelor's degree,0,0,math_score,62
+774,female,group C,bachelor's degree,0,0,reading_score,78
+774,female,group C,bachelor's degree,0,0,writing_score,79
+775,male,group B,some college,1,0,math_score,66
+775,male,group B,some college,1,0,reading_score,65
+775,male,group B,some college,1,0,writing_score,60
+776,female,group B,some high school,0,0,math_score,49
+776,female,group B,some high school,0,0,reading_score,58
+776,female,group B,some high school,0,0,writing_score,55
+777,female,group B,high school,1,0,math_score,66
+777,female,group B,high school,1,0,reading_score,72
+777,female,group B,high school,1,0,writing_score,70
+778,female,group C,some college,0,0,math_score,35
+778,female,group C,some college,0,0,reading_score,44
+778,female,group C,some college,0,0,writing_score,43
+779,female,group A,some college,1,1,math_score,72
+779,female,group A,some college,1,1,reading_score,79
+779,female,group A,some college,1,1,writing_score,82
+780,male,group E,associate's degree,1,1,math_score,94
+780,male,group E,associate's degree,1,1,reading_score,85
+780,male,group E,associate's degree,1,1,writing_score,82
+781,female,group D,associate's degree,0,0,math_score,46
+781,female,group D,associate's degree,0,0,reading_score,56
+781,female,group D,associate's degree,0,0,writing_score,57
+782,female,group B,master's degree,1,0,math_score,77
+782,female,group B,master's degree,1,0,reading_score,90
+782,female,group B,master's degree,1,0,writing_score,84
+783,female,group B,high school,0,1,math_score,76
+783,female,group B,high school,0,1,reading_score,85
+783,female,group B,high school,0,1,writing_score,82
+784,female,group C,associate's degree,1,1,math_score,52
+784,female,group C,associate's degree,1,1,reading_score,59
+784,female,group C,associate's degree,1,1,writing_score,62
+785,male,group C,bachelor's degree,1,1,math_score,91
+785,male,group C,bachelor's degree,1,1,reading_score,81
+785,male,group C,bachelor's degree,1,1,writing_score,79
+786,female,group B,some high school,1,1,math_score,32
+786,female,group B,some high school,1,1,reading_score,51
+786,female,group B,some high school,1,1,writing_score,44
+787,female,group E,some high school,0,0,math_score,72
+787,female,group E,some high school,0,0,reading_score,79
+787,female,group E,some high school,0,0,writing_score,77
+788,female,group B,some college,1,0,math_score,19
+788,female,group B,some college,1,0,reading_score,38
+788,female,group B,some college,1,0,writing_score,32
+789,male,group C,associate's degree,0,0,math_score,68
+789,male,group C,associate's degree,0,0,reading_score,65
+789,male,group C,associate's degree,0,0,writing_score,61
+790,female,group C,master's degree,0,0,math_score,52
+790,female,group C,master's degree,0,0,reading_score,65
+790,female,group C,master's degree,0,0,writing_score,61
+791,female,group B,high school,1,0,math_score,48
+791,female,group B,high school,1,0,reading_score,62
+791,female,group B,high school,1,0,writing_score,60
+792,female,group D,some college,0,0,math_score,60
+792,female,group D,some college,0,0,reading_score,66
+792,female,group D,some college,0,0,writing_score,70
+793,male,group D,high school,0,0,math_score,66
+793,male,group D,high school,0,0,reading_score,74
+793,male,group D,high school,0,0,writing_score,69
+794,male,group E,some high school,1,1,math_score,89
+794,male,group E,some high school,1,1,reading_score,84
+794,male,group E,some high school,1,1,writing_score,77
+795,female,group B,high school,1,0,math_score,42
+795,female,group B,high school,1,0,reading_score,52
+795,female,group B,high school,1,0,writing_score,51
+796,female,group E,associate's degree,0,1,math_score,57
+796,female,group E,associate's degree,0,1,reading_score,68
+796,female,group E,associate's degree,0,1,writing_score,73
+797,male,group D,high school,1,0,math_score,70
+797,male,group D,high school,1,0,reading_score,70
+797,male,group D,high school,1,0,writing_score,70
+798,female,group E,associate's degree,0,0,math_score,70
+798,female,group E,associate's degree,0,0,reading_score,84
+798,female,group E,associate's degree,0,0,writing_score,81
+799,male,group E,some college,1,0,math_score,69
+799,male,group E,some college,1,0,reading_score,60
+799,male,group E,some college,1,0,writing_score,54
+800,female,group C,associate's degree,1,0,math_score,52
+800,female,group C,associate's degree,1,0,reading_score,55
+800,female,group C,associate's degree,1,0,writing_score,57
+801,male,group C,some high school,1,1,math_score,67
+801,male,group C,some high school,1,1,reading_score,73
+801,male,group C,some high school,1,1,writing_score,68
+802,male,group C,some high school,1,1,math_score,76
+802,male,group C,some high school,1,1,reading_score,80
+802,male,group C,some high school,1,1,writing_score,73
+803,female,group E,associate's degree,1,0,math_score,87
+803,female,group E,associate's degree,1,0,reading_score,94
+803,female,group E,associate's degree,1,0,writing_score,95
+804,female,group B,some college,1,0,math_score,82
+804,female,group B,some college,1,0,reading_score,85
+804,female,group B,some college,1,0,writing_score,87
+805,female,group C,some college,1,0,math_score,73
+805,female,group C,some college,1,0,reading_score,76
+805,female,group C,some college,1,0,writing_score,78
+806,male,group A,some college,0,0,math_score,75
+806,male,group A,some college,0,0,reading_score,81
+806,male,group A,some college,0,0,writing_score,74
+807,female,group D,some college,0,0,math_score,64
+807,female,group D,some college,0,0,reading_score,74
+807,female,group D,some college,0,0,writing_score,75
+808,female,group E,high school,0,0,math_score,41
+808,female,group E,high school,0,0,reading_score,45
+808,female,group E,high school,0,0,writing_score,40
+809,male,group C,high school,1,0,math_score,90
+809,male,group C,high school,1,0,reading_score,75
+809,male,group C,high school,1,0,writing_score,69
+810,male,group B,bachelor's degree,1,0,math_score,59
+810,male,group B,bachelor's degree,1,0,reading_score,54
+810,male,group B,bachelor's degree,1,0,writing_score,51
+811,male,group A,some high school,1,0,math_score,51
+811,male,group A,some high school,1,0,reading_score,31
+811,male,group A,some high school,1,0,writing_score,36
+812,male,group A,high school,0,0,math_score,45
+812,male,group A,high school,0,0,reading_score,47
+812,male,group A,high school,0,0,writing_score,49
+813,female,group C,master's degree,1,1,math_score,54
+813,female,group C,master's degree,1,1,reading_score,64
+813,female,group C,master's degree,1,1,writing_score,67
+814,male,group E,some high school,1,1,math_score,87
+814,male,group E,some high school,1,1,reading_score,84
+814,male,group E,some high school,1,1,writing_score,76
+815,female,group C,high school,1,0,math_score,72
+815,female,group C,high school,1,0,reading_score,80
+815,female,group C,high school,1,0,writing_score,83
+816,male,group B,some high school,1,1,math_score,94
+816,male,group B,some high school,1,1,reading_score,86
+816,male,group B,some high school,1,1,writing_score,87
+817,female,group A,bachelor's degree,1,0,math_score,45
+817,female,group A,bachelor's degree,1,0,reading_score,59
+817,female,group A,bachelor's degree,1,0,writing_score,64
+818,male,group D,bachelor's degree,0,1,math_score,61
+818,male,group D,bachelor's degree,0,1,reading_score,70
+818,male,group D,bachelor's degree,0,1,writing_score,76
+819,female,group B,high school,0,0,math_score,60
+819,female,group B,high school,0,0,reading_score,72
+819,female,group B,high school,0,0,writing_score,68
+820,female,group C,some high school,1,0,math_score,77
+820,female,group C,some high school,1,0,reading_score,91
+820,female,group C,some high school,1,0,writing_score,88
+821,female,group A,some high school,1,1,math_score,85
+821,female,group A,some high school,1,1,reading_score,90
+821,female,group A,some high school,1,1,writing_score,92
+822,female,group D,bachelor's degree,0,0,math_score,78
+822,female,group D,bachelor's degree,0,0,reading_score,90
+822,female,group D,bachelor's degree,0,0,writing_score,93
+823,male,group E,some college,0,1,math_score,49
+823,male,group E,some college,0,1,reading_score,52
+823,male,group E,some college,0,1,writing_score,51
+824,female,group B,high school,0,0,math_score,71
+824,female,group B,high school,0,0,reading_score,87
+824,female,group B,high school,0,0,writing_score,82
+825,female,group C,some high school,0,0,math_score,48
+825,female,group C,some high school,0,0,reading_score,58
+825,female,group C,some high school,0,0,writing_score,52
+826,male,group C,high school,1,0,math_score,62
+826,male,group C,high school,1,0,reading_score,67
+826,male,group C,high school,1,0,writing_score,58
+827,female,group C,associate's degree,0,1,math_score,56
+827,female,group C,associate's degree,0,1,reading_score,68
+827,female,group C,associate's degree,0,1,writing_score,70
+828,female,group C,some high school,1,0,math_score,65
+828,female,group C,some high school,1,0,reading_score,69
+828,female,group C,some high school,1,0,writing_score,76
+829,female,group D,some high school,0,1,math_score,69
+829,female,group D,some high school,0,1,reading_score,86
+829,female,group D,some high school,0,1,writing_score,81
+830,male,group B,some high school,1,0,math_score,68
+830,male,group B,some high school,1,0,reading_score,54
+830,male,group B,some high school,1,0,writing_score,53
+831,female,group A,some college,0,0,math_score,61
+831,female,group A,some college,0,0,reading_score,60
+831,female,group A,some college,0,0,writing_score,57
+832,female,group C,bachelor's degree,0,1,math_score,74
+832,female,group C,bachelor's degree,0,1,reading_score,86
+832,female,group C,bachelor's degree,0,1,writing_score,89
+833,male,group A,bachelor's degree,1,0,math_score,64
+833,male,group A,bachelor's degree,1,0,reading_score,60
+833,male,group A,bachelor's degree,1,0,writing_score,58
+834,female,group B,high school,1,1,math_score,77
+834,female,group B,high school,1,1,reading_score,82
+834,female,group B,high school,1,1,writing_score,89
+835,male,group B,some college,1,0,math_score,58
+835,male,group B,some college,1,0,reading_score,50
+835,male,group B,some college,1,0,writing_score,45
+836,female,group C,high school,1,1,math_score,60
+836,female,group C,high school,1,1,reading_score,64
+836,female,group C,high school,1,1,writing_score,74
+837,male,group E,high school,1,0,math_score,73
+837,male,group E,high school,1,0,reading_score,64
+837,male,group E,high school,1,0,writing_score,57
+838,female,group A,high school,1,1,math_score,75
+838,female,group A,high school,1,1,reading_score,82
+838,female,group A,high school,1,1,writing_score,79
+839,male,group B,associate's degree,0,1,math_score,58
+839,male,group B,associate's degree,0,1,reading_score,57
+839,male,group B,associate's degree,0,1,writing_score,53
+840,female,group C,associate's degree,1,0,math_score,66
+840,female,group C,associate's degree,1,0,reading_score,77
+840,female,group C,associate's degree,1,0,writing_score,73
+841,female,group D,high school,0,0,math_score,39
+841,female,group D,high school,0,0,reading_score,52
+841,female,group D,high school,0,0,writing_score,46
+842,male,group C,some high school,1,0,math_score,64
+842,male,group C,some high school,1,0,reading_score,58
+842,male,group C,some high school,1,0,writing_score,51
+843,female,group B,high school,0,1,math_score,23
+843,female,group B,high school,0,1,reading_score,44
+843,female,group B,high school,0,1,writing_score,36
+844,male,group B,some college,0,1,math_score,74
+844,male,group B,some college,0,1,reading_score,77
+844,male,group B,some college,0,1,writing_score,76
+845,female,group D,some high school,0,1,math_score,40
+845,female,group D,some high school,0,1,reading_score,65
+845,female,group D,some high school,0,1,writing_score,64
+846,male,group E,master's degree,1,0,math_score,90
+846,male,group E,master's degree,1,0,reading_score,85
+846,male,group E,master's degree,1,0,writing_score,84
+847,male,group C,master's degree,1,1,math_score,91
+847,male,group C,master's degree,1,1,reading_score,85
+847,male,group C,master's degree,1,1,writing_score,85
+848,male,group D,high school,1,0,math_score,64
+848,male,group D,high school,1,0,reading_score,54
+848,male,group D,high school,1,0,writing_score,50
+849,female,group C,high school,1,0,math_score,59
+849,female,group C,high school,1,0,reading_score,72
+849,female,group C,high school,1,0,writing_score,68
+850,male,group D,associate's degree,1,0,math_score,80
+850,male,group D,associate's degree,1,0,reading_score,75
+850,male,group D,associate's degree,1,0,writing_score,69
+851,male,group C,master's degree,1,0,math_score,71
+851,male,group C,master's degree,1,0,reading_score,67
+851,male,group C,master's degree,1,0,writing_score,67
+852,female,group A,high school,1,0,math_score,61
+852,female,group A,high school,1,0,reading_score,68
+852,female,group A,high school,1,0,writing_score,63
+853,female,group E,some college,1,0,math_score,87
+853,female,group E,some college,1,0,reading_score,85
+853,female,group E,some college,1,0,writing_score,93
+854,male,group E,some high school,1,0,math_score,82
+854,male,group E,some high school,1,0,reading_score,67
+854,male,group E,some high school,1,0,writing_score,61
+855,male,group C,some high school,1,0,math_score,62
+855,male,group C,some high school,1,0,reading_score,64
+855,male,group C,some high school,1,0,writing_score,55
+856,female,group B,bachelor's degree,1,0,math_score,97
+856,female,group B,bachelor's degree,1,0,reading_score,97
+856,female,group B,bachelor's degree,1,0,writing_score,96
+857,male,group B,some college,0,0,math_score,75
+857,male,group B,some college,0,0,reading_score,68
+857,male,group B,some college,0,0,writing_score,65
+858,female,group C,bachelor's degree,1,0,math_score,65
+858,female,group C,bachelor's degree,1,0,reading_score,79
+858,female,group C,bachelor's degree,1,0,writing_score,81
+859,male,group B,high school,1,1,math_score,52
+859,male,group B,high school,1,1,reading_score,49
+859,male,group B,high school,1,1,writing_score,46
+860,male,group C,associate's degree,0,0,math_score,87
+860,male,group C,associate's degree,0,0,reading_score,73
+860,male,group C,associate's degree,0,0,writing_score,72
+861,female,group C,associate's degree,1,0,math_score,53
+861,female,group C,associate's degree,1,0,reading_score,62
+861,female,group C,associate's degree,1,0,writing_score,53
+862,female,group E,master's degree,0,0,math_score,81
+862,female,group E,master's degree,0,0,reading_score,86
+862,female,group E,master's degree,0,0,writing_score,87
+863,male,group D,bachelor's degree,0,1,math_score,39
+863,male,group D,bachelor's degree,0,1,reading_score,42
+863,male,group D,bachelor's degree,0,1,writing_score,38
+864,female,group C,some college,1,1,math_score,71
+864,female,group C,some college,1,1,reading_score,71
+864,female,group C,some college,1,1,writing_score,80
+865,male,group C,associate's degree,1,0,math_score,97
+865,male,group C,associate's degree,1,0,reading_score,93
+865,male,group C,associate's degree,1,0,writing_score,91
+866,male,group D,some college,1,1,math_score,82
+866,male,group D,some college,1,1,reading_score,82
+866,male,group D,some college,1,1,writing_score,88
+867,male,group C,high school,0,0,math_score,59
+867,male,group C,high school,0,0,reading_score,53
+867,male,group C,high school,0,0,writing_score,52
+868,male,group B,associate's degree,1,0,math_score,61
+868,male,group B,associate's degree,1,0,reading_score,42
+868,male,group B,associate's degree,1,0,writing_score,41
+869,male,group E,associate's degree,0,1,math_score,78
+869,male,group E,associate's degree,0,1,reading_score,74
+869,male,group E,associate's degree,0,1,writing_score,72
+870,male,group C,associate's degree,0,0,math_score,49
+870,male,group C,associate's degree,0,0,reading_score,51
+870,male,group C,associate's degree,0,0,writing_score,51
+871,male,group B,high school,1,0,math_score,59
+871,male,group B,high school,1,0,reading_score,58
+871,male,group B,high school,1,0,writing_score,47
+872,female,group C,some college,1,1,math_score,70
+872,female,group C,some college,1,1,reading_score,72
+872,female,group C,some college,1,1,writing_score,76
+873,male,group B,associate's degree,1,1,math_score,82
+873,male,group B,associate's degree,1,1,reading_score,84
+873,male,group B,associate's degree,1,1,writing_score,78
+874,male,group E,associate's degree,0,0,math_score,90
+874,male,group E,associate's degree,0,0,reading_score,90
+874,male,group E,associate's degree,0,0,writing_score,82
+875,female,group C,bachelor's degree,0,0,math_score,43
+875,female,group C,bachelor's degree,0,0,reading_score,62
+875,female,group C,bachelor's degree,0,0,writing_score,61
+876,male,group C,some college,0,0,math_score,80
+876,male,group C,some college,0,0,reading_score,64
+876,male,group C,some college,0,0,writing_score,66
+877,male,group D,some college,1,0,math_score,81
+877,male,group D,some college,1,0,reading_score,82
+877,male,group D,some college,1,0,writing_score,84
+878,male,group C,some high school,1,0,math_score,57
+878,male,group C,some high school,1,0,reading_score,61
+878,male,group C,some high school,1,0,writing_score,54
+879,female,group D,some high school,1,0,math_score,59
+879,female,group D,some high school,1,0,reading_score,72
+879,female,group D,some high school,1,0,writing_score,80
+880,female,group D,associate's degree,1,0,math_score,64
+880,female,group D,associate's degree,1,0,reading_score,76
+880,female,group D,associate's degree,1,0,writing_score,74
+881,male,group C,bachelor's degree,1,1,math_score,63
+881,male,group C,bachelor's degree,1,1,reading_score,64
+881,male,group C,bachelor's degree,1,1,writing_score,66
+882,female,group E,bachelor's degree,1,1,math_score,71
+882,female,group E,bachelor's degree,1,1,reading_score,70
+882,female,group E,bachelor's degree,1,1,writing_score,70
+883,female,group B,high school,0,0,math_score,64
+883,female,group B,high school,0,0,reading_score,73
+883,female,group B,high school,0,0,writing_score,71
+884,male,group D,bachelor's degree,0,0,math_score,55
+884,male,group D,bachelor's degree,0,0,reading_score,46
+884,male,group D,bachelor's degree,0,0,writing_score,44
+885,female,group E,associate's degree,1,0,math_score,51
+885,female,group E,associate's degree,1,0,reading_score,51
+885,female,group E,associate's degree,1,0,writing_score,54
+886,female,group C,associate's degree,1,1,math_score,62
+886,female,group C,associate's degree,1,1,reading_score,76
+886,female,group C,associate's degree,1,1,writing_score,80
+887,female,group E,associate's degree,1,1,math_score,93
+887,female,group E,associate's degree,1,1,reading_score,100
+887,female,group E,associate's degree,1,1,writing_score,95
+888,male,group C,high school,0,0,math_score,54
+888,male,group C,high school,0,0,reading_score,72
+888,male,group C,high school,0,0,writing_score,59
+889,female,group D,some college,0,0,math_score,69
+889,female,group D,some college,0,0,reading_score,65
+889,female,group D,some college,0,0,writing_score,74
+890,male,group D,high school,0,0,math_score,44
+890,male,group D,high school,0,0,reading_score,51
+890,male,group D,high school,0,0,writing_score,48
+891,female,group E,some college,1,1,math_score,86
+891,female,group E,some college,1,1,reading_score,85
+891,female,group E,some college,1,1,writing_score,91
+892,female,group E,associate's degree,1,0,math_score,85
+892,female,group E,associate's degree,1,0,reading_score,92
+892,female,group E,associate's degree,1,0,writing_score,85
+893,female,group A,master's degree,0,0,math_score,50
+893,female,group A,master's degree,0,0,reading_score,67
+893,female,group A,master's degree,0,0,writing_score,73
+894,male,group D,some high school,1,1,math_score,88
+894,male,group D,some high school,1,1,reading_score,74
+894,male,group D,some high school,1,1,writing_score,75
+895,female,group E,associate's degree,1,0,math_score,59
+895,female,group E,associate's degree,1,0,reading_score,62
+895,female,group E,associate's degree,1,0,writing_score,69
+896,female,group E,some high school,0,0,math_score,32
+896,female,group E,some high school,0,0,reading_score,34
+896,female,group E,some high school,0,0,writing_score,38
+897,male,group B,high school,0,0,math_score,36
+897,male,group B,high school,0,0,reading_score,29
+897,male,group B,high school,0,0,writing_score,27
+898,female,group B,some high school,0,1,math_score,63
+898,female,group B,some high school,0,1,reading_score,78
+898,female,group B,some high school,0,1,writing_score,79
+899,male,group D,associate's degree,1,1,math_score,67
+899,male,group D,associate's degree,1,1,reading_score,54
+899,male,group D,associate's degree,1,1,writing_score,63
+900,female,group D,some high school,1,1,math_score,65
+900,female,group D,some high school,1,1,reading_score,78
+900,female,group D,some high school,1,1,writing_score,82
+901,male,group D,master's degree,1,0,math_score,85
+901,male,group D,master's degree,1,0,reading_score,84
+901,male,group D,master's degree,1,0,writing_score,89
+902,female,group C,master's degree,1,0,math_score,73
+902,female,group C,master's degree,1,0,reading_score,78
+902,female,group C,master's degree,1,0,writing_score,74
+903,female,group A,high school,0,1,math_score,34
+903,female,group A,high school,0,1,reading_score,48
+903,female,group A,high school,0,1,writing_score,41
+904,female,group D,bachelor's degree,0,1,math_score,93
+904,female,group D,bachelor's degree,0,1,reading_score,100
+904,female,group D,bachelor's degree,0,1,writing_score,100
+905,female,group D,some high school,0,0,math_score,67
+905,female,group D,some high school,0,0,reading_score,84
+905,female,group D,some high school,0,0,writing_score,84
+906,male,group D,some college,1,0,math_score,88
+906,male,group D,some college,1,0,reading_score,77
+906,male,group D,some college,1,0,writing_score,77
+907,male,group B,high school,1,0,math_score,57
+907,male,group B,high school,1,0,reading_score,48
+907,male,group B,high school,1,0,writing_score,51
+908,female,group D,some college,1,1,math_score,79
+908,female,group D,some college,1,1,reading_score,84
+908,female,group D,some college,1,1,writing_score,91
+909,female,group C,bachelor's degree,0,0,math_score,67
+909,female,group C,bachelor's degree,0,0,reading_score,75
+909,female,group C,bachelor's degree,0,0,writing_score,72
+910,male,group E,bachelor's degree,1,1,math_score,70
+910,male,group E,bachelor's degree,1,1,reading_score,64
+910,male,group E,bachelor's degree,1,1,writing_score,70
+911,male,group D,bachelor's degree,0,0,math_score,50
+911,male,group D,bachelor's degree,0,0,reading_score,42
+911,male,group D,bachelor's degree,0,0,writing_score,48
+912,female,group A,some college,1,0,math_score,69
+912,female,group A,some college,1,0,reading_score,84
+912,female,group A,some college,1,0,writing_score,82
+913,female,group C,bachelor's degree,1,1,math_score,52
+913,female,group C,bachelor's degree,1,1,reading_score,61
+913,female,group C,bachelor's degree,1,1,writing_score,66
+914,female,group C,bachelor's degree,0,1,math_score,47
+914,female,group C,bachelor's degree,0,1,reading_score,62
+914,female,group C,bachelor's degree,0,1,writing_score,66
+915,female,group B,associate's degree,0,0,math_score,46
+915,female,group B,associate's degree,0,0,reading_score,61
+915,female,group B,associate's degree,0,0,writing_score,55
+916,female,group E,some college,1,0,math_score,68
+916,female,group E,some college,1,0,reading_score,70
+916,female,group E,some college,1,0,writing_score,66
+917,male,group E,bachelor's degree,1,1,math_score,100
+917,male,group E,bachelor's degree,1,1,reading_score,100
+917,male,group E,bachelor's degree,1,1,writing_score,100
+918,female,group C,high school,1,0,math_score,44
+918,female,group C,high school,1,0,reading_score,61
+918,female,group C,high school,1,0,writing_score,52
+919,female,group C,associate's degree,1,1,math_score,57
+919,female,group C,associate's degree,1,1,reading_score,77
+919,female,group C,associate's degree,1,1,writing_score,80
+920,male,group B,some college,1,1,math_score,91
+920,male,group B,some college,1,1,reading_score,96
+920,male,group B,some college,1,1,writing_score,91
+921,male,group D,high school,0,0,math_score,69
+921,male,group D,high school,0,0,reading_score,70
+921,male,group D,high school,0,0,writing_score,67
+922,female,group C,high school,0,0,math_score,35
+922,female,group C,high school,0,0,reading_score,53
+922,female,group C,high school,0,0,writing_score,46
+923,male,group D,high school,1,0,math_score,72
+923,male,group D,high school,1,0,reading_score,66
+923,male,group D,high school,1,0,writing_score,66
+924,female,group B,associate's degree,0,0,math_score,54
+924,female,group B,associate's degree,0,0,reading_score,65
+924,female,group B,associate's degree,0,0,writing_score,65
+925,male,group D,high school,0,0,math_score,74
+925,male,group D,high school,0,0,reading_score,70
+925,male,group D,high school,0,0,writing_score,69
+926,male,group E,some high school,1,1,math_score,74
+926,male,group E,some high school,1,1,reading_score,64
+926,male,group E,some high school,1,1,writing_score,60
+927,male,group E,associate's degree,0,0,math_score,64
+927,male,group E,associate's degree,0,0,reading_score,56
+927,male,group E,associate's degree,0,0,writing_score,52
+928,female,group D,high school,0,1,math_score,65
+928,female,group D,high school,0,1,reading_score,61
+928,female,group D,high school,0,1,writing_score,71
+929,male,group E,associate's degree,0,1,math_score,46
+929,male,group E,associate's degree,0,1,reading_score,43
+929,male,group E,associate's degree,0,1,writing_score,44
+930,female,group C,some high school,0,0,math_score,48
+930,female,group C,some high school,0,0,reading_score,56
+930,female,group C,some high school,0,0,writing_score,51
+931,male,group C,some college,0,1,math_score,67
+931,male,group C,some college,0,1,reading_score,74
+931,male,group C,some college,0,1,writing_score,70
+932,male,group D,some college,0,0,math_score,62
+932,male,group D,some college,0,0,reading_score,57
+932,male,group D,some college,0,0,writing_score,62
+933,male,group D,associate's degree,0,1,math_score,61
+933,male,group D,associate's degree,0,1,reading_score,71
+933,male,group D,associate's degree,0,1,writing_score,73
+934,male,group C,bachelor's degree,0,1,math_score,70
+934,male,group C,bachelor's degree,0,1,reading_score,75
+934,male,group C,bachelor's degree,0,1,writing_score,74
+935,male,group C,associate's degree,1,1,math_score,98
+935,male,group C,associate's degree,1,1,reading_score,87
+935,male,group C,associate's degree,1,1,writing_score,90
+936,male,group D,some college,0,0,math_score,70
+936,male,group D,some college,0,0,reading_score,63
+936,male,group D,some college,0,0,writing_score,58
+937,male,group A,associate's degree,1,0,math_score,67
+937,male,group A,associate's degree,1,0,reading_score,57
+937,male,group A,associate's degree,1,0,writing_score,53
+938,female,group E,high school,0,0,math_score,57
+938,female,group E,high school,0,0,reading_score,58
+938,female,group E,high school,0,0,writing_score,57
+939,male,group D,some college,1,1,math_score,85
+939,male,group D,some college,1,1,reading_score,81
+939,male,group D,some college,1,1,writing_score,85
+940,male,group D,some high school,1,1,math_score,77
+940,male,group D,some high school,1,1,reading_score,68
+940,male,group D,some high school,1,1,writing_score,69
+941,male,group C,master's degree,0,1,math_score,72
+941,male,group C,master's degree,0,1,reading_score,66
+941,male,group C,master's degree,0,1,writing_score,72
+942,female,group D,master's degree,1,0,math_score,78
+942,female,group D,master's degree,1,0,reading_score,91
+942,female,group D,master's degree,1,0,writing_score,96
+943,male,group C,high school,1,0,math_score,81
+943,male,group C,high school,1,0,reading_score,66
+943,male,group C,high school,1,0,writing_score,64
+944,male,group A,some high school,0,1,math_score,61
+944,male,group A,some high school,0,1,reading_score,62
+944,male,group A,some high school,0,1,writing_score,61
+945,female,group B,high school,1,0,math_score,58
+945,female,group B,high school,1,0,reading_score,68
+945,female,group B,high school,1,0,writing_score,61
+946,female,group C,associate's degree,1,0,math_score,54
+946,female,group C,associate's degree,1,0,reading_score,61
+946,female,group C,associate's degree,1,0,writing_score,58
+947,male,group B,high school,1,0,math_score,82
+947,male,group B,high school,1,0,reading_score,82
+947,male,group B,high school,1,0,writing_score,80
+948,female,group D,some college,0,0,math_score,49
+948,female,group D,some college,0,0,reading_score,58
+948,female,group D,some college,0,0,writing_score,60
+949,male,group B,some high school,0,1,math_score,49
+949,male,group B,some high school,0,1,reading_score,50
+949,male,group B,some high school,0,1,writing_score,52
+950,female,group E,high school,0,1,math_score,57
+950,female,group E,high school,0,1,reading_score,75
+950,female,group E,high school,0,1,writing_score,73
+951,male,group E,high school,1,0,math_score,94
+951,male,group E,high school,1,0,reading_score,73
+951,male,group E,high school,1,0,writing_score,71
+952,female,group D,some college,1,1,math_score,75
+952,female,group D,some college,1,1,reading_score,77
+952,female,group D,some college,1,1,writing_score,83
+953,female,group E,some high school,0,0,math_score,74
+953,female,group E,some high school,0,0,reading_score,74
+953,female,group E,some high school,0,0,writing_score,72
+954,male,group C,high school,1,1,math_score,58
+954,male,group C,high school,1,1,reading_score,52
+954,male,group C,high school,1,1,writing_score,54
+955,female,group C,some college,1,0,math_score,62
+955,female,group C,some college,1,0,reading_score,69
+955,female,group C,some college,1,0,writing_score,69
+956,male,group E,associate's degree,1,0,math_score,72
+956,male,group E,associate's degree,1,0,reading_score,57
+956,male,group E,associate's degree,1,0,writing_score,62
+957,male,group C,some college,1,0,math_score,84
+957,male,group C,some college,1,0,reading_score,87
+957,male,group C,some college,1,0,writing_score,81
+958,female,group D,master's degree,1,0,math_score,92
+958,female,group D,master's degree,1,0,reading_score,100
+958,female,group D,master's degree,1,0,writing_score,100
+959,female,group D,high school,1,0,math_score,45
+959,female,group D,high school,1,0,reading_score,63
+959,female,group D,high school,1,0,writing_score,59
+960,male,group C,high school,1,0,math_score,75
+960,male,group C,high school,1,0,reading_score,81
+960,male,group C,high school,1,0,writing_score,71
+961,female,group A,some college,1,0,math_score,56
+961,female,group A,some college,1,0,reading_score,58
+961,female,group A,some college,1,0,writing_score,64
+962,female,group D,some high school,0,0,math_score,48
+962,female,group D,some high school,0,0,reading_score,54
+962,female,group D,some high school,0,0,writing_score,53
+963,female,group E,associate's degree,1,0,math_score,100
+963,female,group E,associate's degree,1,0,reading_score,100
+963,female,group E,associate's degree,1,0,writing_score,100
+964,female,group C,some high school,0,1,math_score,65
+964,female,group C,some high school,0,1,reading_score,76
+964,female,group C,some high school,0,1,writing_score,75
+965,male,group D,some college,1,0,math_score,72
+965,male,group D,some college,1,0,reading_score,57
+965,male,group D,some college,1,0,writing_score,58
+966,female,group D,some college,1,0,math_score,62
+966,female,group D,some college,1,0,reading_score,70
+966,female,group D,some college,1,0,writing_score,72
+967,male,group A,some high school,1,1,math_score,66
+967,male,group A,some high school,1,1,reading_score,68
+967,male,group A,some high school,1,1,writing_score,64
+968,male,group C,some college,1,0,math_score,63
+968,male,group C,some college,1,0,reading_score,63
+968,male,group C,some college,1,0,writing_score,60
+969,female,group E,associate's degree,1,0,math_score,68
+969,female,group E,associate's degree,1,0,reading_score,76
+969,female,group E,associate's degree,1,0,writing_score,67
+970,female,group B,bachelor's degree,1,0,math_score,75
+970,female,group B,bachelor's degree,1,0,reading_score,84
+970,female,group B,bachelor's degree,1,0,writing_score,80
+971,female,group D,bachelor's degree,1,0,math_score,89
+971,female,group D,bachelor's degree,1,0,reading_score,100
+971,female,group D,bachelor's degree,1,0,writing_score,100
+972,male,group C,some high school,1,1,math_score,78
+972,male,group C,some high school,1,1,reading_score,72
+972,male,group C,some high school,1,1,writing_score,69
+973,female,group A,high school,0,1,math_score,53
+973,female,group A,high school,0,1,reading_score,50
+973,female,group A,high school,0,1,writing_score,60
+974,female,group D,some college,0,0,math_score,49
+974,female,group D,some college,0,0,reading_score,65
+974,female,group D,some college,0,0,writing_score,61
+975,female,group A,some college,1,0,math_score,54
+975,female,group A,some college,1,0,reading_score,63
+975,female,group A,some college,1,0,writing_score,67
+976,female,group C,some college,1,1,math_score,64
+976,female,group C,some college,1,1,reading_score,82
+976,female,group C,some college,1,1,writing_score,77
+977,male,group B,some college,0,1,math_score,60
+977,male,group B,some college,0,1,reading_score,62
+977,male,group B,some college,0,1,writing_score,60
+978,male,group C,associate's degree,1,0,math_score,62
+978,male,group C,associate's degree,1,0,reading_score,65
+978,male,group C,associate's degree,1,0,writing_score,58
+979,male,group D,high school,1,1,math_score,55
+979,male,group D,high school,1,1,reading_score,41
+979,male,group D,high school,1,1,writing_score,48
+980,female,group C,associate's degree,1,0,math_score,91
+980,female,group C,associate's degree,1,0,reading_score,95
+980,female,group C,associate's degree,1,0,writing_score,94
+981,female,group B,high school,0,0,math_score,8
+981,female,group B,high school,0,0,reading_score,24
+981,female,group B,high school,0,0,writing_score,23
+982,male,group D,some high school,1,0,math_score,81
+982,male,group D,some high school,1,0,reading_score,78
+982,male,group D,some high school,1,0,writing_score,78
+983,male,group B,some high school,1,1,math_score,79
+983,male,group B,some high school,1,1,reading_score,85
+983,male,group B,some high school,1,1,writing_score,86
+984,female,group A,some college,1,1,math_score,78
+984,female,group A,some college,1,1,reading_score,87
+984,female,group A,some college,1,1,writing_score,91
+985,female,group C,some high school,1,0,math_score,74
+985,female,group C,some high school,1,0,reading_score,75
+985,female,group C,some high school,1,0,writing_score,82
+986,male,group A,high school,1,0,math_score,57
+986,male,group A,high school,1,0,reading_score,51
+986,male,group A,high school,1,0,writing_score,54
+987,female,group C,associate's degree,1,0,math_score,40
+987,female,group C,associate's degree,1,0,reading_score,59
+987,female,group C,associate's degree,1,0,writing_score,51
+988,male,group E,some high school,1,1,math_score,81
+988,male,group E,some high school,1,1,reading_score,75
+988,male,group E,some high school,1,1,writing_score,76
+989,female,group A,some high school,0,0,math_score,44
+989,female,group A,some high school,0,0,reading_score,45
+989,female,group A,some high school,0,0,writing_score,45
+990,female,group D,some college,0,1,math_score,67
+990,female,group D,some college,0,1,reading_score,86
+990,female,group D,some college,0,1,writing_score,83
+991,male,group E,high school,0,1,math_score,86
+991,male,group E,high school,0,1,reading_score,81
+991,male,group E,high school,0,1,writing_score,75
+992,female,group B,some high school,1,1,math_score,65
+992,female,group B,some high school,1,1,reading_score,82
+992,female,group B,some high school,1,1,writing_score,78
+993,female,group D,associate's degree,0,0,math_score,55
+993,female,group D,associate's degree,0,0,reading_score,76
+993,female,group D,associate's degree,0,0,writing_score,76
+994,female,group D,bachelor's degree,0,0,math_score,62
+994,female,group D,bachelor's degree,0,0,reading_score,72
+994,female,group D,bachelor's degree,0,0,writing_score,74
+995,male,group A,high school,1,0,math_score,63
+995,male,group A,high school,1,0,reading_score,63
+995,male,group A,high school,1,0,writing_score,62
+996,female,group E,master's degree,1,1,math_score,88
+996,female,group E,master's degree,1,1,reading_score,99
+996,female,group E,master's degree,1,1,writing_score,95
+997,male,group C,high school,0,0,math_score,62
+997,male,group C,high school,0,0,reading_score,55
+997,male,group C,high school,0,0,writing_score,55
+998,female,group C,high school,0,1,math_score,59
+998,female,group C,high school,0,1,reading_score,71
+998,female,group C,high school,0,1,writing_score,65
+999,female,group D,some college,1,1,math_score,68
+999,female,group D,some college,1,1,reading_score,78
+999,female,group D,some college,1,1,writing_score,77
+1000,female,group D,some college,0,0,math_score,77
+1000,female,group D,some college,0,0,reading_score,86
+1000,female,group D,some college,0,0,writing_score,86

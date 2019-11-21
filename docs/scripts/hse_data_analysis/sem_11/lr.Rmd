@@ -197,11 +197,22 @@ model <- lm(y ~ x, data = df)
 summary(model)
 ```
 
-
 <!-- ### Интерпретация полученных коэффициентов -->
 
 <!-- ### Выбросы -->
 
 <!-- ### Использование большего количества признаков -->
+
+
+```{r}
+n <- 100
+df <- tibble(x1 = seq(-5, 5, length.out = n) + rnorm(n),
+             x2 = seq(-10, 10, length.out = n) + rnorm(n),
+             x3 = seq(12, 16, length.out = n) + rnorm(n),
+             y = 5 + 2*x1 - 3*x2)
+model <- lm(y ~ x1 + x2 + x3, data = df)
+summary(model)
+```
+
 
 <!-- ### Категориальные переменные -->
