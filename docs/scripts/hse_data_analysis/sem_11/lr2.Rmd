@@ -1,0 +1,132 @@
+---
+title: "Линейная регрессия: часть 2"
+author: "Зарманбетов Ахмед"
+output: 
+  html_document:
+    toc: TRUE
+    toc_float: TRUE
+    toc_depth: 4
+    highlight: pygments
+    #df_print: paged
+editor_options: 
+  chunk_output_type: console
+---
+<style>
+h1,
+h2,
+h3,
+h4,
+h5,
+h6  {
+  color: #317eac;
+}
+</style>
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+```
+
+```{r}
+library(tibble)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(plotly)
+```
+
+### Функция lm
+
+```{r}
+set.seed(42)
+n <- 50
+df <- tibble(education = seq(7, 20, length.out = n) + rnorm(n, sd = 2),
+             income = 10000 + 5000 * education + rnorm(n, sd = 5000))
+
+ggplot(df, aes(x = education, y = income)) +
+  geom_point()
+```
+
+
+```{r}
+model <- lm(income ~ education, data = df)
+model
+
+summary(model)
+
+broom::glance(model)
+```
+
+
+```
+predict(model, newdata)
+```
+
+
+
+
+
+
+
+
+<!-- ### Интерпретация полученных коэффициентов -->
+
+<!-- ### Выбросы -->
+
+<!-- ### Использование большего количества признаков -->
+
+
+```{r}
+n <- 100
+df <- tibble(x1 = seq(-5, 5, length.out = n) + rnorm(n),
+             x2 = seq(-10, 10, length.out = n) + rnorm(n),
+             x3 = seq(12, 16, length.out = n) + rnorm(n),
+             y = 5 + 2*x1 - 3*x2)
+model <- lm(y ~ x1 + x2 + x3, data = df)
+summary(model)
+```
+
+<!-- ### Категориальные переменные -->
+
+### Графическая иллюстрация модели
+
+График 
+
+```{r}
+ggplot(unemployment, aes(x = prediction, y = female_unemployment)) + 
+  geom_point() +
+  geom_abline(color = "blue")
+```
+
+Ошибки
+
+```{r}
+# Fill in the blanks to plot predictions (on x-axis) versus the residuals
+ggplot(unemployment, aes(x = predictions, y = residuals)) + 
+  geom_pointrange(aes(ymin = 0, ymax = residuals)) + 
+  geom_hline(yintercept = 0, linetype = 3) + 
+  ggtitle("residuals vs. linear model prediction")
+```
+
+gain
+
+```{r}
+summary(unemployment_model)
+
+# Load the package WVPlots
+library(WVPlots)
+
+# Plot the Gain Curve
+GainCurvePlot(unemployment, 'predictions', 'female_unemployment', "Unemployment model")
+```
+
+
+### Метрики качества
+
+RMSE
+R2
+
+
+### Нелинейная зависимость
+
+
+### Train and test
