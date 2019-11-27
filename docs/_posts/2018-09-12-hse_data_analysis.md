@@ -18,6 +18,8 @@ layout: nil
 * Ликбез по производным, градиент и метод градиентного спуска. [Онлайн скрипт](https://ahmedushka7.github.io/R/scripts/hse_data_analysis/sem_11/SGD.html).
 * Линейная регрессия. Часть 1. [Онлайн скрипт](https://ahmedushka7.github.io/R/scripts/hse_data_analysis/sem_11/lr.html).
 * Линейная регрессия. Часть 2. [Онлайн скрипт](https://ahmedushka7.github.io/R/scripts/hse_data_analysis/sem_11/lr2.html).
+* Линейная регрессия. Часть 3. [Онлайн скрипт](https://ahmedushka7.github.io/R/scripts/hse_data_analysis/sem_11/lr3.html).
+* Скачать [архив](https://github.com/ahmedushka7/R/blob/master/docs/scripts/hse_data_analysis/sem_11/data.zip?raw=true) c данными.
 
 ---
 

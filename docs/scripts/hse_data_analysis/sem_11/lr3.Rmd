@@ -1,0 +1,261 @@
+---
+title: "Линейная регрессия: часть 3"
+author: "Зарманбетов Ахмед"
+output: 
+  html_document:
+    toc: TRUE
+    toc_float: TRUE
+    toc_depth: 4
+    highlight: pygments
+    #df_print: paged
+editor_options: 
+  chunk_output_type: console
+---
+<style>
+h1,
+h2,
+h3,
+h4,
+h5,
+h6  {
+  color: #317eac;
+}
+</style>
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE, error = TRUE)
+```
+
+```{r}
+library(tibble)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+```
+
+### Прогноз
+
+Когда мы построили модель, мы можем использовать ее для предсказания. Это можно сделать с помощью функции `predict`.
+
+```{r}
+set.seed(42)
+n <- 50
+data <- tibble(education = seq(7, 20, length.out = n) + rnorm(n, sd = 2),
+               income = 10000 + 5000 * education + rnorm(n, sd = 5000))
+```
+
+```{r}
+model <- lm(income ~ education, data = data)
+model
+```
+
+```{r}
+data$pred_income <- predict(model, data)
+data$pred_income
+```
+
+### Графическая иллюстрация модели
+
+Когда признаков много, невозможно представить себе  многомерное пространство. Нарисовать это тоже невозможно. Но можно посмотреть на то, как работает модель. Попробуем отложить по оси $X$ наш прогноз, а по оси $Y$ реальное значение. Идеально спрогнозированные наблюдения лежат на прямой $Y = X$.
+
+```{r}
+ggplot(data, aes(x = pred_income, y = income)) +
+  geom_point() +
+  geom_abline(color = "blue") + 
+  xlab('Прогноз') + 
+  ylab('Истинное значение')
+```
+
+На этом графике можно видеть недопрогноз и перепрогноз.
+
+### Метрики качества
+
+Чтобы оценить насколько хорошо отработала модель нужна какая-то мера качества модели. Для задачи регрессии основными являются:
+
+1. RMSE
+
+$$RMSE = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (y_i - \hat y_i)^2}$$
+
+2. MAE
+
+$$MAE = \frac{1}{n} \sum_{i=1}^{n} |y_i - \hat y_i|$$
+
+3. MAPE
+
+$$MAPE = \frac{1}{n} \sum_{i=1}^{n} |\frac{y_i - \hat y_i}{y_i}|$$
+
+```{r}
+library(Metrics)
+
+rmse(data$income, data$pred_income)
+mae(data$income, data$pred_income)
+```
+
+Чтобы понять много это или мало нужно понять чему равно среднее значение таргета.
+
+```{r}
+mean(data$income)
+```
+
+```{r}
+mape(data$income, data$pred_income)
+```
+
+### Нелинейная зависимость
+
+Не всегда зависимости линейны.
+
+```{r}
+n <- 100
+df <- tibble(x = seq(-1, 5, length.out = n) + rnorm(n, sd = 0.1),
+             y = x^2 - 2*x + rnorm(n))
+
+ggplot(df, aes(x, y)) + 
+  geom_point()
+```
+
+Строить линейную регрессию на таких данных не кажется разумным.
+
+```{r}
+ggplot(df, aes(x, y)) + 
+  geom_point() +
+  geom_smooth(method = 'lm', se = F)
+```
+
+Красная линия более удачная модель для наших данных.
+
+```{r}
+ggplot(df, aes(x, y)) + 
+  geom_point() +
+  geom_smooth(method = 'lm', se = F) + 
+  geom_smooth(se = F, color = 'red')
+```
+
+Чтобы построить такую модель можно использовать полиномы признака x: квадрата, кубы и так далее. Давайте попробуем взять квадрат этой модели и обучить нашу модель.
+
+**Вариант 1**
+
+```{r}
+df <- df %>%
+  mutate(x2 = x**2)
+model <- lm(y ~ x + x2, data = df)
+model
+```
+
+**Вариант 2**
+
+```{r}
+model <- lm(y ~ x + I(x^2), data = df)
+model
+```
+
+**Вариант 3**
+
+```{r}
+model <- lm(y ~ poly(x, 2, raw=T), data = df)
+model
+```
+
+Визуализируем нашу модель.
+
+```{r}
+ggplot(df, aes(x, y)) + 
+  geom_point() +
+  geom_smooth(method = 'lm', se = F) +
+  geom_smooth(method = 'lm', formula = y ~ poly(x, 2, raw=T), se = F, col='red')
+```
+
+Изначально мы не знали сколько полиномов нужно взять. Давайте возьмем больше.
+
+```{r}
+ggplot(df, aes(x, y)) + 
+  geom_point() +
+  geom_smooth(method = 'lm', se = F) +
+  geom_smooth(method = 'lm', formula = y ~ poly(x, 10, raw=T), se = F, col='red')
+```
+
+```{r}
+model <- lm(y ~ poly(x, 10, raw=T), data = df)
+```
+
+Видно, что такая модель начинает подгоняться под наши данные. В машинном обучении этот факт называется **переобученим**. 
+
+![](pictures/overfitt.png)
+
+Модель показывает себя хорошо на этих данных, но если попробовать дать этой модели новые данные, то ошибка на этих новых данных будет выше чем на старых. В машинном обучении очень много сложных моеделй, с помощью которых можно легко допустить переобучение. 
+
+### Train and test
+
+Чтобы контролировать эффект переобучения принято делить данные на тренировочные(train) и тестовые(test). На тренировочном датасете мы учимся, а на тестовом смотрим результаты нашей модели и оцениваем насколько модель хороша. Обычно набор данных делят 70 (train) на 30 (test).
+
+Сгененрируем очень простой датасет.
+
+```{r}
+n <- 100
+df <- tibble(x = seq(-3, 1, length.out = n) + rnorm(n, sd = 0.1),
+             y = x^2 + rnorm(n, sd = 0.3))
+
+ggplot(df, aes(x, y)) + 
+  geom_point()
+```
+
+Попробуем поделить наши данные на 2 части.
+
+```{r}
+df <- df %>%
+  arrange(x) %>%
+  mutate(type = c(rep('Train', n*0.7), rep('Test', n*0.3)))
+```
+
+Визуализируем.
+
+```{r}
+ggplot(df, aes(x, y, color = type)) +
+  geom_point()
+```
+
+Если обучить линейную регрессию на тренировочных данных, то мы получим следующий результат.
+
+```{r}
+train <- df %>% filter(type == 'Train')
+test <- df %>% filter(type == 'Test')
+
+model <- lm(y ~ x, data = train)
+coeff <- model$coefficients
+
+ggplot(df, aes(x, y, color = type)) +
+  geom_point() + 
+  geom_abline(intercept = coeff[1], slope = coeff[2], color = 'darkgreen') + 
+  ylim(-4, 10)
+```
+
+Прогноз на тестовых данных будет очень плохим. Это происходит, так как модель не видела данные при х больше 0. При делении данных на train и test нужно перемешивать ваши данные.
+
+```{r}
+set.seed(42)
+n <- 200
+df <- tibble(x = seq(-3, 1, length.out = n) + rnorm(n, sd = 0.1),
+             y = x^2 + rnorm(n, sd = 0.3))
+
+
+library(rsample)
+
+spliter <- initial_split(df, prop = 0.7)
+
+train <- training(spliter)
+test <- testing(spliter)
+
+train$type <- 'Train'
+test$type <- 'Test'
+
+data <- bind_rows(train, test)
+```
+
+Визуализируем.
+
+```{r}
+ggplot(data, aes(x, y, color = type)) +
+  geom_point() +
+  geom_smooth(data = train, se = F, formula = y ~ poly(x, 2, raw = T))
+```
+
