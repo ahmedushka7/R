@@ -113,32 +113,329 @@ walmart %>%
 summary(walmart)
 ```
 
+Видим, что переменная `Weekly_Sales` и `next_Weekly_Sales` принимают отрицательные значения. Такого быть не должно, так как это выручка магазина. Давайте выкинем такие значения.
+
+```{r}
+walmart <- walmart %>%
+  filter(Weekly_Sales > 0) %>%
+  filter(next_Weekly_Sales > 0)
+```
+
 ### Строим модели
 
-Вы предлагаете идеи, и мы строим модели!
+Перед тем как строить модели давайте разделим наш датасет на train и test. Так как данные имеют временную структуру, не будем перемешивать наши данные. Посмотрим за сколько недель у нас есть данных.
 
-<!-- ### Catboost -->
+```{r}
+walmart$Date %>% unique() %>% length()
+```
 
-<!-- ```{r} -->
-<!-- library(catboost) -->
-<!-- ``` -->
+Видим, что у нас есть 142 недели в нашем распоряжении. Давайте возьмем первые 110 недель на обучение, а 32 оставшиеся на тестирование.
 
-<!-- ```{r} -->
-<!-- train <- walmart %>% -->
-<!--   filter(Date < '2012-04-27') -->
-<!-- test <- walmart %>% -->
-<!--   filter(Date >= '2012-04-27') -->
+```{r}
+weeks <- walmart$Date %>% unique() %>% sort()
+weeks[110]
+```
 
-<!-- train_X <- train %>% -->
-<!--   select(-next_Weekly_Sales) -->
-<!-- train_y <- train$next_Weekly_Sales -->
+В трейн у нас попадут недели до 2012-03-09, а тест после этой недели, включая эту самую неделю.
 
-<!-- train_X %>% -->
-<!--   mutate_at(vars(Store, Date, Dept, IsHoliday, Type), .funs = as.factor) -->
-<!-- ``` -->
+```{r}
+train <- walmart %>%
+  filter(Date < "2012-03-09")
+
+test <- walmart %>%
+  filter(Date >= "2012-03-09")
+```
 
 
-<!-- ```{r} -->
-<!-- train_pool <- catboost.load_pool(data = train_X, label = train_y) -->
-<!-- ``` -->
+Давайте построим сначала некоторые простые модели. Их результат мы можем взять за базовый (**baseline**). 
+
+### 1. Среднее значение по всем отделам всех магазинов
+
+Возьмем константный алгоритм, который будет всегда предсказывать значение равное среднему значению по всем отделам всех магазинов.
+
+```{r}
+train_1 <- train
+test_1 <- test
+
+MEAN <- mean(train_1$Weekly_Sales)
+
+train_1$predict1 <- MEAN
+test_1$predict1 <- MEAN
+```
+
+Подсчитаем чему равно MAPE и MAE.
+
+```{r}
+mae(train_1$next_Weekly_Sales, train_1$predict1)
+mae(test_1$next_Weekly_Sales, test_1$predict1)
+
+mape(train_1$next_Weekly_Sales, train_1$predict1)
+mape(test_1$next_Weekly_Sales, test_1$predict1)
+```
+
+Видим большое значение MAPE. Скорее всего MAE тоже большое. Давайте посмотрим на среднее значение нашего таргета.
+
+```{r}
+mean(train_1$next_Weekly_Sales)
+```
+
+Видим, что MAE и правда большое.
+
+### 2. Среднее значение для каждого отдела в каждом магазине
+
+Магазины и отделы в них бывают разные. Попробуем находить среднее в каждом отделе для каждого магазина.
+
+```{r}
+MEAN_by_Store_Dept <- train %>%
+  group_by(Store, Dept) %>%
+  summarise(predict2 = mean(Weekly_Sales))
+
+train_1 <- train_1 %>%
+  left_join(MEAN_by_Store_Dept, by = c('Store', 'Dept'))
+
+test_1 <- test_1 %>%
+  left_join(MEAN_by_Store_Dept, by = c('Store', 'Dept'))
+```
+
+Появляются NA, потому что появились новые отделы в магазинах. Пусть если у нас нет прогноза, то мы возьмем прогноз из прошлой модели.
+
+```{r}
+test_1 <- test_1 %>%
+  mutate(predict2 = ifelse(is.na(predict2), predict1, predict2))
+
+mae(train_1$next_Weekly_Sales, train_1$predict2)
+mae(test_1$next_Weekly_Sales, test_1$predict2)
+
+mape(train_1$next_Weekly_Sales, train_1$predict2)
+mape(test_1$next_Weekly_Sales, test_1$predict2)
+```
+
+Уже получается лучше.
+
+### 3. Значение предыдущей недели
+
+Очень хорошим baseline'ом является следующая простая модель. Давайте привозить на следующую неделю столько товара, сколько мы продали на этой неделе.
+
+```{r}
+train_1$predict3 <- train_1$Weekly_Sales
+test_1$predict3 <- test_1$Weekly_Sales
+
+mae(train_1$next_Weekly_Sales, train_1$predict3)
+mae(test_1$next_Weekly_Sales, test_1$predict3)
+
+mape(train_1$next_Weekly_Sales, train_1$predict3)
+mape(test_1$next_Weekly_Sales, test_1$predict3)
+```
+
+Мы получили достаточно хорошие результаты. Давайте ориентироваться на них.
+
+### 4. Обычная линейная регрессия
+
+Давайте попробуем построить следующую очень простую регрессию:
+
+$$next_Weekly_Sales = w_0 + w_1 Weekly_Sales$$.
+
+Она похожа на то, что мы делали ранее.
+
+```{r}
+train_2 <- train
+test_2 <- test
+
+model4 <- lm(next_Weekly_Sales ~ Weekly_Sales , data = train_2)
+
+train_2$predict4 <- predict(model4, train_2)
+test_2$predict4 <- predict(model4, test_2)
+
+mae(train_2$next_Weekly_Sales, train_2$predict4)
+mae(test_2$next_Weekly_Sales, test_2$predict4)
+
+mape(train_2$next_Weekly_Sales, train_2$predict4)
+mape(test_2$next_Weekly_Sales, test_2$predict4)
+```
+
+Результаты получились не такими хорошими как было раньше. Давайте попробуем нарисовать график рессеяния и понять почему так вышло.
+
+```{r}
+train_2 %>%
+  ggplot(aes(Weekly_Sales, next_Weekly_Sales)) + 
+    geom_point() + 
+    geom_smooth(method = 'lm')
+```
+
+Видно, что облако вытянуто неоднозначно. Есть большие магазины, а есть маленькие. В такой модели мы совсем не учитываем это и мешаем все в одну кучу.
+
+### 5. Линейная регрессия с магазинами и отделами
+
+Попробуем добавить в регрессию номер магазина и номер отдела. Оставлять переменные такими какие они есть не очень корректно, так как мы говорили, что Label Encoding работает не очень хорошо. Давайте закодируем наши магазины и отделы с помощью One Hot Encoding.
+
+```{r}
+# install.packages("fastDummies")
+library(fastDummies)
+
+walmart2 <- walmart %>%
+  select(Date, Store, Dept, Weekly_Sales, next_Weekly_Sales)
+
+walmart2 <- dummy_cols(walmart2, select_columns = c('Store', 'Dept'),
+                remove_first_dummy = T)
+
+train_3 <- walmart2 %>%
+  filter(Date < "2012-03-09")
+
+test_3 <- walmart2 %>%
+  filter(Date >= "2012-03-09")
+```
+
+Обучим модель.
+
+```{r}
+model5 <- lm(next_Weekly_Sales ~ . - 1, data = train_3)
+
+train_3$predict <- predict(model5, train_3)
+test_3$predict <- predict(model5, test_3)
+
+mae(train_3$next_Weekly_Sales, train_3$predict)
+mae(test_3$next_Weekly_Sales, test_3$predict)
+
+mape(train_3$next_Weekly_Sales, train_3$predict)
+mape(test_3$next_Weekly_Sales, test_3$predict)
+```
+
+
+### 6. Логарифм таргета
+
+Линейные модели любят, когда таргет да и вообще все переменнын имели нормальное распределение. 
+
+```{r}
+ggplot(train, aes(next_Weekly_Sales)) +
+  geom_histogram()
+```
+
+Один из легких способов получить нормальное распределение это взять логарифм. 
+
+```{r}
+ggplot(train, aes(log(next_Weekly_Sales))) +
+  geom_histogram()
+```
+
+Попробуем обучить модель с логарифмом таргета. При прогнозе не забываем возращать значения обратно с помощью экспоненты. 
+
+```{r}
+train_3 <- walmart2 %>%
+  filter(Date < "2012-03-09") %>%
+  mutate(next_Weekly_Sales = log(next_Weekly_Sales),
+         Weekly_Sales = log(Weekly_Sales)) %>%
+  select(-Date, Store, Dept)
+
+test_3 <- walmart2 %>%
+  filter(Date >= "2012-03-09") %>%
+  mutate(next_Weekly_Sales = log(next_Weekly_Sales),
+         Weekly_Sales = log(Weekly_Sales)) %>%
+  select(-Date, Store, Dept)
+
+model5 <- lm(next_Weekly_Sales ~ . - 1, data = train_3)
+
+train_3$predict <- exp(predict(model5, train_3))
+test_3$predict <- exp(predict(model5, test_3))
+
+mae(exp(train_3$next_Weekly_Sales), train_3$predict)
+mae(exp(test_3$next_Weekly_Sales), test_3$predict)
+
+mape(exp(train_3$next_Weekly_Sales), train_3$predict)
+mape(exp(test_3$next_Weekly_Sales), test_3$predict)
+```
+
+### 7. Добавляем остальные признаки
+
+```{r}
+walmart3 <- walmart 
+
+walmart3 <- dummy_cols(walmart3, select_columns = c('Store', 'Dept'),
+                remove_first_dummy = T)
+
+train_4 <- walmart3 %>%
+  filter(Date < "2012-03-09") %>%
+  mutate(next_Weekly_Sales = log(next_Weekly_Sales),
+         Weekly_Sales = log(Weekly_Sales)) %>%
+  select(-Date, Store, Dept)
+
+test_4 <- walmart3 %>%
+  filter(Date >= "2012-03-09") %>%
+  mutate(next_Weekly_Sales = log(next_Weekly_Sales),
+         Weekly_Sales = log(Weekly_Sales)) %>%
+  select(-Date, Store, Dept)
+
+model6 <- lm(next_Weekly_Sales ~ . - 1, data = train_4)
+
+train_4$predict <- exp(predict(model6, train_4))
+test_4$predict <- exp(predict(model6, test_4))
+
+mae(exp(train_4$next_Weekly_Sales), train_4$predict)
+mae(exp(test_4$next_Weekly_Sales), test_4$predict)
+
+mape(exp(train_4$next_Weekly_Sales), train_4$predict)
+mape(exp(test_4$next_Weekly_Sales), test_4$predict)
+
+```
+
+### 8. Catboost
+
+```{r}
+library(catboost)
+library(lubridate)
+
+walmart <- walmart %>%
+  arrange(Date) %>%
+  group_by(Store, Dept) %>%
+  mutate(leadIsHoliday = lead(IsHoliday)) %>%
+  ungroup()
+
+train <- walmart %>%
+  filter(Date < "2012-03-09")
+
+test <- walmart %>%
+  filter(Date >= "2012-03-09")
+
+train_X <- train %>%
+  mutate(Month = month(Date)) %>%
+  select(-next_Weekly_Sales, Date) %>%
+  mutate(Weekly_Sales = log(Weekly_Sales))
+train_y <- log(train$next_Weekly_Sales)
+
+test_X <- test %>%
+  mutate(Month = month(Date)) %>%
+  select(-next_Weekly_Sales, Date) %>%
+  mutate(Weekly_Sales = log(Weekly_Sales))
+test_y <- log(test$next_Weekly_Sales)
+
+train_X <- train_X %>%
+  mutate_at(vars(Store, Date, Dept, IsHoliday, Type, Month, leadIsHoliday), .funs = as.factor)
+
+test_X <- test_X %>%
+  mutate_at(vars(Store, Date, Dept, IsHoliday, Type, Month, leadIsHoliday), .funs = as.factor)
+
+train_pool <- catboost.load_pool(data = train_X, label = train_y)
+test_pool <- catboost.load_pool(data = test_X, label = test_y)
+
+model <- catboost.train(train_pool,
+                        test_pool,
+                        params = list(loss_function = 'RMSE',
+                                      iterations = 600, metric_period=50,
+                                      learning_rate=0.01,
+                                      depth=8))
+
+train$predict_catboost <- exp(catboost.predict(model, train_pool))
+test$predict_catboost <- exp(catboost.predict(model, test_pool))
+
+mae(train$next_Weekly_Sales, train$predict_catboost)
+mae(test$next_Weekly_Sales, test$predict_catboost)
+
+mape(train$next_Weekly_Sales, train$predict_catboost)
+mape(test$next_Weekly_Sales, test$predict_catboost)
+
+ggplot(test, aes(x = predict_catboost, y = next_Weekly_Sales)) +
+  geom_point() +
+  geom_abline(color = "blue") + 
+  xlab('Прогноз') + 
+  ylab('Истинное значение')
+```
 
