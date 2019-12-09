@@ -64,8 +64,8 @@ __Правила игры:__
     <td> NA </td>
     <td> NA </td>
   </tr>
-    <tr>
-    <td> 4 </td>
+  <tr>
+    <td> 5 </td>
     <td> Домашняя работа №4 </td>
     <td> <a href="https://ahmedushka7.github.io/R/homeworks/hw4/hw4.html" target="_blank"> Условия задач и материалы </a> </td>
     <td> <a href="" target="_blank"> Решение задач </a> </td>
