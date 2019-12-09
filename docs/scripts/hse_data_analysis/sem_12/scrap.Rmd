@@ -2,6 +2,8 @@
 title: "Скрапинг"
 author: "Ахмедушка"
 output: html_document
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{r setup, include=FALSE}
@@ -37,7 +39,7 @@ csv_data <- read.csv("feed_data.csv")
 
 ### API (Application Programming Interfaces)
 
-API предоставляют простой доступ к базам данных или информации на вебстраницах. Есть прямое соединение с API, а есть API Client - пакеты, которые предоставляют готовые простые функции.
+API предоставляют простой доступ к базам данных или информации на веб-страницах. Есть прямое соединение с API, а есть API Client - пакеты, которые предоставляют готовые простые функции.
 
 Рассмотрим простой API Client - пакет `pageviews`, который помогает взаимодействовать с Wikipedia API. 
 

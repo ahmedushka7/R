@@ -1,0 +1,47 @@
+---
+title: "Вида скрапинга, API"
+author: "Зарманбетов Ахмед"
+output: 
+  html_document:
+    toc: TRUE
+    toc_float: TRUE
+    toc_depth: 4
+    highlight: pygments
+    #df_print: paged
+editor_options: 
+  chunk_output_type: console
+---
+<style>
+h1,
+h2,
+h3,
+h4,
+h5,
+h6  {
+  color: #317eac;
+}
+</style>
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE, error = TRUE)
+```
+
+### Скрапинг
+
+Большинство информации находится не в .csv файлах, которые вам присылают, а в интернете. Скрапинг позволяет выкачивать информацию из интернета. Есть 3 основных вида скрапинга:
+
+1. API.
+2. Парсинг HTML страницы сайта.
+3. Работа с элементами Java Script.
+
+### API (Application Programming Interfaces)
+
+
+
+Различные API:
+
+* [Twitter](https://developer.twitter.com/en/docs/basics/getting-started)
+* 
+
+
+

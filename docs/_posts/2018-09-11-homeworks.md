@@ -25,7 +25,7 @@ __Правила игры:__
 
 <table id="t01">
   <tr>
-    <th> </th>
+    <th> Id </th>
     <th> Контрольное мероприятие </th>
     <th> Условие </th>
     <th> Решение </th>
@@ -61,7 +61,15 @@ __Правила игры:__
     <td> Контрольная работа </td>
     <td> <a href="https://ahmedushka7.github.io/R/homeworks/test/test.html" target="_blank"> Условия задач и материалы </a> </td>
     <td> <a href="https://ahmedushka7.github.io/R/homeworks/test/test_solution.html" target="_blank"> Решение задач </a> </td>
-    <td></td>
-    <td></td>
+    <td> NA </td>
+    <td> NA </td>
+  </tr>
+    <tr>
+    <td> 4 </td>
+    <td> Домашняя работа №4 </td>
+    <td> <a href="https://ahmedushka7.github.io/R/homeworks/hw4/hw4.html" target="_blank"> Условия задач и материалы </a> </td>
+    <td> <a href="" target="_blank"> Решение задач </a> </td>
+    <td> 24.12.2019 23:59  </td>
+    <td> NA </td>
   </tr>
 </table>
