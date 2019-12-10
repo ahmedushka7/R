@@ -36,12 +36,19 @@ knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE, error = TRU
 
 ### API (Application Programming Interfaces)
 
+API предоставляют простой доступ к базам данных или информации на веб-страницах.
+
+У API бывают токены, они нужны, чтобы тот, кто предоставляет данные понимал, кто их запрашивает и дает доступ вообще к этим данным.
+
+
+
+
 
 
 Различные API:
 
 * [Twitter](https://developer.twitter.com/en/docs/basics/getting-started)
-* 
+* [Vk](https://vk.com/dev/first_guide)
 
 
 

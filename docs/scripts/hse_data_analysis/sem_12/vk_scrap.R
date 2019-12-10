@@ -1,38 +1,75 @@
+### packages
 library('httr')
 library('dplyr')
 
-# app_id <- '6925724' # id приложения
-# url_get_token <- paste('https://oauth.vk.com/authorize?client_id=', app_id,'&display=page&redirect_uri=https://oauth.vk.com/blank.html&scope=friends&response_type=token&v=5.52', sep = '')
-# get_token <- GET(url_get_token)
+### get token
+app_id <- '6925724' # id приложения
+url_get_token <- paste('https://oauth.vk.com/authorize?client_id=', 
+                       app_id,'&display=page&redirect_uri=https://oauth.vk.com/blank.html&scope=friends&response_type=token&v=5.52', 
+                       sep = '')
 
+###
 
-token <- '35ff967c5ae479a991d8e0659a3f9aea7df2ede25dcb895df27aeb219b19474886380d04b1661752c4c22'
+get_method <- function(method, params, token){
+  url <- paste('https://api.vk.com/method/',
+               method,
+               '?v=5.52&access_token=', 
+               token, sep = '')
+  request <- GET(url, query = params)
+  info <- content(request)
+  return(info)
+}
 
+### get my frieds
+
+token <- '9c75456aafba5bfd8a54327823573db8d6b6ae4217c5eb93461f4b0885def43b729b2478c487f9d1a83ad'
 method <- 'friends.get'
-url <- paste('https://api.vk.com/method/',
-             method,
-             '?v=5.52&access_token=', 
-             token, sep = '')
-params <- list(fields = 'americans,nickname')
-request <- GET(url, query = params)
-q <- content(request)
-str(q, max.level = 4)
-d <- q$response$items
+params <- list(fields = 'id,nickname',
+               user_id = '')
+res <- get_method(method, params, token)
+
+str(res, max.level = 2)
+
+d <- res$response$items
 data <- d %>% 
           bind_rows() %>%
           select(id, first_name, last_name)
 
-# get_request <- function()
+my_id <- 76
+my_name <- 'Зарманбетов Ахмед'
+data <- data %>%
+  transmute(id1 = my_id,
+         id2 = id,
+         name1 = my_name,
+         name2 = str_c(first_name, last_name, sep = ' '))
+list_my_friends <- data$id2
 
-### Отправка сообщения
-method <- 'messages.send'
-url <- paste('https://api.vk.com/method/',
-             method,
-             '?v=5.101&access_token=', 
-             token, sep = '')
-params <- list(user_id = '73614108',
-               random_id = '1',
-               message = 'as')
+### friends of my friends
+
+token <- '9c75456aafba5bfd8a54327823573db8d6b6ae4217c5eb93461f4b0885def43b729b2478c487f9d1a83ad'
+method <- 'friends.get'
+
+for(id in list_my_friends){
+  params <- list(fields = 'id,nickname',
+                 user_id = as.character(id))
+  res <- get_method(method, params, token)
+  d <- res$response$items
+  df <- d %>% 
+    bind_rows() %>%
+    select(id, first_name, last_name)
+  break
+}
+
+library(jsonlite)
+library(rlist)
 request <- GET(url, query = params)
-request
+str(fromJSON(content(request, as = 'text')))
+
+
+d %>%
+  list.select(id, first_name, last_name) %>%
+  bind_rows() %>%
+  filter(id %in% list_my_friends)
+
+
 

@@ -6,10 +6,14 @@ category: HSE
 layout: nil
 ---
 
-<!---
-### Посиделка № ?
--->
+### Посиделка № 17 - 18
 
+* Парсинг сайтов. [Онлайн скрипт](https://ahmedushka7.github.io/R/scripts/hse_data_analysis/sem_12/html.html).
+* Туториал по [XPath](https://devhints.io/xpath).
+* API. Парсим данные из Vk. Строим граф друзей. [Онлайн скрипт]().
+* RSelenium. Работа с элементами Java Script. [Онлайн скрипт]().
+
+---
 
 ### Посиделка № 16 - 17
 
@@ -22,7 +26,7 @@ layout: nil
 * Предсказываем количество покупок в магазинах Walmart. [Онлайн скрипт](https://ahmedushka7.github.io/R/scripts/hse_data_analysis/sem_11/walmart.html).
 * Скачать [архив](https://github.com/ahmedushka7/R/blob/master/docs/scripts/hse_data_analysis/sem_11/data.zip?raw=true) c данными.
 
----
+
 
 ### Посиделка № 15 - 16
 
