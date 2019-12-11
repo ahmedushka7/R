@@ -1,0 +1,91 @@
+---
+title: "Интерактивный парсер. Пакет RSelenium."
+author: "Зарманбетов Ахмед"
+output: 
+  html_document:
+    toc: TRUE
+    toc_float: TRUE
+    toc_depth: 4
+    highlight: pygments
+    #df_print: paged
+editor_options: 
+  chunk_output_type: console
+---
+<style>
+h1,
+h2,
+h3,
+h4,
+h5,
+h6  {
+  color: #317eac;
+}
+</style>
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE, error = TRUE, eval=FALSE)
+```
+
+### Интерактивная работа 
+
+На некоторых сайтах нам не сразу доступна нужная нам информация. Допустим нужно что-то написать или выбрать, потом кликнуть и только после этого появится нужная нам информация. Чтобы интерактивно работать с сайтом нам понадобится пакет RSelenium.
+
+### Пакет RSelenium
+
+Установим и подгрузим пакет RSelenium.
+
+```{r}
+# install.packages("RSelenium")
+library("RSelenium")
+library('rvest')
+```
+
+Для его корректной работы вам понадобится установленная Java. Скачать ее можно с [сайта](https://www.oracle.com/technetwork/java/javase/downloads/index.html).
+
+### Работаем с Google
+
+Я буду показывать работу RSelenium в Chrome. Для корректной работы вам нужно указать его версию. Ее можно узнать в настройках.
+
+```{r}
+driver <- rsDriver(browser=c("chrome"), chromever = '77.0.3865.40')
+remote_driver <- driver[["client"]]
+```
+
+Некоторые команды.
+
+```{r eval=FALSE}
+remote_driver$open() # открыть браузер
+remote_driver$close() # закрыть браузер
+remote_driver$navigate("http://www.google.com") # перейти на указанный адрес
+remote_driver$getCurrentUrl() # получить текуший url
+remote_driver$navigate("http://www.yandex.com")
+remote_driver$goBack() # вернуться на предыдушую страницу
+remote_driver$goForward() # перейти на страницу вперед
+remote_driver$refresh() # обновить страницу
+remote_driver$maxWindowSize() # браузер на весь экран
+remote_driver$screenshot(display = FALSE)
+```
+
+Попробуем перейти на сайт Google и что-то поискать.
+
+```{r}
+remote_driver$open()
+remote_driver$navigate("http://www.google.com")
+webElem <- remote_driver$findElement(using = 'xpath', "//*[@id='tsf']/div[2]/div[1]/div[1]/div/div[2]/input") # найти элемент по XPATH
+webElem$sendKeysToElement(list("Язык программирования R")) # ввести текст
+webElem$sendKeysToElement(list(key = 'enter'))
+# webElem$clickElement() # кликнуть по элементу
+```
+
+Получим HTML-страницу.
+
+```{r}
+google_html <- remote_driver$getPageSource()[[1]]
+
+google_html_parse <- read_html(google_html)
+
+google_html_parse %>%
+  html_nodes(xpath = '//*[@id="rso"]/div[1]/div/div[1]/div/div/div[1]/a/h3/span') %>%
+  html_text()
+```
+
