@@ -18,12 +18,13 @@ remote_driver$navigate("http://www.yandex.com")
 remote_driver$goBack() # вернуться на предыдушую страницу
 remote_driver$goForward() # перейти на страницу вперед
 remote_driver$refresh() # обновить страницу
+remote_driver$maxWindowSize() # браузер на весь экран
+remote_driver$screenshot(display = FALSE)
 
 remote_driver$navigate("http://www.google.com")
 webElem <- remote_driver$findElement(using = 'xpath', "//*[@id='tsf']/div[2]/div[1]/div[1]/div/div[2]/input") # найти элемент по XPATH
 webElem$sendKeysToElement(list("Миша")) # ввести текст
 webElem$sendKeysToElement(list(key = 'enter'))
 
-remote_driver$maxWindowSize() # браузер на весь экран
-remote_driver$screenshot(display = FALSE)
+
 

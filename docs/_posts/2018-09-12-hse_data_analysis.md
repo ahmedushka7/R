@@ -10,8 +10,12 @@ layout: nil
 
 * Парсинг сайтов. [Онлайн скрипт](https://ahmedushka7.github.io/R/scripts/hse_data_analysis/sem_12/html.html).
 * Туториал по [XPath](https://devhints.io/xpath).
-* API. Парсим данные из Vk. Строим граф друзей. [Онлайн скрипт]().
-* RSelenium. Работа с элементами Java Script. [Онлайн скрипт]().
+
+*Дополнительный материал:*
+* RSelenium. Работа с элементами Java Script. [Онлайн скрипт](https://ahmedushka7.github.io/R/scripts/hse_data_analysis/sem_12/RSelenium.html).
+* [Туториал №1](https://docs.ropensci.org/RSelenium/articles/basics.html) по RSelenium.
+* [Туториал №2](https://ropensci.org/tutorials/rselenium_tutorial/) по RSelenium.
+*  API. Парсим данные из Vk. Строим граф друзей. Позже выложу скрипт и видеоурок.
 
 ---
 
