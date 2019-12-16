@@ -1,0 +1,100 @@
+---
+title: "Парсим Avito"
+author: "Зарманбетов Ахмед"
+output: 
+  html_document:
+    toc: TRUE
+    toc_float: TRUE
+    toc_depth: 4
+    highlight: pygments
+    #df_print: paged
+editor_options: 
+  chunk_output_type: console
+---
+<style>
+h1,
+h2,
+h3,
+h4,
+h5,
+h6  {
+  color: #317eac;
+}
+</style>
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE, error = TRUE, eval = FALSE)
+```
+
+### Пакеты
+
+```{r}
+# install.packages(с('rvest', 'dplyr', 'ggplot2', 'tibble', 'stringr'))
+library(rvest)
+library(dplyr)
+library(ggplot2)
+library(tibble)
+library(stringr)
+```
+
+### Парсим первую страничку
+
+```{r}
+url <- 'https://www.avito.ru/moskva?p=1&q=Гитара'
+avito <- read_html(url)
+```
+
+Находим количество страниц.
+
+```{r}
+span <- avito %>% html_nodes(xpath = '/html/body/div[1]/div[2]/div[2]/div[3]/div[4]/div[1]') %>%
+  html_nodes(xpath = 'span')
+
+count <- span[length(span) - 1] %>%
+  html_text() %>%
+  as.numeric()
+
+links <- paste0('https://www.avito.ru/moskva?p=', 1:count, '&q=Гитара')
+```
+
+Берем первую страничку и парсим ее.
+
+```{r}
+link <- links[1]
+link_html <- read_html(link)
+
+p_link <- link_html %>%
+  html_nodes(xpath = "//span[@class ='price ']") %>%
+  html_text() %>%
+  str_replace_all('\n', '') %>%
+  str_replace_all('\u20bd', '') %>%
+  str_replace_all(' ', '') %>%
+  as.numeric()
+```
+
+### Парсим все страницы
+
+Задаем `for` на все страницы. А также ставим `Sys.sleep`, чтобы нас не забанили))
+
+```{r}
+p <- c()
+
+for(i in 1:length(links)){
+  link <- links[i]
+  
+  link_html <- read_html(link)
+  
+  p_link <- link_html %>%
+    html_nodes(xpath = "//span[@class ='price ']") %>%
+    html_text() %>%
+    str_replace_all('\n', '') %>%
+    str_replace_all('\u20bd', '') %>%
+    str_replace_all(' ', '') %>%
+    as.numeric()
+  
+  p <- c(p, p_link)
+  
+  Sys.sleep(1)
+}
+```
+

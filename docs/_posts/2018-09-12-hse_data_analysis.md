@@ -9,6 +9,7 @@ layout: nil
 ### Посиделка № 17 - 18
 
 * Парсинг сайтов. [Онлайн скрипт](https://ahmedushka7.github.io/R/scripts/hse_data_analysis/sem_12/html.html).
+* Парсим Avito. [Онлайн скрипт](https://ahmedushka7.github.io/R/scripts/hse_data_analysis/sem_12/Avito.html).
 * Туториал по [XPath](https://devhints.io/xpath).
 
 *Дополнительный материал:*
