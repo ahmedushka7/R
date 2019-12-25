@@ -80,4 +80,12 @@ __Правила игры:__
     <td> 27.12.2019 23:59  </td>
     <td> NA </td>
   </tr>
+    <tr>
+    <td> 7 </td>
+    <td> Экзамен </td>
+    <td> <a href="https://ahmedushka7.github.io/R/homeworks/exam/exam.html" target="_blank"> Условия задач и материалы </a> </td>
+    <td> <a href="" target="_blank"> Решение задач </a> </td>
+    <td> NA </td>
+    <td> NA </td>
+  </tr>
 </table>
