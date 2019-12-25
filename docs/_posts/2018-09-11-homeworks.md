@@ -89,3 +89,6 @@ __Правила игры:__
     <td> NA </td>
   </tr>
 </table>
+
+
+https://ahmedushka7.github.io/R/homeworks/exam/exam.htm
