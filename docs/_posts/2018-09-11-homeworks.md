@@ -84,11 +84,8 @@ __Правила игры:__
     <td> 7 </td>
     <td> Экзамен </td>
     <td> <a href="https://ahmedushka7.github.io/R/homeworks/exam/exam.html" target="_blank"> Условия задач и материалы </a> </td>
-    <td> <a href="" target="_blank"> Решение задач </a> </td>
+    <td> <a href="https://ahmedushka7.github.io/R/homeworks/exam/exam_solution.html" target="_blank"> Решение задач </a> </td>
     <td> NA </td>
     <td> NA </td>
   </tr>
 </table>
-
-
-https://ahmedushka7.github.io/R/homeworks/exam/exam.htm
