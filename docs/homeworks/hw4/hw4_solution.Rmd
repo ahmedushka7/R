@@ -1,0 +1,222 @@
+---
+title: "Домашка №4"
+output: 
+  html_document:
+    toc: TRUE
+    toc_float: TRUE
+    toc_depth: 4
+    highlight: pygments
+editor_options: 
+  chunk_output_type: console
+---
+---
+
+### Задание
+
+Подгрузим пакеты, которые понадобятся вам для решения задачи.
+
+```{r warning=FALSE, message=FALSE}
+library(readr)
+library(dplyr)
+library(ggplot2)
+library(tidyr)
+library(tibble)
+library(Metrics)
+library(rsample)
+library(fastDummies)
+```
+
+__Задача:__ 
+
+У вас есть два набора данных: train (обучающий) и test (тестовый). В этих наборах есть три переменные: y, x1 и x2. Вам нужно обучить модель, которая будет предсказывать переменную y. Обучаете вы модель вы на train, а проверяете ее качество на test. В качестве меры качества возьмем MAE.
+
+__План работы__:
+
+1. Помните, что вы работаете только с датасетом train. На датасете test вы только проверяете качество вашей модели.
+2. Попробуйте изучить ваши переменные. Какие они: числовые или категориальные? Попробуйте нарисовать график зависимости таргета (y) от признаков (x1, x2). Пострайтесь нанести все на один график, чтобы понять как устроена зависимость.
+3. Постройте сначала примитивную модель (baseline), например константную. Посчитайте MAE и поймите много это или мало.
+4. Постройте простую линейную регрессию. Посчитайте MAE. Лучше ли эта модель чем baseline? Нарисуйте график: по оси x прогноз, по оси y истинное значение. На этот же график нарисуйте биссектрису из точки (0, 0). Этот график поможет понять вам хорошо ли вы прогнозируете. На нем вы будете видеть систематические ошибки вашей модели. 
+5. Пытайтесь улучшить вашу модель, то есть уменьшить MAE на тестовом наборе как можно сильнее.
+6. Лучшее MAE, которого можно достичь равно 3.92. То есть около 4.
+
+### Решение
+
+Подгрузим данные.
+
+```{r}
+train_url <- 'https://raw.githubusercontent.com/ahmedushka7/R/master/docs/homeworks/hw4/data/train.csv'
+test_url <- 'https://raw.githubusercontent.com/ahmedushka7/R/master/docs/homeworks/hw4/data/test.csv'
+
+train <- read_csv(train_url)
+test <- read_csv(test_url)
+```
+
+Посмотрим какие переменные у нас есть. Видно, что есть 2 признака: $x_1$ и $x_2$. 
+
+```{r}
+glimpse(train)
+```
+
+Первый признак числовой, а второй категориальный.
+
+```{r}
+train %>%
+  count(x2)
+```
+
+Попробуем нарисовать зависимость нашего таргета от этих признаков.
+
+```{r}
+ggplot(train, aes(x1, y, col = factor(x2))) +
+  geom_point() + 
+  labs(x = quote(x[1]),
+       col = quote(x[2]),
+       title = 'Зависимость таргета от признаков')
+```
+
+Видна какая-то нелинейная, полиномиальная связь. Чем-то похоже на $x**2$. Поэтому можно будет взять полином второй степени дли переменной $x_1$. Также видно, что коэффициенты этого полинома различаются. Различаются они в зависимости от признака $x_2$. 
+
+Перед тем как делать "идеальную" модель, можно сделать простые.
+
+__1. Среднее__
+
+```{r}
+MEAN <- mean(train$y)
+
+train$predict1 <- MEAN
+test$predict1 <- MEAN
+
+mae(train$y, train$predict1)
+mae(test$y, test$predict1)
+```
+
+__2. Линейная регрессия без кодирования признака $x_2$__
+
+```{r}
+model2 <- lm(formula = y ~ x1 + x2, data = train)
+
+train$predict2 <- predict(model2, train)
+test$predict2 <- predict(model2, test)
+
+mae(train$y, train$predict2)
+mae(test$y, test$predict2)
+
+ggplot(train, aes(predict2, y)) +
+  geom_point() + 
+  geom_abline(color = 'darkblue')
+```
+
+__3. Полиномиальная модель без кодирования признака $x_2$__
+
+```{r}
+model3 <- lm(formula = y ~ poly(x1, degree = 2) + x2, data = train)
+
+train$predict3 <- predict(model3, train)
+test$predict3 <- predict(model3, test)
+
+mae(train$y, train$predict3)
+mae(test$y, test$predict3)
+
+ggplot(train, aes(predict3, y)) +
+  geom_point() + 
+  geom_abline(color = 'darkblue')
+```
+
+__4.Полиномиальная модель с OHE__
+
+```{r}
+train <- dummy_cols(train, select_columns = 'x2')
+test <- dummy_cols(test, select_columns = 'x2')
+
+model4 <- lm(formula = y ~ poly(x1, 2) + x2_1 + x2_2 + x2_3 - 1,
+             data = train)
+
+train$predict4 <- predict(model4, train)
+test$predict4 <- predict(model4, test)
+
+mae(train$y, train$predict4)
+mae(test$y, test$predict4)
+
+ggplot(train, aes(predict4, y)) +
+  geom_point() + 
+  geom_abline(color = 'darkblue')
+```
+
+__5. Полиномиальная модель с взаимодействием признаков.__
+
+На графике выше мы видели, что зависимость полиномиальная, а также коэффициенты полинома зависят от переменной $x_2$. 
+
+$$
+w_0 + w_1 x +  w_2 x^2
+$$
+ Коэффициенты $w_0, w_1, w_2$ различны для каждой категории переменной $x_2$. Категорий 3, коэффициентов тоже, поэтому при перемножении каждого с каждым, мы получим 9 переменных.
+
+Скомбинируем дамми-переменные и $x_1$. 
+
+```{r}
+train <- dummy_cols(train,  select_columns = 'x2',
+                    remove_selected_columns = T)
+test <- dummy_cols(test,  select_columns = 'x2',
+                   remove_selected_columns = T)
+
+train <- train %>% 
+  mutate(x12 = x1**2, 
+         x1_x21 = x1*x2_1,
+         x1_x22 = x1*x2_2,
+         x1_x23 = x1*x2_3,
+         x12_x21 = x12*x2_1,
+         x12_x22 = x12*x2_2,
+         x12_x23 = x12*x2_3)
+
+test <- test %>% 
+  mutate(x12 = x1**2, 
+         x1_x21 = x1*x2_1,
+         x1_x22 = x1*x2_2,
+         x1_x23 = x1*x2_3,
+         x12_x21 = x12*x2_1,
+         x12_x22 = x12*x2_2,
+         x12_x23 = x12*x2_3)
+```
+
+А теперь построим модель. Не забываем улалиьть свободный коэффициент, чтобы у нас не возникло мультиколлинеарности.
+
+```{r}
+model5 <- lm(formula = y ~ x2_1 + x2_2 + x2_3 - 1 + x1_x21 + x1_x22 + x1_x23 + x12_x21 + x12_x22 + x12_x23,
+             data = train)
+
+model5
+
+train$predict5 <- predict(model5, train)
+test$predict5 <- predict(model5, test)
+
+mae(train$y, train$predict5)
+mae(test$y, test$predict5)
+
+ggplot(train, aes(predict5, y)) +
+  geom_point() + 
+  geom_abline(color = 'darkblue')
+```
+
+
+Истинная зависимость, которую я генерировал, представлена ниже. Коэффициенты очень похожи. 
+
+```{r}
+model5$coefficients
+```
+
+```{r}
+n <- 300
+
+df1 <- tibble(x1 = seq(-5, 3, length.out = n) + rnorm(n),
+              y = -2 + 5*x1^2 - 3*x1 + rnorm(n, sd = 5),
+              x2 = 1)
+df2 <- tibble(x1 = seq(-5, 3, length.out = n) + rnorm(n),
+              y = -10 + 2*x1^2 - 3*x1 + rnorm(n, sd = 5),
+              x2 = 2)
+df3 <- tibble(x1 = seq(-5, 3, length.out = n) + rnorm(n),
+              y = 10 + 5*x1^2 - 10*x1 + rnorm(n, sd = 5), 
+              x2 = 3)
+
+df <- bind_rows(df1, df2, df3)
+```
+
