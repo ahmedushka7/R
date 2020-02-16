@@ -1,5 +1,5 @@
 ---
-title: 'Установка R + RStudio'
+title: 'Установка R + RStudio, RStudio Cloud'
 
 layout: nil
 ---
@@ -29,3 +29,7 @@ layout: nil
 
 1. [Скачать R](https://cran.rstudio.com/) и установить его.
 2. [Скачать RStudio](https://www.rstudio.com/products/rstudio/download/) и установить его.
+
+### RStudio Cloud
+
+[RStudio Cloud](https://rstudio.cloud/) это онлайн RStudio, где можно создавать общие проекты и работать вместе.
