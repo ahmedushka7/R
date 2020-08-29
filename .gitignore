@@ -36,6 +36,5 @@ vignettes/*.pdf
 rsconnect/
 
 R.Rproj
-
 .DS_Store
 
