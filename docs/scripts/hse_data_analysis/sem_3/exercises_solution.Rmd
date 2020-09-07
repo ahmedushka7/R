@@ -1,6 +1,5 @@
 ---
 title: "Функции: решение заданий"
-author: "Зарманбетов Ахмед"
 output: 
   html_document:
     toc: TRUE
