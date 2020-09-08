@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Зарманбетов Ахмед" />
 
 
 <title>Введение в R, переменные и массивы: задания</title>
@@ -1264,6 +1262,22 @@ window.buildTabsets = function(tocID) {
 };
 
 </script>
+<script>// Hide empty <a> tag within highlighted CodeBlock for screen reader accessibility (see https://github.com/jgm/pandoc/issues/6352#issuecomment-626106786) -->
+// v0.0.1
+// Written by JooYoung Seo (jooyoung@psu.edu) and Atsushi Yasumoto on June 1st, 2020.
+
+document.addEventListener('DOMContentLoaded', function() {
+  const codeList = document.getElementsByClassName("sourceCode");
+  for (var i = 0; i < codeList.length; i++) {
+    var linkList = codeList[i].getElementsByTagName('a');
+    for (var j = 0; j < linkList.length; j++) {
+      if (linkList[j].innerHTML === "") {
+        linkList[j].setAttribute('aria-hidden', 'true');
+      }
+    }
+  }
+});
+</script>
 
 
 
@@ -1371,6 +1385,7 @@ summary {
   border: none;
   display: inline-block;
   border-radius: 4px;
+  background-color: transparent;
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li {
@@ -1399,6 +1414,12 @@ summary {
 }
 }
 
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
 
 .toc-content {
   padding-left: 30px;
@@ -1470,51 +1491,69 @@ div.tocify {
 
 
 <h1 class="title toc-ignore">Введение в R, переменные и массивы: задания</h1>
-<h4 class="author">Зарманбетов Ахмед</h4>
 
 </div>
 
 
 <hr />
-<div id="-1" class="section level3">
+<div id="задачи-для-работы-на-семинаре" class="section level2">
+<h2>Задачи для работы на семинаре</h2>
+<div id="задание-1" class="section level3">
 <h3>Задание №1</h3>
-<p>Вычислите значение выражения <span class="math inline">\(\cos(\frac{\pi}{4})\)</span>. Результат округлите до 2 знака после запятой.</p>
+<p>Вычислите значение выражения <span class="math inline">\(\cos(\frac{\pi}{4})\)</span>. Результат округлите до двух знаков после запятой.</p>
 </div>
-<div id="-2" class="section level3">
+<div id="задание-2" class="section level3">
 <h3>Задание №2</h3>
-<p>Запустите следующий код. <code>round(pi; 3)</code>. Работает ли она, если нет, то почему?</p>
+<p>Запустите следующий код. <code>round(pi; 3)</code>. Работает ли он, если нет, то почему?</p>
 </div>
-<div id="-3" class="section level3">
+<div id="задание-3" class="section level3">
 <h3>Задание №3</h3>
-<p>Почему выражения <code>5^2 + 5</code> и <code>5^(2 + 5)</code> дает разные разные результаты?</p>
+<p>Сложите какое-то число с <code>NA</code>. Что получилось и почему так получилось? Попробуйте повыполнять другие арифметические операции. Что-то изменилось? Что будет, если сложить <code>NA</code> с <code>NA</code>?</p>
 </div>
-<div id="-4" class="section level3">
+<div id="задание-4" class="section level3">
 <h3>Задание №4</h3>
 <p>Создайте переменную <code>n</code> равную 3. После чего создайте переменную <code>a</code> равную <span class="math inline">\(n^n\)</span>. После чего присвойте переменной <code>n</code> новое значение равное 4. Изменится ли значение переменной <code>a</code>?</p>
 </div>
-<div id="-5" class="section level3">
+<div id="задание-5" class="section level3">
 <h3>Задание №5</h3>
-<p>Создайте строковую переменную <code>name</code> равную “Alsu”. Умножьте эту переменную на 3, что получится?</p>
+<p>Создайте строковую переменную <code>name</code> равную “Alsu”. Умножьте эту переменную на 3, что получится? Что за тип у переменной <code>name</code>?</p>
 </div>
-<div id="-6" class="section level3">
+<div id="задание-6" class="section level3">
 <h3>Задание №6</h3>
-<p>Совершите какую-либо арифметическую операцию с <code>NA</code>. Что получилось и почему так получилось?</p>
+<p>У вас имеются 2 переменные, как поменять их значения местами? Например, у вас имеются переменная <code>a</code> равная 5 и переменная <code>b</code> равная 10. Нужно, чтобы теперь в переменной <code>a</code> хранилось значение 10, а в переменной <code>b</code> хранилось значение 5.</p>
 </div>
-<div id="-7" class="section level3">
+<div id="задание-7" class="section level3">
 <h3>Задание №7</h3>
-<p>У вас имеются 2 переменные, как поменять их значения местами? Например, у вас имеются переменная <code>a</code> равная 5 и переменная <code>b</code> равная 10. Нужно, чтобы теперь в переменной <code>a</code> хранилось значение 10, а в переменной <code>b</code> хранилось значение 5. Эти значения могут меняться, поэтому нельзя просто написать <code>a &lt;- 10</code> и <code>b &lt;- 5</code>.</p>
+<p>Выведите последний элемент массива и его позицию.</p>
 </div>
-<div id="-8" class="section level3">
+<div id="задание-8" class="section level3">
 <h3>Задание №8</h3>
-<p>Как вывести последний элемент массива?</p>
-</div>
-<div id="-9" class="section level3">
-<h3>Задание №9</h3>
 <p>Создайте массивы четных и нечетных чисел от 1 до 100.</p>
 </div>
-<div id="-10" class="section level3">
-<h3>Задание №10</h3>
+<div id="задание-9" class="section level3">
+<h3>Задание №9</h3>
 <p>Создайте массив, состоящий из 100 единиц.</p>
+</div>
+<div id="задание-10" class="section level3">
+<h3>Задание №10</h3>
+<p>Создайте массив, состоящий из 10 случайных двухзначных чисел. Посчитайте его сумму. Выполните весь код еще раз. Поменялся ли ответ?</p>
+</div>
+<div id="задание-11" class="section level3">
+<h3>Задание №11</h3>
+<p>Создайте два массива, состоящих из четырех случайных чисел от 1 до 10. Сложите эти два массива. Теперь замените 3ий элемент одного из массивов на <code>NA</code>. Сложите массивы еще раз. Что изменилось? Теперь добавьте элемент равный 100 в начало массива и сложите массивы в третий раз. Что случилось теперь?</p>
+</div>
+<div id="задание-12" class="section level3">
+<h3>Задание №12</h3>
+<p>Гонщик движется по кольцевой дороге, длина которой 4км. Сколько кругов он проедет через <span class="math inline">\(n\)</span> метров (<span class="math inline">\(n &gt; 0\)</span>)? Если гонщик не доехал круг, то сколько метров нужно ему еще проехать до финиша?</p>
+</div>
+<div id="задание-13" class="section level3">
+<h3>Задание №13</h3>
+<p>Определите, сколько часов (число от 0 до 23) и минут (число от 0 до 59) будут показывать часы через <span class="math inline">\(t\)</span> минут (<span class="math inline">\(t &gt; 0\)</span>) после начала суток.</p>
+</div>
+<div id="задание-14" class="section level3">
+<h3>Задание №14</h3>
+<p>В университете решили набрать три новых группы для занятий по программированию. В первой группе – <span class="math inline">\(n_1\)</span> человек, во второй – <span class="math inline">\(n_2\)</span>, в третьей – <span class="math inline">\(n_3\)</span>. Сколько нужно будет закупить компьютерных столов для студентов, если известно, что за одним столом могут находиться не более 2х человек и что занятия студентов проходят в одно время?</p>
+</div>
 </div>
 
 
@@ -1567,7 +1606,7 @@ $(document).ready(function ()  {
       theme: "bootstrap3",
       context: '.toc-content',
       hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
       },
       ignoreSelector: ".toc-ignore",
       scrollTo: 0
