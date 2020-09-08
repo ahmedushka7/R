@@ -1,5 +1,5 @@
 ---
-title: 'Домашка'
+title: 'Контрольные мероприятия'
 type: 'HSE'
 category: HSE
 

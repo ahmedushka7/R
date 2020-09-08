@@ -2,7 +2,7 @@
 title: "Введение в R, переменные и массивы"
 output: 
   html_document:
-    #css: ../css/style.css
+    css: ../css/style.css
     toc: TRUE
     toc_float: TRUE
     toc_depth: 4
