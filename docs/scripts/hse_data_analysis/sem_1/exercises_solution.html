@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
@@ -1263,13 +1262,29 @@ window.buildTabsets = function(tocID) {
 };
 
 </script>
+<script>// Hide empty <a> tag within highlighted CodeBlock for screen reader accessibility (see https://github.com/jgm/pandoc/issues/6352#issuecomment-626106786) -->
+// v0.0.1
+// Written by JooYoung Seo (jooyoung@psu.edu) and Atsushi Yasumoto on June 1st, 2020.
+
+document.addEventListener('DOMContentLoaded', function() {
+  const codeList = document.getElementsByClassName("sourceCode");
+  for (var i = 0; i < codeList.length; i++) {
+    var linkList = codeList[i].getElementsByTagName('a');
+    for (var j = 0; j < linkList.length; j++) {
+      if (linkList[j].innerHTML === "") {
+        linkList[j].setAttribute('aria-hidden', 'true');
+      }
+    }
+  }
+});
+</script>
 
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css" data-origin="pandoc">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -1279,14 +1294,16 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -1295,9 +1312,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -1469,6 +1486,7 @@ summary {
   border: none;
   display: inline-block;
   border-radius: 4px;
+  background-color: transparent;
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li {
@@ -1497,6 +1515,12 @@ summary {
 }
 }
 
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
 
 .toc-content {
   padding-left: 30px;
@@ -1573,167 +1597,167 @@ div.tocify {
 
 
 <hr />
-<div id="-1" class="section level3">
+<div id="задание-1" class="section level3">
 <h3>Задание №1</h3>
 <p>Вычислите значение выражения <span class="math inline">\(\cos(\frac{\pi}{4})\)</span>. Результат округлите до 2 знака после запятой.</p>
 <p><strong>Решение:</strong></p>
 <p>Сначала найдем просто косинус Пи на четыре.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">cos</span>(pi<span class="op">/</span><span class="dv">4</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">cos</span>(pi<span class="op">/</span><span class="dv">4</span>)</span></code></pre></div>
 <pre><code>## [1] 0.7071068</code></pre>
 <p>А теперь обернем это в функцию округления в качестве первого аргумента. А второй аргумент поставим 2.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">round</span>(<span class="kw">cos</span>(pi<span class="op">/</span><span class="dv">4</span>), <span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">round</span>(<span class="kw">cos</span>(pi<span class="op">/</span><span class="dv">4</span>), <span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## [1] 0.71</code></pre>
 </div>
-<div id="-2" class="section level3">
+<div id="задание-2" class="section level3">
 <h3>Задание №2</h3>
 <p>Запустите следующий код. <code>round(pi; 3)</code>. Работает ли она, если нет, то почему?</p>
 <p><strong>Решение:</strong></p>
 <p>Помним, что аргументы функций перечисляются через <strong>запятую</strong>, а не через точку с запятой.</p>
 </div>
-<div id="-3" class="section level3">
+<div id="задание-3" class="section level3">
 <h3>Задание №3</h3>
 <p>Сложите какое-то число с <code>NA</code>. Что получилось и почему так получилось? Попробуйте повыполнять другие арифметические операции. Что-то изменилось? Что будет, если сложить <code>NA</code> с <code>NA</code>?</p>
 <p><strong>Решение:</strong></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="ot">NA</span> <span class="op">+</span><span class="st"> </span><span class="dv">2</span></a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="co">## [1] NA</span></a>
-<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="ot">NA</span> <span class="op">*</span><span class="st"> </span><span class="dv">10</span></a>
-<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="co">## [1] NA</span></a>
-<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="ot">NA</span> <span class="op">-</span><span class="st"> </span><span class="dv">20</span></a>
-<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="co">## [1] NA</span></a>
-<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="ot">NA</span><span class="op">/</span><span class="dv">15</span></a>
-<a class="sourceLine" id="cb5-8" data-line-number="8"><span class="co">## [1] NA</span></a>
-<a class="sourceLine" id="cb5-9" data-line-number="9"><span class="ot">NA</span> <span class="op">+</span><span class="st"> </span><span class="ot">NA</span></a>
-<a class="sourceLine" id="cb5-10" data-line-number="10"><span class="co">## [1] NA</span></a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="ot">NA</span> <span class="op">+</span><span class="st"> </span><span class="dv">2</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="co">## [1] NA</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="ot">NA</span> <span class="op">*</span><span class="st"> </span><span class="dv">10</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="co">## [1] NA</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="ot">NA</span> <span class="op">-</span><span class="st"> </span><span class="dv">20</span></span>
+<span id="cb5-6"><a href="#cb5-6"></a><span class="co">## [1] NA</span></span>
+<span id="cb5-7"><a href="#cb5-7"></a><span class="ot">NA</span><span class="op">/</span><span class="dv">15</span></span>
+<span id="cb5-8"><a href="#cb5-8"></a><span class="co">## [1] NA</span></span>
+<span id="cb5-9"><a href="#cb5-9"></a><span class="ot">NA</span> <span class="op">+</span><span class="st"> </span><span class="ot">NA</span></span>
+<span id="cb5-10"><a href="#cb5-10"></a><span class="co">## [1] NA</span></span></code></pre></div>
 <p>Помним, что <code>NA</code> – это not available. То есть это значение недоступно, мы не знаем что за ним скрывается. Может это 5, а может 10. Все что угодно. Поэтому при любой арифметической операции мы не знаем что получим в итоге. Поэтому получается <code>NA</code>.</p>
 </div>
-<div id="-4" class="section level3">
+<div id="задание-4" class="section level3">
 <h3>Задание №4</h3>
 <p>Создайте переменную <code>n</code> равную 3. После чего создайте переменную <code>a</code> равную <span class="math inline">\(n^n\)</span>. После чего присвойте переменной <code>n</code> новое значение равное 4. Изменится ли значение переменной <code>a</code>?</p>
 <p><strong>Решение:</strong></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">(n &lt;-<span class="st"> </span><span class="dv">3</span>)</a>
-<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="co">## [1] 3</span></a>
-<a class="sourceLine" id="cb6-3" data-line-number="3">(a &lt;-<span class="st"> </span>n<span class="op">^</span>n)</a>
-<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="co">## [1] 27</span></a></code></pre></div>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">n &lt;-<span class="st"> </span><span class="dv">4</span></a>
-<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="kw">print</span>(n)</a>
-<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="co">## [1] 4</span></a>
-<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="kw">print</span>(a)</a>
-<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="co">## [1] 27</span></a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>(n &lt;-<span class="st"> </span><span class="dv">3</span>)</span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="co">## [1] 3</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a>(a &lt;-<span class="st"> </span>n<span class="op">^</span>n)</span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="co">## [1] 27</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>n &lt;-<span class="st"> </span><span class="dv">4</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="kw">print</span>(n)</span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="co">## [1] 4</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="kw">print</span>(a)</span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="co">## [1] 27</span></span></code></pre></div>
 <p>Значение числа <code>a</code> не изменилось, так как каждая переменная имеет свою ячейку памяти, поэтому она независима от изменений других переменных.</p>
 </div>
-<div id="-5" class="section level3">
+<div id="задание-5" class="section level3">
 <h3>Задание №5</h3>
 <p>Создайте строковую переменную <code>name</code> равную “Alsu”. Умножьте эту переменную на 3, что получится?</p>
 <p><strong>Решение:</strong></p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">name &lt;-<span class="st"> &quot;Alsu&quot;</span></a>
-<a class="sourceLine" id="cb8-2" data-line-number="2">name <span class="op">*</span><span class="st"> </span><span class="dv">3</span></a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>name &lt;-<span class="st"> &quot;Alsu&quot;</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a>name <span class="op">*</span><span class="st"> </span><span class="dv">3</span></span></code></pre></div>
 <pre><code>## Error in name * 3: нечисловой аргумент для бинарного оператора</code></pre>
 <p>Видим, что выдается ошибка, потому что умножать строковую переменную на числовую нельзя.</p>
 </div>
-<div id="-6" class="section level3">
+<div id="задание-6" class="section level3">
 <h3>Задание №6</h3>
 <p>У вас имеются 2 переменные, как поменять их значения местами? Например, у вас имеются переменная <code>a</code> равная 5 и переменная <code>b</code> равная 10. Нужно, чтобы теперь в переменной <code>a</code> хранилось значение 10, а в переменной <code>b</code> хранилось значение 5. Эти значения могут меняться, поэтому нельзя просто написать <code>a &lt;- 10</code> и <code>b &lt;- 5</code>.</p>
 <p><strong>Решение:</strong></p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">a &lt;-<span class="st"> </span><span class="dv">5</span></a>
-<a class="sourceLine" id="cb10-2" data-line-number="2">b &lt;-<span class="st"> </span><span class="dv">10</span></a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>a &lt;-<span class="st"> </span><span class="dv">5</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a>b &lt;-<span class="st"> </span><span class="dv">10</span></span></code></pre></div>
 <p>Для данной задачи нужно создать еще одну переменную, которая поможет нам. А потом перекидываем значения между переменными.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1">c &lt;-<span class="st"> </span>a</a>
-<a class="sourceLine" id="cb11-2" data-line-number="2">a &lt;-<span class="st"> </span>b</a>
-<a class="sourceLine" id="cb11-3" data-line-number="3">b &lt;-<span class="st"> </span>c</a>
-<a class="sourceLine" id="cb11-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb11-5" data-line-number="5"><span class="kw">print</span>(a)</a>
-<a class="sourceLine" id="cb11-6" data-line-number="6"><span class="co">## [1] 10</span></a>
-<a class="sourceLine" id="cb11-7" data-line-number="7"><span class="kw">print</span>(b)</a>
-<a class="sourceLine" id="cb11-8" data-line-number="8"><span class="co">## [1] 5</span></a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>c &lt;-<span class="st"> </span>a</span>
+<span id="cb11-2"><a href="#cb11-2"></a>a &lt;-<span class="st"> </span>b</span>
+<span id="cb11-3"><a href="#cb11-3"></a>b &lt;-<span class="st"> </span>c</span>
+<span id="cb11-4"><a href="#cb11-4"></a></span>
+<span id="cb11-5"><a href="#cb11-5"></a><span class="kw">print</span>(a)</span>
+<span id="cb11-6"><a href="#cb11-6"></a><span class="co">## [1] 10</span></span>
+<span id="cb11-7"><a href="#cb11-7"></a><span class="kw">print</span>(b)</span>
+<span id="cb11-8"><a href="#cb11-8"></a><span class="co">## [1] 5</span></span></code></pre></div>
 </div>
-<div id="-7" class="section level3">
+<div id="задание-7" class="section level3">
 <h3>Задание №7</h3>
 <p>Выведите последний элемент массива и его позицию.</p>
 <p><strong>Решение:</strong></p>
 <p>Чтобы вывести i-ый элемент массива <code>a</code>, нужно написать <code>a[i]</code>. Последний элемент находится на позиции равной длине массива. А длинну массива <code>a</code> можно найти с помощью функции <code>length(a)</code>, которая и будет позицией последнего элемента.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1">a[<span class="kw">length</span>(a)] <span class="co"># последний элемент массива</span></a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>a[<span class="kw">length</span>(a)] <span class="co"># последний элемент массива</span></span></code></pre></div>
 <pre><code>## [1] 10</code></pre>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="kw">length</span>(a) <span class="co"># позиция последнего элемента</span></a></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="kw">length</span>(a) <span class="co"># позиция последнего элемента</span></span></code></pre></div>
 <pre><code>## [1] 1</code></pre>
 <p>Такой код является универсальным. Если массив изменится, нам не нужно менять ничего в коде.</p>
 </div>
-<div id="-8" class="section level3">
+<div id="задание-8" class="section level3">
 <h3>Задание №8</h3>
 <p>Создайте массивы четных и нечетных чисел от 1 до 100.</p>
 <p><strong>Решение:</strong></p>
 <p>Для решения нужно вспомнить функцию <code>seq</code>.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">100</span>, <span class="dv">2</span>) <span class="co"># нечетные</span></a>
-<a class="sourceLine" id="cb16-2" data-line-number="2"><span class="kw">seq</span>(<span class="dv">2</span>, <span class="dv">100</span>, <span class="dv">2</span>) <span class="co"># четные</span></a></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="kw">seq</span>(<span class="dv">1</span>, <span class="dv">100</span>, <span class="dv">2</span>) <span class="co"># нечетные</span></span>
+<span id="cb16-2"><a href="#cb16-2"></a><span class="kw">seq</span>(<span class="dv">2</span>, <span class="dv">100</span>, <span class="dv">2</span>) <span class="co"># четные</span></span></code></pre></div>
 </div>
-<div id="-9" class="section level3">
+<div id="задание-9" class="section level3">
 <h3>Задание №9</h3>
 <p>Создайте массив, состоящий из 100 единиц.</p>
 <p><strong>Решение:</strong></p>
 <p>А здесь нужно вспомнить функцию <code>rep</code>.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="kw">rep</span>(<span class="dv">1</span>, <span class="dv">100</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="kw">rep</span>(<span class="dv">1</span>, <span class="dv">100</span>)</span></code></pre></div>
 </div>
-<div id="-10" class="section level3">
+<div id="задание-10" class="section level3">
 <h3>Задание №10</h3>
 <p>Создайте массив, состоящий из 10 случайных двухзначных чисел. Посчитайте его сумму. Выполните весь код еще раз. Поменялся ли ответ?</p>
 <p><strong>Решение:</strong></p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dt">x =</span> <span class="dv">9</span><span class="op">:</span><span class="dv">99</span>, <span class="dt">size =</span> <span class="dv">10</span>)</a>
-<a class="sourceLine" id="cb18-2" data-line-number="2"><span class="kw">sum</span>(x)</a></code></pre></div>
-<pre><code>## [1] 499</code></pre>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>x &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dt">x =</span> <span class="dv">9</span><span class="op">:</span><span class="dv">99</span>, <span class="dt">size =</span> <span class="dv">10</span>)</span>
+<span id="cb18-2"><a href="#cb18-2"></a><span class="kw">sum</span>(x)</span></code></pre></div>
+<pre><code>## [1] 511</code></pre>
 <p>Конечно же ответ поменялся: массив же случайный!</p>
 </div>
-<div id="-11" class="section level3">
+<div id="задание-11" class="section level3">
 <h3>Задание №11</h3>
 <p>Создайте два массива, состоящих из четырех случайных чисел от 1 до 10. Сложите эти два массива. Теперь замените 3ий элемент одного из массивов на <code>NA</code>. Сложите массивы еще раз. Что изменилось? Теперь добавьте элемент равный 100 в начало массива и сложите массивы в третий раз. Что случилось теперь?</p>
 <p><strong>Решение:</strong></p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1">x1 &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dt">x =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">size =</span> <span class="dv">4</span>)</a>
-<a class="sourceLine" id="cb20-2" data-line-number="2">x2 &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dt">x =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">size =</span> <span class="dv">4</span>)</a>
-<a class="sourceLine" id="cb20-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb20-4" data-line-number="4">x1 <span class="op">+</span><span class="st"> </span>x2</a></code></pre></div>
-<pre><code>## [1] 15 15  9 13</code></pre>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1">x1[<span class="dv">3</span>] &lt;-<span class="st"> </span><span class="ot">NA</span></a>
-<a class="sourceLine" id="cb22-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb22-3" data-line-number="3">x1 <span class="op">+</span><span class="st"> </span>x2</a></code></pre></div>
-<pre><code>## [1] 15 15 NA 13</code></pre>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>x1 &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dt">x =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">size =</span> <span class="dv">4</span>)</span>
+<span id="cb20-2"><a href="#cb20-2"></a>x2 &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dt">x =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">size =</span> <span class="dv">4</span>)</span>
+<span id="cb20-3"><a href="#cb20-3"></a></span>
+<span id="cb20-4"><a href="#cb20-4"></a>x1 <span class="op">+</span><span class="st"> </span>x2</span></code></pre></div>
+<pre><code>## [1]  9 14 11 16</code></pre>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>x1[<span class="dv">3</span>] &lt;-<span class="st"> </span><span class="ot">NA</span></span>
+<span id="cb22-2"><a href="#cb22-2"></a></span>
+<span id="cb22-3"><a href="#cb22-3"></a>x1 <span class="op">+</span><span class="st"> </span>x2</span></code></pre></div>
+<pre><code>## [1]  9 14 NA 16</code></pre>
 <p>На 3 месте при сумме появилось <code>NA</code>, так как любая арифметическая операция с <code>NA</code> дает в результате <code>NA</code></p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1">x1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">100</span>, x1)</a>
-<a class="sourceLine" id="cb24-2" data-line-number="2">x1 <span class="op">+</span><span class="st"> </span>x2</a></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a>x1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">100</span>, x1)</span>
+<span id="cb24-2"><a href="#cb24-2"></a>x1 <span class="op">+</span><span class="st"> </span>x2</span></code></pre></div>
 <pre><code>## Warning in x1 + x2: длина большего объекта не является произведением длины
 ## меньшего объекта</code></pre>
-<pre><code>## [1] 106  16  16  NA  16</code></pre>
+<pre><code>## [1] 105  12  12  NA  14</code></pre>
 <p>Появилось предупреждение, так как длины массивов не совпадают.</p>
 </div>
-<div id="-12" class="section level3">
+<div id="задание-12" class="section level3">
 <h3>Задание №12</h3>
 <p>Гонщик движется по кольцевой дороге, длина которой 4км. Сколько кругов он проедет через <span class="math inline">\(n\)</span> метров (<span class="math inline">\(n &gt; 0\)</span>)? Если гонщик не доехал круг, то сколько метров нужно ему еще проехать до финиша?</p>
 <p><strong>Решение:</strong></p>
 <p>Здесь нужно вспомнить, как находить остаток от деления и целую часть</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" data-line-number="1">n &lt;-<span class="st"> </span><span class="dv">5000</span></a>
-<a class="sourceLine" id="cb27-2" data-line-number="2">n<span class="op">%/%</span><span class="dv">4000</span> <span class="co"># сколько кругов</span></a></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a>n &lt;-<span class="st"> </span><span class="dv">5000</span></span>
+<span id="cb27-2"><a href="#cb27-2"></a>n<span class="op">%/%</span><span class="dv">4000</span> <span class="co"># сколько кругов</span></span></code></pre></div>
 <pre><code>## [1] 1</code></pre>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" data-line-number="1">n<span class="op">%%</span><span class="dv">4000</span> <span class="co"># сколько осталось проехать</span></a></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a>n<span class="op">%%</span><span class="dv">4000</span> <span class="co"># сколько осталось проехать</span></span></code></pre></div>
 <pre><code>## [1] 1000</code></pre>
 </div>
-<div id="-13" class="section level3">
+<div id="задание-13" class="section level3">
 <h3>Задание №13</h3>
 <p>Определите, сколько часов (число от 0 до 23) и минут (число от 0 до 59) будут показывать часы через <span class="math inline">\(t\)</span> минут (<span class="math inline">\(t &gt; 0\)</span>) после начала суток.</p>
 <p><strong>Решение:</strong></p>
 <p>Здесь нужно понимать, что если количество минут, которые прошли от начала суток, больше, чем всего минут в сутках, то счетчик минут должен как бы обнуляться, тогда решением будет:</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" data-line-number="1">t &lt;-<span class="st"> </span><span class="dv">1441</span></a>
-<a class="sourceLine" id="cb31-2" data-line-number="2">t <span class="op">%%</span><span class="st"> </span>(<span class="dv">60</span> <span class="op">*</span><span class="st"> </span><span class="dv">24</span>) <span class="op">%/%</span><span class="st"> </span><span class="dv">60</span> <span class="co"># сколько часов</span></a></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a>t &lt;-<span class="st"> </span><span class="dv">1441</span></span>
+<span id="cb31-2"><a href="#cb31-2"></a>t <span class="op">%%</span><span class="st"> </span>(<span class="dv">60</span> <span class="op">*</span><span class="st"> </span><span class="dv">24</span>) <span class="op">%/%</span><span class="st"> </span><span class="dv">60</span> <span class="co"># сколько часов</span></span></code></pre></div>
 <pre><code>## [1] 0</code></pre>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb33-1" data-line-number="1">t <span class="op">%%</span><span class="st"> </span><span class="dv">60</span> <span class="co"># сколько минут</span></a></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a>t <span class="op">%%</span><span class="st"> </span><span class="dv">60</span> <span class="co"># сколько минут</span></span></code></pre></div>
 <pre><code>## [1] 1</code></pre>
 </div>
-<div id="-14" class="section level3">
+<div id="задание-14" class="section level3">
 <h3>Задание №14</h3>
 <p>В университете решили набрать три новых группы для занятий по программированию. В первой группе – <span class="math inline">\(n_1\)</span> человек, во второй – <span class="math inline">\(n_2\)</span>, в третьей – <span class="math inline">\(n_3\)</span>. Сколько нужно будет закупить компьютерных столов для студентов, если известно, что за одним столом могут находиться не более 2х человек и что занятия студентов проходят в одно время?</p>
 <p><strong>Решение:</strong></p>
 <p>Снова задача на знание остатка и целого при делении.</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" data-line-number="1">n1 &lt;-<span class="st"> </span><span class="dv">20</span></a>
-<a class="sourceLine" id="cb35-2" data-line-number="2">n2 &lt;-<span class="st"> </span><span class="dv">14</span></a>
-<a class="sourceLine" id="cb35-3" data-line-number="3">n3 &lt;-<span class="st"> </span><span class="dv">30</span></a>
-<a class="sourceLine" id="cb35-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb35-5" data-line-number="5">(n1 <span class="op">+</span><span class="st"> </span>n2 <span class="op">+</span><span class="st"> </span>n3) <span class="op">%/%</span><span class="st"> </span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span>(n1 <span class="op">+</span><span class="st"> </span>n2 <span class="op">+</span><span class="st"> </span>n3) <span class="op">%%</span><span class="st"> </span><span class="dv">2</span></a></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a>n1 &lt;-<span class="st"> </span><span class="dv">20</span></span>
+<span id="cb35-2"><a href="#cb35-2"></a>n2 &lt;-<span class="st"> </span><span class="dv">14</span></span>
+<span id="cb35-3"><a href="#cb35-3"></a>n3 &lt;-<span class="st"> </span><span class="dv">30</span></span>
+<span id="cb35-4"><a href="#cb35-4"></a></span>
+<span id="cb35-5"><a href="#cb35-5"></a>(n1 <span class="op">+</span><span class="st"> </span>n2 <span class="op">+</span><span class="st"> </span>n3) <span class="op">%/%</span><span class="st"> </span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span>(n1 <span class="op">+</span><span class="st"> </span>n2 <span class="op">+</span><span class="st"> </span>n3) <span class="op">%%</span><span class="st"> </span><span class="dv">2</span></span></code></pre></div>
 <pre><code>## [1] 32</code></pre>
 </div>
 
@@ -1787,7 +1811,7 @@ $(document).ready(function ()  {
       theme: "bootstrap3",
       context: '.toc-content',
       hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
       },
       ignoreSelector: ".toc-ignore",
       scrollTo: 0
