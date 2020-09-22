@@ -257,7 +257,7 @@ a <- 0
 b <- 10
 x <- c(5, -10, 1, 100)
 for (i in 1:length(x)) {
-  if (a < x[i] && x[i] > b) {
+  if (a < x[i] && x[i] < b) {
     print(i)
   }
 }

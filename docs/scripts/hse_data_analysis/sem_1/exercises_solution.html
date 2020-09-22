@@ -1402,6 +1402,14 @@ h6 {
 }
 </style>
 
+<style type="text/css">h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+color: #317eac;
+}</style>
 
 
 
@@ -1694,7 +1702,7 @@ div.tocify {
 <p><strong>Решение:</strong></p>
 <div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>x &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dt">x =</span> <span class="dv">9</span><span class="op">:</span><span class="dv">99</span>, <span class="dt">size =</span> <span class="dv">10</span>)</span>
 <span id="cb18-2"><a href="#cb18-2"></a><span class="kw">sum</span>(x)</span></code></pre></div>
-<pre><code>## [1] 427</code></pre>
+<pre><code>## [1] 511</code></pre>
 <p>Конечно же ответ поменялся: массив же случайный!</p>
 </div>
 <div id="задание-11" class="section level3">
@@ -1705,17 +1713,17 @@ div.tocify {
 <span id="cb20-2"><a href="#cb20-2"></a>x2 &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dt">x =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">size =</span> <span class="dv">4</span>)</span>
 <span id="cb20-3"><a href="#cb20-3"></a></span>
 <span id="cb20-4"><a href="#cb20-4"></a>x1 <span class="op">+</span><span class="st"> </span>x2</span></code></pre></div>
-<pre><code>## [1]  6 12 10 13</code></pre>
+<pre><code>## [1]  9 14 11 16</code></pre>
 <div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>x1[<span class="dv">3</span>] &lt;-<span class="st"> </span><span class="ot">NA</span></span>
 <span id="cb22-2"><a href="#cb22-2"></a></span>
 <span id="cb22-3"><a href="#cb22-3"></a>x1 <span class="op">+</span><span class="st"> </span>x2</span></code></pre></div>
-<pre><code>## [1]  6 12 NA 13</code></pre>
+<pre><code>## [1]  9 14 NA 16</code></pre>
 <p>На 3 месте при сумме появилось <code>NA</code>, так как любая арифметическая операция с <code>NA</code> дает в результате <code>NA</code></p>
 <div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a>x1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">100</span>, x1)</span>
 <span id="cb24-2"><a href="#cb24-2"></a>x1 <span class="op">+</span><span class="st"> </span>x2</span></code></pre></div>
 <pre><code>## Warning in x1 + x2: длина большего объекта не является произведением длины
 ## меньшего объекта</code></pre>
-<pre><code>## [1] 104   4  11  NA  11</code></pre>
+<pre><code>## [1] 105  12  12  NA  14</code></pre>
 <p>Появилось предупреждение, так как длины массивов не совпадают.</p>
 </div>
 <div id="задание-12" class="section level3">
