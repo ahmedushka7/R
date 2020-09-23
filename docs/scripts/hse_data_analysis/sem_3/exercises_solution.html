@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Зарманбетов Ахмед" />
 
 
 <title>Функции: решение заданий</title>
@@ -1264,13 +1262,29 @@ window.buildTabsets = function(tocID) {
 };
 
 </script>
+<script>// Hide empty <a> tag within highlighted CodeBlock for screen reader accessibility (see https://github.com/jgm/pandoc/issues/6352#issuecomment-626106786) -->
+// v0.0.1
+// Written by JooYoung Seo (jooyoung@psu.edu) and Atsushi Yasumoto on June 1st, 2020.
+
+document.addEventListener('DOMContentLoaded', function() {
+  const codeList = document.getElementsByClassName("sourceCode");
+  for (var i = 0; i < codeList.length; i++) {
+    var linkList = codeList[i].getElementsByTagName('a');
+    for (var j = 0; j < linkList.length; j++) {
+      if (linkList[j].innerHTML === "") {
+        linkList[j].setAttribute('aria-hidden', 'true');
+      }
+    }
+  }
+});
+</script>
 
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css" data-origin="pandoc">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -1280,14 +1294,16 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -1296,9 +1312,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -1462,6 +1478,7 @@ summary {
   border: none;
   display: inline-block;
   border-radius: 4px;
+  background-color: transparent;
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li {
@@ -1490,6 +1507,12 @@ summary {
 }
 }
 
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
 
 .toc-content {
   padding-left: 30px;
@@ -1561,181 +1584,180 @@ div.tocify {
 
 
 <h1 class="title toc-ignore">Функции: решение заданий</h1>
-<h4 class="author">Зарманбетов Ахмед</h4>
 
 </div>
 
 
 <hr />
 <p><strong>Все задачи оформляются в виде функции!</strong></p>
-<div id="-1" class="section level3">
+<div id="задание-1" class="section level3">
 <h3>Задание №1</h3>
-<div class="section level4">
+<div id="условие" class="section level4">
 <h4>Условие</h4>
 <p>Даны 2 числа a и b. Нужно вывести на экран значение числа, которое больше.</p>
 </div>
-<div class="section level4">
+<div id="решение" class="section level4">
 <h4>Решение</h4>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1">larger2 &lt;-<span class="st"> </span><span class="cf">function</span>(a, b){</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2">  <span class="cf">if</span> (a <span class="op">&gt;</span><span class="st"> </span>b) {</a>
-<a class="sourceLine" id="cb1-3" data-line-number="3">    <span class="kw">return</span>(a)</a>
-<a class="sourceLine" id="cb1-4" data-line-number="4">  }<span class="cf">else</span>{</a>
-<a class="sourceLine" id="cb1-5" data-line-number="5">    <span class="kw">return</span>(b)</a>
-<a class="sourceLine" id="cb1-6" data-line-number="6">  }</a>
-<a class="sourceLine" id="cb1-7" data-line-number="7">}</a>
-<a class="sourceLine" id="cb1-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb1-9" data-line-number="9"><span class="kw">larger2</span>(<span class="dv">5</span>, <span class="dv">10</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>larger2 &lt;-<span class="st"> </span><span class="cf">function</span>(a, b){</span>
+<span id="cb1-2"><a href="#cb1-2"></a>  <span class="cf">if</span> (a <span class="op">&gt;</span><span class="st"> </span>b) {</span>
+<span id="cb1-3"><a href="#cb1-3"></a>    <span class="kw">return</span>(a)</span>
+<span id="cb1-4"><a href="#cb1-4"></a>  }<span class="cf">else</span>{</span>
+<span id="cb1-5"><a href="#cb1-5"></a>    <span class="kw">return</span>(b)</span>
+<span id="cb1-6"><a href="#cb1-6"></a>  }</span>
+<span id="cb1-7"><a href="#cb1-7"></a>}</span>
+<span id="cb1-8"><a href="#cb1-8"></a></span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="kw">larger2</span>(<span class="dv">5</span>, <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## [1] 10</code></pre>
 </div>
 </div>
-<div id="-2" class="section level3">
+<div id="задание-2" class="section level3">
 <h3>Задание №2</h3>
-<div id="-1" class="section level4">
+<div id="условие-1" class="section level4">
 <h4>Условие</h4>
-<p>Даны 3 числа: a,b и c. Нужно вывести на экран значение числа, которое больше.</p>
+<p>Даны 3 числа: a,b и c. Нужно вывести на экран значение числа, которое больше.</p>
 </div>
-<div id="-1" class="section level4">
+<div id="решение-1" class="section level4">
 <h4>Решение</h4>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">larger3 &lt;-<span class="st"> </span><span class="cf">function</span>(a, b, c){</a>
-<a class="sourceLine" id="cb3-2" data-line-number="2">  <span class="cf">if</span> (a <span class="op">&gt;</span><span class="st"> </span>b) {</a>
-<a class="sourceLine" id="cb3-3" data-line-number="3">    <span class="cf">if</span> (a <span class="op">&gt;</span><span class="st"> </span>c){</a>
-<a class="sourceLine" id="cb3-4" data-line-number="4">      <span class="kw">return</span>(a)</a>
-<a class="sourceLine" id="cb3-5" data-line-number="5">    }<span class="cf">else</span>{</a>
-<a class="sourceLine" id="cb3-6" data-line-number="6">      <span class="kw">return</span>(c)</a>
-<a class="sourceLine" id="cb3-7" data-line-number="7">    }</a>
-<a class="sourceLine" id="cb3-8" data-line-number="8">  }<span class="cf">else</span>{</a>
-<a class="sourceLine" id="cb3-9" data-line-number="9">    <span class="cf">if</span> (b <span class="op">&gt;</span><span class="st"> </span>c){</a>
-<a class="sourceLine" id="cb3-10" data-line-number="10">      <span class="kw">return</span>(b)</a>
-<a class="sourceLine" id="cb3-11" data-line-number="11">    }<span class="cf">else</span>{</a>
-<a class="sourceLine" id="cb3-12" data-line-number="12">      <span class="kw">return</span>(c)</a>
-<a class="sourceLine" id="cb3-13" data-line-number="13">    }</a>
-<a class="sourceLine" id="cb3-14" data-line-number="14">  }</a>
-<a class="sourceLine" id="cb3-15" data-line-number="15">}</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>larger3 &lt;-<span class="st"> </span><span class="cf">function</span>(a, b, c){</span>
+<span id="cb3-2"><a href="#cb3-2"></a>  <span class="cf">if</span> (a <span class="op">&gt;</span><span class="st"> </span>b) {</span>
+<span id="cb3-3"><a href="#cb3-3"></a>    <span class="cf">if</span> (a <span class="op">&gt;</span><span class="st"> </span>c){</span>
+<span id="cb3-4"><a href="#cb3-4"></a>      <span class="kw">return</span>(a)</span>
+<span id="cb3-5"><a href="#cb3-5"></a>    }<span class="cf">else</span>{</span>
+<span id="cb3-6"><a href="#cb3-6"></a>      <span class="kw">return</span>(c)</span>
+<span id="cb3-7"><a href="#cb3-7"></a>    }</span>
+<span id="cb3-8"><a href="#cb3-8"></a>  }<span class="cf">else</span>{</span>
+<span id="cb3-9"><a href="#cb3-9"></a>    <span class="cf">if</span> (b <span class="op">&gt;</span><span class="st"> </span>c){</span>
+<span id="cb3-10"><a href="#cb3-10"></a>      <span class="kw">return</span>(b)</span>
+<span id="cb3-11"><a href="#cb3-11"></a>    }<span class="cf">else</span>{</span>
+<span id="cb3-12"><a href="#cb3-12"></a>      <span class="kw">return</span>(c)</span>
+<span id="cb3-13"><a href="#cb3-13"></a>    }</span>
+<span id="cb3-14"><a href="#cb3-14"></a>  }</span>
+<span id="cb3-15"><a href="#cb3-15"></a>}</span></code></pre></div>
 </div>
 </div>
-<div id="-3" class="section level3">
+<div id="задание-3" class="section level3">
 <h3>Задание №3</h3>
-<div id="-2" class="section level4">
+<div id="условие-2" class="section level4">
 <h4>Условие</h4>
 <p>Задан массив и числа a, b. Вывести все индексы переменных, где выполняется <span class="math inline">\(a &lt; x[i] &lt; b\)</span>.</p>
 </div>
-<div id="-2" class="section level4">
+<div id="решение-2" class="section level4">
 <h4>Решение</h4>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">IN &lt;-<span class="st"> </span><span class="cf">function</span>(x, a, b){</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2">  l &lt;-<span class="st"> </span><span class="kw">c</span>()</a>
-<a class="sourceLine" id="cb4-3" data-line-number="3">  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(x)) {</a>
-<a class="sourceLine" id="cb4-4" data-line-number="4">    <span class="cf">if</span> (a <span class="op">&lt;</span><span class="st"> </span>x[i] <span class="op">&amp;&amp;</span><span class="st"> </span>b <span class="op">&gt;</span><span class="st"> </span>x[i]) {</a>
-<a class="sourceLine" id="cb4-5" data-line-number="5">      l &lt;-<span class="st"> </span><span class="kw">c</span>(l, i)</a>
-<a class="sourceLine" id="cb4-6" data-line-number="6">    }</a>
-<a class="sourceLine" id="cb4-7" data-line-number="7">  }</a>
-<a class="sourceLine" id="cb4-8" data-line-number="8">  <span class="kw">return</span>(l)</a>
-<a class="sourceLine" id="cb4-9" data-line-number="9">}</a>
-<a class="sourceLine" id="cb4-10" data-line-number="10"></a>
-<a class="sourceLine" id="cb4-11" data-line-number="11">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">9</span>, <span class="dv">-5</span>, <span class="dv">4</span>, <span class="dv">12</span>, <span class="dv">7</span>)</a>
-<a class="sourceLine" id="cb4-12" data-line-number="12">a &lt;-<span class="st"> </span><span class="dv">0</span></a>
-<a class="sourceLine" id="cb4-13" data-line-number="13">b &lt;-<span class="st"> </span><span class="dv">10</span></a>
-<a class="sourceLine" id="cb4-14" data-line-number="14"><span class="kw">IN</span>(x, a, b)</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>IN &lt;-<span class="st"> </span><span class="cf">function</span>(x, a, b){</span>
+<span id="cb4-2"><a href="#cb4-2"></a>  l &lt;-<span class="st"> </span><span class="kw">c</span>()</span>
+<span id="cb4-3"><a href="#cb4-3"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(x)) {</span>
+<span id="cb4-4"><a href="#cb4-4"></a>    <span class="cf">if</span> (a <span class="op">&lt;</span><span class="st"> </span>x[i] <span class="op">&amp;&amp;</span><span class="st"> </span>b <span class="op">&gt;</span><span class="st"> </span>x[i]) {</span>
+<span id="cb4-5"><a href="#cb4-5"></a>      l &lt;-<span class="st"> </span><span class="kw">c</span>(l, i)</span>
+<span id="cb4-6"><a href="#cb4-6"></a>    }</span>
+<span id="cb4-7"><a href="#cb4-7"></a>  }</span>
+<span id="cb4-8"><a href="#cb4-8"></a>  <span class="kw">return</span>(l)</span>
+<span id="cb4-9"><a href="#cb4-9"></a>}</span>
+<span id="cb4-10"><a href="#cb4-10"></a></span>
+<span id="cb4-11"><a href="#cb4-11"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">9</span>, <span class="dv">-5</span>, <span class="dv">4</span>, <span class="dv">12</span>, <span class="dv">7</span>)</span>
+<span id="cb4-12"><a href="#cb4-12"></a>a &lt;-<span class="st"> </span><span class="dv">0</span></span>
+<span id="cb4-13"><a href="#cb4-13"></a>b &lt;-<span class="st"> </span><span class="dv">10</span></span>
+<span id="cb4-14"><a href="#cb4-14"></a><span class="kw">IN</span>(x, a, b)</span></code></pre></div>
 <pre><code>## [1] 1 3 5</code></pre>
 </div>
 </div>
-<div id="-4" class="section level3">
+<div id="задание-4" class="section level3">
 <h3>Задание №4</h3>
-<div id="-3" class="section level4">
+<div id="условие-3" class="section level4">
 <h4>Условие</h4>
 <p>Дан массив длинны n, состоящий из одних 0. Вы выбираете рандомное число от 1 до n(с помощью функции sample). Это рандомное число показывает индекс элемента массива, который нужно изменить с 0 на 1. После чего вы опять выбираете рандомное число. Это делается до тех пор пока массив не будет состоять из одних 1. Например: был массив с(0,0,0,0). Выпало рандомное число 3. Теперь массив выглядит так : c(0,0,1,0). Вы продолжаете так делать, пока все нули не исчезнут. Нужно посчитать, сколько раз выбиралось рандомное число.</p>
 </div>
-<div id="-3" class="section level4">
+<div id="решение-3" class="section level4">
 <h4>Решение</h4>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">Com &lt;-<span class="st"> </span><span class="cf">function</span>(n){</a>
-<a class="sourceLine" id="cb6-2" data-line-number="2">  x &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="dv">0</span>, n) </a>
-<a class="sourceLine" id="cb6-3" data-line-number="3">  i &lt;-<span class="st"> </span><span class="dv">0</span> <span class="co"># переменная, отвечающая за количество итераций</span></a>
-<a class="sourceLine" id="cb6-4" data-line-number="4">  <span class="cf">while</span> (<span class="kw">sum</span>(x) <span class="op">!=</span><span class="st"> </span>n) {</a>
-<a class="sourceLine" id="cb6-5" data-line-number="5">    k &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span>n, <span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb6-6" data-line-number="6">    x[k] &lt;-<span class="st"> </span><span class="dv">1</span></a>
-<a class="sourceLine" id="cb6-7" data-line-number="7">    i &lt;-<span class="st"> </span>i <span class="op">+</span><span class="st"> </span><span class="dv">1</span></a>
-<a class="sourceLine" id="cb6-8" data-line-number="8">  }</a>
-<a class="sourceLine" id="cb6-9" data-line-number="9">  <span class="kw">return</span>(i)</a>
-<a class="sourceLine" id="cb6-10" data-line-number="10">}</a>
-<a class="sourceLine" id="cb6-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb6-12" data-line-number="12"><span class="kw">Com</span>(<span class="dv">6</span>)</a></code></pre></div>
-<pre><code>## [1] 12</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>Com &lt;-<span class="st"> </span><span class="cf">function</span>(n){</span>
+<span id="cb6-2"><a href="#cb6-2"></a>  x &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="dv">0</span>, n) </span>
+<span id="cb6-3"><a href="#cb6-3"></a>  i &lt;-<span class="st"> </span><span class="dv">0</span> <span class="co"># переменная, отвечающая за количество итераций</span></span>
+<span id="cb6-4"><a href="#cb6-4"></a>  <span class="cf">while</span> (<span class="kw">sum</span>(x) <span class="op">!=</span><span class="st"> </span>n) {</span>
+<span id="cb6-5"><a href="#cb6-5"></a>    k &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span>n, <span class="dv">1</span>)</span>
+<span id="cb6-6"><a href="#cb6-6"></a>    x[k] &lt;-<span class="st"> </span><span class="dv">1</span></span>
+<span id="cb6-7"><a href="#cb6-7"></a>    i &lt;-<span class="st"> </span>i <span class="op">+</span><span class="st"> </span><span class="dv">1</span></span>
+<span id="cb6-8"><a href="#cb6-8"></a>  }</span>
+<span id="cb6-9"><a href="#cb6-9"></a>  <span class="kw">return</span>(i)</span>
+<span id="cb6-10"><a href="#cb6-10"></a>}</span>
+<span id="cb6-11"><a href="#cb6-11"></a></span>
+<span id="cb6-12"><a href="#cb6-12"></a><span class="kw">Com</span>(<span class="dv">6</span>)</span></code></pre></div>
+<pre><code>## [1] 15</code></pre>
 </div>
 </div>
-<div id="-5" class="section level3">
+<div id="задание-5" class="section level3">
 <h3>Задание №5</h3>
-<div id="-4" class="section level4">
+<div id="условие-4" class="section level4">
 <h4>Условие</h4>
 <p>В чем минус этой функции? Перепишите её.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">sq_or_cu &lt;-<span class="st"> </span><span class="cf">function</span>(x,y){</a>
-<a class="sourceLine" id="cb8-2" data-line-number="2">  <span class="cf">if</span>(y <span class="op">==</span><span class="st"> 'Квадрат'</span>){</a>
-<a class="sourceLine" id="cb8-3" data-line-number="3">    l &lt;-<span class="st"> </span>x<span class="op">^</span><span class="dv">2</span></a>
-<a class="sourceLine" id="cb8-4" data-line-number="4">    <span class="kw">return</span>(l)</a>
-<a class="sourceLine" id="cb8-5" data-line-number="5">  }<span class="cf">else</span>{</a>
-<a class="sourceLine" id="cb8-6" data-line-number="6">    l &lt;-<span class="st"> </span>x<span class="op">^</span><span class="dv">3</span></a>
-<a class="sourceLine" id="cb8-7" data-line-number="7">    <span class="kw">return</span>(l)</a>
-<a class="sourceLine" id="cb8-8" data-line-number="8">  }</a>
-<a class="sourceLine" id="cb8-9" data-line-number="9">}</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>sq_or_cu &lt;-<span class="st"> </span><span class="cf">function</span>(x,y){</span>
+<span id="cb8-2"><a href="#cb8-2"></a>  <span class="cf">if</span>(y <span class="op">==</span><span class="st"> &#39;Квадрат&#39;</span>){</span>
+<span id="cb8-3"><a href="#cb8-3"></a>    l &lt;-<span class="st"> </span>x<span class="op">^</span><span class="dv">2</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a>    <span class="kw">return</span>(l)</span>
+<span id="cb8-5"><a href="#cb8-5"></a>  }<span class="cf">else</span>{</span>
+<span id="cb8-6"><a href="#cb8-6"></a>    l &lt;-<span class="st"> </span>x<span class="op">^</span><span class="dv">3</span></span>
+<span id="cb8-7"><a href="#cb8-7"></a>    <span class="kw">return</span>(l)</span>
+<span id="cb8-8"><a href="#cb8-8"></a>  }</span>
+<span id="cb8-9"><a href="#cb8-9"></a>}</span></code></pre></div>
 </div>
-<div id="-4" class="section level4">
+<div id="решение-4" class="section level4">
 <h4>Решение</h4>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1">sq_or_cu &lt;-<span class="st"> </span><span class="cf">function</span>(x,y){</a>
-<a class="sourceLine" id="cb9-2" data-line-number="2">  <span class="cf">if</span>(y <span class="op">==</span><span class="st"> 'Квадрат'</span>){</a>
-<a class="sourceLine" id="cb9-3" data-line-number="3">    l &lt;-<span class="st"> </span>x<span class="op">^</span><span class="dv">2</span></a>
-<a class="sourceLine" id="cb9-4" data-line-number="4">    <span class="kw">return</span>(l)</a>
-<a class="sourceLine" id="cb9-5" data-line-number="5">  }</a>
-<a class="sourceLine" id="cb9-6" data-line-number="6">  <span class="cf">if</span>(y <span class="op">==</span><span class="st"> 'Куб'</span>){</a>
-<a class="sourceLine" id="cb9-7" data-line-number="7">    l &lt;-<span class="st"> </span>x<span class="op">^</span><span class="dv">3</span></a>
-<a class="sourceLine" id="cb9-8" data-line-number="8">    <span class="kw">return</span>(l)</a>
-<a class="sourceLine" id="cb9-9" data-line-number="9">  }</a>
-<a class="sourceLine" id="cb9-10" data-line-number="10">  <span class="kw">return</span>(<span class="st">'Вы ввели неправильно переменную y!'</span>)</a>
-<a class="sourceLine" id="cb9-11" data-line-number="11">}</a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>sq_or_cu &lt;-<span class="st"> </span><span class="cf">function</span>(x,y){</span>
+<span id="cb9-2"><a href="#cb9-2"></a>  <span class="cf">if</span>(y <span class="op">==</span><span class="st"> &#39;Квадрат&#39;</span>){</span>
+<span id="cb9-3"><a href="#cb9-3"></a>    l &lt;-<span class="st"> </span>x<span class="op">^</span><span class="dv">2</span></span>
+<span id="cb9-4"><a href="#cb9-4"></a>    <span class="kw">return</span>(l)</span>
+<span id="cb9-5"><a href="#cb9-5"></a>  }</span>
+<span id="cb9-6"><a href="#cb9-6"></a>  <span class="cf">if</span>(y <span class="op">==</span><span class="st"> &#39;Куб&#39;</span>){</span>
+<span id="cb9-7"><a href="#cb9-7"></a>    l &lt;-<span class="st"> </span>x<span class="op">^</span><span class="dv">3</span></span>
+<span id="cb9-8"><a href="#cb9-8"></a>    <span class="kw">return</span>(l)</span>
+<span id="cb9-9"><a href="#cb9-9"></a>  }</span>
+<span id="cb9-10"><a href="#cb9-10"></a>  <span class="kw">return</span>(<span class="st">&#39;Вы ввели неправильно переменную y!&#39;</span>)</span>
+<span id="cb9-11"><a href="#cb9-11"></a>}</span></code></pre></div>
 </div>
 </div>
-<div id="-6" class="section level3">
+<div id="задание-6" class="section level3">
 <h3>Задание №6</h3>
-<div id="-5" class="section level4">
+<div id="условие-5" class="section level4">
 <h4>Условие</h4>
 <p>Что можно сказать о следующем коде? Как бы вы его изменилил?</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">f1 &lt;-<span class="st"> </span><span class="cf">function</span>(x){</a>
-<a class="sourceLine" id="cb10-2" data-line-number="2">  <span class="kw">return</span>(x<span class="op">^</span><span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb10-3" data-line-number="3">} </a>
-<a class="sourceLine" id="cb10-4" data-line-number="4">f2 &lt;-<span class="st"> </span><span class="cf">function</span>(x){</a>
-<a class="sourceLine" id="cb10-5" data-line-number="5">  <span class="kw">return</span>(x<span class="op">^</span><span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb10-6" data-line-number="6">} </a>
-<a class="sourceLine" id="cb10-7" data-line-number="7">f3 &lt;-<span class="st"> </span><span class="cf">function</span>(x){</a>
-<a class="sourceLine" id="cb10-8" data-line-number="8">  <span class="kw">return</span>(x<span class="op">^</span><span class="dv">3</span>)</a>
-<a class="sourceLine" id="cb10-9" data-line-number="9">} </a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>f1 &lt;-<span class="st"> </span><span class="cf">function</span>(x){</span>
+<span id="cb10-2"><a href="#cb10-2"></a>  <span class="kw">return</span>(x<span class="op">^</span><span class="dv">1</span>)</span>
+<span id="cb10-3"><a href="#cb10-3"></a>} </span>
+<span id="cb10-4"><a href="#cb10-4"></a>f2 &lt;-<span class="st"> </span><span class="cf">function</span>(x){</span>
+<span id="cb10-5"><a href="#cb10-5"></a>  <span class="kw">return</span>(x<span class="op">^</span><span class="dv">2</span>)</span>
+<span id="cb10-6"><a href="#cb10-6"></a>} </span>
+<span id="cb10-7"><a href="#cb10-7"></a>f3 &lt;-<span class="st"> </span><span class="cf">function</span>(x){</span>
+<span id="cb10-8"><a href="#cb10-8"></a>  <span class="kw">return</span>(x<span class="op">^</span><span class="dv">3</span>)</span>
+<span id="cb10-9"><a href="#cb10-9"></a>} </span></code></pre></div>
 </div>
-<div id="-5" class="section level4">
+<div id="решение-5" class="section level4">
 <h4>Решение</h4>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1">f &lt;-<span class="st"> </span><span class="cf">function</span>(x, n){</a>
-<a class="sourceLine" id="cb11-2" data-line-number="2">  <span class="kw">return</span>(x<span class="op">^</span>n)</a>
-<a class="sourceLine" id="cb11-3" data-line-number="3">}</a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>f &lt;-<span class="st"> </span><span class="cf">function</span>(x, n){</span>
+<span id="cb11-2"><a href="#cb11-2"></a>  <span class="kw">return</span>(x<span class="op">^</span>n)</span>
+<span id="cb11-3"><a href="#cb11-3"></a>}</span></code></pre></div>
 </div>
 </div>
-<div id="-7" class="section level3">
+<div id="задание-7" class="section level3">
 <h3>Задание №7</h3>
-<div id="-6" class="section level4">
+<div id="условие-6" class="section level4">
 <h4>Условие</h4>
 <p>Написать рекурсивную функцию для нахождения факториала.</p>
 </div>
-<div id="-6" class="section level4">
+<div id="решение-6" class="section level4">
 <h4>Решение</h4>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1">FACT &lt;-<span class="st"> </span><span class="cf">function</span>(n){</a>
-<a class="sourceLine" id="cb12-2" data-line-number="2">  <span class="cf">if</span> (n <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) {</a>
-<a class="sourceLine" id="cb12-3" data-line-number="3">    <span class="kw">return</span>(<span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb12-4" data-line-number="4">  }</a>
-<a class="sourceLine" id="cb12-5" data-line-number="5">  k &lt;-<span class="st"> </span><span class="kw">FACT</span>(n<span class="dv">-1</span>)</a>
-<a class="sourceLine" id="cb12-6" data-line-number="6">  <span class="kw">return</span>(k<span class="op">*</span>n)</a>
-<a class="sourceLine" id="cb12-7" data-line-number="7">}</a>
-<a class="sourceLine" id="cb12-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb12-9" data-line-number="9"><span class="kw">FACT</span>(<span class="dv">5</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>FACT &lt;-<span class="st"> </span><span class="cf">function</span>(n){</span>
+<span id="cb12-2"><a href="#cb12-2"></a>  <span class="cf">if</span> (n <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) {</span>
+<span id="cb12-3"><a href="#cb12-3"></a>    <span class="kw">return</span>(<span class="dv">1</span>)</span>
+<span id="cb12-4"><a href="#cb12-4"></a>  }</span>
+<span id="cb12-5"><a href="#cb12-5"></a>  k &lt;-<span class="st"> </span><span class="kw">FACT</span>(n<span class="dv">-1</span>)</span>
+<span id="cb12-6"><a href="#cb12-6"></a>  <span class="kw">return</span>(k<span class="op">*</span>n)</span>
+<span id="cb12-7"><a href="#cb12-7"></a>}</span>
+<span id="cb12-8"><a href="#cb12-8"></a></span>
+<span id="cb12-9"><a href="#cb12-9"></a><span class="kw">FACT</span>(<span class="dv">5</span>)</span></code></pre></div>
 <pre><code>## [1] 120</code></pre>
 </div>
 </div>
-<div id="-8" class="section level3">
+<div id="задание-8" class="section level3">
 <h3>Задание №8</h3>
-<div id="-7" class="section level4">
+<div id="условие-7" class="section level4">
 <h4>Условие</h4>
 <p>Давайте создадим функцию для игры. Есть принц, на старте игры у него есть <code>h</code> здоровья. Его цель – забраться по лестнице на башню, где находится принцесса, которую нужно спасти от великана. Количество ступенек равно <code>m</code>. Двигается он по одной ступеньке вверх. Но с каждым продвижением наверх с вероятностью <code>p</code> его бьет по голове великан и герой теряет <code>z</code> здоровья и остается на прежней ступеньке. Нужно понять, сможет ли принц забраться на башню. Это означает, что принц должен забраться на башню и остаться живым.</p>
 <p>Hints:</p>
@@ -1743,48 +1765,48 @@ div.tocify {
 <li><p>Сколько параметров идет на вход?</p></li>
 <li><p>Чтобы замоделировать удар можно воспользоваться функцией <code>sample</code>, у которой есть параметр <code>prob</code>. Например можно бросить монетку, у которой вероятность выпадения орла равна 0.7.</p></li>
 </ul>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1">m &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="st">'Орел'</span>, <span class="st">'Решка'</span>), <span class="dt">size =</span> <span class="dv">1</span>, <span class="dt">prob =</span> <span class="kw">c</span>(<span class="fl">0.7</span>, <span class="fl">0.3</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>m &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="st">&#39;Орел&#39;</span>, <span class="st">&#39;Решка&#39;</span>), <span class="dt">size =</span> <span class="dv">1</span>, <span class="dt">prob =</span> <span class="kw">c</span>(<span class="fl">0.7</span>, <span class="fl">0.3</span>))</span></code></pre></div>
 <ul>
 <li><p>Задача циклична. Мы знаем два цикла: <code>for</code> и <code>while</code>. Знаем ли мы сколько придется делать итераций? От этого ответа и зависит выбор.</p></li>
 <li><p>Пробуйте принтовать ваши параметры во время игры. Чтобы сделать это красиво, используйте функцию <code>paste</code>.</p></li>
 <li><p>Можно медленно наблюдать за ходом игры с помощью функции <code>readline()</code>. Это нужно, чтобы подобрать такие параметры, с которыми игра будет всегда разной.</p></li>
 </ul>
 </div>
-<div id="-7" class="section level4">
+<div id="решение-7" class="section level4">
 <h4>Решение</h4>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1">prinz &lt;-<span class="st"> </span><span class="cf">function</span>(h, m, p, z) {</a>
-<a class="sourceLine" id="cb15-2" data-line-number="2">  current &lt;-<span class="st"> </span><span class="dv">0</span></a>
-<a class="sourceLine" id="cb15-3" data-line-number="3">  <span class="cf">while</span> (h <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span> <span class="op">&amp;&amp;</span><span class="st"> </span>current <span class="op">&lt;</span><span class="st"> </span>m) {</a>
-<a class="sourceLine" id="cb15-4" data-line-number="4">    kick &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">'Ударил :('</span>, <span class="st">'Не ударил :)'</span>), <span class="dt">size =</span> <span class="dv">1</span>, <span class="dt">prob =</span> <span class="kw">c</span>(p, <span class="dv">1</span><span class="op">-</span>p))</a>
-<a class="sourceLine" id="cb15-5" data-line-number="5">    <span class="co"># print(kick)</span></a>
-<a class="sourceLine" id="cb15-6" data-line-number="6">    <span class="cf">if</span> (kick <span class="op">==</span><span class="st"> 'Ударил :('</span>) {</a>
-<a class="sourceLine" id="cb15-7" data-line-number="7">      h &lt;-<span class="st"> </span>h <span class="op">-</span><span class="st"> </span>z</a>
-<a class="sourceLine" id="cb15-8" data-line-number="8">      <span class="cf">if</span> (current <span class="op">!=</span><span class="st"> </span><span class="dv">0</span>) {</a>
-<a class="sourceLine" id="cb15-9" data-line-number="9">        current &lt;-<span class="st"> </span>current <span class="op">-</span><span class="st"> </span><span class="dv">1</span></a>
-<a class="sourceLine" id="cb15-10" data-line-number="10">      }</a>
-<a class="sourceLine" id="cb15-11" data-line-number="11">    }<span class="cf">else</span>{</a>
-<a class="sourceLine" id="cb15-12" data-line-number="12">      current &lt;-<span class="st"> </span>current <span class="op">+</span><span class="st"> </span><span class="dv">1</span></a>
-<a class="sourceLine" id="cb15-13" data-line-number="13">    }</a>
-<a class="sourceLine" id="cb15-14" data-line-number="14">    <span class="co"># print(paste('Здоровья осталось', h))</span></a>
-<a class="sourceLine" id="cb15-15" data-line-number="15">    <span class="co"># print(paste('Ступенька', current))</span></a>
-<a class="sourceLine" id="cb15-16" data-line-number="16">    <span class="co"># print('--------------------')</span></a>
-<a class="sourceLine" id="cb15-17" data-line-number="17">    <span class="co"># readline('Нажмите Enter:')</span></a>
-<a class="sourceLine" id="cb15-18" data-line-number="18">  }</a>
-<a class="sourceLine" id="cb15-19" data-line-number="19"></a>
-<a class="sourceLine" id="cb15-20" data-line-number="20">  <span class="cf">if</span> (h <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>){</a>
-<a class="sourceLine" id="cb15-21" data-line-number="21">    <span class="kw">return</span>(<span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb15-22" data-line-number="22">  }<span class="cf">else</span>{</a>
-<a class="sourceLine" id="cb15-23" data-line-number="23">    <span class="kw">return</span>(<span class="dv">0</span>)</a>
-<a class="sourceLine" id="cb15-24" data-line-number="24">  }</a>
-<a class="sourceLine" id="cb15-25" data-line-number="25">}</a>
-<a class="sourceLine" id="cb15-26" data-line-number="26"></a>
-<a class="sourceLine" id="cb15-27" data-line-number="27"><span class="kw">prinz</span>(<span class="dv">100</span>, <span class="dv">50</span>, <span class="fl">0.25</span>, <span class="dv">5</span>) <span class="co"># хорошие параметры</span></a></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>prinz &lt;-<span class="st"> </span><span class="cf">function</span>(h, m, p, z) {</span>
+<span id="cb15-2"><a href="#cb15-2"></a>  current &lt;-<span class="st"> </span><span class="dv">0</span></span>
+<span id="cb15-3"><a href="#cb15-3"></a>  <span class="cf">while</span> (h <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span> <span class="op">&amp;&amp;</span><span class="st"> </span>current <span class="op">&lt;</span><span class="st"> </span>m) {</span>
+<span id="cb15-4"><a href="#cb15-4"></a>    kick &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&#39;Ударил :(&#39;</span>, <span class="st">&#39;Не ударил :)&#39;</span>), <span class="dt">size =</span> <span class="dv">1</span>, <span class="dt">prob =</span> <span class="kw">c</span>(p, <span class="dv">1</span><span class="op">-</span>p))</span>
+<span id="cb15-5"><a href="#cb15-5"></a>    <span class="co"># print(kick)</span></span>
+<span id="cb15-6"><a href="#cb15-6"></a>    <span class="cf">if</span> (kick <span class="op">==</span><span class="st"> &#39;Ударил :(&#39;</span>) {</span>
+<span id="cb15-7"><a href="#cb15-7"></a>      h &lt;-<span class="st"> </span>h <span class="op">-</span><span class="st"> </span>z</span>
+<span id="cb15-8"><a href="#cb15-8"></a>      <span class="cf">if</span> (current <span class="op">!=</span><span class="st"> </span><span class="dv">0</span>) {</span>
+<span id="cb15-9"><a href="#cb15-9"></a>        current &lt;-<span class="st"> </span>current <span class="op">-</span><span class="st"> </span><span class="dv">1</span></span>
+<span id="cb15-10"><a href="#cb15-10"></a>      }</span>
+<span id="cb15-11"><a href="#cb15-11"></a>    }<span class="cf">else</span>{</span>
+<span id="cb15-12"><a href="#cb15-12"></a>      current &lt;-<span class="st"> </span>current <span class="op">+</span><span class="st"> </span><span class="dv">1</span></span>
+<span id="cb15-13"><a href="#cb15-13"></a>    }</span>
+<span id="cb15-14"><a href="#cb15-14"></a>    <span class="co"># print(paste(&#39;Здоровья осталось&#39;, h))</span></span>
+<span id="cb15-15"><a href="#cb15-15"></a>    <span class="co"># print(paste(&#39;Ступенька&#39;, current))</span></span>
+<span id="cb15-16"><a href="#cb15-16"></a>    <span class="co"># print(&#39;--------------------&#39;)</span></span>
+<span id="cb15-17"><a href="#cb15-17"></a>    <span class="co"># readline(&#39;Нажмите Enter:&#39;)</span></span>
+<span id="cb15-18"><a href="#cb15-18"></a>  }</span>
+<span id="cb15-19"><a href="#cb15-19"></a></span>
+<span id="cb15-20"><a href="#cb15-20"></a>  <span class="cf">if</span> (h <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>){</span>
+<span id="cb15-21"><a href="#cb15-21"></a>    <span class="kw">return</span>(<span class="dv">1</span>)</span>
+<span id="cb15-22"><a href="#cb15-22"></a>  }<span class="cf">else</span>{</span>
+<span id="cb15-23"><a href="#cb15-23"></a>    <span class="kw">return</span>(<span class="dv">0</span>)</span>
+<span id="cb15-24"><a href="#cb15-24"></a>  }</span>
+<span id="cb15-25"><a href="#cb15-25"></a>}</span>
+<span id="cb15-26"><a href="#cb15-26"></a></span>
+<span id="cb15-27"><a href="#cb15-27"></a><span class="kw">prinz</span>(<span class="dv">100</span>, <span class="dv">50</span>, <span class="fl">0.25</span>, <span class="dv">5</span>) <span class="co"># хорошие параметры</span></span></code></pre></div>
 <pre><code>## [1] 0</code></pre>
 </div>
 </div>
-<div id="-9" class="section level3">
+<div id="задание-9" class="section level3">
 <h3>Задание №9</h3>
-<div id="-8" class="section level4">
+<div id="условие-8" class="section level4">
 <h4>Условие</h4>
 <p>Решив предыдущую задачу, вы создали функцию, которая отвечает на вопрос: “Выиграл ли принц?”. Запустив при некотрых параметрах эту функцию несколько раз, вы будете получать разные результаты. Как оценить вероятность того, что принц сможет спасти принцессу? В этом нам поможет давно знакомая нам формула:</p>
 <p><span class="math display">\[
@@ -1796,14 +1818,14 @@ P = \frac{m}{n},
 <li>Сыграйте в игру например 100 раз. Для этого вам понадобится цикл :)</li>
 </ul>
 </div>
-<div id="-8" class="section level4">
+<div id="решение-8" class="section level4">
 <h4>Решение</h4>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1">n &lt;-<span class="st"> </span><span class="dv">100</span> <span class="co"># количество игр</span></a>
-<a class="sourceLine" id="cb17-2" data-line-number="2">m &lt;-<span class="st"> </span><span class="dv">0</span> <span class="co"># </span></a>
-<a class="sourceLine" id="cb17-3" data-line-number="3"><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>n) {</a>
-<a class="sourceLine" id="cb17-4" data-line-number="4">  m &lt;-<span class="st"> </span>m <span class="op">+</span><span class="st"> </span><span class="kw">prinz</span>(<span class="dv">100</span>, <span class="dv">50</span>, <span class="fl">0.25</span>, <span class="dv">5</span>) <span class="co"># функция равна 1(победа) или 0(проигрыш)</span></a>
-<a class="sourceLine" id="cb17-5" data-line-number="5">}</a>
-<a class="sourceLine" id="cb17-6" data-line-number="6"><span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;Вероятность победы:&quot;</span>, m<span class="op">/</span>n))</a></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a>n &lt;-<span class="st"> </span><span class="dv">100</span> <span class="co"># количество игр</span></span>
+<span id="cb17-2"><a href="#cb17-2"></a>m &lt;-<span class="st"> </span><span class="dv">0</span> <span class="co"># </span></span>
+<span id="cb17-3"><a href="#cb17-3"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>n) {</span>
+<span id="cb17-4"><a href="#cb17-4"></a>  m &lt;-<span class="st"> </span>m <span class="op">+</span><span class="st"> </span><span class="kw">prinz</span>(<span class="dv">100</span>, <span class="dv">50</span>, <span class="fl">0.25</span>, <span class="dv">5</span>) <span class="co"># функция равна 1(победа) или 0(проигрыш)</span></span>
+<span id="cb17-5"><a href="#cb17-5"></a>}</span>
+<span id="cb17-6"><a href="#cb17-6"></a><span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;Вероятность победы:&quot;</span>, m<span class="op">/</span>n))</span></code></pre></div>
 <pre><code>## [1] &quot;Вероятность победы: 0.28&quot;</code></pre>
 </div>
 </div>
@@ -1858,7 +1880,7 @@ $(document).ready(function ()  {
       theme: "bootstrap3",
       context: '.toc-content',
       hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
       },
       ignoreSelector: ".toc-ignore",
       scrollTo: 0
