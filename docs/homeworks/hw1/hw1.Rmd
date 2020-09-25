@@ -11,6 +11,7 @@ editor_options:
 ---
 ---
 
+
 ![](pictures/mem.png)
 
 ### Правила игры
