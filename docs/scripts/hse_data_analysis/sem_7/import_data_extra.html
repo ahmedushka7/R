@@ -1673,13 +1673,13 @@ data &lt;- read\_excel(&quot;data.xlsx&quot;, sheet = &quot;my\_sheet&quot;, col
 <p>Файл с расширением *.xls — это формат всех файлов версии Excel 2003 и раньше. Он имеет меньше возможностей, работает медленнее.</p>
 <p>Файл с расширением *.xlsx — это формат подавляющего большинства файлов Excel на настоящий момент, используется начиная с версии Microsoft Office 2007.</p>
 <div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a>data &lt;-<span class="st"> </span><span class="kw">read.xls</span>(path)</span></code></pre></div>
-<pre><code>## Error in xls2sep(xls, sheet, verbose = verbose, ..., method = method, : Intermediate file &#39;/var/folders/yg/vflc3lc17m7d29qfq34cj8vr0000gn/T//Rtmp3515Z7/file37f17e1f4a2.csv&#39; missing!</code></pre>
+<pre><code>## Error in xls2sep(xls, sheet, verbose = verbose, ..., method = method, : Intermediate file &#39;/var/folders/yg/vflc3lc17m7d29qfq34cj8vr0000gn/T//Rtmp6f3Ksr/file4ee4939a4cf.csv&#39; missing!</code></pre>
 <pre><code>## Error in file.exists(tfn): неправильный аргумент &#39;file&#39;</code></pre>
 <p>Работает через read.csv , следовательно параметры такие же как и там:</p>
 <div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a>data &lt;-<span class="st"> </span><span class="kw">read.xls</span>(path, <span class="dt">sheet =</span> <span class="dv">2</span>,</span>
 <span id="cb29-2"><a href="#cb29-2"></a>                      <span class="dt">skip =</span> <span class="dv">50</span>, <span class="dt">header =</span> <span class="ot">FALSE</span>, <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>,</span>
 <span id="cb29-3"><a href="#cb29-3"></a>                      <span class="dt">col.names =</span> <span class="kw">c</span>(<span class="st">&#39;Date&#39;</span>, <span class="st">&#39;USD/RUB&#39;</span>))</span></code></pre></div>
-<pre><code>## Error in xls2sep(xls, sheet, verbose = verbose, ..., method = method, : Intermediate file &#39;/var/folders/yg/vflc3lc17m7d29qfq34cj8vr0000gn/T//Rtmp3515Z7/file37f4fb437da.csv&#39; missing!</code></pre>
+<pre><code>## Error in xls2sep(xls, sheet, verbose = verbose, ..., method = method, : Intermediate file &#39;/var/folders/yg/vflc3lc17m7d29qfq34cj8vr0000gn/T//Rtmp6f3Ksr/file4ee3d46cf90.csv&#39; missing!</code></pre>
 <pre><code>## Error in file.exists(tfn): неправильный аргумент &#39;file&#39;</code></pre>
 </div>
 </div>
