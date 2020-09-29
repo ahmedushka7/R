@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Зарманбетов Ахмед" />
 
 
 <title>Импорт данных: задания</title>
@@ -190,13 +188,29 @@ window.buildTabsets = function(tocID) {
 };
 
 </script>
+<script>// Hide empty <a> tag within highlighted CodeBlock for screen reader accessibility (see https://github.com/jgm/pandoc/issues/6352#issuecomment-626106786) -->
+// v0.0.1
+// Written by JooYoung Seo (jooyoung@psu.edu) and Atsushi Yasumoto on June 1st, 2020.
+
+document.addEventListener('DOMContentLoaded', function() {
+  const codeList = document.getElementsByClassName("sourceCode");
+  for (var i = 0; i < codeList.length; i++) {
+    var linkList = codeList[i].getElementsByTagName('a');
+    for (var j = 0; j < linkList.length; j++) {
+      if (linkList[j].innerHTML === "") {
+        linkList[j].setAttribute('aria-hidden', 'true');
+      }
+    }
+  }
+});
+</script>
 
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css" data-origin="pandoc">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -206,14 +220,16 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -222,9 +238,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -388,6 +404,7 @@ summary {
   border: none;
   display: inline-block;
   border-radius: 4px;
+  background-color: transparent;
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li {
@@ -420,15 +437,14 @@ summary {
 
 
 <h1 class="title toc-ignore">Импорт данных: задания</h1>
-<h4 class="author">Зарманбетов Ахмед</h4>
 
 </div>
 
 
 <hr />
-<div class="section level3">
+<div id="задание" class="section level3">
 <h3>Задание</h3>
-<p>Будем работать с набором данных, в котором находится информация о футбольных матча немецкой высшей лиги (бундеслиги). Будем работать с файлом <em>bundesliga_bad.csv</em>.</p>
+<p>Будем работать с набором данных, в котором находится информация о футбольных матчах немецкой высшей лиги (бундеслиги). Будем работать с файлом <em>bundesliga_bad.csv</em>.</p>
 <p>Задание на импорт:</p>
 <ol style="list-style-type: decimal">
 <li>Давайте подгрузим этот файл вслепую. Что получилось? Возникли ли какие-то проблемы?</li>
@@ -447,17 +463,17 @@ summary {
 <li>Как выбрать 10 случайных матчей?</li>
 <li>Нарисуйте гистограмму голов хозяев и голов гостей. Используйте функцию <code>geom_bar()</code>. Мы еще особо не знакомы с визуализацией. Но давайте попробуем нарисовать следующий график.</li>
 </ol>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># install.packages('tidyr')</span></a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="co"># install.packages('ggplot2')</span></a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw">library</span>(tidyr)</a>
-<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="kw">library</span>(ggplot2)</a>
-<a class="sourceLine" id="cb1-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb1-6" data-line-number="6">foot <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="st">  </span><span class="kw">gather</span>(<span class="st">'Who'</span>, <span class="st">'Goals'</span>,  <span class="kw">c</span>(<span class="st">'HomeGoals'</span>, <span class="st">'AwayGoals'</span>)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">factor</span>(Goals), <span class="dt">fill =</span> Who)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb1-9" data-line-number="9"><span class="st">    </span><span class="kw">geom_bar</span>(<span class="dt">position=</span><span class="kw">position_dodge</span>()) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb1-10" data-line-number="10"><span class="st">    </span><span class="kw">xlab</span>(<span class="st">'Goals'</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb1-11" data-line-number="11"><span class="st">    </span><span class="kw">ylab</span>(<span class="st">'Count'</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># install.packages(&#39;tidyr&#39;)</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="co"># install.packages(&#39;ggplot2&#39;)</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="kw">library</span>(tidyr)</span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb1-5"><a href="#cb1-5"></a></span>
+<span id="cb1-6"><a href="#cb1-6"></a>foot <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="st">  </span><span class="kw">gather</span>(<span class="st">&#39;Who&#39;</span>, <span class="st">&#39;Goals&#39;</span>,  <span class="kw">c</span>(<span class="st">&#39;HomeGoals&#39;</span>, <span class="st">&#39;AwayGoals&#39;</span>)) <span class="op">%&gt;%</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">factor</span>(Goals), <span class="dt">fill =</span> Who)) <span class="op">+</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="st">    </span><span class="kw">geom_bar</span>(<span class="dt">position=</span><span class="kw">position_dodge</span>()) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb1-10"><a href="#cb1-10"></a><span class="st">    </span><span class="kw">xlab</span>(<span class="st">&#39;Goals&#39;</span>) <span class="op">+</span></span>
+<span id="cb1-11"><a href="#cb1-11"></a><span class="st">    </span><span class="kw">ylab</span>(<span class="st">&#39;Count&#39;</span>)</span></code></pre></div>
 <ol start="10" style="list-style-type: decimal">
 <li>Какая команда побеждала чаще всего? Сколько раз она победила?</li>
 </ol>

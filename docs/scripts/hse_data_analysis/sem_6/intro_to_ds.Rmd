@@ -1,6 +1,5 @@
 ---
 title: "Введение в анализ данных"
-author: "Зарманбетов Ахмед"
 output: 
   html_document:
     toc: TRUE

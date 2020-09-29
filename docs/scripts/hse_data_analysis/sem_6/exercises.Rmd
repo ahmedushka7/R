@@ -1,6 +1,5 @@
 ---
 title: "Введение в анализ данных: задания"
-author: "Копылов Валентин"
 output: 
   html_document:
     toc: TRUE
