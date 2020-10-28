@@ -61,7 +61,7 @@ __Правила игры:__
   <tr>
     <td> 4 </td>
     <td> Контрольная работа </td>
-    <td> <a href="" target="_blank"> Условия задач и материалы </a> </td>
+    <td> <a href="https://ahmedushka7.github.io/R/homeworks/test/test.html" target="_blank"> Условия задач и материалы </a> </td>
     <td> <a href="" target="_blank"> Решение задач </a> </td>
     <td> NA </td>
     <td> NA </td>
