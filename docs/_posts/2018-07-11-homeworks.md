@@ -21,9 +21,8 @@ __Правила игры:__
 
 ### Таблица результатов
 
-<!---  
-Результаты домашек будут в гугл-таблице по [ссылке]().
--->
+
+Результаты домашек будут в гугл-таблице по [ссылке](https://docs.google.com/spreadsheets/d/1qqfNjf907pzl_51VZNprE1cHxlN7RV7B8kkuvlC4nJQ/edit?usp=sharing).
 
 <table id="t01">
   <tr>
