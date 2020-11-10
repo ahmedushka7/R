@@ -15,12 +15,13 @@ knitr::opts_chunk$set(echo = TRUE)
 ## Приготовим пакетики
 
 ```{r warning=FALSE, message=FALSE}
-packages <- c("httr", "dplyr", "tidyr", "rlist")
+packages <- c("httr", "dplyr", "tidyr", "rlist", "stringr")
 # install.packages(packages)
 library(httr)
 library(dplyr)
 library(tidyr)
 library(rlist)
+library(stringr)
 ```
 
 ## Application Programming Interfaces
@@ -262,24 +263,23 @@ df %>%
 
 Давайте попробуем решить следуюущую задачу. Нам нужно найти все пары людей из моих друзей, которые дружат друг с другом. Если мы соберем такой датасет, то сможем построить граф.
 
-```{r eval=FALSE}
+```{r}
 params <- list(fields = "first_name,last_name")
 con <- get_method(method = "friends.get", token = token, params = params)
 df <- to_df(con, 73614108, "Зарманбетов Ахмед")
 df %>% head()
 ```
 
-```{r eval=FALSE}
+```{r}
 my_friends <- df$id
 names(my_friends) <- df$name
 my_friends[1]
 names(my_friends[1])
 ```
 
-```{r eval=FALSE}
+```{r cache=TRUE}
 for (i in 1:length(my_friends)) {
-  print(i)
-  Sys.sleep(0.5)
+  Sys.sleep(0.25)
   params <- list(user_id = my_friends[i], fields = "name")
   con <- get_method(method = "friends.get", token = token, params = params)
   friend_df <- to_df(con, my_friends[i], names(my_friends[i])) %>%
@@ -289,7 +289,7 @@ for (i in 1:length(my_friends)) {
 }
 ```
 
-```{r}
+```{r warning=FALSE, message=FALSE}
 library(igraph)
 ```
 
@@ -300,16 +300,8 @@ plot(graph_vk)
 ```
 
 ```{r}
-plot(graph_vk, vertex.label.cex = 2, vertex.size = 3, vertex.label = str_replace(V(graph_vk)$name, " ", "\n "))
-```
-
-```{r}
 size <- 10000
 png('vk_graph.png', width = size, height = size)
 plot(graph_vk, vertex.label.cex = 2, vertex.size = 3, vertex.label = str_replace(V(graph_vk)$name, " ", "\n "))
 dev.off()
 ```
-
-
-
-
