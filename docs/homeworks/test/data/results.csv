@@ -1,0 +1,65 @@
+date,home_team,away_team,home_score,away_score,city
+2018-06-14,Russia,Saudi Arabia,5,0,Moscow
+2018-06-15,Egypt,Uruguay,0,1,Ekaterinburg
+2018-06-15,Morocco,Iran,0,1,St. Petersburg
+2018-06-15,Portugal,Spain,3,3,Sochi
+2018-06-16,France,Australia,2,1,Kazan
+2018-06-16,Argentina,Iceland,1,1,Moscow
+2018-06-16,Peru,Denmark,0,1,Saransk
+2018-06-16,Croatia,Nigeria,2,0,Kaliningrad
+2018-06-17,Costa Rica,Serbia,0,1,Samara
+2018-06-17,Germany,Mexico,0,1,Moscow
+2018-06-17,Brazil,Switzerland,1,1,Rostov-on-Don
+2018-06-18,Sweden,South Korea,1,0,Nizhny Novgorod
+2018-06-18,Belgium,Panama,3,0,Sochi
+2018-06-18,Tunisia,England,1,2,Volgograd
+2018-06-19,Colombia,Japan,1,2,Saransk
+2018-06-19,Poland,Senegal,1,2,Moscow
+2018-06-19,Russia,Egypt,3,1,St. Petersburg
+2018-06-20,Portugal,Morocco,1,0,Moscow
+2018-06-20,Uruguay,Saudi Arabia,1,0,Rostov-on-Don
+2018-06-20,Iran,Spain,0,1,Kazan
+2018-06-21,Denmark,Australia,1,1,Samara
+2018-06-21,France,Peru,1,0,Ekaterinburg
+2018-06-21,Argentina,Croatia,0,3,Nizhny Novgorod
+2018-06-22,Brazil,Costa Rica,2,0,St. Petersburg
+2018-06-22,Nigeria,Iceland,2,0,Volgograd
+2018-06-22,Serbia,Switzerland,1,2,Kaliningrad
+2018-06-23,Belgium,Tunisia,5,2,Moscow
+2018-06-23,South Korea,Mexico,1,2,Rostov-on-Don
+2018-06-23,Germany,Sweden,2,1,Sochi
+2018-06-24,England,Panama,6,1,Nizhny Novgorod
+2018-06-24,Japan,Senegal,2,2,Ekaterinburg
+2018-06-24,Poland,Colombia,0,3,Kazan
+2018-06-25,Russia,Uruguay,0,3,Samara
+2018-06-25,Saudi Arabia,Egypt,2,1,Volgograd
+2018-06-25,Spain,Morocco,2,2,Kaliningrad
+2018-06-25,Iran,Portugal,1,1,Saransk
+2018-06-26,Australia,Peru,0,2,Sochi
+2018-06-26,Denmark,France,0,0,Moscow
+2018-06-26,Nigeria,Argentina,1,2,St. Petersburg
+2018-06-26,Iceland,Croatia,1,2,Rostov-on-Don
+2018-06-27,South Korea,Germany,2,0,Kazan
+2018-06-27,Mexico,Sweden,0,3,Ekaterinburg
+2018-06-27,Serbia,Brazil,0,2,Moscow
+2018-06-27,Switzerland,Costa Rica,2,2,Nizhny Novgorod
+2018-06-28,Japan,Poland,0,1,Volgograd
+2018-06-28,Senegal,Colombia,0,1,Samara
+2018-06-28,Panama,Tunisia,1,2,Saransk
+2018-06-28,England,Belgium,0,1,Kaliningrad
+2018-06-30,France,Argentina,4,3,Kazan
+2018-06-30,Uruguay,Portugal,2,1,Sochi
+2018-07-01,Russia,Spain,1,1,Moscow
+2018-07-01,Croatia,Denmark,1,1,Nizhny Novgorod
+2018-07-02,Brazil,Mexico,2,0,Samara
+2018-07-02,Belgium,Japan,3,2,Rostov-on-Don
+2018-07-03,Sweden,Switzerland,1,0,St. Petersburg
+2018-07-03,Colombia,England,1,1,Moscow
+2018-07-06,Uruguay,France,0,2,Nizhny Novgorod
+2018-07-06,Brazil,Belgium,1,2,Kazan
+2018-07-07,Sweden,England,0,2,Samara
+2018-07-07,Russia,Croatia,2,2,Sochi
+2018-07-10,France,Belgium,1,0,St. Petersburg
+2018-07-11,Croatia,England,2,1,Moscow
+2018-07-14,Belgium,England,2,0,St. Petersburg
+2018-07-15,France,Croatia,4,2,Moscow
