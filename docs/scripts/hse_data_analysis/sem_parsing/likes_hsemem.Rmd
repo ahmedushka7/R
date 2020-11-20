@@ -1,0 +1,113 @@
+---
+title: "Собираем лайки с постов"
+output: 
+  html_document:
+    toc: TRUE
+    toc_float: TRUE
+    toc_depth: 4
+    highlight: pygments
+    #df_print: paged
+editor_options: 
+  chunk_output_type: console
+---
+<style>
+h1,
+h2,
+h3,
+h4,
+h5,
+h6  {
+  color: #317eac;
+}
+</style>
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE, error = TRUE, eval = FALSE)
+```
+
+Подгрузим пакеты
+
+```{r}
+# install.packages(с('rvest', 'dplyr', 'ggplot2', 'tibble', 'stringr'))
+library(rvest)
+library(dplyr)
+library(ggplot2)
+library(tibble)
+library(stringr)
+```
+
+```{r eval=FALSE}
+# здесь вы подгружаете свой токен
+token <- 
+```
+
+Напишем функцию, которая будет забирать информацию в зависимости от передаваемого метода и параметров.
+
+```{r eval=FALSE}
+get_method <- function(method, token, params, version = "5.52"){
+  url <- paste('https://api.vk.com/method/', method, sep = '')
+  params <- append(params, list(access_token = token, v = version))
+  request <- GET(url, query = params)
+  info <- content(request)
+  return(info)
+}
+```
+
+Задаем параметры и получаем информацию по первым 100 постам. 
+
+```{r eval=FALSE}
+
+params <- list(domain = "hsemem", count = '100', offset = as.character(0))
+con <- get_method(method = "wall.get", token = token, params = params)
+```
+
+Функция, которая преобразует собранный контент в табличку, состоящую из лайков и репостов.
+
+```{r eval=FALSE}
+to_df <- function(con){
+  
+  posts <- con$response$items
+  
+  reposts <- c()
+  likes <- c()
+  
+  for(i in 1:length(posts)){
+    reposts <- append(reposts, posts[[i]]$reposts$count)
+    likes <- append(likes, posts[[i]]$likes$count)
+  }
+  
+  df <- tibble('reposts' = reposts, 'likes' = likes)
+  
+  return(df)
+}
+```
+
+Собираем информацию по всем постам.
+
+```{r eval=FALSE}
+# получаем кол-во постов
+n <- con$response$count
+
+# собираем информацию по всем постам
+for(i in seq(100, n, 100)){
+  Sys.sleep(0.4)
+  params <- list(domain = "hsemem", count = '100', offset = as.character(i))
+  con <- get_method(method = "wall.get", token = token, params = params)
+  cur_df <- to_df(con)
+  df <- df %>% union(cur_df)
+}
+```
+
+Рисуем графики.
+
+```{r eval=FALSE}
+df %>%
+  ggplot(aes(x = likes)) +
+  geom_histogram(bins = 25)
+
+df %>%
+  ggplot(aes(x = reposts)) +
+  geom_histogram(bins = 25)
+```
+
+
