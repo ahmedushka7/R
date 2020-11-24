@@ -1,0 +1,179 @@
+---
+title: "Линейная регрессия: пример"
+output: 
+  html_document:
+    toc: TRUE
+    toc_float: TRUE
+    toc_depth: 4
+    highlight: pygments
+    #df_print: paged
+editor_options: 
+  chunk_output_type: console
+---
+<style>
+h1,
+h2,
+h3,
+h4,
+h5,
+h6  {
+  color: #317eac;
+}
+</style>
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+```
+
+### Пример с одним признаком
+
+```{r}
+library(tibble)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(plotly)
+```
+
+Представим, что нам нужно предсказать заработную плату человека ($Y$). Хорошим признаком может быть сколько лет человек получал образование ($X_1$). В данном примере у нас есть всего один признак. 
+
+Чтобы обучить любую модель машинного обучения, нам нужны данные. Для данной задачи нам нужны данные о людях: сколько они учились и сколько зарабатывают. Эти данные будем называть **обучающей выборкой**. 
+
+Давайте смоделируем данные для 50 людей. И посмотрим на график рассеяния, где по оси $x$ отложим количество лет обучения, а по оси $y$ доход.
+
+```{r}
+set.seed(42)
+n <- 50
+df <- tibble(education = seq(7, 20, length.out = n) + rnorm(n, sd = 2),
+             income = 10000 + 5000 * education + rnorm(n, sd = 5000))
+
+ggplot(df, aes(x = education, y = income)) +
+  geom_point()
+```
+
+Видно, что есть линейная зависимость. То есть нашу переменную $y$ можно линейно выразить через переменную $x$.
+
+$$income = w_0 + w_1 education$$
+Напомним, как выглядит ошибка на одном наблюдении:
+
+$$income_i - (w_0 + w_1 education_i)$$
+
+На графике это размер пунктирной линии. Видно, что ошибка может быть положительной (недопрогнозировали) или отрицательной (перепрогнозировали).
+
+```{r}
+df <- df %>%
+        mutate(predict = 10000 + 5000 * education)
+
+ggplot(df, aes(x = education, y = income)) +
+  geom_point()+
+  geom_abline(intercept = 10000, slope = 5000, color = 'blue') +
+  geom_segment(aes(x = education, y = predict, 
+                   xend = education, yend = income),
+               linetype = 'dashed')
+```
+
+В качестве функционала возьмем $MSE$. Он будет выглядеть как-то так:
+
+$$MSE = \frac{1}{n} \sum_{i=1}^{n} (income_i - w_0 - w_1 education_i)^2$$
+
+Модели отличаются друг от друга **параметрами** $w_0$ и $w_1$. **Следовательно перед нами стоит задача минимизации функции потерь. Минимизировать эту функцию нужно по параметрам** $w_0$ и $w_1$. 
+
+$$MSE = \frac{1}{n} \sum_{i=1}^{n} (income_i - w_0 - w_1 education_i)^2 \rightarrow \min_{w_0,w_1}$$
+
+Возникает вопрос, какие значения дожны принимать $w_0$ и $w_1$? На графике, это означает как именно нам нужно провести линию через точки, чтобы наша ошибка оказалась как можно меньше:
+ 
+```{r}
+ggplot(df, aes(x = education, y = income)) +
+  geom_point() + 
+  geom_abline(intercept = 25000, slope = 5000, color = 'red') + 
+  geom_abline(intercept = 10000, slope = 5000, color = 'blue') + 
+  geom_abline(intercept = 9000, slope = 5500, color = 'green') + 
+  geom_abline(intercept = 11000, slope = 4700, color = 'orange') 
+```
+
+Обучим линейную регрессию.
+
+```{r}
+model <- lm(income ~ education, data = df)
+```
+
+В переменной `model` находится наша модель. Она имеет тип `list`. Из него можно получить значение коэффициентов или ошибки, совершенные моделью.
+
+```{r collapse=TRUE}
+model$coefficients
+model$residuals
+```
+
+Также можно получить более подробную информацию с помощью функции `summary`.
+
+```{r}
+summary(model)
+```
+
+### Интерпретация полученных коэффициентов
+
+Из модели мы видим: 
+
+* Cвободный коэффициент равен 13964.3. Это означает, что в среднем человек, который проучился 0 лет будет зарабатывать 13964.3 рубля.
+* Коэффициент перед переменной *education* равен 4742.3. Это означает, что если человек учится на один год больше, то в среднем он начинает зарабывать на 4742.3 рубля больше.
+
+Эти оценки могут быть неточными. Чтобы получить доверительный интервалы, можно использовать функцию `confint`. 
+
+```{r}
+confint(model)
+```
+
+### Выбросы
+
+Выбросы очень сильно влияют на линейную регрессию. 
+
+```{r}
+set.seed(42)
+n <- 50
+df <- tibble(education = seq(7, 20, length.out = n) + rnorm(n, sd = 2),
+               income = 10000 + 5000 * education + rnorm(n, sd = 5000))
+df <- add_row(df, education=c(19, 20, 21), income=c(1000, 1400, 2000))
+```
+
+```{r}
+ggplot(df, aes(x = education, y = income)) +
+  geom_point()
+```
+
+На графике видно, что видимо кто-то указал зарплату не в рублях, а в долларах. Попробуем оценить линейную регрессию и нарисовать ее.
+
+```{r}
+model <- lm(income ~ education, data = df)
+model
+coeff <- model$coefficients
+```
+
+```{r}
+ggplot(df, aes(x = education, y = income)) +
+  geom_point() +
+  geom_smooth(method = 'lm', se=F)
+```
+
+Видно, что линия регрессии проходит не через основное облако точек.
+
+### Использование большего количества признаков
+
+Вы можете использовать несколько признаков для построения вашей модели. 
+
+```{r }
+n <- 100
+df <- tibble(x1 = seq(-5, 5, length.out = n) + rnorm(n),
+             x2 = seq(-10, 10, length.out = n) + rnorm(n),
+             x3 = seq(12, 16, length.out = n) + rnorm(n),
+             y = 5 + 2*x1 - 3*x2)
+```
+
+Для этого в формуле вам нужно просто перечислить те, которые вы хотите использовать.
+
+```{r}
+model <- lm(y ~ x1 + x2 + x3, data = df)
+summary(model)
+```
+
+
+
