@@ -44,8 +44,8 @@ __План работы__:
 Подгрузим данные.
 
 ```{r}
-train_url <- 'https://raw.githubusercontent.com/ahmedushka7/R/master/docs/homeworks/hw4/data/train.csv'
-test_url <- 'https://raw.githubusercontent.com/ahmedushka7/R/master/docs/homeworks/hw4/data/test.csv'
+train_url <- 'https://raw.githubusercontent.com/ahmedushka7/R/master/docs/homeworks/hw3/data/train.csv'
+test_url <- 'https://raw.githubusercontent.com/ahmedushka7/R/master/docs/homeworks/hw3/data/test.csv'
 train <- read_csv(train_url)
 test <- read_csv(test_url)
 ```
